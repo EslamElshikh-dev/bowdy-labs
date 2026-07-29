@@ -1,0 +1,27 @@
+name: Site quality checks
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "build.mjs"
+      - "src/**"
+      - "assets/**"
+      - "scripts/**"
+      - "package.json"
+      - "vercel.json"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Build and validate BOWDY LABS
+        run: npm run check

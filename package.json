@@ -1,0 +1,14 @@
+{
+  "name": "bowdy-labs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "node --check build.mjs && node --check src/content.mjs && node --check assets/js/main.js",
+    "build": "node build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "check": "npm run lint && npm run build && npm run validate && npm run smoke",
+    "serve": "python3 -m http.server 4173 --directory dist"
+  }
+}
