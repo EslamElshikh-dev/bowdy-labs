@@ -46,6 +46,9 @@ for (const file of htmlFiles) {
   if (!/<html lang="(ar|en)" dir="(rtl|ltr)">/i.test(html)) errors.push(`${name}: invalid lang/dir`);
   if (!title) errors.push(`${name}: missing title`);
   if (!description) errors.push(`${name}: missing meta description`);
+  if (!html.includes('<meta name="google-site-verification" content="RhoDv6mIF2DsPd84eCLRiv9HGlPI-viiXPcJIJGafDM">')) {
+    errors.push(`${name}: Google Search Console verification tag missing`);
+  }
   if (!canonical) errors.push(`${name}: missing canonical`);
   if (h1Count !== 1) errors.push(`${name}: expected one H1, found ${h1Count}`);
   if (!/<meta property="og:image"/i.test(html) || !/<meta name="twitter:card" content="summary_large_image"/i.test(html)) {

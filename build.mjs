@@ -13,6 +13,7 @@ import {
 const root = dirname(fileURLToPath(import.meta.url));
 const dist = join(root, "dist");
 const year = 2026;
+const googleSiteVerification = "RhoDv6mIF2DsPd84eCLRiv9HGlPI-viiXPcJIJGafDM";
 
 const esc = (value = "") =>
   String(value)
@@ -230,6 +231,7 @@ function layout({
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>${esc(pageTitle)}</title>
   <meta name="description" content="${esc(description)}">
+  <meta name="google-site-verification" content="${googleSiteVerification}">
   <meta name="robots" content="${robots}">
   <meta name="author" content="${site.nameEn}">
   <meta name="application-name" content="${site.nameEn}">
