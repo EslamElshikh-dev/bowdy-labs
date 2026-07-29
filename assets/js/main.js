@@ -63,7 +63,7 @@
   window.addEventListener("scroll", updateHeader, { passive: true });
 
   const revealGroups = document.querySelectorAll(
-    ".services-grid, .iconography-grid, .work-grid, .insights-grid, .method-stack, .values-grid, .process-grid, .brand-board-grid, .challenge-grid, .deliverables-grid, .standards-grid, .positioning-points",
+    ".services-grid, .iconography-grid, .work-grid, .insights-grid, .method-stack, .values-grid, .process-grid, .challenge-grid, .deliverables-grid, .standards-grid, .positioning-points",
   );
   revealGroups.forEach((group) => {
     [...group.children].forEach((element, index) => {

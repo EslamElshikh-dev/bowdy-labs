@@ -1,13 +1,13 @@
 # BOWDY LABS
 
-Arabic-first corporate website and brand identity system for BOWDY LABS, a Riyadh-based technology and artificial intelligence company.
+Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and artificial intelligence company.
 
 ## Experience
 
 - Futuristic dark interface with a circuit-board B mark and AI hero artwork
 - Arabic and English home experiences
 - Nine connected service capabilities
-- Work, insights, about, contact, privacy, terms, and brand identity pages
+- Work, insights, about, contact, privacy, and terms pages
 - Responsive navigation and mobile bottom bar
 - Organization, ProfessionalService, Service, FAQ, Article, and WebPage structured data
 - Sitemap, robots, security.txt, PWA manifest, Open Graph image, and `llms.txt`

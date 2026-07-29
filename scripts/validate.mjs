@@ -75,6 +75,8 @@ for (const file of htmlFiles) {
   if (!html.includes("/assets/brand/bowdy-labs-mark.svg")) errors.push(`${name}: BOWDY mark missing`);
   if (!html.includes("/assets/og/bowdy-labs-og.png")) errors.push(`${name}: OG image missing`);
   if (/شركاؤنا|our partners/i.test(html)) errors.push(`${name}: unverified partnership wording`);
+  if (html.includes('href="/brand/"')) errors.push(`${name}: removed brand page is still linked`);
+  if (!html.includes("floating-action-label")) errors.push(`${name}: floating contact labels missing`);
 
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)) {
     try {
@@ -121,7 +123,6 @@ for (const asset of [
   "index.html",
   "en/index.html",
   "services/index.html",
-  "brand/index.html",
   "contact/index.html",
   "assets/css/main.css",
   "assets/js/main.js",

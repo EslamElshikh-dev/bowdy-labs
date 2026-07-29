@@ -20,7 +20,6 @@ const paths = [
   "/work/",
   "/insights/",
   "/insights/ai-agent-business/",
-  "/brand/",
   "/contact/",
   "/privacy/",
   "/terms/",

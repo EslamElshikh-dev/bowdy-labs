@@ -1731,26 +1731,37 @@ p {
 .floating-actions {
   position: fixed;
   z-index: 75;
-  inset-inline-end: 18px;
+  right: auto;
+  left: max(18px, env(safe-area-inset-left));
   bottom: 18px;
   display: flex;
-  gap: 9px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .floating-actions a {
+  position: relative;
   display: grid;
-  width: 51px;
-  height: 51px;
+  width: 54px;
+  height: 54px;
   place-items: center;
   border: 1px solid var(--line-strong);
   border-radius: 50%;
   color: white;
   box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
-  transition: transform .2s ease;
+  isolation: isolate;
+  transition: transform .2s ease, border-color .2s ease, filter .2s ease;
 }
 
 .floating-actions a:hover {
-  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(255, 255, 255, .4);
+  filter: saturate(1.08);
+  transform: translateX(3px) scale(1.04);
+}
+
+.floating-actions a:active {
+  transform: scale(.96);
 }
 
 .floating-actions svg {
@@ -1758,19 +1769,60 @@ p {
   height: 22px;
 }
 
+.floating-action-label {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 11px);
+  display: flex;
+  min-height: 39px;
+  align-items: center;
+  padding: 0 15px;
+  border: 1px solid rgba(138, 169, 231, .2);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(8, 14, 32, .94);
+  box-shadow: 0 15px 42px rgba(0, 0, 0, .32);
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-8px, -50%) scale(.96);
+  transform-origin: left center;
+  transition: opacity .2s ease, transform .25s cubic-bezier(.2, .8, .2, 1);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.floating-actions a:hover .floating-action-label,
+.floating-actions a:focus-visible .floating-action-label {
+  opacity: 1;
+  transform: translate(0, -50%) scale(1);
+}
+
 .floating-call {
   background: linear-gradient(145deg, #245eff, #2aa9ff);
+  animation: call-pulse 3.4s ease-out infinite;
 }
 
 .floating-whatsapp {
   background: linear-gradient(145deg, #16b66a, #29d987);
-  animation: pulse 2.8s ease-in-out infinite;
+  animation: whatsapp-pulse 3.4s ease-out 1.15s infinite;
 }
 
-@keyframes pulse {
+@keyframes call-pulse {
   0%,
-  100% { box-shadow: 0 14px 38px rgba(0, 0, 0, .35), 0 0 0 0 rgba(39, 224, 170, .28); }
-  50% { box-shadow: 0 14px 38px rgba(0, 0, 0, .35), 0 0 0 12px rgba(39, 224, 170, 0); }
+  55%,
+  100% { box-shadow: 0 16px 40px rgba(0, 0, 0, .35), 0 0 0 0 rgba(42, 169, 255, 0); }
+  18% { box-shadow: 0 16px 40px rgba(0, 0, 0, .35), 0 0 0 11px rgba(42, 169, 255, .22); }
+}
+
+@keyframes whatsapp-pulse {
+  0%,
+  55%,
+  100% { box-shadow: 0 16px 40px rgba(0, 0, 0, .35), 0 0 0 0 rgba(39, 224, 170, 0); }
+  18% { box-shadow: 0 16px 40px rgba(0, 0, 0, .35), 0 0 0 11px rgba(39, 224, 170, .24); }
 }
 
 .mobile-bottom-nav {
@@ -3404,7 +3456,13 @@ p {
 
   .floating-actions {
     bottom: calc(84px + env(safe-area-inset-bottom));
-    inset-inline-end: max(18px, env(safe-area-inset-right));
+    right: auto;
+    left: max(18px, env(safe-area-inset-left));
+    gap: 10px;
+  }
+
+  .floating-action-label {
+    display: none;
   }
 
   .mobile-bottom-nav {
@@ -3785,7 +3843,8 @@ p {
   }
 
   .floating-actions {
-    inset-inline-end: 13px;
+    right: auto;
+    left: max(13px, env(safe-area-inset-left));
   }
 
   .floating-actions a {

@@ -2,7 +2,6 @@ import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  brandColors,
   insights,
   serviceGroups,
   services,
@@ -117,15 +116,15 @@ function footer(language = "ar") {
         <p>${english ? "Secure AI, software and digital growth systems built around measurable business outcomes." : "نبني حلول ذكاء اصطناعي وبرمجيات وأنظمة نمو رقمية آمنة حول نتيجة تجارية قابلة للقياس."}</p>
         <span class="footer-tagline" lang="en" dir="ltr">${site.taglineEn}</span>
       </div>
-      <div><h2>${english ? "Explore" : "استكشف"}</h2><a href="/services/">${english ? "Services" : "الخدمات"}</a><a href="/work/">${english ? "Selected work" : "الأعمال"}</a><a href="/about/">${english ? "About the lab" : "عن باودي لابز"}</a><a href="/brand/">${english ? "Brand system" : "نظام الهوية"}</a></div>
+      <div><h2>${english ? "Explore" : "استكشف"}</h2><a href="/services/">${english ? "Services" : "الخدمات"}</a><a href="/work/">${english ? "Selected work" : "الأعمال"}</a><a href="/about/">${english ? "About the lab" : "عن باودي لابز"}</a><a href="/insights/">${english ? "Insights" : "المعرفة"}</a></div>
       <div class="footer-services"><h2>${english ? "Capabilities" : "المسارات"}</h2>${services.slice(0, 6).map((service) => `<a href="/services/${service.slug}/">${english ? service.titleEn : service.title}</a>`).join("")}</div>
       <div class="footer-contact"><h2>${english ? "Contact" : "تواصل"}</h2><a href="tel:${site.phone}" dir="ltr">${icon("phone")}${site.phoneDisplay}</a><a href="${site.whatsapp}" target="_blank" rel="noopener">${icon("whatsapp")}WhatsApp</a><a href="mailto:${site.email}">${icon("mail")}<span>${site.email}</span></a><span>${icon("pin")}<span>${english ? "Riyadh, Saudi Arabia" : `${site.city}، ${site.country}`}</span></span></div>
     </div>
     <div class="container footer-bottom"><p>© ${year} ${site.nameEn}. ${english ? "All rights reserved." : "جميع الحقوق محفوظة."}</p><div><a href="/privacy/">${english ? "Privacy" : "الخصوصية"}</a><a href="/terms/">${english ? "Terms" : "الشروط"}</a><a href="/.well-known/security.txt">${english ? "Security" : "الإبلاغ الأمني"}</a></div></div>
   </footer>
   <div class="floating-actions" aria-label="${english ? "Quick contact" : "تواصل سريع"}">
-    <a class="floating-call" href="tel:${site.phone}" aria-label="${english ? "Call BOWDY LABS" : "اتصل بباودي لابز"}">${icon("phone")}</a>
-    <a class="floating-whatsapp" href="${site.whatsapp}?text=${encodeURIComponent(english ? "Hello BOWDY LABS, I would like to discuss a technology project." : "مرحبًا باودي لابز، أريد مناقشة مشروع تقني.")}" target="_blank" rel="noopener" aria-label="${english ? "Contact BOWDY LABS on WhatsApp" : "تواصل مع باودي لابز عبر واتساب"}">${icon("whatsapp")}</a>
+    <a class="floating-call" href="tel:${site.phone}" aria-label="${english ? "Call BOWDY LABS" : "اتصل بباودي لابز"}">${icon("phone")}<span class="floating-action-label">${english ? "Call us" : "اتصل بنا"}</span></a>
+    <a class="floating-whatsapp" href="${site.whatsapp}?text=${encodeURIComponent(english ? "Hello BOWDY LABS, I would like to discuss a technology project." : "مرحبًا باودي لابز، أريد مناقشة مشروع تقني.")}" target="_blank" rel="noopener" aria-label="${english ? "Contact BOWDY LABS on WhatsApp" : "تواصل مع باودي لابز عبر واتساب"}">${icon("whatsapp")}<span class="floating-action-label">${english ? "WhatsApp" : "تواصل عبر واتساب"}</span></a>
   </div>
   <nav class="mobile-bottom-nav" aria-label="${english ? "Quick navigation" : "تنقل سريع للجوال"}">
     <a href="${english ? "/en/" : "/"}">${icon("home")}<span>${english ? "Home" : "الرئيسية"}</span></a>
@@ -656,25 +655,6 @@ function insightPage(item) {
   });
 }
 
-function brandPage() {
-  return layout({
-    title: "نظام الهوية البصرية",
-    description:
-      "لوحة الهوية البصرية لباودي لابز: الشعار العربي والإنجليزي وأيقونة التطبيق والألوان والخطوط والأيقونات والنماذج التطبيقية.",
-    path: "/brand/",
-    body: `${pageHero("Brand Identity System", "هوية تُحوّل الذكاء إلى أثر بصري", "نظام مستقبلي داكن يجمع شبكات الدوائر والبيانات مع تدرج الأزرق والسماوي والبنفسجي.")}
-    <section class="section-pad brand-board"><div class="container brand-board-grid">
-      <article class="brand-tile brand-primary reveal"><span class="tile-label">PRIMARY LOGO</span><div class="brand-lockup">${logo("brand-board-logo")}${wordmark()}</div><p lang="en" dir="ltr">${site.taglineEn}</p></article>
-      <article class="brand-tile brand-arabic reveal"><span class="tile-label">ARABIC LOCKUP</span><div>${logo("brand-board-logo")}<span class="arabic-lockup"><strong>${site.nameAr}</strong><small>${site.taglineAr}</small></span></div></article>
-      <article class="brand-tile brand-app reveal"><span class="tile-label">ICON MARK</span><div class="app-icon">${logo("app-mark")}</div><p>Rounded square · Dark field · Luminous B</p></article>
-      <article class="brand-tile brand-palette reveal"><span class="tile-label">COLOR SYSTEM</span><div class="palette-grid">${brandColors.map(([name, color]) => `<div><span style="--swatch:${color}"></span><strong>${name}</strong><small>${color}</small></div>`).join("")}</div></article>
-      <article class="brand-tile brand-type reveal"><span class="tile-label">TYPOGRAPHY</span><div class="type-sample"><strong>Sora</strong><span>Aa Bb Cc 012345</span><p>Light · Regular · Medium · SemiBold · Bold</p></div><div class="type-sample type-ar"><strong>IBM Plex Sans Arabic</strong><span>ذكاء يصنع أثرًا</span><p>Light · Regular · Medium · SemiBold · Bold</p></div></article>
-      <article class="brand-tile brand-icons reveal"><span class="tile-label">AI ICONOGRAPHY</span><div>${technologyIcons.map(([name, label]) => `<span title="${label}">${icon(name)}</span>`).join("")}</div></article>
-      <article class="brand-tile brand-mockup reveal"><span class="tile-label">WEBSITE HERO</span><div class="mock-browser"><i></i><i></i><i></i><div><span>${site.nameEn}</span><strong>AI solutions that think ahead and deliver impact</strong><small>${site.taglineEn}</small></div><img src="${site.heroImageMedium}" srcset="${site.heroImageSmall} 760w, ${site.heroImageMedium} 1200w, ${site.heroImage} 1717w" sizes="(max-width: 640px) calc(100vw - 66px), 1100px" width="1717" height="916" alt="" loading="lazy" decoding="async"></div></article>
-    </div></section>`,
-  });
-}
-
 function contactPage() {
   return layout({
     title: "تواصل وطلب مشروع",
@@ -751,7 +731,6 @@ const pages = [
   ["about/index.html", aboutPage(), true],
   ["work/index.html", workPage(), true],
   ["insights/index.html", insightsPage(), true],
-  ["brand/index.html", brandPage(), true],
   ["contact/index.html", contactPage(), true],
   ["privacy/index.html", legalPage("privacy"), true],
   ["terms/index.html", legalPage("terms"), true],
