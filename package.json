@@ -10,5 +10,8 @@
     "smoke": "node scripts/smoke.mjs",
     "check": "npm run lint && npm run build && npm run validate && npm run smoke",
     "serve": "python3 -m http.server 4173 --directory dist"
+  },
+  "devDependencies": {
+    "terser": "5.49.2"
   }
 }

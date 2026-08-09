@@ -1,10 +1,12 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { minify } from "terser";
 import {
   insights,
   serviceGroups,
   services,
+  servicesShowcase,
   site,
   technologyIcons,
   work,
@@ -43,6 +45,8 @@ const icons = {
   search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
   shield: '<path d="M12 3 4.5 6v5.5c0 4.8 3.1 8.2 7.5 9.5 4.4-1.3 7.5-4.7 7.5-9.5V6L12 3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/>',
   spark: '<path d="m12 3 1.2 4.3L17.5 9l-4.3 1.7L12 15l-1.2-4.3L6.5 9l4.3-1.7L12 3ZM19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15Z"/>',
+  store: '<path d="M4 9h16l-1-5H5L4 9Z"/><path d="M5 9v11h14V9M9 20v-6h6v6"/><path d="M4 9c0 1.5 1.1 2.5 2.5 2.5S9 10.5 9 9c0 1.5 1.1 2.5 2.5 2.5S14 10.5 14 9c0 1.5 1.1 2.5 2.5 2.5S19 10.5 19 9"/>',
+  mobile: '<rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M10 5h4M11 18.5h2"/>',
   vision: '<path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/>',
   whatsapp: '<path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.3-4.8a8.5 8.5 0 1 1 16.2-4Z"/><path d="M8.2 7.8c.4 3.8 3 6.3 6.8 6.8l1.2-1.8-2.4-1.1-1 1c-1.3-.6-2.4-1.7-3-3l1-1-1.1-2.4-1.5 1.5Z"/>',
 };
@@ -171,8 +175,8 @@ const websiteSchema = {
 };
 
 const professionalServiceSchema = {
-  "@type": "ProfessionalService",
-  "@id": `${site.url}/#professional-service`,
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@id": `${site.url}/#local-business`,
   name: `${site.nameAr} للحلول التقنية والذكاء الاصطناعي`,
   alternateName: `${site.nameEn} Technology & AI`,
   url: site.url,
@@ -188,6 +192,7 @@ const professionalServiceSchema = {
     addressCountry: "SA",
   },
   areaServed: { "@type": "Country", name: site.country },
+  knowsAbout: servicesShowcase.map((service) => service.title),
   priceRange: "$$",
 };
 
@@ -221,7 +226,7 @@ function layout({
     inLanguage: english ? "en" : "ar-SA",
     isPartOf: { "@id": `${site.url}/#website` },
     about: { "@id": `${site.url}/#organization` },
-    dateModified: "2026-07-29",
+    dateModified: "2026-08-09",
   };
   const alternate = path === "/" || path === "/en/";
   return `<!doctype html>
@@ -298,6 +303,28 @@ function serviceCard(service, english = false) {
     <h3><a href="/services/${service.slug}/">${english ? service.titleEn : service.title}</a></h3>
     <p>${english ? service.shortEn : service.short}</p>
     <a class="text-link" href="/services/${service.slug}/">${english ? "Explore capability" : "تفاصيل المسار"} ${icon("arrow")}</a>
+  </article>`;
+}
+
+function aiShowcaseCard(service) {
+  return `<article class="ai-service-card reveal" id="${service.id}" data-tilt-card>
+    <span class="ai-card-glow" aria-hidden="true"></span>
+    <div class="ai-card-top"><span>${service.number}</span><span class="ai-service-icon">${icon(service.icon)}</span></div>
+    <small>${service.titleEn}</small>
+    <h3>${service.title}</h3>
+    <p>${service.description}</p>
+    <div class="ai-service-tags" dir="ltr">${service.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
+    <a class="text-link" href="/contact/?service=${service.contactService}">ناقش الحل مع فريقنا ${icon("arrow")}</a>
+  </article>`;
+}
+
+function essentialShowcaseCard(service) {
+  return `<article class="essential-service-card reveal" id="${service.id}">
+    <div class="service-top"><span>${service.number}</span><span class="service-icon">${icon(service.icon)}</span></div>
+    <small>${service.titleEn}</small>
+    <h3>${service.title}</h3>
+    <p>${service.description}</p>
+    <a class="text-link" href="/contact/?service=${service.contactService}">اطلب هذه الخدمة ${icon("arrow")}</a>
   </article>`;
 }
 
@@ -464,30 +491,88 @@ function englishHomePage() {
 }
 
 function servicesPage() {
+  const aiServices = servicesShowcase.filter((service) => service.featured);
+  const essentialServices = servicesShowcase.filter((service) => !service.featured);
+  const serviceSchemas = servicesShowcase.map((service) => ({
+    "@type": "Service",
+    "@id": `${site.url}/services/#${service.id}`,
+    name: service.title,
+    alternateName: service.titleEn,
+    serviceType: service.title,
+    category: service.group,
+    description: service.description,
+    url: `${site.url}/services/#${service.id}`,
+    provider: { "@id": `${site.url}/#local-business` },
+    areaServed: [
+      { "@type": "City", name: site.city },
+      { "@type": "Country", name: site.country },
+    ],
+    audience: { "@type": "BusinessAudience", name: "الشركات والمؤسسات في السعودية" },
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: `${site.url}/contact/?service=${service.contactService}`,
+      servicePhone: {
+        "@type": "ContactPoint",
+        telephone: site.phone,
+        contactType: "sales",
+        availableLanguage: ["ar", "en"],
+      },
+    },
+  }));
   const itemList = {
     "@type": "ItemList",
     "@id": `${site.url}/services/#list`,
-    itemListElement: services.map((service, index) => ({
+    name: "خدمات باودي لابز للذكاء الاصطناعي والتقنية",
+    numberOfItems: servicesShowcase.length,
+    itemListElement: servicesShowcase.map((service, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: service.title,
-      url: `${site.url}/services/${service.slug}/`,
+      url: `${site.url}/services/#${service.id}`,
+      item: { "@id": `${site.url}/services/#${service.id}` },
     })),
   };
   return layout({
-    title: "خدمات الذكاء الاصطناعي والحلول التقنية في السعودية",
+    title: "شركة ذكاء اصطناعي سعودية وخدمات تقنية للشركات",
     description:
-      "خدمات باودي لابز في السعودية: الذكاء الاصطناعي والأمن السيبراني والسحابة وتطوير المواقع ومنتجات Google وSEO والإعلانات الرقمية.",
+      "خدمات باودي لابز: وكلاء ذكاء اصطناعي بالعربية، منصات RAG، أتمتة AI، سلة وزد، تطبيقات، Google Ads، أمن سيبراني وERP في السعودية.",
     path: "/services/",
     active: "services",
-    schema: [itemList],
-    body: `${pageHero("قدراتنا", "حلول تقنية مترابطة من الحماية إلى النمو", "اختر المسار الأقرب إلى هدفك، أو ابدأ بتشخيص متكامل عندما يجمع التحدي بين البيانات والبنية والأمان وتجربة المستخدم والظهور الرقمي.", `<div class="hero-actions"><a class="button" href="/contact/">اطلب تشخيصًا أوليًا ${icon("arrow", "button-icon")}</a></div>`)}
+    schema: [itemList, ...serviceSchemas],
+    preloadHero: true,
+    body: `<section class="services-hero section-pad">
+      <div class="container services-hero-grid">
+        <div class="services-hero-copy reveal">
+          ${eyebrow("شركة ذكاء اصطناعي سعودية من الرياض")}
+          <p class="hero-kicker" lang="en" dir="ltr">${site.taglineEn}</p>
+          <h1>خدمات ذكاء اصطناعي وتقنية <span>تبني ميزة تنافسية</span> قابلة للقياس</h1>
+          <p>باودي لابز شركة ذكاء اصطناعي سعودية تصمم حلولًا آمنة للشركات، من دمج واجهات AI ومنصات RAG إلى وكلاء ذكاء اصطناعي يتكلمون بالعربية، مع خدمات تطوير وأمن ونمو رقمي مترابطة تخدم السوق السعودي.</p>
+          <div class="hero-actions"><a class="button" href="/contact/">ناقش مشروعك ${icon("arrow", "button-icon")}</a><a class="button button-ghost" href="#ai-services">استكشف خدمات AI</a></div>
+          <div class="services-hero-proof"><span>${icon("shield")}أمان وحوكمة منذ التصميم</span><span>${icon("nodes")}تكامل مع أنظمة العمل</span><span>${icon("chart")}أثر قابل للقياس</span></div>
+        </div>
+        <div class="services-hero-visual reveal">
+          <div class="services-hero-image"><img src="${site.heroImageMedium}" srcset="${site.heroImageSmall} 760w, ${site.heroImageMedium} 1200w, ${site.heroImage} 1717w" sizes="(max-width: 900px) calc(100vw - 24px), 43vw" width="1717" height="916" alt="مجسم ذكاء إلكتروني بهيئة حرف B من هوية باودي لابز لخدمات الذكاء الاصطناعي" fetchpriority="high" decoding="async"><span class="scan-line" aria-hidden="true"></span></div>
+          <div class="services-hero-signal" aria-hidden="true">${logo("services-hero-logo")}<span>AI SYSTEMS · RIYADH</span></div>
+        </div>
+      </div>
+    </section>
     <section class="section-pad service-choice-section"><div class="container service-choice-grid">
-      <div class="service-choice-copy reveal">${eyebrow("كيف تختار الخدمة؟")}<h2>ابدأ بالمشكلة والنتيجة، وليس باسم الأداة</h2><p>قد يظهر ضعف المبيعات على أنه مشكلة إعلانات، بينما يكون السبب الحقيقي صفحة هبوط بطيئة أو قياسًا ناقصًا أو عرضًا غير واضح. وقد يبدو المشروع بحاجة إلى وكيل ذكاء اصطناعي، بينما تكون الأولوية أولًا لتنظيم المعرفة والصلاحيات. لهذا نراجع السياق كاملًا قبل تثبيت الحل.</p><p>يمكنك اختيار خدمة محددة إذا كان النطاق واضحًا، أو إرسال ملخص عن الوضع الحالي والنتيجة المطلوبة. سنقترح نقطة بداية قابلة للتنفيذ، ونوضح الاعتماديات والمخاطر والخدمات التي يمكن تأجيلها بدل توسيع المشروع بلا حاجة.</p></div>
-      <aside class="decision-card reveal"><span>${icon("spark")}</span><h2>أربع أسئلة قبل البدء</h2><ol><li>ما النتيجة التجارية أو التشغيلية المطلوبة؟</li><li>من المستخدم وما المشكلة التي يواجهها اليوم؟</li><li>ما البيانات والأنظمة والصلاحيات المتاحة؟</li><li>كيف سنقيس النجاح ونقبل المخرجات؟</li></ol></aside>
+      <div class="service-choice-copy reveal">${eyebrow("حلول مبنية حول العمل")}
+        <h2>نبدأ من التحدي التجاري ثم نصمم التقنية المناسبة</h2>
+        <p>لا نضيف الذكاء الاصطناعي لمجرد أنه رائج. نحدد المهمة والبيانات والصلاحيات ونقطة التدخل البشري ومؤشر النجاح، ثم نختار النموذج والتكامل والبنية التي تحقق أفضل قيمة تشغيلية.</p>
+        <p>يمكن تنفيذ خدمة مستقلة، أو جمع أكثر من مسار داخل منظومة واحدة؛ مثل ربط منصة RAG بوكيل دعم عربي، ثم تأمين البنية السحابية وقياس أثرها على زمن الاستجابة ورضا العملاء.</p>
+      </div>
+      <aside class="decision-card reveal"><span>${icon("spark")}</span><h2>معاييرنا قبل التنفيذ</h2><ol><li>هدف تشغيلي أو تجاري يمكن قياسه.</li><li>مصادر بيانات موثوقة وصلاحيات محددة.</li><li>معيار قبول واختبارات لحالات الاستخدام الفعلية.</li><li>خطة إطلاق ومراقبة وتحسين بعد التسليم.</li></ol></aside>
     </div></section>
-    <section class="section-pad"><div class="container"><div class="services-grid services-grid-page">${services.map((service) => serviceCard(service)).join("")}</div></div></section>
-    ${ctaSection({ title: "لست متأكدًا من الخدمة المناسبة؟", description: "صف النتيجة المطلوبة والوضع الحالي. سنحدد إن كان أصل التحدي في البيانات أو البنية أو الأمان أو تجربة المستخدم." })}`,
+    <section class="section-pad ai-services-section" id="ai-services"><div class="container">
+      ${sectionHead("خدماتنا الرئيسية", "خدمات الذكاء الاصطناعي للشركات", "ثلاثة مسارات متقدمة صممناها للشركات التي تريد أتمتة العمل واستثمار المعرفة وتقديم خدمة عربية أكثر سرعة ودقة، مع ضوابط أمن وحوكمة قابلة للمراجعة.")}
+      <div class="ai-services-grid">${aiServices.map(aiShowcaseCard).join("")}</div>
+    </div></section>
+    <section class="section-pad essential-services-section" id="technology-services"><div class="container">
+      ${sectionHead("منظومة متكاملة", "الخدمات التقنية الحيوية الشاملة", "ست خدمات تكمل طبقة الذكاء الاصطناعي وتربط التجربة الرقمية بالأمن والبنية السحابية والظهور المحلي والنمو المدفوع.")}
+      <div class="essential-services-grid">${essentialServices.map(essentialShowcaseCard).join("")}</div>
+    </div></section>
+    ${ctaSection({ title: "حوّل التحدي إلى خارطة تنفيذ واضحة", description: "أرسل هدف المشروع والأنظمة الحالية والموعد المتوقع. سنقترح نقطة بداية عملية، والاعتماديات، ومؤشرات النجاح دون مشاركة أي بيانات حساسة." })}`,
   });
 }
 
@@ -725,6 +810,14 @@ const minifiedCss = sourceCss
   .replace(/;}/g, "}")
   .trim();
 await writeFile(join(dist, "assets/css/main.css"), minifiedCss, "utf8");
+const sourceJs = await readFile(join(root, "assets/js/main.js"), "utf8");
+const minifiedJs = await minify(sourceJs, {
+  compress: { passes: 2 },
+  mangle: true,
+  format: { comments: false },
+});
+if (!minifiedJs.code) throw new Error("JavaScript minification produced no output.");
+await writeFile(join(dist, "assets/js/main.js"), minifiedJs.code, "utf8");
 
 const pages = [
   ["index.html", homePage(), true],
@@ -747,7 +840,7 @@ const routeFor = (file) => (file === "index.html" ? "/" : `/${file.replace(/inde
 const routes = pages.filter(([, , indexable]) => indexable).map(([file]) => routeFor(file));
 await output(
   "sitemap.xml",
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>2026-07-29</lastmod><changefreq>monthly</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
 );
 await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 await output(
