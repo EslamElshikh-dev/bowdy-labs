@@ -100,6 +100,8 @@ for (const file of htmlFiles) {
   if (name === "services/index.html") {
     const serviceSchemaCount = schemaTypes.filter((type) => type === "Service").length;
     if (!schemaTypes.includes("LocalBusiness")) errors.push("services/index.html: schema missing LocalBusiness");
+    if (!schemaTypes.includes("OfferCatalog")) errors.push("services/index.html: schema missing OfferCatalog");
+    if (!schemaTypes.includes("BreadcrumbList")) errors.push("services/index.html: schema missing BreadcrumbList");
     if (serviceSchemaCount !== 9) {
       errors.push(`services/index.html: expected 9 Service schema nodes, found ${serviceSchemaCount}`);
     }
@@ -109,8 +111,14 @@ for (const file of htmlFiles) {
     if (!visibleText.includes("وكلاء ذكاء اصطناعي يتكلمون بالعربية")) {
       errors.push("services/index.html: Arabic AI agents keyword missing");
     }
-    if (!html.includes('srcset="/assets/media/bowdy-intelligence-760.webp 760w')) {
-      errors.push("services/index.html: responsive services hero image missing");
+    if (!html.includes('class="services-hero-stage"') || !html.includes('class="services-ai-core"')) {
+      errors.push("services/index.html: lightweight identity-based services hero missing");
+    }
+    if (html.includes('rel="preload" as="image"') || html.includes('class="services-hero-image"')) {
+      errors.push("services/index.html: obsolete raster hero path still present");
+    }
+    if (!html.includes('"mainEntity":{"@id":"https://bowdy-labs.vercel.app/services/#catalog"}')) {
+      errors.push("services/index.html: WebPage mainEntity is not linked to the service catalog");
     }
   }
   if (name.startsWith("services/") && name !== "services/index.html" && !schemaTypes.includes("Service")) {
@@ -172,6 +180,8 @@ if (sitemapCount !== indexableCount) {
 }
 
 const css = await readFile(join(root, "assets/css/main.css"), "utf8");
+const js = await readFile(join(root, "assets/js/main.js"), "utf8");
+const servicesHtml = await readFile(join(root, "services/index.html"), "utf8");
 for (const breakpoint of [
   "@media (max-width:900px)",
   "@media (max-width:640px)",
@@ -181,6 +191,24 @@ for (const breakpoint of [
   "prefers-reduced-motion",
 ]) {
   if (!css.includes(breakpoint)) errors.push(`CSS missing ${breakpoint}`);
+}
+if (!css.includes("font-display:swap")) errors.push("CSS missing font-display: swap");
+if (!css.includes("content-visibility:auto")) errors.push("CSS missing below-fold content visibility optimization");
+if (!servicesHtml.includes('<script src="/assets/js/main.js" defer>')) {
+  errors.push("services/index.html: JavaScript is not deferred");
+}
+if (/<script[^>]+src="https?:\/\//i.test(servicesHtml) || /<link[^>]+rel="stylesheet"[^>]+href="https?:\/\//i.test(servicesHtml) || /<link[^>]+href="https?:\/\/[^>]+rel="stylesheet"/i.test(servicesHtml)) {
+  errors.push("services/index.html: render path includes a third-party script or stylesheet");
+}
+if (Buffer.byteLength(css) > 90_000) errors.push(`CSS performance budget exceeded (${Buffer.byteLength(css)} bytes)`);
+if (Buffer.byteLength(js) > 8_000) errors.push(`JavaScript performance budget exceeded (${Buffer.byteLength(js)} bytes)`);
+if (Buffer.byteLength(servicesHtml) > 70_000) {
+  errors.push(`services page HTML performance budget exceeded (${Buffer.byteLength(servicesHtml)} bytes)`);
+}
+
+const brandMark = await readFile(join(root, "assets/brand/bowdy-labs-mark.svg"), "utf8");
+for (const sourceMarkToken of ['cx="21" cy="26" r="17"', 'cx="38" cy="11" r="8.5"', '#6C5CE7', '#5B72F2', '#00D4FF']) {
+  if (!brandMark.includes(sourceMarkToken)) errors.push(`brand mark is missing source identity token ${sourceMarkToken}`);
 }
 
 const og = await readFile(join(root, "assets/og/bowdy-labs-og.png"));

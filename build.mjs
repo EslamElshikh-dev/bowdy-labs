@@ -61,7 +61,7 @@ function logo(className = "brand-mark") {
 
 function wordmark({ compact = false, english = false } = {}) {
   return `<span class="wordmark${compact ? " wordmark-compact" : ""}">
-    <strong lang="en" dir="ltr">${site.nameEn}</strong>
+    <strong lang="en" dir="ltr">${site.brandName}</strong>
     <small>${english ? site.taglineEn : site.nameAr}</small>
   </span>`;
 }
@@ -213,6 +213,7 @@ function layout({
   robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   schema = [],
   preloadHero = false,
+  mainEntity = null,
 }) {
   const english = language === "en";
   const canonical = `${site.url}${path}`;
@@ -226,6 +227,7 @@ function layout({
     inLanguage: english ? "en" : "ar-SA",
     isPartOf: { "@id": `${site.url}/#website` },
     about: { "@id": `${site.url}/#organization` },
+    ...(mainEntity ? { mainEntity } : {}),
     dateModified: "2026-08-09",
   };
   const alternate = path === "/" || path === "/en/";
@@ -307,11 +309,12 @@ function serviceCard(service, english = false) {
 }
 
 function aiShowcaseCard(service) {
-  return `<article class="ai-service-card reveal" id="${service.id}" data-tilt-card>
+  const headingId = `${service.id}-title`;
+  return `<article class="ai-service-card reveal" id="${service.id}" aria-labelledby="${headingId}" data-tilt-card>
     <span class="ai-card-glow" aria-hidden="true"></span>
     <div class="ai-card-top"><span>${service.number}</span><span class="ai-service-icon">${icon(service.icon)}</span></div>
     <small>${service.titleEn}</small>
-    <h3>${service.title}</h3>
+    <h3 id="${headingId}">${service.title}</h3>
     <p>${service.description}</p>
     <div class="ai-service-tags" dir="ltr">${service.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
     <a class="text-link" href="/contact/?service=${service.contactService}">ناقش الحل مع فريقنا ${icon("arrow")}</a>
@@ -319,10 +322,11 @@ function aiShowcaseCard(service) {
 }
 
 function essentialShowcaseCard(service) {
-  return `<article class="essential-service-card reveal" id="${service.id}">
+  const headingId = `${service.id}-title`;
+  return `<article class="essential-service-card reveal" id="${service.id}" aria-labelledby="${headingId}">
     <div class="service-top"><span>${service.number}</span><span class="service-icon">${icon(service.icon)}</span></div>
     <small>${service.titleEn}</small>
-    <h3>${service.title}</h3>
+    <h3 id="${headingId}">${service.title}</h3>
     <p>${service.description}</p>
     <a class="text-link" href="/contact/?service=${service.contactService}">اطلب هذه الخدمة ${icon("arrow")}</a>
   </article>`;
@@ -519,6 +523,20 @@ function servicesPage() {
       },
     },
   }));
+  const offerCatalog = {
+    "@type": "OfferCatalog",
+    "@id": `${site.url}/services/#catalog`,
+    name: "كتالوج خدمات باودي لابز للذكاء الاصطناعي والتقنية",
+    itemListElement: servicesShowcase.map((service) => ({
+      "@type": "Offer",
+      url: `${site.url}/contact/?service=${service.contactService}`,
+      itemOffered: { "@id": `${site.url}/services/#${service.id}` },
+    })),
+  };
+  const servicesProviderSchema = {
+    ...professionalServiceSchema,
+    hasOfferCatalog: { "@id": offerCatalog["@id"] },
+  };
   const itemList = {
     "@type": "ItemList",
     "@id": `${site.url}/services/#list`,
@@ -532,14 +550,22 @@ function servicesPage() {
       item: { "@id": `${site.url}/services/#${service.id}` },
     })),
   };
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "@id": `${site.url}/services/#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "الرئيسية", item: `${site.url}/` },
+      { "@type": "ListItem", position: 2, name: "الخدمات", item: `${site.url}/services/` },
+    ],
+  };
   return layout({
     title: "شركة ذكاء اصطناعي سعودية وخدمات تقنية للشركات",
     description:
       "خدمات باودي لابز: وكلاء ذكاء اصطناعي بالعربية، منصات RAG، أتمتة AI، سلة وزد، تطبيقات، Google Ads، أمن سيبراني وERP في السعودية.",
     path: "/services/",
     active: "services",
-    schema: [itemList, ...serviceSchemas],
-    preloadHero: true,
+    schema: [servicesProviderSchema, offerCatalog, itemList, breadcrumbSchema, ...serviceSchemas],
+    mainEntity: { "@id": offerCatalog["@id"] },
     body: `<section class="services-hero section-pad">
       <div class="container services-hero-grid">
         <div class="services-hero-copy reveal">
@@ -550,9 +576,21 @@ function servicesPage() {
           <div class="hero-actions"><a class="button" href="/contact/">ناقش مشروعك ${icon("arrow", "button-icon")}</a><a class="button button-ghost" href="#ai-services">استكشف خدمات AI</a></div>
           <div class="services-hero-proof"><span>${icon("shield")}أمان وحوكمة منذ التصميم</span><span>${icon("nodes")}تكامل مع أنظمة العمل</span><span>${icon("chart")}أثر قابل للقياس</span></div>
         </div>
-        <div class="services-hero-visual reveal">
-          <div class="services-hero-image"><img src="${site.heroImageMedium}" srcset="${site.heroImageSmall} 760w, ${site.heroImageMedium} 1200w, ${site.heroImage} 1717w" sizes="(max-width: 900px) calc(100vw - 24px), 43vw" width="1717" height="916" alt="مجسم ذكاء إلكتروني بهيئة حرف B من هوية باودي لابز لخدمات الذكاء الاصطناعي" fetchpriority="high" decoding="async"><span class="scan-line" aria-hidden="true"></span></div>
-          <div class="services-hero-signal" aria-hidden="true">${logo("services-hero-logo")}<span>AI SYSTEMS · RIYADH</span></div>
+        <div class="services-hero-visual reveal" aria-hidden="true">
+          <div class="services-hero-stage">
+            <span class="services-grid-plane"></span>
+            <span class="services-orbit services-orbit-one"></span>
+            <span class="services-orbit services-orbit-two"></span>
+            <span class="services-orbit services-orbit-three"></span>
+            <span class="services-flow services-flow-one"></span>
+            <span class="services-flow services-flow-two"></span>
+            <span class="services-flow services-flow-three"></span>
+            <div class="services-ai-core">${logo("services-hero-logo")}<small>ARABIC-FIRST</small><strong>AI SYSTEMS</strong></div>
+            <div class="services-hero-module services-module-api"><span>${icon("api")}</span><small>01</small><strong>AI API</strong></div>
+            <div class="services-hero-module services-module-rag"><span>${icon("database")}</span><small>02</small><strong>RAG</strong></div>
+            <div class="services-hero-module services-module-agent"><span>${icon("brain")}</span><small>03</small><strong>ARABIC AI</strong></div>
+          </div>
+          <div class="services-hero-signal">${logo("services-hero-signal-logo")}<span>BOWDY LABS · RIYADH</span></div>
         </div>
       </div>
     </section>

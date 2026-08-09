@@ -4,12 +4,12 @@ Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and art
 
 ## Experience
 
-- Futuristic dark interface with a circuit-board B mark and AI hero artwork
+- Original SparkNode identity from the reference repository, responsive AI artwork, and a lightweight CSS system hero on the services page
 - Arabic and English home experiences
 - Nine connected service capabilities
 - Work, insights, about, contact, privacy, and terms pages
 - Responsive navigation and mobile bottom bar
-- Organization, ProfessionalService, Service, FAQ, Article, and WebPage structured data
+- Organization, LocalBusiness, ProfessionalService, OfferCatalog, Service, FAQ, Article, BreadcrumbList, and WebPage structured data
 - Sitemap, robots, security.txt, PWA manifest, Open Graph image, and `llms.txt`
 - Local Sora and IBM Plex Sans Arabic fonts
 

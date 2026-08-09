@@ -1,5 +1,5 @@
 export const site = {
-  brandName: "BOWDY LABS",
+  brandName: "Bowdy Labs",
   nameAr: "باودي لابز",
   nameEn: "BOWDY LABS",
   taglineAr: "ذكاء. ابتكار. تأثير.",

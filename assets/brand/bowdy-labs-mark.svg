@@ -1,46 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
-  <title id="title">BOWDY LABS circuit B mark</title>
-  <desc id="desc">A luminous letter B constructed from connected circuit traces and data nodes.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title desc">
+  <title id="title">Bowdy Labs SparkNode mark</title>
+  <desc id="desc">The original Bowdy Labs mark formed from a violet-to-cyan intelligence node and a connected cyan node.</desc>
   <defs>
-    <linearGradient id="bowdyGradient" x1="82" y1="70" x2="438" y2="446" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#286DFF"/>
-      <stop offset=".48" stop-color="#24D8FF"/>
-      <stop offset="1" stop-color="#8B5CFF"/>
+    <linearGradient id="bowdy-grad" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6C5CE7"/>
+      <stop offset=".55" stop-color="#5B72F2"/>
+      <stop offset="1" stop-color="#00D4FF"/>
     </linearGradient>
-    <filter id="bowdyGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
-      <feColorMatrix in="blur" values="0 0 0 0 0.14 0 0 0 0 0.84 0 0 0 0 1 0 0 0 .58 0"/>
-      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
   </defs>
-  <g fill="none" stroke="url(#bowdyGradient)" stroke-linecap="round" stroke-linejoin="round" filter="url(#bowdyGlow)">
-    <path d="M151 91v330" stroke-width="29"/>
-    <path d="M151 105h127c76 0 116 35 116 94 0 47-29 77-76 87" stroke-width="29"/>
-    <path d="M151 276h144c79 0 119 31 119 76 0 50-40 69-121 69H151" stroke-width="29"/>
-    <path d="M151 163h95m-95 77h155m-155 113h122" stroke-width="11"/>
-    <path d="M151 137h-43V96H74M151 215H96v28H62M151 322h-48v47H66M247 163v-38h37M307 240h46v-29h35M273 353h45v37h38" stroke-width="8"/>
-  </g>
-  <g fill="#071127" stroke="url(#bowdyGradient)" stroke-width="7" filter="url(#bowdyGlow)">
-    <circle cx="151" cy="91" r="13"/>
-    <circle cx="151" cy="421" r="13"/>
-    <circle cx="74" cy="96" r="10"/>
-    <circle cx="62" cy="243" r="10"/>
-    <circle cx="66" cy="369" r="10"/>
-    <circle cx="284" cy="125" r="9"/>
-    <circle cx="388" cy="211" r="9"/>
-    <circle cx="356" cy="390" r="9"/>
-    <circle cx="247" cy="163" r="8"/>
-    <circle cx="307" cy="240" r="8"/>
-    <circle cx="273" cy="353" r="8"/>
-  </g>
-  <g fill="#F4F7FF">
-    <circle cx="151" cy="91" r="3.5"/>
-    <circle cx="151" cy="421" r="3.5"/>
-    <circle cx="74" cy="96" r="2.5"/>
-    <circle cx="62" cy="243" r="2.5"/>
-    <circle cx="66" cy="369" r="2.5"/>
-    <circle cx="284" cy="125" r="2.3"/>
-    <circle cx="388" cy="211" r="2.3"/>
-    <circle cx="356" cy="390" r="2.3"/>
-  </g>
+  <circle cx="21" cy="26" r="17" fill="url(#bowdy-grad)"/>
+  <circle cx="38" cy="11" r="8.5" fill="#00D4FF" stroke="#0F172A" stroke-width="3"/>
 </svg>

@@ -1,29 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-labelledby="title">
-  <title id="title">BOWDY LABS</title>
+  <title id="title">Bowdy Labs</title>
   <defs>
-    <linearGradient id="bg" x1="18" y1="8" x2="178" y2="188" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#101C40"/>
-      <stop offset="1" stop-color="#050815"/>
+    <linearGradient id="bg" x1="20" y1="10" x2="176" y2="188" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18233F"/>
+      <stop offset="1" stop-color="#0F172A"/>
     </linearGradient>
-    <linearGradient id="g" x1="30" y1="24" x2="168" y2="170" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#286DFF"/>
-      <stop offset=".5" stop-color="#24D8FF"/>
-      <stop offset="1" stop-color="#8B5CFF"/>
+    <linearGradient id="bowdy-grad" x1="36" y1="162" x2="160" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6C5CE7"/>
+      <stop offset=".55" stop-color="#5B72F2"/>
+      <stop offset="1" stop-color="#00D4FF"/>
     </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2.6" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
   </defs>
-  <rect x="6" y="6" width="180" height="180" rx="46" fill="url(#bg)" stroke="#253B73"/>
-  <g transform="translate(25 20) scale(.285)" fill="none" stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
-    <path d="M151 91v330" stroke-width="31"/>
-    <path d="M151 105h127c76 0 116 35 116 94 0 47-29 77-76 87" stroke-width="31"/>
-    <path d="M151 276h144c79 0 119 31 119 76 0 50-40 69-121 69H151" stroke-width="31"/>
-    <path d="M151 163h95m-95 77h155m-155 113h122" stroke-width="12"/>
-    <circle cx="151" cy="91" r="14" fill="#071127" stroke-width="8"/>
-    <circle cx="151" cy="421" r="14" fill="#071127" stroke-width="8"/>
-    <circle cx="388" cy="211" r="10" fill="#071127" stroke-width="7"/>
-    <circle cx="356" cy="390" r="10" fill="#071127" stroke-width="7"/>
-  </g>
+  <rect x="6" y="6" width="180" height="180" rx="48" fill="url(#bg)" stroke="#33436A"/>
+  <circle cx="84" cy="106" r="58" fill="url(#bowdy-grad)"/>
+  <circle cx="142" cy="55" r="29" fill="#00D4FF" stroke="#0F172A" stroke-width="10"/>
 </svg>

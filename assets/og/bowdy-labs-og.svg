@@ -3,40 +3,36 @@
   <desc id="desc">Intelligence. Innovation. Impact.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#03050D"/>
-      <stop offset=".55" stop-color="#081128"/>
-      <stop offset="1" stop-color="#11163A"/>
+      <stop stop-color="#070B18"/>
+      <stop offset=".55" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#171B3D"/>
     </linearGradient>
-    <linearGradient id="g" x1="690" y1="80" x2="1100" y2="550" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#286DFF"/>
-      <stop offset=".5" stop-color="#24D8FF"/>
-      <stop offset="1" stop-color="#8B5CFF"/>
+    <linearGradient id="bowdy-grad" x1="760" y1="520" x2="1110" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6C5CE7"/>
+      <stop offset=".55" stop-color="#5B72F2"/>
+      <stop offset="1" stop-color="#00D4FF"/>
     </linearGradient>
     <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
-      <path d="M42 0H0V42" fill="none" stroke="#24D8FF" stroke-opacity=".06"/>
+      <path d="M42 0H0V42" fill="none" stroke="#00D4FF" stroke-opacity=".055"/>
     </pattern>
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="7" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
   <rect width="1200" height="630" fill="url(#background)"/>
   <rect width="1200" height="630" fill="url(#grid)"/>
-  <circle cx="948" cy="299" r="255" fill="#286DFF" fill-opacity=".08"/>
-  <circle cx="1040" cy="420" r="180" fill="#8B5CFF" fill-opacity=".08"/>
-  <path d="M0 509C280 430 459 610 779 504S1053 462 1200 498" fill="none" stroke="#24D8FF" stroke-opacity=".12"/>
-  <text x="82" y="215" fill="#F4F7FF" font-family="Sora, Arial, sans-serif" font-size="70" font-weight="700" letter-spacing="10">BOWDY LABS</text>
-  <text x="85" y="276" fill="#24D8FF" font-family="Sora, Arial, sans-serif" font-size="19" font-weight="500" letter-spacing="7">INTELLIGENCE. INNOVATION. IMPACT.</text>
-  <text x="85" y="395" fill="#AAB6D2" font-family="Arial, sans-serif" font-size="30">AI · SOFTWARE · CYBERSECURITY · CLOUD · SEARCH</text>
-  <g transform="translate(756 74) scale(.88)" fill="none" stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
-    <path d="M151 91v330" stroke-width="29"/>
-    <path d="M151 105h127c76 0 116 35 116 94 0 47-29 77-76 87" stroke-width="29"/>
-    <path d="M151 276h144c79 0 119 31 119 76 0 50-40 69-121 69H151" stroke-width="29"/>
-    <path d="M151 163h95m-95 77h155m-155 113h122" stroke-width="11"/>
-    <circle cx="151" cy="91" r="13" fill="#071127" stroke-width="7"/>
-    <circle cx="151" cy="421" r="13" fill="#071127" stroke-width="7"/>
-    <circle cx="388" cy="211" r="9" fill="#071127" stroke-width="6"/>
-    <circle cx="356" cy="390" r="9" fill="#071127" stroke-width="6"/>
+  <circle cx="954" cy="300" r="258" fill="#5B72F2" fill-opacity=".08"/>
+  <circle cx="1042" cy="416" r="180" fill="#6C5CE7" fill-opacity=".08"/>
+  <path d="M0 510C280 430 460 610 780 504S1050 462 1200 498" fill="none" stroke="#00D4FF" stroke-opacity=".14"/>
+  <text x="82" y="215" fill="#F8FAFC" font-family="Sora, Arial, sans-serif" font-size="70" font-weight="700" letter-spacing="10">BOWDY LABS</text>
+  <text x="85" y="276" fill="#00D4FF" font-family="Sora, Arial, sans-serif" font-size="19" font-weight="500" letter-spacing="7">INTELLIGENCE. INNOVATION. IMPACT.</text>
+  <text x="85" y="395" fill="#AAB6D2" font-family="Arial, sans-serif" font-size="27">AI · SOFTWARE · CYBERSECURITY · CLOUD</text>
+  <g filter="url(#glow)">
+    <circle cx="926" cy="326" r="146" fill="url(#bowdy-grad)"/>
+    <circle cx="1072" cy="188" r="73" fill="#00D4FF" stroke="#0F172A" stroke-width="25"/>
   </g>
-  <rect x="40" y="40" width="1120" height="550" rx="34" fill="none" stroke="#6AAAF8" stroke-opacity=".16"/>
+  <circle cx="926" cy="326" r="196" fill="none" stroke="#00D4FF" stroke-opacity=".12"/>
+  <circle cx="926" cy="326" r="236" fill="none" stroke="#6C5CE7" stroke-opacity=".1" stroke-dasharray="9 15"/>
+  <rect x="40" y="40" width="1120" height="550" rx="34" fill="none" stroke="#7B8DBB" stroke-opacity=".16"/>
 </svg>
