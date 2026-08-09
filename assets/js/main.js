@@ -63,7 +63,7 @@
   window.addEventListener("scroll", updateHeader, { passive: true });
 
   const revealGroups = document.querySelectorAll(
-    ".services-grid, .iconography-grid, .work-grid, .insights-grid, .method-stack, .values-grid, .process-grid, .challenge-grid, .deliverables-grid, .standards-grid, .positioning-points",
+    ".services-grid, .ai-services-grid, .essential-services-grid, .iconography-grid, .work-grid, .insights-grid, .method-stack, .values-grid, .process-grid, .challenge-grid, .deliverables-grid, .standards-grid, .positioning-points",
   );
   revealGroups.forEach((group) => {
     [...group.children].forEach((element, index) => {
@@ -89,6 +89,44 @@
     reveals.forEach((element) => observer.observe(element));
   } else {
     reveals.forEach((element) => element.classList.add("is-visible"));
+  }
+
+  const motionReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (precisePointer && !motionReduced) {
+    document.querySelectorAll("[data-tilt-card]").forEach((card) => {
+      let frame = 0;
+      let pointerX = 0;
+      let pointerY = 0;
+
+      const updateTilt = () => {
+        const bounds = card.getBoundingClientRect();
+        const x = Math.max(0, Math.min(pointerX - bounds.left, bounds.width));
+        const y = Math.max(0, Math.min(pointerY - bounds.top, bounds.height));
+        const rotateY = ((x / bounds.width) - .5) * 7;
+        const rotateX = (.5 - (y / bounds.height)) * 7;
+        card.style.setProperty("--tilt-x", `${rotateX.toFixed(2)}deg`);
+        card.style.setProperty("--tilt-y", `${rotateY.toFixed(2)}deg`);
+        card.style.setProperty("--glow-x", `${((x / bounds.width) * 100).toFixed(1)}%`);
+        card.style.setProperty("--glow-y", `${((y / bounds.height) * 100).toFixed(1)}%`);
+        frame = 0;
+      };
+
+      card.addEventListener("pointermove", (event) => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        if (!frame) frame = window.requestAnimationFrame(updateTilt);
+      }, { passive: true });
+
+      card.addEventListener("pointerleave", () => {
+        if (frame) window.cancelAnimationFrame(frame);
+        frame = 0;
+        card.style.setProperty("--tilt-x", "0deg");
+        card.style.setProperty("--tilt-y", "0deg");
+        card.style.setProperty("--glow-x", "50%");
+        card.style.setProperty("--glow-y", "50%");
+      });
+    });
   }
 
   const filterButtons = [...document.querySelectorAll("[data-service-filter]")];

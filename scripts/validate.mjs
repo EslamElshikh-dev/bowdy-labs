@@ -97,6 +97,22 @@ for (const file of htmlFiles) {
     if (!schemaTypes.includes(type)) errors.push(`${name}: schema missing ${type}`);
   }
   if (name === "index.html" && !schemaTypes.includes("FAQPage")) errors.push("index.html: schema missing FAQPage");
+  if (name === "services/index.html") {
+    const serviceSchemaCount = schemaTypes.filter((type) => type === "Service").length;
+    if (!schemaTypes.includes("LocalBusiness")) errors.push("services/index.html: schema missing LocalBusiness");
+    if (serviceSchemaCount !== 9) {
+      errors.push(`services/index.html: expected 9 Service schema nodes, found ${serviceSchemaCount}`);
+    }
+    if (!visibleText.includes("شركة ذكاء اصطناعي سعودية")) {
+      errors.push("services/index.html: primary Saudi AI keyword missing");
+    }
+    if (!visibleText.includes("وكلاء ذكاء اصطناعي يتكلمون بالعربية")) {
+      errors.push("services/index.html: Arabic AI agents keyword missing");
+    }
+    if (!html.includes('srcset="/assets/media/bowdy-intelligence-760.webp 760w')) {
+      errors.push("services/index.html: responsive services hero image missing");
+    }
+  }
   if (name.startsWith("services/") && name !== "services/index.html" && !schemaTypes.includes("Service")) {
     errors.push(`${name}: schema missing Service`);
   }
