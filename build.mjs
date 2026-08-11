@@ -4,7 +4,6 @@ import { fileURLToPath } from "node:url";
 import { minify } from "terser";
 import {
   insights,
-  serviceGroups,
   services,
   servicesShowcase,
   site,
@@ -85,7 +84,7 @@ function header(active = "", language = "ar") {
         ["services", "/services/", "الخدمات"],
         ["work", "/work/", "الأعمال"],
         ["about", "/about/", "عن باودي"],
-        ["insights", "/insights/", "المعرفة"],
+        ["insights", "/insights/", "مدونتنا"],
       ];
   const links = items
     .map(([key, href, label]) => `<a href="${href}"${key === active ? ' aria-current="page"' : ""}>${label}</a>`)
@@ -121,7 +120,7 @@ function footer(language = "ar") {
         <p>${english ? "Secure AI, software and digital growth systems built around measurable business outcomes." : "نبني حلول ذكاء اصطناعي وبرمجيات وأنظمة نمو رقمية آمنة حول نتيجة تجارية قابلة للقياس."}</p>
         <span class="footer-tagline" lang="en" dir="ltr">${site.taglineEn}</span>
       </div>
-      <div><h2>${english ? "Explore" : "استكشف"}</h2><a href="/services/">${english ? "Services" : "الخدمات"}</a><a href="/work/">${english ? "Selected work" : "الأعمال"}</a><a href="/about/">${english ? "About the lab" : "عن باودي لابز"}</a><a href="/insights/">${english ? "Insights" : "المعرفة"}</a></div>
+      <div><h2>${english ? "Explore" : "استكشف"}</h2><a href="/services/">${english ? "Services" : "الخدمات"}</a><a href="/work/">${english ? "Selected work" : "الأعمال"}</a><a href="/about/">${english ? "About the lab" : "عن باودي لابز"}</a><a href="/insights/">${english ? "Insights" : "مدونتنا"}</a></div>
       <div class="footer-services"><h2>${english ? "Capabilities" : "المسارات"}</h2>${services.slice(0, 6).map((service) => `<a href="/services/${service.slug}/">${english ? service.titleEn : service.title}</a>`).join("")}</div>
       <div class="footer-contact"><h2>${english ? "Contact" : "تواصل"}</h2><a href="tel:${site.phone}" dir="ltr">${icon("phone")}${site.phoneDisplay}</a><a href="${site.whatsapp}" target="_blank" rel="noopener">${icon("whatsapp")}WhatsApp</a><a href="mailto:${site.email}">${icon("mail")}<span>${site.email}</span></a><span>${icon("pin")}<span>${english ? "Riyadh, Saudi Arabia" : `${site.city}، ${site.country}`}</span></span></div>
     </div>
@@ -374,6 +373,8 @@ function insightCard(item) {
 }
 
 function homePage() {
+  const aiHomepageServices = servicesShowcase.filter((service) => service.featured);
+  const essentialHomepageServices = servicesShowcase.filter((service) => !service.featured);
   const faq = [
     ["ما نوع المشروعات التي تنفذها باودي لابز؟", "نبني ونطوّر مشروعات الأمن السيبراني والبنية السحابية ووكلاء الذكاء الاصطناعي والمواقع والتطبيقات ومنظومة Google وتحسين محركات البحث والإعلانات الرقمية. ويمكن تنفيذ مسار مستقل أو جمع أكثر من تخصص داخل حل واحد عندما تكون النتيجة مترابطة."],
     ["هل يمكن جمع أكثر من خدمة في مشروع واحد؟", "نعم. يمكن مثلًا تصميم منصة آمنة، وربطها بقاعدة معرفة ووكيل ذكي، ثم تجهيز صفحاتها للفهرسة وربط القياس والحملات. نحدد مسؤولية كل طبقة حتى يبقى الحل قابلًا للتشغيل والتطوير بدل أن يصبح مجموعة أدوات منفصلة."],
@@ -391,12 +392,6 @@ function homePage() {
       acceptedAnswer: { "@type": "Answer", text: answer },
     })),
   };
-  const tabs = [
-    ["all", "كل الخدمات"],
-    ...serviceGroups.map((group) => [group, group]),
-  ]
-    .map(([value, label], index) => `<button type="button" role="tab" aria-selected="${index === 0}" data-service-filter="${value}">${label}</button>`)
-    .join("");
   return layout({
     title: `${site.nameEn} | شركة ذكاء اصطناعي وحلول تقنية في الرياض`,
     description: site.description,
@@ -415,22 +410,22 @@ function homePage() {
           <div class="hero-proof"><span>${icon("shield")}Secure by design</span><span>${icon("nodes")}Human-governed AI</span><span>${icon("chart")}Measurable impact</span></div>
         </div>
         <div class="hero-visual reveal">
-          <div class="hero-image-shell"><img src="${site.heroImageMedium}" srcset="${site.heroImageSmall} 760w, ${site.heroImageMedium} 1200w, ${site.heroImage} 1717w" sizes="(max-width: 900px) calc(100vw - 24px), 54vw" width="1717" height="916" alt="مجسم ذكاء إلكتروني مضيء بهيئة حرف B يمثل هوية باودي لابز" fetchpriority="high" decoding="async"><span class="scan-line" aria-hidden="true"></span></div>
-          <div class="hero-data-card hero-data-one"><small>AI SYSTEM</small><strong>Ready</strong><i></i></div>
+          <div class="hero-image-shell"><img src="${site.heroImageMedium}" srcset="${site.heroImageSmall} 760w, ${site.heroImageMedium} 1200w, ${site.heroImage} 1717w" sizes="(max-width: 900px) calc(100vw - 24px), 54vw" width="1717" height="916" alt="شعار باودي لابز الرسمي بتكوين شبكي مضيء يرمز إلى الذكاء الاصطناعي" fetchpriority="high" decoding="async"><span class="scan-line" aria-hidden="true"></span></div>
+          <div class="hero-data-card hero-data-one"><small>AI DEVELOPMENT</small><strong>Ready</strong><i></i></div>
           <div class="hero-data-card hero-data-two"><small>SECURITY</small><strong>By design</strong></div>
           <div class="hero-orbit" aria-hidden="true"><span>AI</span><span>Cloud</span><span>Secure</span></div>
         </div>
       </div>
-      <div class="container metrics reveal">
-        <div><strong>09</strong><span>مسارات خدمة مترابطة</span></div>
-        <div><strong>04</strong><span>طبقات: استراتيجية، بناء، حماية، نمو</span></div>
-        <div><strong>02</strong><span>تجربة عربية وإنجليزية</span></div>
-        <div><strong>360°</strong><span>رؤية تقنية وتجارية متكاملة</span></div>
+      <div class="container value-metrics reveal" aria-label="مزايا باودي لابز">
+        <article class="value-card"><span class="value-check">${icon("check")}</span><div><strong>شركة سعودية</strong><p>ولأننا أصحاب الجذور، نفهم السوق ونحلل الأداء ثم نبني استراتيجيات تتخطى آفاق النجاح.</p></div></article>
+        <article class="value-card"><span class="value-check">${icon("check")}</span><div><strong>ذكاء اصطناعي يتكلم عربي</strong><p>نماذج ذكاء اصطناعي بُنيت بلسان عربي لتفهم ما بين السطور، ولتعيش وتتفاعل باللغة العربية.</p></div></article>
+        <article class="value-card"><span class="value-check">${icon("check")}</span><div><strong>خبرة تتجاوز الأرقام</strong><p>تاريخنا نكتبه بنجاحك: سيبك من لغة الأرقام، نحن نقيس خبرتنا بحجم نمو أعمالك.</p></div></article>
+        <article class="value-card"><span class="value-check">${icon("check")}</span><div><strong>ضمان على كافة أعمالنا</strong><p>كلمتنا عهد، وأعمالنا مضمونة: سلّمنا المهمة، واستمتع بنتيجة مضمونة 100٪ تدعم طموحك.</p></div></article>
       </div>
     </section>
     ${platformStrip()}
     <section class="section-pad positioning-section"><div class="container positioning-grid">
-      <div class="positioning-copy reveal">${eyebrow("شريك تقني من الرياض")}<h2>نربط القرار التجاري بالتنفيذ التقني من أول خطوة</h2><p>تتعثر مشروعات كثيرة لأن الاستراتيجية تُكتب بمعزل عن التطوير، أو لأن التصميم لا يراعي الأداء والفهرسة، أو لأن الذكاء الاصطناعي يُضاف قبل تنظيم البيانات والصلاحيات. في باودي لابز نجمع هذه الطبقات داخل خطة واحدة تبدأ من النتيجة التي يحتاجها النشاط.</p><p>نخدم الشركات في الرياض ومختلف مناطق المملكة عبر مشروعات محددة النطاق، ونوضح منذ البداية ما الذي سنبنيه، وكيف سيُختبر، ومن يملك القرار، وما المؤشر الذي يثبت أن التنفيذ حقق قيمة فعلية.</p></div>
+      <div class="positioning-copy reveal">${eyebrow("نوحد هندسة الأعمال مع عبقرية التنفيذ")}<h2>نسبق الواقع بحلول مستقبلية مبنية على رؤية سعودية واعدة</h2><p>الكثير من المشاريع تدفع ضريبة التخبط؛ حين تُبنى الاستراتيجيات بمعزل عن كود التطوير، أو تُصمم الواجهات بتجاهل تام للأداء والفهرسة، أو تُدمج أدوات الذكاء الاصطناعي دون بنية تحتية تحمي البيانات وتضبط الصلاحيات.</p><p>نحن في باودي لابز نعيد صياغة هذه المعادلة. نجمع كل خيوط اللعبة التقنية في خطة محكمة، تبدأ دائمًا من الهدف التجاري لنشاطك.</p><p>شراكتنا مع قطاع الأعمال في الرياض ومختلف مناطق المملكة تقوم على الوضوح المطلق والنطاق المحدد. قبل كتابة سطر برمجي واحد، نتفق على ما سيتم بناؤه، وآليات اختباره، وأصحاب القرار، والمؤشرات الحاسمة التي تضمن أن التقنية قد صنعت فرقًا فعليًا في أعمالك.</p></div>
       <div class="positioning-points">
         <article class="reveal"><span>${icon("nodes")}</span><div><h3>صورة واحدة للمشروع</h3><p>البيانات والتجربة والأمان والبنية والنمو تُصمم كوحدة مترابطة بدل قرارات متضاربة.</p></div></article>
         <article class="reveal"><span>${icon("shield")}</span><div><h3>أمان منذ التصميم</h3><p>نراجع حدود الثقة والصلاحيات والأسرار والتعافي قبل أن تصبح إضافتها مكلفة بعد الإطلاق.</p></div></article>
@@ -438,10 +433,12 @@ function homePage() {
       </div>
     </div></section>
     <section class="section-pad services-section" id="services"><div class="container">
-      ${sectionHead("قدرات باودي لابز", "نظام خبرات حول هدف واحد", "لا نتعامل مع الأمن والتطوير والذكاء والنمو كجزر منفصلة؛ نربطها في حل يمكن تشغيله وقياسه وتطويره.")}
-      <div class="service-filters" role="tablist" aria-label="تصنيفات الخدمات">${tabs}</div>
-      <div class="services-grid" data-services-grid>${services.map((service) => serviceCard(service)).join("")}</div>
-      <div class="section-action"><a class="button button-ghost" href="/services/">عرض جميع القدرات ${icon("arrow", "button-icon")}</a></div>
+      ${sectionHead("خدماتنا", "نظام خبرات حول هدف واحد", "نلغي المسافات بين الأمن السيبراني، والهندسة البرمجية، والذكاء الاصطناعي، واستراتيجيات النمو. ندمج هذه الطبقات في حل تقني واحد متكامل؛ جاهز للتشغيل الفوري، قابل للقياس الدقيق، ومصمم للتوسع بلا حدود.")}
+      <div class="service-category-heading reveal"><span aria-hidden="true"></span><h3>خدمات الذكاء الاصطناعي</h3></div>
+      <div class="ai-services-grid home-ai-services-grid">${aiHomepageServices.map(aiShowcaseCard).join("")}</div>
+      <div class="service-category-heading service-category-heading-spaced reveal"><span aria-hidden="true"></span><h3>الخدمات التقنية الحيوية الشاملة</h3></div>
+      <div class="essential-services-grid home-essential-services-grid">${essentialHomepageServices.map(essentialShowcaseCard).join("")}</div>
+      <div class="section-action"><a class="button button-ghost" href="/services/">استكشف صفحة الخدمات ${icon("arrow", "button-icon")}</a></div>
     </div></section>
     <section class="section-pad intelligence-section"><div class="container intelligence-grid">
       <div class="intelligence-copy reveal">${eyebrow("منهجية التشغيل")}<h2>من الفكرة إلى أثر قابل للقياس</h2><p>نبدأ من المشكلة والنتيجة، ثم نحدد البيانات والمخاطر والبنية قبل اختيار الأدوات. بهذه الطريقة تبقى التقنية في خدمة القرار، لا العكس.</p><a class="text-link" href="/about/">تعرّف على منهجيتنا ${icon("arrow")}</a></div>
@@ -453,8 +450,8 @@ function homePage() {
       </div>
     </div></section>
     <section class="section-pad iconography-section"><div class="container">
-      ${sectionHead("AI Iconography", "لغة بصرية لكل طبقة في الحل", "مجموعة أيقونات خطية موحدة تعبّر عن الذكاء والبيانات والأتمتة والسحابة والحماية.")}
-      <div class="iconography-grid">${technologyIcons.map(([name, label], index) => `<article class="reveal"><span>${icon(name)}</span><small>${String(index + 1).padStart(2, "0")}</small><strong>${label}</strong></article>`).join("")}</div>
+      ${sectionHead("التقنيات التي تقود حلولنا", "منظومة ذكاء مترابطة من البيانات إلى القرار", "نجمع تقنيات الذكاء الاصطناعي وتحليل البيانات والأتمتة ضمن منظومة واحدة؛ تتعلم من أعمالك، وتفهم أنماطها، وتحول البيانات إلى قرارات وتجارب رقمية أكثر ذكاءً وكفاءة.")}
+      <div class="iconography-grid">${technologyIcons.map(([name, label, description], index) => `<article class="reveal"><span>${icon(name)}</span><div class="technology-copy"><small>${String(index + 1).padStart(2, "0")}</small><strong>${label}</strong><p>${description}</p></div></article>`).join("")}</div>
     </div></section>
     <section class="section-pad work-section"><div class="container">
       ${sectionHead("أعمال مختارة", "من الهدف التجاري إلى تجربة رقمية", "نماذج عامة في تطوير الويب والسيو المحلي وهندسة المحتوى وتجارب التحويل.")}
@@ -462,7 +459,7 @@ function homePage() {
       <div class="section-action"><a class="button button-ghost" href="/work/">استكشف الأعمال ${icon("arrow", "button-icon")}</a></div>
     </div></section>
     <section class="section-pad insights-section"><div class="container">
-      ${sectionHead("المعرفة", "رؤى عملية قبل القرار التقني", "محتوى يشرح المخاطر والخيارات ومعايير الاختيار في الذكاء الاصطناعي والأمن والويب والبحث.")}
+      ${sectionHead("مدونتنا", "رؤى عملية قبل القرار التقني", "محتوى يشرح المخاطر والخيارات ومعايير الاختيار في الذكاء الاصطناعي والأمن والويب والبحث.")}
       <div class="insights-grid">${insights.map(insightCard).join("")}</div>
     </div></section>
     <section class="section-pad faq-section"><div class="container faq-grid">
@@ -485,7 +482,7 @@ function englishHomePage() {
     body: `
     <section class="hero section-pad hero-en"><div class="container hero-grid">
       <div class="hero-copy reveal">${eyebrow("Technology and AI company from Riyadh")}<p class="hero-kicker">${site.taglineEn}</p><h1>AI solutions that <span>think ahead</span> and deliver impact</h1><p class="hero-lead">We design secure, measurable systems across artificial intelligence, software, cloud, cybersecurity, Google and search growth.</p><div class="hero-actions"><a class="button" href="/contact/">Discuss your project ${icon("arrow", "button-icon")}</a><a class="button button-ghost" href="/services/">Explore capabilities</a></div><div class="hero-proof"><span>${icon("shield")}Secure by design</span><span>${icon("nodes")}Human-governed AI</span><span>${icon("chart")}Measurable impact</span></div></div>
-      <div class="hero-visual reveal"><div class="hero-image-shell"><img src="${site.heroImageMedium}" srcset="${site.heroImageSmall} 760w, ${site.heroImageMedium} 1200w, ${site.heroImage} 1717w" sizes="(max-width: 900px) calc(100vw - 24px), 54vw" width="1717" height="916" alt="A luminous electronic intelligence sculpture shaped like the BOWDY LABS B mark" fetchpriority="high" decoding="async"><span class="scan-line" aria-hidden="true"></span></div><div class="hero-data-card hero-data-one"><small>AI SYSTEM</small><strong>Ready</strong><i></i></div><div class="hero-data-card hero-data-two"><small>SECURITY</small><strong>By design</strong></div></div>
+      <div class="hero-visual reveal"><div class="hero-image-shell"><img src="${site.heroImageMedium}" srcset="${site.heroImageSmall} 760w, ${site.heroImageMedium} 1200w, ${site.heroImage} 1717w" sizes="(max-width: 900px) calc(100vw - 24px), 54vw" width="1717" height="916" alt="The official BOWDY LABS SparkNode mark rendered as a luminous artificial intelligence network" fetchpriority="high" decoding="async"><span class="scan-line" aria-hidden="true"></span></div><div class="hero-data-card hero-data-one"><small>AI DEVELOPMENT</small><strong>Ready</strong><i></i></div><div class="hero-data-card hero-data-two"><small>SECURITY</small><strong>By design</strong></div></div>
     </div><div class="container metrics reveal"><div><strong>09</strong><span>Connected capabilities</span></div><div><strong>04</strong><span>Discover, design, build, scale</span></div><div><strong>02</strong><span>Arabic and English experience</span></div><div><strong>360°</strong><span>Technology and business view</span></div></div></section>
     ${platformStrip(true)}
     <section class="section-pad services-section"><div class="container">${sectionHead("Capabilities", "One system of expertise around the outcome", "Security, software, AI and growth are designed together so the result can be operated, measured and improved.")}<div class="services-grid">${services.map((service) => serviceCard(service, true)).join("")}</div></div></section>
@@ -730,7 +727,7 @@ function insightsPage() {
       "رؤى عملية من باودي لابز عن الذكاء الاصطناعي والأمن السيبراني وتطوير المواقع والسحابة ومنتجات Google وSEO والبحث الذكي.",
     path: "/insights/",
     active: "insights",
-    body: `${pageHero("المعرفة", "محتوى يساعدك على اتخاذ قرار تقني أفضل", "نكتب عن المخاطر والخيارات ومعايير القبول والتشغيل، لا عن الضجيج التقني.")}<section class="section-pad"><div class="container insights-grid insights-grid-page">${insights.map(insightCard).join("")}</div></section>${ctaSection()}`,
+    body: `${pageHero("مدونتنا", "محتوى يساعدك على اتخاذ قرار تقني أفضل", "نكتب عن المخاطر والخيارات ومعايير القبول والتشغيل، لا عن الضجيج التقني.")}<section class="section-pad"><div class="container insights-grid insights-grid-page">${insights.map(insightCard).join("")}</div></section>${ctaSection()}`,
   });
 }
 
