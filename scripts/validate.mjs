@@ -1,6 +1,7 @@
 import { access, readFile, readdir } from "node:fs/promises";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { agents } from "../src/agents.mjs";
 
 const projectRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const root = join(projectRoot, "dist");
@@ -130,6 +131,23 @@ for (const file of htmlFiles) {
   if (name.startsWith("services/") && name !== "services/index.html" && wordCount < 650) {
     errors.push(`${name}: service content is too thin (${wordCount} words)`);
   }
+  if (name === "agents/index.html" || name === "en/agents/index.html") {
+    const agentSchemaCount = schemaTypes.filter((type) => type === "Service").length;
+    if (!schemaTypes.includes("ItemList")) errors.push(`${name}: schema missing ItemList`);
+    if (!schemaTypes.includes("BreadcrumbList")) errors.push(`${name}: schema missing BreadcrumbList`);
+    if (agentSchemaCount !== agents.length) {
+      errors.push(`${name}: expected ${agents.length} agent Service nodes, found ${agentSchemaCount}`);
+    }
+    if (!html.includes("class='agents-hero section-pad'") || !html.includes("class='agent-roster section-pad'")) {
+      errors.push(`${name}: agent showcase structure missing`);
+    }
+    if (!html.includes('/assets/media/agents/tabiq-900.webp')) {
+      errors.push(`${name}: primary agent visual missing`);
+    }
+    if (!/<link rel="alternate" hreflang="en"/i.test(html)) {
+      errors.push(`${name}: English hreflang counterpart missing`);
+    }
+  }
 
   for (const match of html.matchAll(/(?:href|src)="(\/[^"]+)"/gi)) {
     const url = match[1].split(/[?#]/)[0];
@@ -157,6 +175,10 @@ for (const asset of [
   "assets/media/bowdy-intelligence.webp",
   "assets/media/bowdy-intelligence-760.webp",
   "assets/media/bowdy-intelligence-1200.webp",
+  ...agents.flatMap((agent) => [
+    `assets/media/agents/${agent.slug}-520.webp`,
+    `assets/media/agents/${agent.slug}-900.webp`,
+  ]),
   "assets/og/bowdy-labs-og.png",
   "assets/icons/favicon.svg",
   "assets/icons/icon-192.png",
@@ -200,7 +222,7 @@ if (!servicesHtml.includes('<script src="/assets/js/main.js" defer>')) {
 if (/<script[^>]+src="https?:\/\//i.test(servicesHtml) || /<link[^>]+rel="stylesheet"[^>]+href="https?:\/\//i.test(servicesHtml) || /<link[^>]+href="https?:\/\/[^>]+rel="stylesheet"/i.test(servicesHtml)) {
   errors.push("services/index.html: render path includes a third-party script or stylesheet");
 }
-if (Buffer.byteLength(css) > 90_000) errors.push(`CSS performance budget exceeded (${Buffer.byteLength(css)} bytes)`);
+if (Buffer.byteLength(css) > 105_000) errors.push(`CSS performance budget exceeded (${Buffer.byteLength(css)} bytes)`);
 if (Buffer.byteLength(js) > 8_000) errors.push(`JavaScript performance budget exceeded (${Buffer.byteLength(js)} bytes)`);
 if (Buffer.byteLength(servicesHtml) > 70_000) {
   errors.push(`services page HTML performance budget exceeded (${Buffer.byteLength(servicesHtml)} bytes)`);

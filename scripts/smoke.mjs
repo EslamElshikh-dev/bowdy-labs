@@ -11,6 +11,8 @@ const server = spawn(
 const paths = [
   "/",
   "/en/",
+  "/agents/",
+  "/en/agents/",
   "/services/",
   "/services/cybersecurity/",
   "/services/ai-agents/",
@@ -33,6 +35,8 @@ const paths = [
   "/assets/media/bowdy-intelligence.webp",
   "/assets/media/bowdy-intelligence-760.webp",
   "/assets/media/bowdy-intelligence-1200.webp",
+  "/assets/media/agents/tabiq-520.webp",
+  "/assets/media/agents/warrini-900.webp",
   "/assets/og/bowdy-labs-og.png",
 ];
 

@@ -2,6 +2,8 @@ import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { minify } from "terser";
+import { agents } from "./src/agents.mjs";
+import { agentsPageModel } from "./src/agents-page.mjs";
 import {
   insights,
   services,
@@ -75,6 +77,7 @@ function header(active = "", language = "ar") {
     ? [
         ["home", "/en/", "Home"],
         ["services", "/services/", "Services"],
+        ["agents", "/en/agents/", "AI Agents"],
         ["work", "/work/", "Work"],
         ["about", "/about/", "About"],
         ["insights", "/insights/", "Insights"],
@@ -82,6 +85,7 @@ function header(active = "", language = "ar") {
     : [
         ["home", "/", "الرئيسية"],
         ["services", "/services/", "الخدمات"],
+        ["agents", "/agents/", "وكلاء AI"],
         ["work", "/work/", "الأعمال"],
         ["about", "/about/", "عن باودي"],
         ["insights", "/insights/", "مدونتنا"],
@@ -120,7 +124,7 @@ function footer(language = "ar") {
         <p>${english ? "Secure AI, software and digital growth systems built around measurable business outcomes." : "نبني حلول ذكاء اصطناعي وبرمجيات وأنظمة نمو رقمية آمنة حول نتيجة تجارية قابلة للقياس."}</p>
         <span class="footer-tagline" lang="en" dir="ltr">${site.taglineEn}</span>
       </div>
-      <div><h2>${english ? "Explore" : "استكشف"}</h2><a href="/services/">${english ? "Services" : "الخدمات"}</a><a href="/work/">${english ? "Selected work" : "الأعمال"}</a><a href="/about/">${english ? "About the lab" : "عن باودي لابز"}</a><a href="/insights/">${english ? "Insights" : "مدونتنا"}</a></div>
+      <div><h2>${english ? "Explore" : "استكشف"}</h2><a href="/services/">${english ? "Services" : "الخدمات"}</a><a href="${english ? "/en/agents/" : "/agents/"}">${english ? "AI agents" : "وكلاء باودي"}</a><a href="/work/">${english ? "Selected work" : "الأعمال"}</a><a href="/about/">${english ? "About the lab" : "عن باودي لابز"}</a><a href="/insights/">${english ? "Insights" : "مدونتنا"}</a></div>
       <div class="footer-services"><h2>${english ? "Capabilities" : "المسارات"}</h2>${services.slice(0, 6).map((service) => `<a href="/services/${service.slug}/">${english ? service.titleEn : service.title}</a>`).join("")}</div>
       <div class="footer-contact"><h2>${english ? "Contact" : "تواصل"}</h2><a href="tel:${site.phone}" dir="ltr">${icon("phone")}${site.phoneDisplay}</a><a href="${site.whatsapp}" target="_blank" rel="noopener">${icon("whatsapp")}WhatsApp</a><a href="mailto:${site.email}">${icon("mail")}<span>${site.email}</span></a><span>${icon("pin")}<span>${english ? "Riyadh, Saudi Arabia" : `${site.city}، ${site.country}`}</span></span></div>
     </div>
@@ -213,6 +217,7 @@ function layout({
   schema = [],
   preloadHero = false,
   mainEntity = null,
+  alternatePath = null,
 }) {
   const english = language === "en";
   const canonical = `${site.url}${path}`;
@@ -227,9 +232,14 @@ function layout({
     isPartOf: { "@id": `${site.url}/#website` },
     about: { "@id": `${site.url}/#organization` },
     ...(mainEntity ? { mainEntity } : {}),
-    dateModified: "2026-08-09",
+    dateModified: "2026-08-15",
   };
   const alternate = path === "/" || path === "/en/";
+  const alternateLinks = alternatePath
+    ? `<link rel="alternate" hreflang="ar" href="${site.url}${alternatePath.ar}"><link rel="alternate" hreflang="ar-SA" href="${site.url}${alternatePath.ar}"><link rel="alternate" hreflang="en" href="${site.url}${alternatePath.en}"><link rel="alternate" hreflang="x-default" href="${site.url}${alternatePath.ar}">`
+    : alternate
+      ? `<link rel="alternate" hreflang="ar" href="${site.url}/"><link rel="alternate" hreflang="ar-SA" href="${site.url}/"><link rel="alternate" hreflang="en" href="${site.url}/en/"><link rel="alternate" hreflang="x-default" href="${site.url}/">`
+      : `<link rel="alternate" hreflang="ar" href="${canonical}"><link rel="alternate" hreflang="ar-SA" href="${canonical}"><link rel="alternate" hreflang="x-default" href="${canonical}">`;
   return `<!doctype html>
 <html lang="${english ? "en" : "ar"}" dir="${english ? "ltr" : "rtl"}">
 <head>
@@ -247,7 +257,7 @@ function layout({
   <meta name="geo.region" content="SA-01">
   <meta name="geo.placename" content="${english ? "Riyadh" : site.city}">
   <link rel="canonical" href="${canonical}">
-  ${alternate ? `<link rel="alternate" hreflang="ar" href="${site.url}/"><link rel="alternate" hreflang="ar-SA" href="${site.url}/"><link rel="alternate" hreflang="en" href="${site.url}/en/"><link rel="alternate" hreflang="x-default" href="${site.url}/">` : `<link rel="alternate" hreflang="ar" href="${canonical}"><link rel="alternate" hreflang="ar-SA" href="${canonical}"><link rel="alternate" hreflang="x-default" href="${canonical}">`}
+  ${alternateLinks}
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
@@ -331,8 +341,8 @@ function essentialShowcaseCard(service) {
   </article>`;
 }
 
-function breadcrumbs(items) {
-  return `<nav class="breadcrumbs container" aria-label="مسار التنقل"><ol>${items
+function breadcrumbs(items, language = "ar") {
+  return `<nav class="breadcrumbs container" aria-label="${language === "en" ? "Breadcrumb" : "مسار التنقل"}"><ol>${items
     .map(([label, href], index) => `<li>${href && index < items.length - 1 ? `<a href="${href}">${label}</a>` : `<span aria-current="page">${label}</span>`}</li>`)
     .join("")}</ol></nav>`;
 }
@@ -436,6 +446,7 @@ function homePage() {
       ${sectionHead("خدماتنا", "نظام خبرات حول هدف واحد", "نلغي المسافات بين الأمن السيبراني، والهندسة البرمجية، والذكاء الاصطناعي، واستراتيجيات النمو. ندمج هذه الطبقات في حل تقني واحد متكامل؛ جاهز للتشغيل الفوري، قابل للقياس الدقيق، ومصمم للتوسع بلا حدود.")}
       <div class="service-category-heading reveal"><span aria-hidden="true"></span><h3>خدمات الذكاء الاصطناعي</h3></div>
       <div class="ai-services-grid home-ai-services-grid">${aiHomepageServices.map(aiShowcaseCard).join("")}</div>
+      <div class="section-action"><a class="button button-ghost" href="/agents/">قابل فريق وكلاء باودي ${icon("arrow", "button-icon")}</a></div>
       <div class="service-category-heading service-category-heading-spaced reveal"><span aria-hidden="true"></span><h3>الخدمات التقنية الحيوية الشاملة</h3></div>
       <div class="essential-services-grid home-essential-services-grid">${essentialHomepageServices.map(essentialShowcaseCard).join("")}</div>
       <div class="section-action"><a class="button button-ghost" href="/services/">استكشف صفحة الخدمات ${icon("arrow", "button-icon")}</a></div>
@@ -602,6 +613,7 @@ function servicesPage() {
     <section class="section-pad ai-services-section" id="ai-services"><div class="container">
       ${sectionHead("خدماتنا الرئيسية", "خدمات الذكاء الاصطناعي للشركات", "ثلاثة مسارات متقدمة صممناها للشركات التي تريد أتمتة العمل واستثمار المعرفة وتقديم خدمة عربية أكثر سرعة ودقة، مع ضوابط أمن وحوكمة قابلة للمراجعة.")}
       <div class="ai-services-grid">${aiServices.map(aiShowcaseCard).join("")}</div>
+      <div class="section-action"><a class="button button-ghost" href="/agents/">تعرّف على وكلاء باودي ${icon("arrow", "button-icon")}</a></div>
     </div></section>
     <section class="section-pad essential-services-section" id="technology-services"><div class="container">
       ${sectionHead("منظومة متكاملة", "الخدمات التقنية الحيوية الشاملة", "ست خدمات تكمل طبقة الذكاء الاصطناعي وتربط التجربة الرقمية بالأمن والبنية السحابية والظهور المحلي والنمو المدفوع.")}
@@ -857,6 +869,8 @@ await writeFile(join(dist, "assets/js/main.js"), minifiedJs.code, "utf8");
 const pages = [
   ["index.html", homePage(), true],
   ["en/index.html", englishHomePage(), true],
+  ["agents/index.html", layout(agentsPageModel("ar")), true],
+  ["en/agents/index.html", layout(agentsPageModel("en")), true],
   ["services/index.html", servicesPage(), true],
   ["about/index.html", aboutPage(), true],
   ["work/index.html", workPage(), true],
@@ -875,7 +889,7 @@ const routeFor = (file) => (file === "index.html" ? "/" : `/${file.replace(/inde
 const routes = pages.filter(([, , indexable]) => indexable).map(([file]) => routeFor(file));
 await output(
   "sitemap.xml",
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>2026-08-09</lastmod><changefreq>monthly</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" || route === "/agents/" ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
 );
 await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 await output(
@@ -907,7 +921,7 @@ await output(
 );
 await output(
   "llms.txt",
-  `# ${site.nameEn} — ${site.nameAr}\n\n> ${site.description}\n\n## الهوية\n- الشعار اللفظي: ${site.taglineAr}\n- English tagline: ${site.taglineEn}\n- المقر: ${site.city}، ${site.country}\n\n## الخدمات\n${services.map((service) => `- ${service.title}: ${site.url}/services/${service.slug}/`).join("\n")}\n\n## روابط أساسية\n- الخدمات: ${site.url}/services/\n- الأعمال: ${site.url}/work/\n- عن الشركة: ${site.url}/about/\n- التواصل: ${site.url}/contact/\n`,
+  `# ${site.nameEn} — ${site.nameAr}\n\n> ${site.description}\n\n## الهوية\n- الشعار اللفظي: ${site.taglineAr}\n- English tagline: ${site.taglineEn}\n- المقر: ${site.city}، ${site.country}\n\n## الخدمات\n${services.map((service) => `- ${service.title}: ${site.url}/services/${service.slug}/`).join("\n")}\n\n## وكلاء باودي\n${agents.map((agent) => `- ${agent.name} (${agent.nameEn}): ${site.url}/agents/#${agent.slug}`).join("\n")}\n\n## روابط أساسية\n- الخدمات: ${site.url}/services/\n- وكلاء الذكاء الاصطناعي: ${site.url}/agents/\n- الأعمال: ${site.url}/work/\n- عن الشركة: ${site.url}/about/\n- التواصل: ${site.url}/contact/\n`,
 );
 await output(
   "feed.xml",

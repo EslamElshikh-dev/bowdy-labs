@@ -63,7 +63,7 @@
   window.addEventListener("scroll", updateHeader, { passive: true });
 
   const revealGroups = document.querySelectorAll(
-    ".services-grid, .ai-services-grid, .essential-services-grid, .iconography-grid, .work-grid, .insights-grid, .method-stack, .values-grid, .process-grid, .challenge-grid, .deliverables-grid, .standards-grid, .positioning-points",
+    ".services-grid, .ai-services-grid, .essential-services-grid, .iconography-grid, .work-grid, .insights-grid, .method-stack, .values-grid, .process-grid, .challenge-grid, .deliverables-grid, .standards-grid, .positioning-points, .agent-roster-list, .agent-method-grid, .agents-intro-principles",
   );
   revealGroups.forEach((group) => {
     [...group.children].forEach((element, index) => {
@@ -192,9 +192,24 @@
     "digital-advertising": "إدارة الإعلانات الرقمية",
   };
 
+  const agentNames = {
+    tabiq: "طَبِّق — الفوترة والامتثال",
+    barriz: "بَرِّز — الظهور المحلي",
+    rudd: "رُدّ — خدمة العملاء",
+    ammin: "أَمِّن — الدفاع السيبراني",
+    salni: "سَلْني — المعرفة المؤسسية",
+    nammi: "نَمِّ — أداء الحملات",
+    anjiz: "أَنْجِز — إدارة المشاريع",
+    thabbit: "ثَبِّت — استمرارية السحابة",
+    zawwid: "زَوِّد — المبيعات",
+    warrini: "وَرِّني — التحليلات التنفيذية",
+  };
+
   const form = document.querySelector("[data-contact-form]");
   if (form) {
-    const selectedService = new URLSearchParams(window.location.search).get("service");
+    const searchParams = new URLSearchParams(window.location.search);
+    const selectedService = searchParams.get("service");
+    const selectedAgent = searchParams.get("agent");
     if (selectedService && serviceNames[selectedService] && form.elements.service) {
       form.elements.service.value = selectedService;
     }
@@ -211,6 +226,7 @@
         "مرحبًا باودي لابز،",
         `الاسم أو الشركة: ${name}`,
         `المسار المطلوب: ${serviceNames[service] || service}`,
+        ...(agentNames[selectedAgent] ? [`الوكيل المقترح: ${agentNames[selectedAgent]}`] : []),
         `الميزانية التقريبية: ${budget}`,
         "الهدف والوضع الحالي:",
         goal,
