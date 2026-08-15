@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "node --check build.mjs && node --check src/content.mjs && node --check assets/js/main.js",
+    "lint": "node --check build.mjs && node --check src/content.mjs && node --check src/agents.mjs && node --check src/agents-page.mjs && node --check assets/js/main.js",
     "build": "node build.mjs",
     "validate": "node scripts/validate.mjs",
     "smoke": "node scripts/smoke.mjs",
