@@ -205,6 +205,9 @@ for (const asset of [
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
 const sitemapCount = (sitemap.match(/<url>/g) || []).length;
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+if (!sitemap.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')) {
+  errors.push("sitemap does not declare the standard sitemap namespace");
+}
 if (sitemapCount !== indexableCount) {
   errors.push(`sitemap has ${sitemapCount} URLs for ${indexableCount} indexable pages`);
 }
