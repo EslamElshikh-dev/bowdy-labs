@@ -36,4 +36,4 @@ Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and art
 
 ## Deployment
 
-Vercel runs `npm run build`, serves the generated `dist/` directory, and publishes production from the `main` branch at https://bowdy-labs.vercel.app.
+Vercel runs `npm run build`, serves the generated `dist/` directory, and publishes production from the `main` branch at https://bowdylabs.com.

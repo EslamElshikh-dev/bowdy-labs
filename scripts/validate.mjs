@@ -2,6 +2,7 @@ import { access, readFile, readdir } from "node:fs/promises";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { agents } from "../src/agents.mjs";
+import { site } from "../src/content.mjs";
 
 const projectRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const root = join(projectRoot, "dist");
@@ -51,6 +52,12 @@ for (const file of htmlFiles) {
     errors.push(`${name}: Google Search Console verification tag missing`);
   }
   if (!canonical) errors.push(`${name}: missing canonical`);
+  if (canonical && !canonical.startsWith(`${site.url}/`)) {
+    errors.push(`${name}: canonical does not use the production domain`);
+  }
+  if (html.includes("https://bowdy-labs.vercel.app")) {
+    errors.push(`${name}: legacy Vercel domain is still present`);
+  }
   if (h1Count !== 1) errors.push(`${name}: expected one H1, found ${h1Count}`);
   if (!/<meta property="og:image"/i.test(html) || !/<meta name="twitter:card" content="summary_large_image"/i.test(html)) {
     errors.push(`${name}: incomplete social metadata`);
@@ -118,7 +125,7 @@ for (const file of htmlFiles) {
     if (html.includes('rel="preload" as="image"') || html.includes('class="services-hero-image"')) {
       errors.push("services/index.html: obsolete raster hero path still present");
     }
-    if (!html.includes('"mainEntity":{"@id":"https://bowdy-labs.vercel.app/services/#catalog"}')) {
+    if (!html.includes(`"mainEntity":{"@id":"${site.url}/services/#catalog"}`)) {
       errors.push("services/index.html: WebPage mainEntity is not linked to the service catalog");
     }
   }
@@ -197,8 +204,20 @@ for (const asset of [
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
 const sitemapCount = (sitemap.match(/<url>/g) || []).length;
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 if (sitemapCount !== indexableCount) {
   errors.push(`sitemap has ${sitemapCount} URLs for ${indexableCount} indexable pages`);
+}
+if (sitemapUrls.some((url) => !url.startsWith(`${site.url}/`))) {
+  errors.push("sitemap contains a URL outside the production domain");
+}
+if (sitemap.includes("https://bowdy-labs.vercel.app")) {
+  errors.push("sitemap contains the legacy Vercel domain");
+}
+
+const robotsTxt = await readFile(join(root, "robots.txt"), "utf8");
+if (!robotsTxt.includes(`Sitemap: ${site.url}/sitemap.xml`)) {
+  errors.push("robots.txt does not reference the production sitemap");
 }
 
 const css = await readFile(join(root, "assets/css/main.css"), "utf8");

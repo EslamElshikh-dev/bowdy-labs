@@ -4,7 +4,7 @@ export const site = {
   nameEn: "BOWDY LABS",
   taglineAr: "ذكاء. ابتكار. تأثير.",
   taglineEn: "INTELLIGENCE. INNOVATION. IMPACT.",
-  url: "https://bowdy-labs.vercel.app",
+  url: "https://bowdylabs.com",
   phoneDisplay: "+966 56 443 5344",
   phone: "+966564435344",
   whatsapp: "https://wa.me/966564435344",

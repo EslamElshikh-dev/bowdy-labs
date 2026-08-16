@@ -232,7 +232,7 @@ function layout({
     isPartOf: { "@id": `${site.url}/#website` },
     about: { "@id": `${site.url}/#organization` },
     ...(mainEntity ? { mainEntity } : {}),
-    dateModified: "2026-08-15",
+    dateModified: "2026-08-16",
   };
   const alternate = path === "/" || path === "/en/";
   const alternateLinks = alternatePath
@@ -889,7 +889,7 @@ const routeFor = (file) => (file === "index.html" ? "/" : `/${file.replace(/inde
 const routes = pages.filter(([, , indexable]) => indexable).map(([file]) => routeFor(file));
 await output(
   "sitemap.xml",
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>2026-08-15</lastmod><changefreq>monthly</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" || route === "/agents/" ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" || route === "/agents/" ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
 );
 await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 await output(
