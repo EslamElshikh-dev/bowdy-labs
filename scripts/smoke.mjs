@@ -11,7 +11,7 @@ const server = spawn(
 const paths = [
   "/",
   "/en/",
-  "/crm/",
+  "/alarjancrm/",
   "/agents/",
   "/en/agents/",
   "/services/",
