@@ -11,6 +11,7 @@ const server = spawn(
 const paths = [
   "/",
   "/en/",
+  "/crm/",
   "/agents/",
   "/en/agents/",
   "/services/",
@@ -30,6 +31,7 @@ const paths = [
   "/llms.txt",
   "/manifest.webmanifest",
   "/assets/css/main.css",
+  "/assets/css/alargan-crm.css",
   "/assets/js/main.js",
   "/assets/brand/bowdy-labs-mark.svg",
   "/assets/media/bowdy-intelligence.webp",

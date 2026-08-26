@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { minify } from "terser";
 import { agents } from "./src/agents.mjs";
 import { agentsPageModel } from "./src/agents-page.mjs";
+import { alarganCrmPage } from "./src/alargan-crm.mjs";
 import {
   insights,
   services,
@@ -869,6 +870,7 @@ await writeFile(join(dist, "assets/js/main.js"), minifiedJs.code, "utf8");
 const pages = [
   ["index.html", homePage(), true],
   ["en/index.html", englishHomePage(), true],
+  ["crm/index.html", alarganCrmPage(), true],
   ["agents/index.html", layout(agentsPageModel("ar")), true],
   ["en/agents/index.html", layout(agentsPageModel("en")), true],
   ["services/index.html", servicesPage(), true],
