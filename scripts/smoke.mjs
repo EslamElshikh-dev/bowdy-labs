@@ -57,7 +57,7 @@ try {
   await waitForServer();
   const rows = await Promise.all(
     paths.map(async (path) => {
-      const response = await fetch(`http://127.0.0.1:${port}${path}`);
+      const response = await fetch(`http://127.0.0.1:${port}${path}`, { method: "HEAD" });
       return {
         path,
         status: response.status,
