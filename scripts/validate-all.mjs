@@ -5,22 +5,29 @@ import { fileURLToPath } from "node:url";
 import { site } from "../src/content.mjs";
 
 const projectRoot = dirname(dirname(fileURLToPath(import.meta.url)));
-const privatePage = join(projectRoot, "dist", "alarjancrm", "index.html");
-const hiddenPrivatePage = `${privatePage}.private`;
+const privatePages = [
+  join(projectRoot, "dist", "alarjancrm", "index.html"),
+  join(projectRoot, "dist", "alarjancrm", "dashboard", "index.html"),
+];
 const sitemapPath = join(projectRoot, "dist", "sitemap.xml");
 
-const privateHtml = await readFile(privatePage, "utf8");
+const privateDocuments = await Promise.all(privatePages.map((page) => readFile(page, "utf8")));
 const sitemap = await readFile(sitemapPath, "utf8");
 const privateErrors = [];
 
-const robots = privateHtml.match(/<meta name="robots" content="([^"]+)"/i)?.[1] ?? "";
-if (!robots.includes("noindex") || !robots.includes("nofollow")) {
-  privateErrors.push("private proposal must be noindex and nofollow");
-}
-if (!privateHtml.includes('class="proposal-frame"')) {
-  privateErrors.push("private proposal frame is missing");
-}
-if (sitemap.includes(`<loc>${site.url}/alarjancrm/</loc>`)) {
+privateDocuments.forEach((html, index) => {
+  const robots = html.match(/<meta name="robots" content="([^"]+)"/i)?.[1] ?? "";
+  if (!robots.includes("noindex") || !robots.includes("nofollow")) {
+    privateErrors.push(`private proposal ${index + 1} must be noindex and nofollow`);
+  }
+  if (!html.includes('class="proposal-frame"')) {
+    privateErrors.push(`private proposal ${index + 1} frame is missing`);
+  }
+});
+if (
+  sitemap.includes(`<loc>${site.url}/alarjancrm/</loc>`) ||
+  sitemap.includes(`<loc>${site.url}/alarjancrm/dashboard/</loc>`)
+) {
   privateErrors.push("private proposal is present in sitemap");
 }
 
@@ -29,7 +36,8 @@ if (privateErrors.length) {
   process.exit(1);
 }
 
-await rename(privatePage, hiddenPrivatePage);
+const hiddenPrivatePages = privatePages.map((page) => `${page}.private`);
+await Promise.all(privatePages.map((page, index) => rename(page, hiddenPrivatePages[index])));
 let publicValidationExitCode = 1;
 
 try {
@@ -42,7 +50,7 @@ try {
     validation.once("exit", (code) => resolve(code ?? 1));
   });
 } finally {
-  await rename(hiddenPrivatePage, privatePage);
+  await Promise.all(hiddenPrivatePages.map((page, index) => rename(page, privatePages[index])));
 }
 
 if (publicValidationExitCode !== 0) process.exit(publicValidationExitCode);
