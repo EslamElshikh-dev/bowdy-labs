@@ -871,6 +871,7 @@ const pages = [
   ["index.html", homePage(), true],
   ["en/index.html", englishHomePage(), true],
   ["alarjancrm/index.html", alarganCrmPage(), true],
+  ["alarjancrm/dashboard/index.html", alarganCrmPage({ dashboard: true }), false],
   ["agents/index.html", layout(agentsPageModel("ar")), true],
   ["en/agents/index.html", layout(agentsPageModel("en")), true],
   ["services/index.html", servicesPage(), true],
