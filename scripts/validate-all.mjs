@@ -8,6 +8,7 @@ const projectRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const privatePages = [
   join(projectRoot, "dist", "alarjancrm", "index.html"),
   join(projectRoot, "dist", "alarjancrm", "dashboard", "index.html"),
+  join(projectRoot, "dist", "alarjancrm", "sap-integration", "index.html"),
 ];
 const sitemapPath = join(projectRoot, "dist", "sitemap.xml");
 
@@ -26,7 +27,8 @@ privateDocuments.forEach((html, index) => {
 });
 if (
   sitemap.includes(`<loc>${site.url}/alarjancrm/</loc>`) ||
-  sitemap.includes(`<loc>${site.url}/alarjancrm/dashboard/</loc>`)
+  sitemap.includes(`<loc>${site.url}/alarjancrm/dashboard/</loc>`) ||
+  sitemap.includes(`<loc>${site.url}/alarjancrm/sap-integration/</loc>`)
 ) {
   privateErrors.push("private proposal is present in sitemap");
 }
