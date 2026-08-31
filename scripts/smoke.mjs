@@ -12,6 +12,7 @@ const paths = [
   "/",
   "/en/",
   "/alarjancrm/",
+  "/alarjancrm/dashboard/",
   "/agents/",
   "/en/agents/",
   "/services/",
