@@ -1,8 +1,8 @@
 import { readFile, readdir, writeFile } from "node:fs/promises";
-import { join } from "node:path";
 
 const dist = new URL("../dist/", import.meta.url);
 const buildDate = new Date().toISOString().slice(0, 10);
+const analyticsMarkup = `<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>`;
 
 async function walk(dirUrl) {
   const entries = await readdir(dirUrl, { withFileTypes: true });
@@ -32,6 +32,11 @@ for (const fileUrl of htmlFiles) {
     )
     .replaceAll('"dateModified":"2026-08-16"', `"dateModified":"${buildDate}"`);
 
+  const isPrivateClientRoute = fileUrl.pathname.includes("/alarjancrm/");
+  if (!isPrivateClientRoute && !html.includes("/_vercel/insights/script.js")) {
+    html = html.replace("</body>", `  ${analyticsMarkup}\n</body>`);
+  }
+
   await writeFile(fileUrl, html, "utf8");
 }
 
@@ -42,4 +47,4 @@ sitemap = sitemap
   .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${buildDate}</lastmod>`);
 await writeFile(sitemapUrl, sitemap, "utf8");
 
-console.log(`Post-processed public output for ${buildDate}: trust copy, metadata dates, and sitemap privacy.`);
+console.log(`Post-processed public output for ${buildDate}: trust copy, metadata dates, sitemap privacy, and analytics bootstrap.`);
