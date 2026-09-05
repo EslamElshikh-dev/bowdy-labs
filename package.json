@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "node --check build.mjs && node --check src/content.mjs && node --check src/agents.mjs && node --check src/agents-page.mjs && node --check src/alargan-crm.mjs && node --check assets/js/main.js && node --check assets/js/analytics.js && node --check scripts/postprocess-public.mjs",
-    "build": "node build.mjs && node scripts/postprocess-public.mjs && node scripts/harden-private-routes.mjs",
+    "lint": "node --check build.mjs && node --check src/content.mjs && node --check src/agents.mjs && node --check src/agents-page.mjs && node --check src/alargan-crm.mjs && node --check assets/js/main.js && node --check assets/js/analytics.js && node --check scripts/postprocess-public.mjs && node --check scripts/portfolio-positioning.mjs",
+    "build": "node build.mjs && node scripts/postprocess-public.mjs && node scripts/harden-private-routes.mjs && node scripts/portfolio-positioning.mjs",
     "validate": "node scripts/validate-all.mjs",
     "smoke": "node scripts/smoke.mjs",
     "check": "npm run lint && npm run build && npm run validate && npm run smoke",
