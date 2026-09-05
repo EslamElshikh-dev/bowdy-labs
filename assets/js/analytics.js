@@ -27,13 +27,13 @@
   };
 
   const linkLocation = (link) => {
-    if (link.closest(".hero")) return "hero";
+    if (link.closest(".hero, .page-hero")) return "hero";
     if (link.closest(".site-header")) return "header";
     if (link.closest(".site-footer")) return "footer";
     if (link.closest(".floating-actions")) return "floating_action";
     if (link.closest(".mobile-bottom-nav")) return "mobile_bottom_nav";
     if (link.closest(".cta-section")) return "cta_section";
-    if (link.closest(".service-card, .ai-service-card, .essential-service-card")) return "service_card";
+    if (link.closest(".service-card, .ai-service-card, .essential-service-card, .service-pillar-card")) return "service_card";
     return "content";
   };
 
@@ -58,7 +58,10 @@
 
       try {
         const url = new URL(link.href, window.location.href);
-        if (url.origin === window.location.origin && url.pathname === "/contact/") {
+        if (
+          url.origin === window.location.origin &&
+          (url.pathname === "/contact/" || url.pathname === "/en/contact/")
+        ) {
           track("project_cta_click", {
             location,
             service: url.searchParams.get("service") || "unspecified",
@@ -72,7 +75,7 @@
     { passive: true },
   );
 
-  const form = document.querySelector("[data-contact-form]");
+  const form = document.querySelector("[data-contact-form], [data-contact-form-en]");
   if (!form) return;
 
   const params = new URLSearchParams(window.location.search);
