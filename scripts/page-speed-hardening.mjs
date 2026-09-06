@@ -135,11 +135,14 @@ if (llms.includes("/alarjancrm/")) throw new Error("Private CRM route must not a
 await writeFile(join(dist, "llms.txt"), llms);
 
 const home = await readFile(join(dist, "index.html"), "utf8");
-if (home.includes('<link rel="stylesheet" href="/assets/css/positioning.css">')) {
-  throw new Error("positioning.css is still render-blocking on homepage");
+if (!home.includes('<link rel="preload" href="/assets/css/positioning.css" as="style">')) {
+  throw new Error("positioning.css preload missing");
 }
 if (!home.includes('media="print" onload="this.media=\'all\'"')) {
   throw new Error("Deferred positioning.css pattern missing");
+}
+if (!home.includes('<noscript><link rel="stylesheet" href="/assets/css/positioning.css"></noscript>')) {
+  throw new Error("positioning.css noscript fallback missing");
 }
 for (const slug of neededAgents) {
   if (!home.includes(`/assets/media/agents/${slug}-96.webp`) && home.includes(`${slug}-520.webp`)) {
