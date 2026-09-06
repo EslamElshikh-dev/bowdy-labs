@@ -99,6 +99,10 @@ for (const file of files) {
     html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/bowdy-assistant-position.css?v=20260906c">\n</head>');
   }
 
+  if (!html.includes("/assets/css/bowdy-footer-polish.css")) {
+    html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/bowdy-footer-polish.css?v=20260906d">\n</head>');
+  }
+
   if (!html.includes("data-bowdy-assistant")) {
     html = html.replace("</body>", `  ${assistantMarkup(english)}\n  <script src="/assets/js/bowdy-assistant.js?v=20260906" defer></script>\n</body>`);
   }
