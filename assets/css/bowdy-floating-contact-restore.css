@@ -1,0 +1,177 @@
+/* Restore the original BOWDY floating call + WhatsApp design.
+   The mobile bottom navigation remains removed; Bowdy assistant remains untouched. */
+
+.floating-actions {
+  position: fixed !important;
+  z-index: 85 !important;
+  right: auto !important;
+  left: max(18px, env(safe-area-inset-left)) !important;
+  bottom: max(18px, env(safe-area-inset-bottom)) !important;
+  inset: auto auto max(18px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left)) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none;
+}
+
+.floating-actions > a {
+  position: relative !important;
+  display: grid !important;
+  width: 54px !important;
+  height: 54px !important;
+  min-width: 54px !important;
+  min-height: 54px !important;
+  place-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px solid var(--line-strong) !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .35) !important;
+  isolation: isolate;
+  pointer-events: auto;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  transform: none !important;
+  transition: transform .2s ease, border-color .2s ease, filter .2s ease !important;
+}
+
+.floating-actions > a:hover,
+.floating-actions > a:focus-visible {
+  border-color: rgba(255, 255, 255, .4) !important;
+  filter: saturate(1.08) !important;
+  transform: translateX(3px) scale(1.04) !important;
+  outline: none;
+}
+
+.floating-actions > a:active {
+  transform: scale(.96) !important;
+}
+
+.floating-actions > a .icon,
+.floating-actions > a svg {
+  width: 22px !important;
+  height: 22px !important;
+  margin: 0 !important;
+  stroke-width: 1.65 !important;
+}
+
+.floating-actions > .floating-call {
+  color: #fff !important;
+  background: linear-gradient(145deg, #245eff, #2aa9ff) !important;
+  animation: bowdy-contact-call-pulse 3.4s ease-out infinite !important;
+}
+
+.floating-actions > .floating-whatsapp {
+  color: #fff !important;
+  background: linear-gradient(145deg, #16b66a, #29d987) !important;
+  animation: bowdy-contact-whatsapp-pulse 3.4s ease-out 1.15s infinite !important;
+}
+
+.floating-action-label {
+  position: absolute !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: calc(100% + 11px) !important;
+  inset-inline-start: auto !important;
+  display: flex !important;
+  width: max-content !important;
+  max-width: 190px !important;
+  min-height: 39px !important;
+  align-items: center !important;
+  padding: 0 15px !important;
+  border: 1px solid rgba(138, 169, 231, .2) !important;
+  border-radius: 999px !important;
+  color: var(--text) !important;
+  background: rgba(8, 14, 32, .94) !important;
+  box-shadow: 0 15px 42px rgba(0, 0, 0, .32) !important;
+  font-size: .72rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  opacity: 0 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+  transform: translate(-8px, -50%) scale(.96) !important;
+  transform-origin: left center !important;
+  transition: opacity .2s ease, transform .25s cubic-bezier(.2, .8, .2, 1) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  backdrop-filter: blur(18px) !important;
+}
+
+[dir="rtl"] .floating-action-label {
+  transform: translate(-8px, -50%) scale(.96) !important;
+}
+
+.floating-actions > a:hover .floating-action-label,
+.floating-actions > a:focus-visible .floating-action-label,
+[dir="rtl"] .floating-actions > a:hover .floating-action-label,
+[dir="rtl"] .floating-actions > a:focus-visible .floating-action-label {
+  opacity: 1 !important;
+  transform: translate(0, -50%) scale(1) !important;
+}
+
+@keyframes bowdy-contact-call-pulse {
+  0%, 55%, 100% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .35), 0 0 0 0 rgba(42, 169, 255, 0);
+  }
+  18% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .35), 0 0 0 11px rgba(42, 169, 255, .22);
+  }
+}
+
+@keyframes bowdy-contact-whatsapp-pulse {
+  0%, 55%, 100% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .35), 0 0 0 0 rgba(39, 224, 170, 0);
+  }
+  18% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .35), 0 0 0 11px rgba(39, 224, 170, .24);
+  }
+}
+
+@media (max-width: 900px) {
+  .floating-actions {
+    left: max(18px, env(safe-area-inset-left)) !important;
+    bottom: max(18px, env(safe-area-inset-bottom)) !important;
+    inset: auto auto max(18px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left)) !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .floating-actions {
+    left: max(13px, env(safe-area-inset-left)) !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+    inset: auto auto max(14px, env(safe-area-inset-bottom)) max(13px, env(safe-area-inset-left)) !important;
+  }
+
+  .floating-actions > a {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .floating-actions > a:hover,
+  .floating-actions > a:focus-visible {
+    transform: none !important;
+  }
+
+  .floating-action-label {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-actions > .floating-call,
+  .floating-actions > .floating-whatsapp {
+    animation: none !important;
+  }
+}
