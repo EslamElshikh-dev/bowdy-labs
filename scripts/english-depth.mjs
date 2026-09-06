@@ -355,7 +355,9 @@ for (const item of englishInsightDepth) {
 }
 
 const allEnglish = (await Promise.all((await walkHtml(join(dist, "en"))).map((file) => readFile(file, "utf8")))).join("\n");
-if (allEnglish.includes('/en/services/#')) throw new Error("English service anchor fallback remains after deep-route generation.");
+for (const service of services) {
+  if (allEnglish.includes(`/en/services/#${service.slug}`)) throw new Error(`English deep route fallback remains for service: ${service.slug}`);
+}
 for (const route of newRoutes) {
   if (!sitemap.includes(`<loc>${site.url}${route}</loc>`)) throw new Error(`Sitemap missing ${route}`);
 }
