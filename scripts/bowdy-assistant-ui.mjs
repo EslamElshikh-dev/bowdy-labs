@@ -104,7 +104,7 @@ for (const file of files) {
   }
 
   if (!html.includes("data-bowdy-assistant")) {
-    html = html.replace("</body>", `  ${assistantMarkup(english)}\n  <script src="/assets/js/bowdy-assistant.js?v=20260906" defer></script>\n</body>`);
+    html = html.replace("</body>", `  ${assistantMarkup(english)}\n  <script src="/assets/js/bowdy-assistant.js?v=20260907ai" defer></script>\n</body>`);
   }
 
   await writeFile(file, html, "utf8");
