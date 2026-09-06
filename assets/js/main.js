@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const PRIMARY_PHONE = "966564435344";
+  const PRIMARY_PHONE = "966598447530";
   const header = document.querySelector("[data-header]");
   const menuButton = document.querySelector("[data-menu-toggle]");
   const mobileMenu = document.querySelector("[data-mobile-menu]");

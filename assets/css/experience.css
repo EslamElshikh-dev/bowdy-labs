@@ -115,3 +115,39 @@ html[dir=rtl] .bx-steps button>i{transform-origin:right}
  .bx-demo-foot{margin-inline:10px;padding:13px 0 15px;font-size:9px}.bx-demo-foot a{font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){.bx-scene-active .bx-stat-grid>div,.bx-scene-active .bx-flow-node,.bx-scene-active .bx-bubble,.bx-scene-active .bx-permissions>div{animation:none!important}}
+
+/* Compact mobile tour controller and animated journey trail */
+.bx-stage-progress{position:relative}
+.bx-stage-progress:after{content:"";position:absolute;z-index:2;top:50%;inset-inline-start:var(--scene-progress);width:8px;height:8px;border-radius:50%;background:#fff;border:2px solid var(--model-color);box-shadow:0 0 0 4px color-mix(in srgb,var(--model-color) 16%,transparent),0 0 18px var(--model-color);transform:translate(-50%,-50%);transition:inset-inline-start .6s cubic-bezier(.16,1,.3,1)}
+html[dir=rtl] .bx-stage-progress:after{transform:translate(50%,-50%)}
+.bx-path-moving .bx-stage-progress:after{animation:bx-trail-pulse .72s ease-out}
+.bx-path-moving .bx-steps button[aria-pressed=true]>span{animation:bx-step-arrive .55s cubic-bezier(.16,1,.3,1)}
+.bx-path-moving .bx-demo-status i{animation:bx-status-signal .8s ease-out}
+@keyframes bx-trail-pulse{40%{box-shadow:0 0 0 9px color-mix(in srgb,var(--model-color) 18%,transparent),0 0 25px var(--model-color)}to{box-shadow:0 0 0 4px color-mix(in srgb,var(--model-color) 16%,transparent),0 0 18px var(--model-color)}}
+@keyframes bx-step-arrive{0%{transform:scale(.72);opacity:.45}65%{transform:scale(1.13)}to{transform:scale(1);opacity:1}}
+@keyframes bx-status-signal{0%,100%{opacity:1}45%{opacity:.25;transform:scale(1.6)}}
+@media(max-width:800px){
+ .bx-tour{display:grid;grid-template-columns:minmax(104px,1fr) auto;align-items:center;column-gap:7px;row-gap:5px;width:min(520px,calc(100% - 20px));padding:7px 8px;bottom:calc(82px + env(safe-area-inset-bottom));border-radius:14px;background:#0b1428f5;box-shadow:0 10px 35px #000a}
+ .bx-tour>div:first-child{min-width:0;margin:0;gap:7px;align-items:center}
+ .bx-tour-host>img{width:31px;height:37px;border-radius:8px}
+ .bx-tour-host>div{min-width:0}
+ .bx-tour-host small{display:none}
+ .bx-tour-host strong{display:block;max-width:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;line-height:1.35}
+ .bx-tour-host>[data-tour-count]{flex:none;font:8px var(--font-en);color:#8fa1bd}
+ .bx-tour-narration{display:none}
+ .bx-tour-actions{display:grid;grid-template-columns:repeat(4,34px);gap:4px}
+ .bx-tour-actions button,.bx-tour-actions button:last-child{display:grid;place-items:center;width:34px;min-width:34px;height:34px;min-height:34px;flex:none;padding:0;border-radius:9px;font-size:0}
+ .bx-tour-actions button:before{font:600 15px var(--font-en);line-height:1;color:#e9f1ff}
+ .bx-tour-actions [data-prev]:before{content:"→"}.bx-tour-actions [data-next]:before{content:"←"}
+ html[dir=ltr] .bx-tour-actions [data-prev]:before{content:"←"}html[dir=ltr] .bx-tour-actions [data-next]:before{content:"→"}
+ .bx-tour-actions [data-play]:before{content:"▶";font-size:12px}.bx-tour-actions [data-play][aria-pressed=true]:before{content:"Ⅱ";font-size:11px}
+ .bx-tour-actions [data-close]{font-size:17px}
+ .bx-tour progress{grid-column:1/-1;height:2px;margin:0;border:0}
+}
+@media(max-width:380px){
+ .bx-tour{grid-template-columns:minmax(88px,1fr) auto;padding-inline:6px}
+ .bx-tour-actions{grid-template-columns:repeat(4,31px)}
+ .bx-tour-actions button,.bx-tour-actions button:last-child{width:31px;min-width:31px;height:32px;min-height:32px}
+ .bx-tour-host>img{width:28px;height:33px}.bx-tour-host strong{font-size:8px}.bx-tour-host>[data-tour-count]{display:none}
+}
+@media(prefers-reduced-motion:reduce){.bx-path-moving .bx-stage-progress:after,.bx-path-moving .bx-steps button[aria-pressed=true]>span,.bx-path-moving .bx-demo-status i{animation:none!important}}
