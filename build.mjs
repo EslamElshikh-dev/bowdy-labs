@@ -3,6 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { minify } from "terser";
 import { agents } from "./src/agents.mjs";
+import { experiencePageModel } from "./src/experience-page.mjs";
 import { agentsPageModel } from "./src/agents-page.mjs";
 import { alarganCrmPage } from "./src/alargan-crm.mjs";
 import {
@@ -79,6 +80,7 @@ function header(active = "", language = "ar") {
         ["home", "/en/", "Home"],
         ["services", "/services/", "Services"],
         ["agents", "/en/agents/", "AI Agents"],
+        ["experience", "/en/experience/", "Models"],
         ["work", "/work/", "Work"],
         ["about", "/about/", "About"],
         ["insights", "/insights/", "Insights"],
@@ -87,6 +89,7 @@ function header(active = "", language = "ar") {
         ["home", "/", "الرئيسية"],
         ["services", "/services/", "الخدمات"],
         ["agents", "/agents/", "وكلاء AI"],
+        ["experience", "/experience/", "نماذج باودي"],
         ["work", "/work/", "الأعمال"],
         ["about", "/about/", "عن باودي"],
         ["insights", "/insights/", "مدونتنا"],
@@ -125,7 +128,7 @@ function footer(language = "ar") {
         <p>${english ? "Secure AI, software and digital growth systems built around measurable business outcomes." : "نبني حلول ذكاء اصطناعي وبرمجيات وأنظمة نمو رقمية آمنة حول نتيجة تجارية قابلة للقياس."}</p>
         <span class="footer-tagline" lang="en" dir="ltr">${site.taglineEn}</span>
       </div>
-      <div><h2>${english ? "Explore" : "استكشف"}</h2><a href="/services/">${english ? "Services" : "الخدمات"}</a><a href="${english ? "/en/agents/" : "/agents/"}">${english ? "AI agents" : "وكلاء باودي"}</a><a href="/work/">${english ? "Selected work" : "الأعمال"}</a><a href="/about/">${english ? "About the lab" : "عن باودي لابز"}</a><a href="/insights/">${english ? "Insights" : "مدونتنا"}</a></div>
+      <div><h2>${english ? "Explore" : "استكشف"}</h2><a href="${english ? "/en/experience/" : "/experience/"}">${english ? "BOWDY Models" : "نماذج باودي"}</a><a href="/services/">${english ? "Services" : "الخدمات"}</a><a href="${english ? "/en/agents/" : "/agents/"}">${english ? "AI agents" : "وكلاء باودي"}</a><a href="/work/">${english ? "Selected work" : "الأعمال"}</a><a href="/about/">${english ? "About the lab" : "عن باودي لابز"}</a><a href="/insights/">${english ? "Insights" : "مدونتنا"}</a></div>
       <div class="footer-services"><h2>${english ? "Capabilities" : "المسارات"}</h2>${services.slice(0, 6).map((service) => `<a href="/services/${service.slug}/">${english ? service.titleEn : service.title}</a>`).join("")}</div>
       <div class="footer-contact"><h2>${english ? "Contact" : "تواصل"}</h2><a href="tel:${site.phone}" dir="ltr">${icon("phone")}${site.phoneDisplay}</a><a href="${site.whatsapp}" target="_blank" rel="noopener">${icon("whatsapp")}WhatsApp</a><a href="mailto:${site.email}">${icon("mail")}<span>${site.email}</span></a><span>${icon("pin")}<span>${english ? "Riyadh, Saudi Arabia" : `${site.city}، ${site.country}`}</span></span></div>
     </div>
@@ -285,7 +288,7 @@ function layout({
 </head>
 <body>
   <div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div>
-  ${header(active, language)}
+  ${header(active, language).replace(/(<a class="language-link" href=")[^"]*("[^>]*>)/g, (_, a, b) => a + (alternatePath ? (english ? alternatePath.ar : alternatePath.en) : (english ? "/" : "/en/")) + b)}
   <main id="main">${body}</main>
   ${footer(language)}
   <script src="/assets/js/main.js" defer></script>
@@ -873,6 +876,8 @@ const pages = [
   ["alarjancrm/index.html", alarganCrmPage(), true],
   ["alarjancrm/dashboard/index.html", alarganCrmPage({ view: "dashboard" }), false],
   ["alarjancrm/sap-integration/index.html", alarganCrmPage({ view: "sap" }), false],
+  ["experience/index.html", layout(experiencePageModel("ar")), true],
+  ["en/experience/index.html", layout(experiencePageModel("en")), true],
   ["agents/index.html", layout(agentsPageModel("ar")), true],
   ["en/agents/index.html", layout(agentsPageModel("en")), true],
   ["services/index.html", servicesPage(), true],
