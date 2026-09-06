@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const PRIMARY_PHONE = "966564435344";
+  const PRIMARY_PHONE = "966598447530";
   const form = document.querySelector("[data-contact-form-en]");
   if (!form) return;
 

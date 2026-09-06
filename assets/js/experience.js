@@ -10,12 +10,16 @@
   buttons.forEach((button,j)=>button.setAttribute('aria-pressed',String(j===scene)));
   panels.forEach((panel,j)=>{panel.hidden=j!==scene;panel.classList.remove('bx-scene-active');});
   model.style.setProperty('--scene-progress',`${(scene+1)*33.333}%`);
+  model.dataset.direction=scene>=previous?'forward':'backward';
   model.dataset.activeScene=String(scene);
   model.querySelector('[data-model-current]').textContent=String(scene+1).padStart(2,'0');
   model.querySelector('[data-model-prev]').disabled=scene===0;
   model.querySelector('[data-model-next]').disabled=scene===panels.length-1;
   target.classList.add('bx-scene-active');
   if(animate&&!reduced.matches&&target.animate){
+   model.classList.remove('bx-path-moving');
+   void model.offsetWidth;
+   model.classList.add('bx-path-moving');
    const flow=(scene>=previous?1:-1)*(document.dir==='rtl'?-1:1);
    target.animate([{opacity:0,transform:`translateX(${flow*28}px) scale(.98)`,filter:'blur(6px)'},{opacity:1,transform:'translateX(0) scale(1)',filter:'blur(0)'}],{duration:560,easing:'cubic-bezier(.16,1,.3,1)'});
   }

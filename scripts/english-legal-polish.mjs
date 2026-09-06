@@ -19,7 +19,7 @@ const legalPages = [
       ["Information you send", "The website does not require an account. When you contact us through WhatsApp or email, the channel you choose determines the information you send. Do not send credentials, verification codes, API keys or other secrets."],
       ["Analytics", "We may use general privacy-aware measurement to improve the website experience. The free-text project summary, your name and other contact details are not sent to our analytics events."],
       ["Use and protection", "We use contact information to understand and respond to your enquiry and aim to retain only what is reasonably needed. External communication platforms operate under their own privacy policies."],
-      ["Your requests", "You may ask about contact information you shared with us or request deletion by emailing info@bowdy-labs.com, subject to applicable legal obligations and the protection of legitimate rights."],
+      ["Your requests", "You may ask about contact information you shared with us or request deletion by emailing info@bowdylabs.com, subject to applicable legal obligations and the protection of legitimate rights."],
     ],
   },
   {

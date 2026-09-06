@@ -1849,6 +1849,15 @@ p {
   overflow-wrap: anywhere;
 }
 
+.footer-registration b {
+  margin-inline-start: 4px;
+  color: var(--text);
+  font-family: var(--font-en);
+  font-size: .67rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
 .footer-bottom {
   display: flex;
   align-items: center;
