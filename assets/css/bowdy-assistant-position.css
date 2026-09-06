@@ -1,0 +1,138 @@
+/* BOWDY launcher direction + placement polish.
+   Keeps the assistant anchored to the outer right edge while the label sits toward page content. */
+
+.bowdy-assistant {
+  position: fixed !important;
+  top: auto !important;
+  right: max(18px, env(safe-area-inset-right)) !important;
+  bottom: max(18px, env(safe-area-inset-bottom)) !important;
+  left: auto !important;
+  inset: auto max(18px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) auto !important;
+  z-index: 120 !important;
+}
+
+/* Always render: [label] [round launcher], so the round launcher is the outermost item on the right. */
+.bowdy-assistant__launcher-wrap {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: row !important;
+  direction: ltr !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  width: max-content !important;
+  margin: 0 !important;
+}
+
+.bowdy-assistant__label {
+  order: 1 !important;
+  flex: 0 0 auto !important;
+  min-height: 34px !important;
+  padding: 6px 11px !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+.bowdy-assistant__launcher {
+  order: 2 !important;
+  flex: 0 0 var(--bowdy-fab-size) !important;
+  margin: 0 !important;
+}
+
+[dir="rtl"] .bowdy-assistant__label {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+[dir="ltr"] .bowdy-assistant__label {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Preserve the natural reading direction inside the opened assistant. */
+[dir="rtl"] .bowdy-assistant__panel {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+[dir="ltr"] .bowdy-assistant__panel {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Keep the open panel visually tied to the launcher on desktop/tablet. */
+.bowdy-assistant__panel {
+  right: 0 !important;
+  left: auto !important;
+  transform-origin: bottom right !important;
+}
+
+@media (max-width: 700px) {
+  .bowdy-assistant {
+    right: max(14px, env(safe-area-inset-right)) !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    inset: auto max(14px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) auto !important;
+  }
+
+  /* Keep the name visible on mobile, but compact. */
+  .bowdy-assistant__label {
+    display: inline-flex !important;
+    min-height: 32px !important;
+    padding: 5px 10px !important;
+    gap: 6px !important;
+    font-size: 12px !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .26) !important;
+  }
+
+  .bowdy-assistant__label::before {
+    width: 6px !important;
+    height: 6px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .bowdy-assistant {
+    right: max(13px, env(safe-area-inset-right)) !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+    inset: auto max(13px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) auto !important;
+  }
+
+  .bowdy-assistant__launcher-wrap {
+    gap: 8px !important;
+  }
+
+  /* On mobile the panel uses the viewport, not the launcher's flex width. */
+  .bowdy-assistant__panel {
+    position: fixed !important;
+    top: auto !important;
+    right: 10px !important;
+    bottom: calc(var(--bowdy-fab-size) + max(14px, env(safe-area-inset-bottom)) + 14px) !important;
+    left: 10px !important;
+    width: auto !important;
+    max-width: none !important;
+    transform-origin: bottom right !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .bowdy-assistant {
+    right: max(11px, env(safe-area-inset-right)) !important;
+    bottom: max(12px, env(safe-area-inset-bottom)) !important;
+    inset: auto max(11px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) auto !important;
+  }
+
+  .bowdy-assistant__label {
+    min-height: 30px !important;
+    padding: 4px 8px !important;
+    font-size: 11.5px !important;
+  }
+
+  .bowdy-assistant__launcher-wrap {
+    gap: 7px !important;
+  }
+
+  .bowdy-assistant__panel {
+    right: 8px !important;
+    left: 8px !important;
+  }
+}
