@@ -9,6 +9,7 @@ import { alarganCrmPage } from "./src/alargan-crm.mjs";
 import { magazine, magazineArticles, magazineUpdatedAt, articlePath, articleModifiedAt } from "./src/riyadh-tech-content.mjs";
 import { newsPolicy } from "./src/riyadh-tech-news.mjs";
 import { magazineIndexModel, magazineArticleModel, magazineFeed } from "./src/riyadh-tech-page.mjs";
+import { magazineExtraPageModels } from "./src/riyadh-tech-sections.mjs";
 import { generateMagazineShareImages } from "./src/riyadh-tech-images.mjs";
 import {
   insights,
@@ -912,6 +913,8 @@ const pages = [
 services.forEach((service) => pages.push([`services/${service.slug}/index.html`, servicePage(service), true]));
 insights.forEach((item) => pages.push([`insights/${item.slug}/index.html`, insightPage(item), true]));
 magazineArticles.forEach((article) => pages.push([`${articlePath(article).slice(1)}index.html`, layout(magazineArticleModel(article)), true]));
+const magazineExtraPages = magazineExtraPageModels();
+magazineExtraPages.forEach(model => pages.push([`${model.path.slice(1)}index.html`, layout(model), model.indexable]));
 await Promise.all(pages.map(([path, content]) => output(path, content)));
 await output("riyadh-tech/feed.xml", magazineFeed());
 await output("riyadh-tech/sources.json", `${JSON.stringify(newsPolicy, null, 2)}\n`);
@@ -919,7 +922,7 @@ await generateMagazineShareImages(dist);
 
 const routeFor = (file) => (file === "index.html" ? "/" : `/${file.replace(/index\.html$/, "")}`);
 const routes = pages.filter(([, , indexable]) => indexable).map(([file]) => routeFor(file));
-const magazineRouteDates = new Map([[magazine.path, magazineUpdatedAt.slice(0, 10)], ...magazineArticles.map(article => [articlePath(article), articleModifiedAt(article).slice(0, 10)])]);
+const magazineRouteDates = new Map([[magazine.path, magazineUpdatedAt.slice(0, 10)], ...magazineExtraPages.map(page => [page.path, magazineUpdatedAt.slice(0, 10)]), ...magazineArticles.map(article => [articlePath(article), articleModifiedAt(article).slice(0, 10)])]);
 await output(
   "sitemap.xml",
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>${magazineRouteDates.get(route) ?? "2026-08-16"}</lastmod><changefreq>${route === magazine.path ? "hourly" : "monthly"}</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" || route === "/agents/" || route === magazine.path ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,

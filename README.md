@@ -13,7 +13,7 @@ Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and art
 - Organization, LocalBusiness, ProfessionalService, OfferCatalog, Service, FAQ, Article, BreadcrumbList, and WebPage structured data
 - Sitemap, robots, security.txt, PWA manifest, Open Graph image, and `llms.txt`
 - Local Sora and IBM Plex Sans Arabic fonts
-- مجلة رياض التقنية at `/riyadh-tech/`: Arabic AI news, explainers, searchable categories, source attribution, standalone articles, RSS, and per-article social cards
+- مجلة رياض التقنية at `/riyadh-tech/`: Arabic AI news, explainers, standalone section routes, paginated archives, full search with source filters, per-source pages, device-local reading lists, reader tools, source attribution, RSS, and social cards
 
 ## Commands
 
@@ -55,3 +55,11 @@ Each record contains `sourceId`, `sourceUrl`, `sourceTitle`, `eventDate` (the or
 Automatic briefs are visibly labeled and identify the automatic desk as author. NewsArticle metadata, RSS timestamps, sitemap entries, related articles, search and source-specific social cards update during the normal build. Social-image generation is bounded to the editorial set plus the approved sources, rather than regenerating an image for every archived news item. The source list is also visible within the magazine and at `/riyadh-tech/sources.json`.
 
 Validate changes with `npm run test:news`, `npm run build`, and `npm run check:magazine`. The repository's older site-wide validator has pre-existing diagnostics unrelated to the magazine; use the magazine-specific checks and the matching Vercel deployment when validating this publisher.
+
+## Magazine navigation
+
+The magazine remains on the main domain under `/riyadh-tech/`. Its `news/`, `explainers/`, `tools/`, and `business/` routes list each section. `archive/` and section/source listings render 12 stories per page; later pages use `page/2/` paths and preserve existing article URLs. `sources/` links to seven source profiles; profiles without articles remain accessible with `noindex, follow`.
+
+`search/` searches all published titles, summaries and tags, with combined section/source filters and chronological sorting. Query state is shareable through `q`, `category`, `source`, and `sort` URL parameters. `saved/` uses browser local storage without accounts; font preferences are also device-local. These two utility routes are excluded from the sitemap. `about/` explains attribution, automatic publishing, and corrections.
+
+Run `npm run test:magazine`, `npm run build`, and `npm run check:magazine` for route, publisher, indexing, source-date, asset and link checks. New automatic-news entries are included in all appropriate section, source, search, archive and RSS views on every build without modifying routing files.
