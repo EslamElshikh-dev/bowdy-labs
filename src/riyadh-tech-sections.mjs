@@ -24,7 +24,8 @@ function pageModel({title,description,path,active,body,indexable=true,image="/as
 }
 
 function hubHeader({title,description,kicker="RIYADH TECH",detail="",accent="#59e6c4"}) {
-  return `<header class="rt-hub-header" style="--hub-accent:${accent}"><div class="rt-hub-copy"><span class="rt-hub-kicker" lang="en" dir="ltr">${esc(kicker)}</span><h1>${esc(title)}<span aria-hidden="true">.</span></h1><p>${esc(description)}</p>${detail?`<div class="rt-hub-detail">${detail}</div>`:""}</div><div class="rt-hub-visual" aria-hidden="true"><span class="rt-hub-orbit"></span><span class="rt-hub-orbit rt-hub-orbit--second"></span><div>${magazineMark(kicker.includes("TOOL")?"evaluation":kicker.includes("SIGNAL")?"argon":kicker.includes("IMPACT")?"business":kicker.includes("SOURCE")?"interface":"knowledge")}</div><small lang="en">EXPLORE / UNDERSTAND / CREATE</small></div></header>`;
+  const variant = kicker.includes("TOOL")?"evaluation":kicker.includes("SIGNAL")?"argon":kicker.includes("IMPACT")?"business":kicker.includes("ORIGINAL")?"interface":kicker.includes("ARCHIVE")?"agents":kicker.includes("LIST")?"haiku":"knowledge";
+  return `<header class="rt-hub-header" style="--hub-accent:${accent}" data-hub-variant="${variant}"><div class="rt-hub-copy"><span class="rt-hub-kicker" lang="en" dir="ltr"><i aria-hidden="true"></i>${esc(kicker)}</span><h1>${esc(title)}<span aria-hidden="true">.</span></h1><p>${esc(description)}</p>${detail?`<div class="rt-hub-detail">${detail}</div>`:""}</div><div class="rt-hub-visual" aria-hidden="true"><span class="rt-hub-orbit"></span><span class="rt-hub-orbit rt-hub-orbit--second"></span><div>${magazineMark(variant)}</div><span class="rt-hub-corner">↙</span><small lang="en">A NEW CHAPTER / RIYADH TECH</small></div></header>`;
 }
 
 function pagination(base, page) {

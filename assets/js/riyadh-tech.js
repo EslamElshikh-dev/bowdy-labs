@@ -174,6 +174,22 @@
     tools.querySelector("[data-reader-print]").addEventListener("click", () => window.print());
     if (!storageAvailable && readerStatus) readerStatus.textContent = "الحفظ غير متاح في هذا المتصفح؛ أدوات القراءة متاحة.";
     renderScale();
+    const themeButton = tools.querySelector("[data-reader-theme]");
+    const themeLabel = tools.querySelector("[data-reader-theme-label]");
+    const themeKey = "riyadh-tech:reader-theme:v1";
+    let readerTheme = "paper";
+    try { if (localStorage.getItem(themeKey) === "dark") readerTheme = "dark"; } catch { /* The reading palette remains available for this visit. */ }
+    function renderTheme() {
+      root.dataset.readerTheme = readerTheme;
+      themeButton?.setAttribute("aria-pressed", String(readerTheme === "paper"));
+      if (themeLabel) themeLabel.textContent = readerTheme === "paper" ? "قراءة ورقية" : "قراءة داكنة";
+    }
+    themeButton?.addEventListener("click", () => {
+      readerTheme = readerTheme === "paper" ? "dark" : "paper";
+      renderTheme();
+      try { localStorage.setItem(themeKey, readerTheme); } catch { /* Keep this visit usable without storage. */ }
+    });
+    renderTheme();
   }
 
   const progress = root.querySelector("[data-reading-progress]");
@@ -261,6 +277,47 @@
     const animation = target.animate([{opacity:0.2,transform:"translateY(19px)"},{opacity:1,transform:"translateY(0)"}], {duration:620,delay,easing:"cubic-bezier(.2,.7,.2,1)"});
     runningAnimations.add(animation);
     animation.finished?.then(() => runningAnimations.delete(animation), () => runningAnimations.delete(animation));
+    return animation;
+  }
+
+  const spotlight = root.querySelector("[data-spotlight]");
+  if (spotlight) {
+    const controls = spotlight.querySelector("[data-spotlight-controls]");
+    const choices = [...spotlight.querySelectorAll("[data-spotlight-select]")];
+    const panels = [...spotlight.querySelectorAll("[data-spotlight-panel]")];
+    const announcement = spotlight.querySelector("[data-spotlight-status]");
+    let selected = 0;
+    let panelAnimation;
+    function selectSpotlight(index, announce = true) {
+      if (!Number.isInteger(index) || index < 0 || index >= panels.length) return;
+      panelAnimation?.cancel();
+      selected = index;
+      choices.forEach((button,i) => button.setAttribute("aria-pressed", String(i === index)));
+      panels.forEach((panel,i) => { panel.hidden = i !== index; });
+      if (announce) {
+        panelAnimation = reveal(panels[index].querySelector(".rt-spotlight-copy"));
+        if (announcement) announcement.textContent = `الموضوع المختار: ${panels[index].querySelector("h3").textContent}`;
+      }
+    }
+    if (controls && choices.length === panels.length && panels.length) {
+      controls.hidden = false;
+      spotlight.dataset.spotlightReady = "true";
+      selectSpotlight(0, false);
+      choices.forEach((button,index) => {
+        button.addEventListener("click", () => selectSpotlight(index));
+        button.addEventListener("keydown", event => {
+          let next = selected;
+          if (event.key === "ArrowLeft") next = (index + 1) % choices.length;
+          else if (event.key === "ArrowRight") next = (index - 1 + choices.length) % choices.length;
+          else if (event.key === "Home") next = 0;
+          else if (event.key === "End") next = choices.length - 1;
+          else return;
+          event.preventDefault();
+          selectSpotlight(next);
+          choices[next].focus();
+        });
+      });
+    }
   }
   const intro = root.querySelector(".rt-masthead-copy, .rt-hub-copy, .rt-article-head");
   if (intro) reveal(intro);
