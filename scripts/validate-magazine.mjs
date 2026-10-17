@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { magazine, magazineArticles, articlePath } from "../src/riyadh-tech-content.mjs";
+import { magazine, magazineArticles, articlePath, articlePublishedAt, articleModifiedAt, articleShareImage } from "../src/riyadh-tech-content.mjs";
 import { site } from "../src/content.mjs";
 
 const root = join(dirname(dirname(fileURLToPath(import.meta.url))), "dist");
@@ -43,14 +43,21 @@ for (const route of routes) {
     const article = magazineArticles.find(a => articlePath(a) === route);
     const node = graphs.find(n => n["@type"] === (article.kind === "news" ? "NewsArticle" : "BlogPosting"));
     assert.ok(node, `${route}: correct editorial schema`);
-    assert.equal(node.datePublished, magazine.published, `${route}: actual magazine publication date`);
+    assert.equal(node.datePublished, articlePublishedAt(article), `${route}: actual magazine publication date`);
+    assert.equal(node.dateModified, articleModifiedAt(article), `${route}: actual modification date`);
+    assert.equal(imagePath, articleShareImage(article), `${route}: stable social image`);
     assert.equal(node.mainEntityOfPage["@id"], `${site.url}${route}#webpage`, `${route}: article linked to page`);
     if (article.kind === "news") {
-      assert.ok(article.eventDate < magazine.published, `${route}: source event precedes publication`);
+      assert.ok(article.eventDate < articlePublishedAt(article), `${route}: source event precedes publication`);
       assert.ok(html.includes(`datetime="${article.eventDate}"`), `${route}: source event date visible`);
       assert.ok(article.sources.length, `${route}: attributed news`);
     }
     for (const source of article.sources) assert.ok(html.includes(`href="${source.url}"`), `${route}: original source visible`);
+    if (article.automated) {
+      assert.ok(html.includes('class="rt-auto-disclosure"'), `${route}: automatic publication disclosed`);
+      assert.ok(html.includes('دون مراجعة بشرية قبل النشر'), `${route}: review status clear`);
+      assert.equal(node.author["@id"], `${site.url}${magazine.path}#automatic-desk`, `${route}: automatic author identified`);
+    }
     assert.ok(html.includes("https://wa.me/?text="), `${route}: WhatsApp sharing`);
     assert.ok(html.includes("https://www.linkedin.com/sharing/share-offsite/?url="), `${route}: LinkedIn sharing`);
   }
@@ -61,6 +68,8 @@ assert.equal((index.match(/ data-magazine-card /g) ?? []).length, magazineArticl
 assert.ok(index.includes("data-magazine-search-form hidden"), "search progressively enhanced");
 assert.ok(index.includes("data-magazine-filters hidden"), "filters progressively enhanced");
 assert.ok(index.includes('role="status" aria-live="polite"'), "accessible result announcements");
+assert.ok(index.includes('id="news-sources"'), "official sources are visible");
+assert.ok(index.includes('رصد ونشر تلقائي · كل ساعة'), "hourly publication explained");
 const feed = await readFile(join(root, "riyadh-tech/feed.xml"), "utf8");
 assert.equal((feed.match(/<item>/g) ?? []).length, magazineArticles.length, "RSS includes every story");
 for (const article of magazineArticles) assert.ok(feed.includes(`${site.url}${articlePath(article)}`), "RSS canonical URLs");

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/reflection-beam",
+      "sourceTitle": "Welcome Beam: a 501B open model you can own, customize, and scale",
+      "eventDate": "2026-10-16",
+      "publishedAt": "2026-10-17T09:10:18+03:00",
+      "title": "Beam يصل إلى Hugging Face بنموذج مفتوح للبرمجة والوكلاء",
+      "excerpt": "Hugging Face تعرض نموذج Beam من Reflection، مع أدوات لتشغيله وتخصيصه واستخدامه في مهام البرمجة والوكلاء.",
+      "paragraphs": [
+        "نشرت Hugging Face في 16 أكتوبر 2026 تعريفًا بنموذج Beam من Reflection. يعتمد النموذج بنية مزيج الخبراء، ويستهدف التطبيقات النصية، خصوصًا البرمجة ومهام الوكلاء. وتذكر الصفحة إتاحته بترخيص Apache 2.0، مع خيارات لتشغيله وتخصيصه على بنية الفريق.",
+        "تتضمن المادة مسارات للاستدلال والتدريب اللاحق، ودعمًا في Transformers وvLLM وSGLang. مواصفات النموذج ونتائج التقييم ومتطلبات العتاد منشورة في المصدر الأصلي؛ ولا تمثل اختبارًا مستقلًا أجرته مجلة رياض التقنية."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+      "sourceTitle": "Open From Data Center to Desktop: NVIDIA Expands Nemotron Family With Highest Efficiency Super VL and Bolt Models",
+      "eventDate": "2026-10-15",
+      "publishedAt": "2026-10-17T09:10:18+03:00",
+      "title": "NVIDIA توسّع Nemotron بنماذج للوكلاء من الخوادم إلى الأجهزة المحلية",
+      "excerpt": "إصدارات Super VL وBolt تستهدف تشغيل وكلاء الذكاء الاصطناعي على مستويات مختلفة من البنية التحتية والعتاد.",
+      "paragraphs": [
+        "أعلنت NVIDIA في 15 أكتوبر 2026 نماذج جديدة ضمن عائلة Nemotron، تشمل Super VL للاستخدامات متعددة الوسائط وBolt لتطبيقات الوكلاء على العتاد المحلي. يربط الإعلان بين فهم النصوص والمستندات المرئية واستخدام الأدوات في سير العمل.",
+        "توضح الشركة اختلاف أحجام النماذج ومتطلبات تشغيلها ومواعيد إتاحتها؛ فبعض الإصدارات متاح، بينما يرتبط آخر بموعد لاحق في أكتوبر. أرقام السرعة والدقة الواردة في الإعلان تعود إلى NVIDIA وتقييماتها. يمكن الرجوع إلى المصدر للاطلاع على النماذج المتاحة والتراخيص والتفاصيل التقنية."
+      ]
+    },
+    {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+      "sourceTitle": "Bringing GPT-Rosalind to academic research labs",
+      "eventDate": "2026-10-15",
+      "publishedAt": "2026-10-17T09:10:18+03:00",
+      "title": "OpenAI تعلن خطة أكاديمية لإتاحة GPT-Rosalind للمختبرات المؤهلة",
+      "excerpt": "خطة Rosalind Academic Plan تستهدف دعم البحث في علوم الحياة بإتاحة أدوات ونموذج متخصص للمختبرات المؤهلة.",
+      "paragraphs": [
+        "أعلنت OpenAI في 15 أكتوبر 2026 خطة Rosalind Academic Plan لتوسيع وصول المختبرات الأكاديمية المؤهلة إلى GPT-Rosalind وأدوات البحث المرتبطة به. يركز الإعلان على استخدام الذكاء الاصطناعي في البحث العلمي وعلوم الحياة.",
+        "تتضمن الخطة وصولًا مدعومًا يخضع لمعايير أهلية وإجراءات موافقة، ولا يعني الإعلان إتاحة عامة غير مشروطة لكل المستخدمين. يوضح المصدر الرسمي تفاصيل التقديم والأدوات المشمولة وضوابط الوصول. هذا ملخص للإعلان، ولا يعرض نتائج تجربة أجرتها المجلة."
+      ]
+    }
+  ]
+}

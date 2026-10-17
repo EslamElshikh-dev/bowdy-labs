@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "pollIntervalHours": 1,
+  "maxArticlesPerRun": 8,
+  "lookbackHours": 168,
+  "sources": [
+    { "id": "openai", "name": "OpenAI", "homepage": "https://openai.com/news/", "feed": "https://openai.com/news/rss.xml", "domains": ["openai.com"], "pathPrefixes": ["/index/"], "visual": "OPENAI", "art": "interface" },
+    { "id": "google-ai", "name": "Google AI", "homepage": "https://blog.google/innovation-and-ai/", "feed": "https://blog.google/technology/ai/rss/", "domains": ["blog.google"], "pathPrefixes": ["/innovation-and-ai/", "/technology/ai/", "/products/"], "visual": "GOOGLE AI", "art": "argon" },
+    { "id": "deepmind", "name": "Google DeepMind", "homepage": "https://deepmind.google/blog/", "feed": "https://deepmind.google/blog/rss.xml", "domains": ["deepmind.google"], "pathPrefixes": ["/blog/"], "visual": "DEEPMIND", "art": "knowledge" },
+    { "id": "anthropic", "name": "Anthropic", "homepage": "https://www.anthropic.com/news", "feed": null, "domains": ["anthropic.com", "www.anthropic.com"], "pathPrefixes": ["/news/", "/engineering/", "/claude-"], "visual": "CLAUDE", "art": "haiku" },
+    { "id": "microsoft-ai", "name": "Microsoft AI", "homepage": "https://news.microsoft.com/source/topics/ai/", "feed": null, "domains": ["news.microsoft.com", "blogs.microsoft.com", "www.microsoft.com", "microsoft.ai"], "pathPrefixes": ["/source/", "/blog/", "/ai/", "/en-us/research/", "/en-us/microsoft-copilot/blog/"], "visual": "MICROSOFT", "art": "evaluation" },
+    { "id": "nvidia", "name": "NVIDIA AI", "homepage": "https://blogs.nvidia.com/", "feed": "https://blogs.nvidia.com/feed/", "domains": ["blogs.nvidia.com", "nvidianews.nvidia.com"], "pathPrefixes": ["/blog/", "/news/"], "visual": "NVIDIA", "art": "business" },
+    { "id": "huggingface", "name": "Hugging Face", "homepage": "https://huggingface.co/blog", "feed": "https://huggingface.co/blog/feed.xml", "domains": ["huggingface.co"], "pathPrefixes": ["/blog/"], "trustedOrganizations": ["huggingface", "nvidia", "ibm-granite", "meta"], "visual": "OPEN MODELS", "art": "agents" }
+  ],
+  "editorialSourceUrls": [
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+    "https://openai.com/index/gpt-6-for-everyone/",
+    "https://www.anthropic.com/claude-haiku-5-5",
+    "https://openai.com/index/introducing-the-agents-api/"
+  ]
+}

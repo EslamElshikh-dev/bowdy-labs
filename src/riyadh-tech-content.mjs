@@ -1,3 +1,4 @@
+import { automaticArticles } from "./riyadh-tech-news.mjs";
 // News event dates belong to the original announcements; publication dates belong to this magazine.
 export const magazine = {
   name: "مجلة رياض التقنية",
@@ -14,7 +15,7 @@ export const magazine = {
   ],
 };
 
-export const magazineArticles = [
+export const editorialArticles = [
   {
     slug: "gemini-4-argon-real-world-work",
     title: "Gemini 4 Argon: خطوة جديدة نحو المهام المعقدة",
@@ -137,6 +138,11 @@ export const magazineArticles = [
   },
 ];
 
+export const articlePublishedAt = (article) => article.publishedAt ?? magazine.published;
+export const articleModifiedAt = (article) => article.modifiedAt ?? articlePublishedAt(article);
+export const magazineArticles = [...automaticArticles, ...editorialArticles].sort((a, b) => Date.parse(articlePublishedAt(b)) - Date.parse(articlePublishedAt(a)));
+export const magazineUpdatedAt = magazineArticles.reduce((latest, article) => Date.parse(articleModifiedAt(article)) > Date.parse(latest) ? articleModifiedAt(article) : latest, magazine.published);
+export const articleShareImage = (article) => `/assets/og/riyadh-tech-${article.automated ? `source-${article.sourceId}` : article.slug}.png`;
 export const articlePath = (article) => `${magazine.path}${article.slug}/`;
 export const articleDate = (article) => article.eventDate ?? magazine.published.slice(0, 10);
 export const readingMinutes = (article) => Math.max(1, Math.ceil(article.sections.reduce((count, section) => count + [section.title, ...(section.paragraphs ?? []), ...(section.list ?? [])].join(" ").split(/\s+/u).length, 0) / 180));

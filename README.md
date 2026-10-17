@@ -32,6 +32,9 @@ Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and art
 - `src/riyadh-tech-content.mjs` — magazine identity and editorial content; add or update stories here, preserving source dates separately from magazine publication dates
 - `src/riyadh-tech-page.mjs` — magazine index, article templates, NewsArticle/BlogPosting schema, and RSS
 - `src/riyadh-tech-images.mjs` — locally rendered social cards for the magazine and its stories
+- `src/data/riyadh-tech-sources.json` — seven approved official sources, RSS/newsroom fallbacks, hourly cadence, a seven-day recovery window, and an eight-story per-run batch
+- `src/data/riyadh-tech-news.json` — append-only input for automatic news publication; the scheduled publisher updates this file through GitHub and Vercel deploys the resulting commit
+- `src/riyadh-tech-news.mjs` — validates the publication payload, dates, source domains, canonical URL duplicates, Arabic summaries, and trusted Hugging Face authors; creates stable article URLs and author attribution
 - `build.mjs` — static page templates, structured data, and SEO files
 - `assets/css/main.css` — responsive visual system
 - `assets/js/main.js` — navigation, filters, reveals, accordion, and project brief
@@ -42,3 +45,13 @@ Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and art
 ## Deployment
 
 Vercel runs `npm run build`, serves the generated `dist/` directory, and publishes production from the `main` branch at https://bowdylabs.com.
+
+## Automatic magazine publication
+
+The hourly ChatGPT automation reads the approved source registry and existing news from GitHub, checks RSS or the official newsroom, opens each original announcement, and appends new Arabic summaries to `src/data/riyadh-tech-news.json`. It writes only this data file, using its current content SHA to avoid overwriting concurrent changes. Publication is performed through the connected GitHub/Vercel accounts and does not require a new model API key or a public write endpoint.
+
+Each record contains `sourceId`, `sourceUrl`, `sourceTitle`, `eventDate` (the original announcement date), `publishedAt` (the actual magazine publication timestamp with timezone), `title`, `excerpt`, and `paragraphs` (one to three paragraphs, at most 140 words total). Preserve existing records and publication times. Never substitute the time of discovery for the source date. An invalid, duplicate, future-dated, or unapproved-source payload fails the build while the previous production deployment remains available.
+
+Automatic briefs are visibly labeled and identify the automatic desk as author. NewsArticle metadata, RSS timestamps, sitemap entries, related articles, search and source-specific social cards update during the normal build. Social-image generation is bounded to the editorial set plus the approved sources, rather than regenerating an image for every archived news item. The source list is also visible within the magazine and at `/riyadh-tech/sources.json`.
+
+Validate changes with `npm run test:news`, `npm run build`, and `npm run check:magazine`. The repository's older site-wide validator has pre-existing diagnostics unrelated to the magazine; use the magazine-specific checks and the matching Vercel deployment when validating this publisher.

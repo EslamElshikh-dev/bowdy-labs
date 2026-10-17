@@ -44,7 +44,7 @@ const sitemapUrl = new URL("sitemap.xml", dist);
 let sitemap = await readFile(sitemapUrl, "utf8");
 sitemap = sitemap
   .replace(/\s*<url><loc>https:\/\/bowdylabs\.com\/alarjancrm\/<\/loc>[\s\S]*?<\/url>/g, "")
-  .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${buildDate}</lastmod>`);
+  .replace(/<url>[\s\S]*?<\/url>/g, entry => entry.includes("/riyadh-tech/") ? entry : entry.replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${buildDate}</lastmod>`));
 await writeFile(sitemapUrl, sitemap, "utf8");
 
 console.log(`Post-processed public output for ${buildDate}: trust copy, metadata dates, sitemap privacy, and conversion analytics.`);

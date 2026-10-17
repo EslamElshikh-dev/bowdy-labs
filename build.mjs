@@ -6,7 +6,8 @@ import { agents } from "./src/agents.mjs";
 import { experiencePageModel } from "./src/experience-page.mjs";
 import { agentsPageModel } from "./src/agents-page.mjs";
 import { alarganCrmPage } from "./src/alargan-crm.mjs";
-import { magazine, magazineArticles, articlePath } from "./src/riyadh-tech-content.mjs";
+import { magazine, magazineArticles, magazineUpdatedAt, articlePath, articleModifiedAt } from "./src/riyadh-tech-content.mjs";
+import { newsPolicy } from "./src/riyadh-tech-news.mjs";
 import { magazineIndexModel, magazineArticleModel, magazineFeed } from "./src/riyadh-tech-page.mjs";
 import { generateMagazineShareImages } from "./src/riyadh-tech-images.mjs";
 import {
@@ -913,13 +914,15 @@ insights.forEach((item) => pages.push([`insights/${item.slug}/index.html`, insig
 magazineArticles.forEach((article) => pages.push([`${articlePath(article).slice(1)}index.html`, layout(magazineArticleModel(article)), true]));
 await Promise.all(pages.map(([path, content]) => output(path, content)));
 await output("riyadh-tech/feed.xml", magazineFeed());
+await output("riyadh-tech/sources.json", `${JSON.stringify(newsPolicy, null, 2)}\n`);
 await generateMagazineShareImages(dist);
 
 const routeFor = (file) => (file === "index.html" ? "/" : `/${file.replace(/index\.html$/, "")}`);
 const routes = pages.filter(([, , indexable]) => indexable).map(([file]) => routeFor(file));
+const magazineRouteDates = new Map([[magazine.path, magazineUpdatedAt.slice(0, 10)], ...magazineArticles.map(article => [articlePath(article), articleModifiedAt(article).slice(0, 10)])]);
 await output(
   "sitemap.xml",
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>${route.startsWith(magazine.path) ? magazine.published.slice(0, 10) : "2026-08-16"}</lastmod><changefreq>${route === magazine.path ? "weekly" : "monthly"}</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" || route === "/agents/" || route === magazine.path ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>${magazineRouteDates.get(route) ?? "2026-08-16"}</lastmod><changefreq>${route === magazine.path ? "hourly" : "monthly"}</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" || route === "/agents/" || route === magazine.path ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
 );
 await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 await output(
