@@ -45,6 +45,8 @@ for (const route of routes) {
   const graphs = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap(m => JSON.parse(m[1])["@graph"] ?? []);
   assert.ok(graphs.some(n => n["@type"] === "Periodical" && n.name === magazine.name), `${route}: magazine identity`);
   assert.ok(graphs.some(n => n["@type"] === "BreadcrumbList"), `${route}: breadcrumbs`);
+  assert.ok(html.includes('data-motion="off"'), `${route}: motion is opt-in after progressive enhancement`);
+  assert.ok(html.includes("data-motion-toggle hidden"), `${route}: accessible motion control`);
   assert.ok(html.includes('class="rt-navigation"'), `${route}: magazine navigation`);
   for (const section of magazineSections) assert.ok(html.includes(`href="${sectionPath(section.id)}"`), `${route}: section route ${section.id}`);
   const article = magazineArticles.find(a => articlePath(a) === route);

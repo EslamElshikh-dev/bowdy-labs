@@ -63,3 +63,7 @@ The magazine remains on the main domain under `/riyadh-tech/`. Its `news/`, `exp
 `search/` searches all published titles, summaries and tags, with combined section/source filters and chronological sorting. Query state is shareable through `q`, `category`, `source`, and `sort` URL parameters. `saved/` uses browser local storage without accounts; font preferences are also device-local. These two utility routes are excluded from the sitemap. `about/` explains attribution, automatic publishing, and corrections.
 
 Run `npm run test:magazine`, `npm run build`, and `npm run check:magazine` for route, publisher, indexing, source-date, asset and link checks. New automatic-news entries are included in all appropriate section, source, search, archive and RSS views on every build without modifying routing files.
+
+## Magazine visual system
+
+The magazine uses seven locally rendered SVG illustration families in `src/riyadh-tech-art.mjs`, an editorial cover, responsive source cards, and a dedicated article reading layout. No third-party illustration requests or animation library are required. Motion starts only after enhancement, respects the operating system reduced-motion preference, pauses while the document is hidden, and can be disabled from the magazine navigation. The preference uses `riyadh-tech:motion:v1` in browser local storage; search, reading lists, typography and publisher behavior remain independent.

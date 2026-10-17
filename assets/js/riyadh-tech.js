@@ -208,4 +208,109 @@
       }
     });
   }
+  // Motion is optional: content is visible before enhancement and when motion is paused.
+  const motionButton = root.querySelector("[data-motion-toggle]");
+  const motionLabel = root.querySelector("[data-motion-label]");
+  const motionKey = "riyadh-tech:motion:v1";
+  const media = typeof window.matchMedia === "function" ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  const finePointer = typeof window.matchMedia === "function" && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const tiltTargets = [...root.querySelectorAll("[data-rt-tilt]")];
+  const runningAnimations = new Set();
+  let preferredMotion = null;
+  let motionEnabled = false;
+  try { preferredMotion = localStorage.getItem(motionKey); } catch { /* Motion can be controlled for this visit. */ }
+  function cancelVisualAnimations() {
+    for (const animation of runningAnimations) animation.cancel();
+    runningAnimations.clear();
+  }
+  function applyMotion() {
+    const reduced = media ? media.matches : true;
+    motionEnabled = !reduced && preferredMotion !== "off";
+    root.dataset.motion = motionEnabled ? "on" : "off";
+    if (motionButton) {
+      motionButton.hidden = false;
+      motionButton.disabled = reduced;
+      motionButton.setAttribute("aria-pressed", String(motionEnabled));
+      motionButton.title = reduced ? "الحركة متوقفة وفق إعداد تقليل الحركة على جهازك." : "تشغيل الحركة البصرية أو إيقافها";
+    }
+    if (motionLabel) motionLabel.textContent = motionEnabled ? "الحركة مفعّلة" : "الحركة متوقفة";
+    if (!motionEnabled) {
+      cancelVisualAnimations();
+      for (const target of tiltTargets) {
+        target.style.removeProperty("--rt-tilt-x");
+        target.style.removeProperty("--rt-tilt-y");
+      }
+    }
+  }
+  motionButton?.addEventListener("click", () => {
+    if (media?.matches || !media) return;
+    preferredMotion = motionEnabled ? "off" : "on";
+    try { localStorage.setItem(motionKey, preferredMotion); } catch { /* Keep the preference for this visit. */ }
+    applyMotion();
+  });
+  if (typeof media?.addEventListener === "function") media.addEventListener("change", applyMotion);
+  else if (typeof media?.addListener === "function") media.addListener(applyMotion);
+  document.addEventListener("visibilitychange", () => {
+    root.dataset.pageHidden = String(document.hidden === true);
+    if (document.hidden) cancelVisualAnimations();
+  });
+  applyMotion();
+
+  function reveal(target, delay = 0) {
+    if (!motionEnabled || document.hidden || typeof target.animate !== "function") return;
+    const animation = target.animate([{opacity:0.2,transform:"translateY(19px)"},{opacity:1,transform:"translateY(0)"}], {duration:620,delay,easing:"cubic-bezier(.2,.7,.2,1)"});
+    runningAnimations.add(animation);
+    animation.finished?.then(() => runningAnimations.delete(animation), () => runningAnimations.delete(animation));
+  }
+  const intro = root.querySelector(".rt-masthead-copy, .rt-hub-copy, .rt-article-head");
+  if (intro) reveal(intro);
+  if (typeof window.IntersectionObserver === "function") {
+    const revealObserver = new window.IntersectionObserver(entries => {
+      let stagger = 0;
+      for (const entry of entries) if (entry.isIntersecting) {
+        revealObserver.unobserve(entry.target);
+        reveal(entry.target, (stagger++ % 3) * 65);
+      }
+    }, {threshold:0.12,rootMargin:"0px 0px -15px 0px"});
+    for (const target of root.querySelectorAll("[data-rt-reveal]")) revealObserver.observe(target);
+
+    const tocLinks = [...root.querySelectorAll('.rt-toc nav a[href^="#"]')];
+    const tocSections = [...root.querySelectorAll(".rt-prose section[id]")];
+    if (tocLinks.length && tocSections.length) {
+      const sectionObserver = new window.IntersectionObserver(entries => {
+        const current = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!current) return;
+        for (const link of tocLinks) if (link.getAttribute("href") === `#${current.target.id}`) link.setAttribute("aria-current", "location"); else link.removeAttribute("aria-current");
+      }, {rootMargin:"-18% 0px -58% 0px",threshold:0});
+      tocSections.forEach(section => sectionObserver.observe(section));
+    }
+  }
+
+  if (finePointer && typeof requestAnimationFrame === "function") for (const target of tiltTargets) {
+    let pending = false;
+    let pointer = null;
+    target.addEventListener("pointermove", event => {
+      if (!motionEnabled || document.hidden) return;
+      pointer = {x:event.clientX,y:event.clientY};
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        pending = false;
+        if (!pointer || !motionEnabled) return;
+        const rect = target.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const x = Math.min(1, Math.max(0, (pointer.x - rect.left) / rect.width));
+        const y = Math.min(1, Math.max(0, (pointer.y - rect.top) / rect.height));
+        target.style.setProperty("--rt-tilt-x", `${((0.5-y)*3).toFixed(2)}deg`);
+        target.style.setProperty("--rt-tilt-y", `${((x-0.5)*-4).toFixed(2)}deg`);
+        target.style.setProperty("--rt-pointer-x", `${(x*100).toFixed(1)}%`);
+        target.style.setProperty("--rt-pointer-y", `${(y*100).toFixed(1)}%`);
+      });
+    }, {passive:true});
+    target.addEventListener("pointerleave", () => {
+      pointer = null;
+      target.style.removeProperty("--rt-tilt-x");
+      target.style.removeProperty("--rt-tilt-y");
+    });
+  }
 })();

@@ -1,6 +1,7 @@
 import sharp from "sharp";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { writeFile, rename } from "node:fs/promises";
 import { magazine, editorialArticles } from "./riyadh-tech-content.mjs";
 import { newsSources } from "./riyadh-tech-news.mjs";
 
@@ -24,12 +25,17 @@ export async function generateMagazineShareImages(dist) {
     const label = await lettering(article.label, "Sora", "sora-400.woff2", 15, "#a8bad1");
     const top = await lettering("BOWDY LABS / RIYADH TECH", "Sora", "sora-500.woff2", 17, color);
     const bottom = await lettering("BOWDYLABS.COM/RIYADH-TECH", "Sora", "sora-400.woff2", 14, "#a8bad1");
-    await sharp(Buffer.from(graphic)).composite([
+    const image = await sharp(Buffer.from(graphic)).composite([
       { input: title.data, left: Math.round((1200 - title.info.width) / 2), top: 200 },
       { input: visual.data, left: Math.round((1200 - visual.info.width) / 2), top: 298 },
       { input: label.data, left: Math.round((1200 - label.info.width) / 2), top: 424 },
       { input: top.data, left: 70, top: 80 },
       { input: bottom.data, left: 70, top: 583 },
-    ]).png({ compressionLevel: 9 }).toFile(join(dist, "assets", "og", `riyadh-tech${article.slug ? `-${article.slug}` : ""}.png`));
+    ]).png({ compressionLevel: 9 }).toBuffer();
+    if (image.length < 24 || image.toString("hex", 0, 8) !== "89504e470d0a1a0a" || image.readUInt32BE(16) !== 1200 || image.readUInt32BE(20) !== 630) throw new Error("Invalid magazine share image");
+    // Publish a complete encoded image atomically; native streaming file writes can leave empty assets.
+    const destination = join(dist, "assets", "og", `riyadh-tech${article.slug ? `-${article.slug}` : ""}.png`);
+    await writeFile(`${destination}.tmp`, image);
+    await rename(`${destination}.tmp`, destination);
   }
 }
