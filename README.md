@@ -13,6 +13,7 @@ Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and art
 - Organization, LocalBusiness, ProfessionalService, OfferCatalog, Service, FAQ, Article, BreadcrumbList, and WebPage structured data
 - Sitemap, robots, security.txt, PWA manifest, Open Graph image, and `llms.txt`
 - Local Sora and IBM Plex Sans Arabic fonts
+- مجلة رياض التقنية at `/riyadh-tech/`: Arabic AI news, explainers, searchable categories, source attribution, standalone articles, RSS, and per-article social cards
 
 ## Commands
 
@@ -20,6 +21,7 @@ Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and art
 - `npm run validate` — validate metadata, schema, internal links, responsive assets, and the sitemap
 - `npm run smoke` — serve `dist/` temporarily and check important routes
 - `npm run check` — run syntax checks, build, validation, and smoke tests
+- `npm run check:magazine` — validate the built magazine's routes, metadata, dates, sources, RSS, social cards, and internal links
 - `npm run serve` — preview `dist/` on port 4173
 
 ## Source structure
@@ -27,6 +29,9 @@ Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and art
 - `src/content.mjs` — brand, services, work, insights, and contact data
 - `src/agents.mjs` — bilingual agent roles, tasks, outcomes, and voice
 - `src/agents-page.mjs` — Arabic and English agent showcase templates and structured data
+- `src/riyadh-tech-content.mjs` — magazine identity and editorial content; add or update stories here, preserving source dates separately from magazine publication dates
+- `src/riyadh-tech-page.mjs` — magazine index, article templates, NewsArticle/BlogPosting schema, and RSS
+- `src/riyadh-tech-images.mjs` — locally rendered social cards for the magazine and its stories
 - `build.mjs` — static page templates, structured data, and SEO files
 - `assets/css/main.css` — responsive visual system
 - `assets/js/main.js` — navigation, filters, reveals, accordion, and project brief

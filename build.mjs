@@ -6,6 +6,9 @@ import { agents } from "./src/agents.mjs";
 import { experiencePageModel } from "./src/experience-page.mjs";
 import { agentsPageModel } from "./src/agents-page.mjs";
 import { alarganCrmPage } from "./src/alargan-crm.mjs";
+import { magazine, magazineArticles, articlePath } from "./src/riyadh-tech-content.mjs";
+import { magazineIndexModel, magazineArticleModel, magazineFeed } from "./src/riyadh-tech-page.mjs";
+import { generateMagazineShareImages } from "./src/riyadh-tech-images.mjs";
 import {
   insights,
   services,
@@ -84,6 +87,7 @@ function header(active = "", language = "ar") {
         ["work", "/work/", "Work"],
         ["about", "/about/", "About"],
         ["insights", "/insights/", "Insights"],
+        ["magazine", "/riyadh-tech/", "Riyadh Tech"],
       ]
     : [
         ["home", "/", "الرئيسية"],
@@ -93,6 +97,7 @@ function header(active = "", language = "ar") {
         ["work", "/work/", "الأعمال"],
         ["about", "/about/", "عن باودي"],
         ["insights", "/insights/", "مدونتنا"],
+        ["magazine", "/riyadh-tech/", "رياض التقنية"],
       ];
   const links = items
     .map(([key, href, label]) => `<a href="${href}"${key === active ? ' aria-current="page"' : ""}>${label}</a>`)
@@ -129,7 +134,7 @@ function footer(language = "ar") {
         <span class="footer-tagline" lang="en" dir="ltr">${site.taglineEn}</span>
       </div>
       <div><h2>${english ? "Explore" : "استكشف"}</h2><a href="${english ? "/en/experience/" : "/experience/"}">${english ? "BOWDY Models" : "نماذج باودي"}</a><a href="/services/">${english ? "Services" : "الخدمات"}</a><a href="${english ? "/en/agents/" : "/agents/"}">${english ? "AI agents" : "وكلاء باودي"}</a><a href="/work/">${english ? "Selected work" : "الأعمال"}</a><a href="/about/">${english ? "About the lab" : "عن باودي لابز"}</a><a href="/insights/">${english ? "Insights" : "مدونتنا"}</a></div>
-      <div class="footer-services"><h2>${english ? "Capabilities" : "المسارات"}</h2>${services.slice(0, 6).map((service) => `<a href="/services/${service.slug}/">${english ? service.titleEn : service.title}</a>`).join("")}</div>
+      <div class="footer-services"><h2>${english ? "Capabilities" : "المسارات"}</h2>${services.slice(0, 6).map((service) => `<a href="/services/${service.slug}/">${english ? service.titleEn : service.title}</a>`).join("")}<a href="/riyadh-tech/">${english ? "Riyadh Tech Magazine (Arabic)" : "مجلة رياض التقنية"}</a></div>
       <div class="footer-contact"><h2>${english ? "Contact" : "تواصل"}</h2><a href="tel:${site.phone}" dir="ltr">${icon("phone")}${site.phoneDisplay}</a><a href="${site.whatsapp}" target="_blank" rel="noopener">${icon("whatsapp")}WhatsApp</a><a href="mailto:${site.email}">${icon("mail")}<span>${site.email}</span></a><span class="footer-registration">${icon("shield")}<span>${english ? "Unified National No." : "الرقم الوطني الموحد"} <b dir="ltr">${site.unifiedNationalNumber}</b></span></span><span>${icon("pin")}<span>${english ? "Riyadh, Saudi Arabia" : `${site.city}، ${site.country}`}</span></span></div>
     </div>
     <div class="container footer-bottom"><p>© ${year} ${site.nameEn}. ${english ? "All rights reserved." : "جميع الحقوق محفوظة."}</p><div><a href="/privacy/">${english ? "Privacy" : "الخصوصية"}</a><a href="/terms/">${english ? "Terms" : "الشروط"}</a><a href="/.well-known/security.txt">${english ? "Security" : "الإبلاغ الأمني"}</a></div></div>
@@ -224,12 +229,18 @@ function layout({
   preloadHero = false,
   mainEntity = null,
   alternatePath = null,
+  styles = [],
+  scripts = [],
+  shareImage = site.shareImage,
+  dateModified = "2026-08-16",
+  pageType = "WebPage",
+  head = "",
 }) {
   const english = language === "en";
   const canonical = `${site.url}${path}`;
   const pageTitle = path === "/" || path === "/en/" ? title : `${title} | ${site.nameEn}`;
   const pageSchema = {
-    "@type": "WebPage",
+    "@type": pageType,
     "@id": `${canonical}#webpage`,
     url: canonical,
     name: pageTitle,
@@ -238,7 +249,7 @@ function layout({
     isPartOf: { "@id": `${site.url}/#website` },
     about: { "@id": `${site.url}/#organization` },
     ...(mainEntity ? { mainEntity } : {}),
-    dateModified: "2026-08-16",
+    dateModified,
   };
   const alternate = path === "/" || path === "/en/";
   const alternateLinks = alternatePath
@@ -276,15 +287,17 @@ function layout({
   <meta property="og:title" content="${esc(pageTitle)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:url" content="${canonical}">
-  <meta property="og:image" content="${site.url}${site.shareImage}">
+  <meta property="og:image" content="${site.url}${shareImage}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${esc(pageTitle)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(pageTitle)}">
   <meta name="twitter:description" content="${esc(description)}">
-  <meta name="twitter:image" content="${site.url}${site.shareImage}">
-  <link rel="stylesheet" href="/assets/css/main.css?v=20260906-3">
+  <meta name="twitter:image" content="${site.url}${shareImage}">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20261017-1">
+  ${styles.map(href => `<link rel="stylesheet" href="${esc(href)}">`).join("\n  ")}
+  ${head}
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
   ${schemaScript([pageSchema, organizationSchema, websiteSchema, professionalServiceSchema, ...schema])}
 </head>
@@ -294,6 +307,7 @@ function layout({
   <main id="main">${body}</main>
   ${footer(language)}
   <script src="/assets/js/main.js?v=20260906-3" defer></script>
+  ${scripts.map(src => `<script src="${esc(src)}" defer></script>`).join("\n  ")}
 </body>
 </html>`;
 }
@@ -475,6 +489,7 @@ function homePage() {
       <div class="work-grid">${work.map(workCard).join("")}</div>
       <div class="section-action"><a class="button button-ghost" href="/work/">استكشف الأعمال ${icon("arrow", "button-icon")}</a></div>
     </div></section>
+    <section class="section-pad magazine-home-section"><div class="container"><div class="magazine-home-banner"><div><span class="eyebrow"><i aria-hidden="true"></i>مجلة رياض التقنية</span><h2>اقرأ تحوّلات الذكاء الاصطناعي، وافهم ما تعنيه.</h2><p>أخبار بمصادرها، وشروحات عربية عن النماذج والوكلاء والأدوات وتطبيقات الأعمال.</p></div><a class="button button-ghost" href="/riyadh-tech/">استكشف المجلة ${icon("arrow", "button-icon")}</a></div></div></section>
     <section class="section-pad insights-section"><div class="container">
       ${sectionHead("مدونتنا", "رؤى عملية قبل القرار التقني", "محتوى يشرح المخاطر والخيارات ومعايير الاختيار في الذكاء الاصطناعي والأمن والويب والبحث.")}
       <div class="insights-grid">${insights.map(insightCard).join("")}</div>
@@ -886,6 +901,7 @@ const pages = [
   ["about/index.html", aboutPage(), true],
   ["work/index.html", workPage(), true],
   ["insights/index.html", insightsPage(), true],
+  ["riyadh-tech/index.html", layout(magazineIndexModel()), true],
   ["contact/index.html", contactPage(), true],
   ["privacy/index.html", legalPage("privacy"), true],
   ["terms/index.html", legalPage("terms"), true],
@@ -894,13 +910,16 @@ const pages = [
 
 services.forEach((service) => pages.push([`services/${service.slug}/index.html`, servicePage(service), true]));
 insights.forEach((item) => pages.push([`insights/${item.slug}/index.html`, insightPage(item), true]));
+magazineArticles.forEach((article) => pages.push([`${articlePath(article).slice(1)}index.html`, layout(magazineArticleModel(article)), true]));
 await Promise.all(pages.map(([path, content]) => output(path, content)));
+await output("riyadh-tech/feed.xml", magazineFeed());
+await generateMagazineShareImages(dist);
 
 const routeFor = (file) => (file === "index.html" ? "/" : `/${file.replace(/index\.html$/, "")}`);
 const routes = pages.filter(([, , indexable]) => indexable).map(([file]) => routeFor(file));
 await output(
   "sitemap.xml",
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" || route === "/agents/" ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site.url}${route}</loc><lastmod>${route.startsWith(magazine.path) ? magazine.published.slice(0, 10) : "2026-08-16"}</lastmod><changefreq>${route === magazine.path ? "weekly" : "monthly"}</changefreq><priority>${route === "/" ? "1.0" : route === "/services/" || route === "/agents/" || route === magazine.path ? "0.9" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`,
 );
 await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 await output(

@@ -90,6 +90,7 @@ const llms = `# BOWDY LABS — باودي لابز
 - [BOWDY AI Agents](https://bowdylabs.com/agents/)
 - [Selected work](https://bowdylabs.com/work/)
 - [Insights](https://bowdylabs.com/insights/)
+- [مجلة رياض التقنية — AI news and explainers in Arabic](https://bowdylabs.com/riyadh-tech/)
 - [About BOWDY LABS](https://bowdylabs.com/about/)
 - [Contact](https://bowdylabs.com/contact/)
 
@@ -120,6 +121,7 @@ const llms = `# BOWDY LABS — باودي لابز
 - [XML sitemap](https://bowdylabs.com/sitemap.xml)
 - [Arabic RSS](https://bowdylabs.com/feed.xml)
 - [English RSS](https://bowdylabs.com/en/feed.xml)
+- [مجلة رياض التقنية RSS](https://bowdylabs.com/riyadh-tech/feed.xml)
 
 ## Notes for agents
 
