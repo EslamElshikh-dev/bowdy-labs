@@ -325,6 +325,45 @@
         "أضافت الشركة كذلك مكونات مفتوحة المصدر إلى DSX لإعداد الشبكات وفحص جاهزية عناقيد الحوسبة وإدارة الرفوف وتجهيز الخوادم. الإعلان يخص تصاميم ومواصفات ومكونات برمجية محددة؛ ولا يعني فتح جميع تقنيات العتاد أو إتاحة منظومة Vera Rubin كاملة بترخيص مفتوح."
       ],
       "publishedAt": "2026-10-17T11:40:33.912+03:00"
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-rtx-spark-pcs-available-today-a-new-beginning-for-windows-pcs",
+      "sourceTitle": "NVIDIA RTX Spark PCs Available Today — A New Beginning for Windows PCs",
+      "eventDate": "2026-10-16",
+      "title": "NVIDIA تتيح حواسيب RTX Spark لتشغيل نماذج الذكاء الاصطناعي محليًا",
+      "excerpt": "الإطلاق يضم أدوات تطوير CUDA وPyTorch على Windows on Arm، مع ذاكرة موحدة تصل إلى ١٢٨ جيجابايت بحسب الجهاز.",
+      "paragraphs": [
+        "أعلنت NVIDIA في 16 أكتوبر 2026 إتاحة حواسيب RTX Spark المحمولة من شركائها لتشغيل النماذج والوكلاء محليًا على Windows. تجمع المنصة معالج Grace ورسوميات Blackwell RTX، بذاكرة موحدة تصل إلى ١٢٨ جيجابايت بحسب التهيئة، لتطوير تطبيقات الذكاء الاصطناعي واختبارها على الجهاز.",
+        "يتضمن الإعلان تجهيز أدوات للمطورين، منها إصدار PyTorch-CUDA لنظام Windows on Arm ومثبت Conda أصلي. وتختلف قابلية تشغيل النماذج والتطبيقات بحسب توافق البرمجيات والذاكرة؛ أما قدرات الحوسبة المنشورة فهي مواصفات تعلنها الشركة، وليست اختبارًا مستقلًا من المجلة."
+      ],
+      "publishedAt": "2026-10-18T00:47:25.990+03:00"
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/adobe-and-nvidia-expand-collaboration-to-speed-agentic-creation",
+      "sourceTitle": "Adobe and NVIDIA Expand Collaboration to Speed Agentic Creation",
+      "eventDate": "2026-10-15",
+      "title": "Adobe تستخدم تقنيات NVIDIA لتسريع البحث الذكي في مكتبات الفيديو",
+      "excerpt": "تحديث Frame.io ينقل فك الفيديو ومعالجته وتوليد التضمينات إلى المعالجات الرسومية، مع تطوير Brand Concierge باستخدام Nemotron.",
+      "paragraphs": [
+        "أعلنت Adobe وNVIDIA في 15 أكتوبر 2026 تحديث مسار معالجة الوسائط في Frame.io باستخدام NVDEC وTensorRT وCUDA. ينقل المسار فك الفيديو والمعالجة الأولية وتوليد التضمينات إلى المعالجات الرسومية، لتجهيز المحتوى للبحث والاكتشاف داخل مكتبات الإنتاج.",
+        "يشمل التعاون تحسين أدوات إبداعية على RTX Spark وتطوير Brand Concierge بنماذج Nemotron المفتوحة؛ وتوضح المادة أن هذه النسخة موجهة للإتاحة المؤسسية لاحقًا هذا العام. نتائج التسريع المذكورة تخص اختبارات مختارة لدى الشركتين، ولا تضمن الأداء نفسه لكل مشروع أو بيئة تشغيل."
+      ],
+      "publishedAt": "2026-10-18T00:47:25.990+03:00"
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-and-semiconductor-leaders-advance-ai-across-chip-design-and-manufacturing-for-ai-defined-labs",
+      "sourceTitle": "NVIDIA and Semiconductor Leaders Advance AI Across Chip Design and Manufacturing for AI-Defined Fabs",
+      "eventDate": "2026-10-14",
+      "title": "NVIDIA تقدم cuPotential لربط وكلاء الذكاء الاصطناعي بالمحاكاة الذرية",
+      "excerpt": "مكتبة ضمن CUDA-X متاحة بوصول مبكر، تستهدف تسريع محاكاة تفاعلات الذرات والجزيئات في أبحاث المواد وتصنيع الشرائح.",
+      "paragraphs": [
+        "أعلنت NVIDIA في 14 أكتوبر 2026 مكتبة cuPotential ضمن CUDA-X لمساعدة المطورين على بناء وكلاء يشغّلون محاكاة التفاعلات بين الذرات والجزيئات ويقيّمون نتائجها ويكررون التجارب. تستهدف الأدوات أبحاث المواد وعمليات تصنيع أشباه الموصلات، وتذكر الشركة Synopsys ضمن المستخدمين الأوائل.",
+        "المكتبة متاحة بوصول مبكر، بينما تختلف مراحل إتاحة المكونات والتكاملات الأخرى في الإعلان. وتعرض NVIDIA تسريعًا إضافيًا في اختبارات مبكرة لأعمال محسنة مسبقًا للمعالجات الرسومية؛ هذه نتائج الشركة ضمن إعداداتها، وليست قياسًا أجرته المجلة أو ضمانًا لكل محاكاة."
+      ],
+      "publishedAt": "2026-10-18T00:47:25.990+03:00"
     }
   ]
 }
