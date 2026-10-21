@@ -546,6 +546,71 @@
         "أعلنت NVIDIA في 21 أكتوبر 2026 توسيع محفظتها من النماذج المفتوحة لتشمل Nemotron 3.5 للغة والرؤية، ونماذج Nemotron Retriever للاسترجاع، وعائلة Kumo للبيانات المنظمة، إضافة إلى Cosmos 3.5 للروبوتات، وAlpamayo 2 Edge للمركبات ذاتية القيادة.",
         "تضم المحفظة كذلك نموذج BioNeMo RFD4-Proteina لتصميم البروتينات وعائلة Ising لتطبيقات الحوسبة الكمية. وتهدف الإصدارات إلى منح المطورين والباحثين أساسًا يمكن تكييفه مع اللغات والبيانات المحلية ونشره على بنية تحتية خاضعة لسيطرتهم، مع توفر المكونات عبر قنوات متعددة بحسب كل نموذج."
       ]
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/local-ai-gtc-rtx-dgx-spark-station-sync/",
+      "sourceTitle": "Bringing the Spark to Europe: Local Intelligence Powers Next Wave of Agents",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T14:11:52+03:00",
+      "title": "NVIDIA توسّع أنظمة الذكاء الاصطناعي المحلي للوكلاء والروبوتات",
+      "excerpt": "عرضت NVIDIA تحديثات لمنصات RTX Spark وDGX Spark وDGX Station، تشمل تشغيل وكلاء محليين وأدوات لتجميع الأجهزة وسير عمل مفتوح للروبوتات.",
+      "paragraphs": [
+        "أعلنت NVIDIA في 21 أكتوبر 2026 تحديثات لمنصات الذكاء الاصطناعي المحلي. يشغّل RTX Spark وكلاء شخصيين على Windows، ويخدم DGX Spark المطورين على Linux، بينما يستهدف DGX Station فرق المؤسسات التي تتعامل مع أحمال أكبر.",
+        "تشمل الإضافات وكيل Underdog المحلي، وإصدار DGX Spark بسعة 64 جيجابايت، وتحديث NVIDIA Sync لربط ما يصل إلى ثمانية أجهزة وإضافة Model Launcher. كما أعلنت الشركة سير عمل مفتوح المصدر للروبوتات، ودعم نماذج جديدة وتحسينات لمحركي llama.cpp وvLLM، مع طرح بعض المكونات في مواعيد لاحقة."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/",
+      "sourceTitle": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T14:11:52+03:00",
+      "title": "Google Cloud تطرح بنية Vera Rubin لتدريب الوكلاء والتعلّم المعزز",
+      "excerpt": "تستعد Google Cloud لإتاحة مثيلات A5X المبنية على أنظمة NVIDIA Vera Rubin، والمصممة للتدريب والاستدلال والتعلّم المعزز على نطاق واسع.",
+      "paragraphs": [
+        "أعلنت NVIDIA أن Google Cloud ستتيح مثيلات A5X المبنية على أنظمة Vera Rubin NVL72 خلال نوفمبر 2026، مع توسع مخطط إلى أوروبا. تجمع المنصة معالجات NVIDIA وشبكات ConnectX-9 وشبكة Virgo من Google Cloud وتقنيات تبريد سائل لدعم تدريب النماذج واستدلال الوكلاء والتعلّم المعزز واسع النطاق.",
+        "كانت شركة Ineffable Intelligence أول مستخدم مبكر للمنصة في أبحاث التعلّم المعزز المستمر. كما عرضت WPP بنية لوكلاء إبداعيين تستخدم نماذج Nemotron وOpenShell لتنفيذ مهام متعددة الخطوات داخل بيئات محكومة، مع موافقة بشرية قبل التنفيذ."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/europe-industrial-leaders-engineering-manufacturing/",
+      "sourceTitle": "Europe’s Industrial Leaders Reinvent Engineering and Manufacturing With NVIDIA",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T14:11:52+03:00",
+      "title": "NVIDIA تتيح مخطط FOX لبناء وكلاء يديرون عمليات المصانع",
+      "excerpt": "أصبح مخطط Factory Operations Blueprint متاحًا مبكرًا لبناء وكلاء يراقبون المصانع، ويحللون الأعطال، وينسقون الاستجابة بين الأنظمة.",
+      "paragraphs": [
+        "أتاحت NVIDIA مخطط Factory Operations Blueprint، المعروف اختصارًا بـFOX، بوصول مبكر على GitHub. يساعد المخطط المطورين على بناء وكيل لإدارة المصنع ووكلاء متخصصين للفحص البصري وتحليل الأسباب الجذرية وإعداد التقارير وإدارة الأساطيل.",
+        "يمكن للوكلاء الاتصال بنماذج Cosmos وNemotron وبمصادر هندسية مثل التصميم بمساعدة الحاسوب وإدارة دورة حياة المنتج وأنظمة المحاكاة وتقنية التشغيل. وتقول NVIDIA إن Siemens تدمج وكلاء مبنيين على FOX داخل Intelligence Center X، فيما تستخدم أدوات Cosmos Data Factory لتوليد صور عيوب تساعد على إعداد أنظمة فحص اللوحات الإلكترونية."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/confidential-computing-model-builders-infrastructure/",
+      "sourceTitle": "NVIDIA Confidential Computing Expands, Enabling Frontier Model Builders to Securely Scale Across Global Infrastructure",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T14:11:52+03:00",
+      "title": "NVIDIA تضيف Confidential Bare Metal لحماية النماذج والبيانات أثناء التشغيل",
+      "excerpt": "وسّعت NVIDIA الحوسبة السرية بخيار Bare Metal يحمي أحمال النماذج والبيانات على بنية مخصصة لدى مزود خارجي مع إبقاء التحكم بيد المطور.",
+      "paragraphs": [
+        "أعلنت NVIDIA خيار Confidential Bare Metal ضمن منظومة الحوسبة السرية، لتمكين مطوري النماذج من تشغيل الأحمال الحساسة على خوادم مخصصة لدى مزودي بنية خارجية مع الاحتفاظ بالتحكم في النماذج والبيانات والبرمجيات.",
+        "تضيف المنصة ضوابط لحماية البيانات أثناء النقل وقياس سلامة البيئة وفرض قيود وصول على مستوى العتاد. وتعرض NVIDIA ثلاثة أنماط للنشر: الخوادم المباشرة، والحاويات ضمن Kubernetes، والآلات الافتراضية، مع توسيع الدعم عبر أنظمة Grace Blackwell وRubin وإدماجه في بنية DSX OS."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories",
+      "sourceTitle": "Announcing SimReady Central: An Open Library of Simulation-Ready 3D Assets for Robotics and AI Factories",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T14:11:52+03:00",
+      "title": "NVIDIA وHugging Face تطلقان مكتبة SimReady لأصول المحاكاة ثلاثية الأبعاد",
+      "excerpt": "تجمع SimReady Central أكثر من ألفي أصل OpenUSD مجهز بخصائص المحاكاة، لبناء بيئات تدريب للروبوتات وتوائم رقمية لمصانع الذكاء الاصطناعي.",
+      "paragraphs": [
+        "أعلنت NVIDIA عبر مدونتها الرسمية على Hugging Face مكتبة SimReady Central، التي تضم أكثر من ألفي أصل ثلاثي الأبعاد بصيغة OpenUSD، ومتاحة مجانًا ومن دون بوابة تسجيل لبناء بيئات تدريب للذكاء الاصطناعي الفيزيائي وتوائم رقمية لمصانع الذكاء الاصطناعي.",
+        "تتضمن الأصول أذرعًا وقوابض روبوتية ومعدات مستودعات ورفوفًا وتجهيزات تبريد، مع خصائص لازمة للمحاكاة مثل هندسة التصادم والكتلة والاحتكاك. ويمكن للمصنعين تجهيز أصولهم والتحقق منها ونشرها ضمن مجموعات بيانات يديرونها على Hugging Face، بينما يعرض الإعلان أمثلة للالتقاط والوضع ومقارنة تخطيطات المصانع."
+      ]
     }
   ]
 }
