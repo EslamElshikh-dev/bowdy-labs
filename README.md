@@ -26,7 +26,7 @@ Use Node.js 24 and run `npm ci --include=dev` before building or checking a fres
 - `npm run check:magazine` — validate the built magazine's routes, metadata, dates, sources, RSS, social cards, and internal links
 - `npm run serve` — preview `dist/` on port 4173
 
-`Site quality checks` installs the locked dependencies and runs the full `npm run check` chain on pull requests targeting `main`, matching pushes to `main`, and manual runs. The npm download cache is keyed by `package-lock.json`; dependencies are installed on every run, including cache hits. Build, magazine, SEO, and smoke failures fail the job.
+`Site quality checks` installs the locked dependencies, runs `npm audit --audit-level=high`, and runs the full `npm run check` chain on pull requests targeting `main`, matching pushes to `main`, and manual runs. The Node.js 24 actions are pinned to their verified release commits. The npm download cache is keyed by `package-lock.json`; dependencies are installed on every run, including cache hits. Dependency vulnerabilities at high or critical severity, build, magazine, SEO, and smoke failures fail the job.
 
 ## Source structure
 

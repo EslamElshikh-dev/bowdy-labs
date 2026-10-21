@@ -212,7 +212,7 @@ export const insightClusters = [
       ],
     },
     ar: {
-      title: "أتمتة الأعمال بالذكاء الاصطناعي في السعودية: من سير العمل إلى نظام قابل للقياس",
+      title: "أتمتة الأعمال بالذكاء الاصطناعي في السعودية: التخطيط والقياس",
       description: "محور عملي للشركات السعودية التي تقيّم أتمتة الذكاء الاصطناعي، يغطي اختيار العملية وجاهزية البيانات والتكامل والملكية البشرية والقياس والتوسع المرحلي.",
       kicker: "الأتمتة في السعودية",
       intro: "أفضل فرصة للأتمتة ليست دائمًا المهمة الأكثر إبهارًا؛ غالبًا تكون سير عمل متكررًا بملكية واضحة ومدخلات مستقرة ومخرجات قابلة للقياس وحجم أو احتكاك يبرر التغيير.",
@@ -316,7 +316,7 @@ export const insightGuides = [
     cluster: "enterprise-rag",
     relatedService: "knowledge-bases",
     en: {
-      title: "Enterprise RAG Architecture: Sources, Retrieval, Permissions and Evaluation",
+      title: "Enterprise RAG: Retrieval, Permissions and Evaluation",
       description: "A practical Enterprise RAG architecture guide from source ingestion and chunking to retrieval, permissions, citations and evaluation.",
       category: "Enterprise RAG",
       readTime: "9 min read",
@@ -575,7 +575,7 @@ export const insightGuides = [
     cluster: "automation-saudi-arabia",
     relatedService: "ai-agents",
     en: {
-      title: "How to Prioritize Workflow Automation Without Automating the Wrong Process",
+      title: "Workflow Automation: How to Prioritize the Right Processes",
       description: "Prioritize automation opportunities using frequency, stability, error cost, integration effort, reversibility and measurable business value.",
       category: "Automation in Saudi Arabia",
       readTime: "8 min read",

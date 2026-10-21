@@ -162,7 +162,7 @@
       "sourceUrl": "https://openai.com/index/sullivan-cromwell/",
       "sourceTitle": "Sullivan & Cromwell brings legal expertise into agreement review",
       "eventDate": "2026-10-15",
-      "title": "Sullivan & Cromwell تطور أداة لمراجعة الاتفاقيات بالاستناد إلى السوابق",
+      "title": "Sullivan & Cromwell تطور أداة لمراجعة الاتفاقيات وفق السوابق",
       "excerpt": "Agreement Analyzer يجمع المسودة والسوابق وأدلة التفاوض في سير عمل يعرض الملاحظات والتعديلات المقترحة للمحامي.",
       "paragraphs": [
         "عرضت OpenAI في 15 أكتوبر 2026 أداة Agreement Analyzer التي طورتها Sullivan & Cromwell بالتعاون معها. بدأت الفكرة نموذجًا أوليًا بُني باستخدام Codex، ثم تطورت لدعم عمل عدة محامين بالتوازي. تجمع الأداة مسودة الاتفاقية وسوابق مختارة وأدلة تفاوض مع ChatGPT Enterprise.",
@@ -436,7 +436,7 @@
       "sourceTitle": "AnyLanguageModel 1.0: One Year of Local Models on Apple Platforms",
       "eventDate": "2026-10-20",
       "publishedAt": "2026-10-20T16:14:48.314+03:00",
-      "title": "AnyLanguageModel 1.0 يوحّد استخدام النماذج المحلية والسحابية في تطبيقات Swift",
+      "title": "AnyLanguageModel 1.0 يجمع النماذج المحلية والسحابية في Swift",
       "excerpt": "Hugging Face تعلن الإصدار 1.0 بواجهة متوافقة مع Foundation Models، ودعم لاستدعاء الأدوات والتوليد الموجّه عبر مزودين متعددين.",
       "paragraphs": [
         "أعلنت Hugging Face في 20 أكتوبر 2026 إتاحة AnyLanguageModel 1.0، إلى جانب swift-huggingface 1.0 وswift-xet 1.0. تتيح المكتبة استخدام واجهة مألوفة ومتوافقة مع Foundation Models مع النموذج النظامي، أو نماذج مفتوحة الأوزان عبر llama.cpp وMLX وCore ML، أو خدمات استدلال سحابية، دون بناء مسار جلسات مختلف لكل مزود.",

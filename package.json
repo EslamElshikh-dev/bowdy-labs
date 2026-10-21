@@ -15,7 +15,7 @@
     "test:magazine": "node --test test/riyadh-tech-news.test.mjs test/riyadh-tech-routing.test.mjs"
   },
   "devDependencies": {
-    "sharp": "0.33.5",
+    "sharp": "0.35.5",
     "terser": "5.49.2"
   }
 }
