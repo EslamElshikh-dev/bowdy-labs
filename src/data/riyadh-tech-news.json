@@ -611,6 +611,71 @@
         "أعلنت NVIDIA عبر مدونتها الرسمية على Hugging Face مكتبة SimReady Central، التي تضم أكثر من ألفي أصل ثلاثي الأبعاد بصيغة OpenUSD، ومتاحة مجانًا ومن دون بوابة تسجيل لبناء بيئات تدريب للذكاء الاصطناعي الفيزيائي وتوائم رقمية لمصانع الذكاء الاصطناعي.",
         "تتضمن الأصول أذرعًا وقوابض روبوتية ومعدات مستودعات ورفوفًا وتجهيزات تبريد، مع خصائص لازمة للمحاكاة مثل هندسة التصادم والكتلة والاحتكاك. ويمكن للمصنعين تجهيز أصولهم والتحقق منها ونشرها ضمن مجموعات بيانات يديرونها على Hugging Face، بينما يعرض الإعلان أمثلة للالتقاط والوضع ومقارنة تخطيطات المصانع."
       ]
+    },
+    {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/openai-models-google-cloud",
+      "sourceTitle": "OpenAI models are coming to Google Cloud",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T16:31:21+03:00",
+      "title": "نماذج OpenAI وCodex تصل إلى Google Cloud Model Garden",
+      "excerpt": "شراكة تتيح لعملاء Google Cloud الوصول إلى نماذج OpenAI ومسارات Codex الوكيلة من داخل Model Garden مع أدوات الحوكمة والبنية السحابية.",
+      "paragraphs": [
+        "أعلنت OpenAI وGoogle Cloud شراكة لإضافة نماذج OpenAI المتقدمة ومسارات Codex الوكيلة إلى Model Garden. يهدف التكامل إلى تمكين فرق المؤسسات من بناء وكلاء وتحديث تطوير البرمجيات ضمن بيئة Google Cloud، مع ضوابط الوصول وإدارة البيانات والبنية عالية الأداء.",
+        "تخطط الشركتان للإتاحة العامة خلال الأسابيع المقبلة عبر Google Cloud Marketplace، مع إمكانية استخدام التزامات الإنفاق السحابي المؤهلة في الشراء. كما سيصل دعم النماذج لاحقًا إلى Google Antigravity وGemini Agent، بينما أكدت OpenAI أن Microsoft تظل شريكها السحابي الأساسي."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/kumo-forecast",
+      "sourceTitle": "NVIDIA Kumo Forecast Combines Pretrained Time-Series Representations with Historical Pattern Retrieval and Interpretability",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T16:31:21+03:00",
+      "title": "NVIDIA تطلق Kumo Forecast للتنبؤ بالسلاسل الزمنية مع تفسير النتائج",
+      "excerpt": "نموذج مفتوح يجمع تمثيلات زمنية مدربة مسبقًا مع استرجاع أنماط تاريخية، ويضيف تفسيرات مرتبطة بكل أفق زمني متوقع.",
+      "paragraphs": [
+        "قدمت NVIDIA نموذج Kumo Forecast للتنبؤ متعدد المتغيرات في السلاسل الزمنية. يعتمد على MOMENT‑1‑large بقاعدة تقارب 340 مليون معلمة، ويضيف آلية DARR التي تمزج التنبؤ المباشر بأنماط مشابهة تسترجع من سجل تاريخي منفصل.",
+        "يتاح النموذج برخصة Apache 2.0 مع واجهة تعتمد DataFrame وآفاق تنبؤ قابلة للضبط. ويوفر إطار التفسير إسهامات للميزات والفترات السابقة وتشخيصات لاستقرار المسار، مع توصية NVIDIA بمقارنة الإعداد المباشر والمعزز بالاسترجاع على بيانات اختبار تمثل التطبيق المقصود."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/kumo-anomaly",
+      "sourceTitle": "NVIDIA Kumo Anomaly Brings Diffusion-Based Anomaly Detection to Multivariate Time Series",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T16:31:21+03:00",
+      "title": "NVIDIA تطرح Kumo Anomaly لاكتشاف الشذوذ في السلاسل الزمنية",
+      "excerpt": "نموذج مفتوح بحوالي ثمانية ملايين معلمة يستخدم الانتشار والتعلم المرحلي والعتبات التكيفية لاكتشاف السلوك غير المعتاد في الإشارات الزمنية.",
+      "paragraphs": [
+        "طرحت NVIDIA نموذج Kumo Anomaly لاكتشاف الشذوذ في السلاسل الزمنية متعددة المتغيرات. يتعلم النموذج الأنماط الطبيعية عبر إضافة الضوضاء ثم إعادة بناء القيم، ويقارن الناتج بالمدخلات لإنتاج درجة خطأ ووسم ثنائي لكل صف.",
+        "يدعم النموذج طريقتي SCS وMACS لضبط العتبات مع تغيّر سلوك البيانات، ويتاح بنحو ثمانية ملايين معلمة ورخصة Apache 2.0. وتشمل أمثلة الاستخدام بيانات حساسات التصنيع، لكن NVIDIA تصفه للبحث والتطوير وتوصي بالتحقق على بيانات كل تطبيق قبل الاعتماد التشغيلي."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/rfd4-proteina-protein-design",
+      "sourceTitle": "Protein Design with RFD4-Proteina and Hugging Face Spaces",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T16:31:21+03:00",
+      "title": "NVIDIA وواشنطن تتيحان RFD4‑Proteina لتصميم البروتينات",
+      "excerpt": "نموذج BioNeMo مفتوح يولّد تسلسل البروتين وبنيته ثلاثية الأبعاد معًا، مع مساحتين على Hugging Face لتجربة مهام التصميم من المتصفح.",
+      "paragraphs": [
+        "أتاحت NVIDIA ومعهد تصميم البروتين في جامعة واشنطن نموذج RFD4‑Proteina المفتوح لتصميم البروتينات. يجمع النموذج توليد التسلسل والبنية ثلاثية الأبعاد لجميع الذرات في مسار واحد، ويمكن توجيهه نحو هدف ارتباط أو نمط تحفيزي محدد.",
+        "يمكن تجربة النموذج عبر مساحتين على Hugging Face، إحداهما بعتاد مخصص والأخرى بسعة مشتركة، مع تنزيل النتائج بصيغة CIF ومتابعة العمل برمجيًا. النتائج حسابية وتحتاج إلى تحقق تجريبي لإثبات الارتباط أو الخصائص الحيوية؛ وتستمر الرعاية المجانية للمساحة المخصصة حتى 4 نوفمبر 2026."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+      "sourceTitle": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse: Advancing Agents with World-Class Retrieval Models",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-21T16:31:21+03:00",
+      "title": "NVIDIA تطلق Nemotron 3.5 للبحث وإعادة الترتيب وتحليل المستندات",
+      "excerpt": "مجموعة نماذج مفتوحة تسترجع الأدلة من النصوص والصور، تعيد ترتيب النتائج، وتستخرج بنية المستندات لدعم وكلاء المؤسسات.",
+      "paragraphs": [
+        "وسعت NVIDIA مجموعة Nemotron Retriever بنماذج مفتوحة ومتاحة تجاريًا للتضمين وإعادة الترتيب واستخراج المستندات. تشمل الإصدارات نماذج تضمين بحجمي 8 و1 مليار معلمة، ونموذج إعادة ترتيب بحجم 8 مليارات، وNemotron 3.5 Parse بحجم 631 مليون معلمة.",
+        "تتعامل النماذج مع النصوص والصور، بما فيها الجداول والرسوم والمخططات، لتوفير أدلة أدق لوكلاء الاسترجاع. وتضيف نسخة NVFP4 خيارًا أخف للفهرسة واسعة النطاق، مع وصفات لتخصيص نماذج التضمين وفق وثائق المجال. أرقام الدقة والكفاءة المنشورة تعود إلى تقييمات NVIDIA."
+      ]
     }
   ]
 }
