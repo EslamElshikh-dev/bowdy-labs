@@ -80,6 +80,26 @@ function addDatePublished(html, publishedIso, file) {
   return next;
 }
 
+// Page generators replace their JSON-LD graph. Keep the original site's shared
+// identity nodes so article publishers and page references still resolve.
+const home = await readFile(join(dist, "index.html"), "utf8");
+const homeGraph = JSON.parse(home.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])["@graph"];
+const identityNodes = ["organization", "website", "local-business"].map((id) => {
+  const node = homeGraph.find((item) => item["@id"] === `${site.url}/#${id}`);
+  if (!node) throw new Error(`Homepage is missing the shared ${id} schema`);
+  return node;
+});
+
+function preserveSiteIdentity(html) {
+  return html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (_whole, raw) => {
+    const parsed = JSON.parse(raw);
+    const graph = parsed["@graph"];
+    const ids = new Set(graph.map((node) => node["@id"]));
+    graph.push(...identityNodes.filter((node) => !ids.has(node["@id"])));
+    return `<script type="application/ld+json">${JSON.stringify(parsed).replaceAll("<", "\\u003c")}</script>`;
+  });
+}
+
 function rssItem({ title, path, description, publishedRfc }) {
   const url = `${site.url}${path}`;
   return `<item><title>${xmlEsc(title)}</title><link>${xmlEsc(url)}</link><guid isPermaLink="true">${xmlEsc(url)}</guid><pubDate>${publishedRfc}</pubDate><description>${xmlEsc(description)}</description></item>`;
@@ -100,6 +120,7 @@ for (const file of htmlFiles) {
   assertEveryImageHasAlt(html, relative(dist, file));
 
   const rel = relative(dist, file).replaceAll("\\", "/");
+  if (!rel.startsWith("alarjancrm/")) html = preserveSiteIdentity(html);
   if (rel === "index.html" || rel.startsWith("insights/")) html = addFeedDiscovery(html, "ar");
   if (rel === "en/index.html" || rel.startsWith("en/insights/")) html = addFeedDiscovery(html, "en");
 

@@ -17,12 +17,16 @@ Arabic-first corporate website for BOWDY LABS, a Riyadh-based technology and art
 
 ## Commands
 
+Use Node.js 24 and run `npm ci --include=dev` before building or checking a fresh checkout. The committed `package-lock.json` pins the build tools, including Terser and Sharp.
+
 - `npm run build` — generate the static site into `dist/`
 - `npm run validate` — validate metadata, schema, internal links, responsive assets, and the sitemap
 - `npm run smoke` — serve `dist/` temporarily and check important routes
 - `npm run check` — run syntax checks, build, validation, and smoke tests
 - `npm run check:magazine` — validate the built magazine's routes, metadata, dates, sources, RSS, social cards, and internal links
 - `npm run serve` — preview `dist/` on port 4173
+
+`Site quality checks` installs the locked dependencies and runs the full `npm run check` chain on pull requests targeting `main`, matching pushes to `main`, and manual runs. The npm download cache is keyed by `package-lock.json`; dependencies are installed on every run, including cache hits. Build, magazine, SEO, and smoke failures fail the job.
 
 ## Source structure
 
@@ -54,7 +58,7 @@ Each record contains `sourceId`, `sourceUrl`, `sourceTitle`, `eventDate` (the or
 
 Automatic briefs are visibly labeled and identify the automatic desk as author. NewsArticle metadata, RSS timestamps, sitemap entries, related articles, search and source-specific social cards update during the normal build. Social-image generation is bounded to the editorial set plus the approved sources, rather than regenerating an image for every archived news item. The source list is also visible within the magazine and at `/riyadh-tech/sources.json`.
 
-Validate changes with `npm run test:news`, `npm run build`, and `npm run check:magazine`. The repository's older site-wide validator has pre-existing diagnostics unrelated to the magazine; use the magazine-specific checks and the matching Vercel deployment when validating this publisher.
+Validate publisher changes with `npm run check`, which includes the magazine tests, built magazine checks, site-wide SEO validation, and route smoke tests. A successful Vercel deployment and a successful GitHub Actions check are separate results.
 
 ## Magazine navigation
 

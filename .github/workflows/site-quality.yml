@@ -2,6 +2,8 @@ name: Site quality checks
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
     paths:
@@ -9,8 +11,11 @@ on:
       - "src/**"
       - "assets/**"
       - "scripts/**"
+      - "test/**"
       - "package.json"
+      - "package-lock.json"
       - "vercel.json"
+      - ".github/workflows/site-quality.yml"
 
 permissions:
   contents: read
@@ -23,5 +28,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install locked dependencies
+        run: npm ci --include=dev
       - name: Build and validate BOWDY LABS
         run: npm run check

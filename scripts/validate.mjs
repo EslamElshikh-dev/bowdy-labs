@@ -8,6 +8,9 @@ const projectRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const root = join(projectRoot, "dist");
 const errors = [];
 const warnings = [];
+const webPageTypes = new Set(["WebPage", "AboutPage", "ContactPage", "CollectionPage"]);
+// Vercel serves this exact analytics endpoint at runtime; it is not in dist/.
+const runtimeAssets = new Set(["/_vercel/insights/script.js"]);
 
 async function walk(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -80,7 +83,9 @@ for (const file of htmlFiles) {
   }
   if (!robots.includes("noindex")) {
     indexableCount += 1;
-    if (title && !title.includes("BOWDY LABS")) errors.push(`${name}: indexable title missing BOWDY LABS`);
+    if (title && ![site.nameEn, site.nameAr].some((brand) => title.includes(brand))) {
+      errors.push(`${name}: indexable title missing BOWDY LABS`);
+    }
   }
   if (name === "404.html" && !robots.includes("noindex")) errors.push("404.html: must be noindex");
   if (!html.includes("/assets/brand/bowdy-labs-mark.svg")) errors.push(`${name}: BOWDY mark missing`);
@@ -102,7 +107,10 @@ for (const file of htmlFiles) {
     }
   }
   for (const type of ["WebPage", "Organization", "WebSite", "ProfessionalService"]) {
-    if (!schemaTypes.includes(type)) errors.push(`${name}: schema missing ${type}`);
+    const present = type === "WebPage"
+      ? schemaTypes.some((schemaType) => webPageTypes.has(schemaType))
+      : schemaTypes.includes(type);
+    if (!present) errors.push(`${name}: schema missing ${type}`);
   }
   if (name === "index.html" && !schemaTypes.includes("FAQPage")) errors.push("index.html: schema missing FAQPage");
   if (name === "services/index.html") {
@@ -158,7 +166,7 @@ for (const file of htmlFiles) {
 
   for (const match of html.matchAll(/(?:href|src)="(\/[^"]+)"/gi)) {
     const url = match[1].split(/[?#]/)[0];
-    if (!url || url === "/" || url.startsWith("/.well-known/")) continue;
+    if (!url || url === "/" || url.startsWith("/.well-known/") || runtimeAssets.has(url)) continue;
     const local = url.endsWith("/") ? `${url.slice(1)}index.html` : url.slice(1);
     if (url.endsWith("/") && !htmlSet.has(local)) errors.push(`${name}: broken internal page ${url}`);
     if (/\.(css|js|png|svg|webp|webmanifest|ico)$/i.test(url)) {
@@ -238,7 +246,8 @@ for (const breakpoint of [
 }
 if (!css.includes("font-display:swap")) errors.push("CSS missing font-display: swap");
 if (!css.includes("content-visibility:auto")) errors.push("CSS missing below-fold content visibility optimization");
-if (!servicesHtml.includes('<script src="/assets/js/main.js" defer>')) {
+const mainScript = servicesHtml.match(/<script\b[^>]*\bsrc="\/assets\/js\/main\.js(?:\?[^"<>]*)?"[^>]*>/i)?.[0];
+if (!mainScript || !/\sdefer(?:\s|=|>)/i.test(mainScript)) {
   errors.push("services/index.html: JavaScript is not deferred");
 }
 if (/<script[^>]+src="https?:\/\//i.test(servicesHtml) || /<link[^>]+rel="stylesheet"[^>]+href="https?:\/\//i.test(servicesHtml) || /<link[^>]+href="https?:\/\/[^>]+rel="stylesheet"/i.test(servicesHtml)) {
