@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "anthropic",
+      "sourceUrl": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+      "sourceTitle": "Donating Agent Skills to the Agentic AI Foundation",
+      "eventDate": "2026-10-22",
+      "publishedAt": "2026-10-22T22:35:22.181+03:00",
+      "title": "Anthropic تنقل معيار Agent Skills المفتوح إلى مؤسسة Agentic AI Foundation",
+      "excerpt": "تبرعت Anthropic بمعيار Agent Skills المفتوح إلى مؤسسة AAIF التابعة لـLinux Foundation، لتطويره بحوكمة محايدة ومشاركة مجتمعية.",
+      "paragraphs": [
+        "أعلنت Anthropic نقل معيار Agent Skills المفتوح، بما يشمل الاسم والشعار وتنظيم GitHub ونطاق agentskills.io، إلى مؤسسة Agentic AI Foundation التابعة لـLinux Foundation. يتيح المعيار حزمًا تحتوي ملف SKILL.md ونصوصًا ومراجع تمنح الوكلاء معرفة وإجراءات متخصصة.",
+        "وفق الشركة، دمجت أكثر من 70 منصة المعيار، ونُشر مليون Skill وسُجل نحو 280 مليون تثبيت. ويقترح المسار المقبل إصدارات مرقمة وآلية رسمية للمقترحات وإرشادات أمنية، مع بقاء الاستخدام والمساهمة متاحين دون عضوية في المؤسسة."
+      ]
+    },
+    {
       "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real",
       "sourceTitle": "Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0",
