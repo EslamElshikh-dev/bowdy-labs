@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "deepmind",
+      "sourceUrl": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
+      "sourceTitle": "Beyond tree cover: mapping the world’s forest types",
+      "eventDate": "2026-10-22",
+      "publishedAt": "2026-10-22T19:28:44.771+03:00",
+      "title": "DeepMind تطلق خريطة ForTy لتصنيف غابات العالم بدقة 10 أمتار",
+      "excerpt": "خريطة عالمية مفتوحة تستخدم الذكاء الاصطناعي وصور الأقمار الصناعية للتمييز بين الغابات الطبيعية والمزارع الشجرية وتتبع تغيرها سنويًا.",
+      "paragraphs": [
+        "أعلنت Google DeepMind وGoogle Research، بالشراكة مع WRI وIIASA، إصدار Forest Typology 2020 (ForTy)، وهي خريطة عالمية تصنف كل رقعة 10×10 أمتار ضمن ست فئات للغابات واستخدامات الأرض. يعتمد النموذج على تمثيلات AlphaEarth Foundations وقرابة 1.7 مليون موقع مصنف.",
+        "تحققت الجهات المشاركة من الخريطة عبر أكثر من 9,000 موقع اختاره الباحثون عشوائيًا. ووفق النتائج المنشورة، بلغت دقة تصنيف نوع الغابة 90% والتمييز بين الغابات وغير الغابات 95%. كما أُتيحت سلسلة زمنية تجريبية لرصد التغير السنوي من 2017 إلى 2025، مع إتاحة الخرائط عبر Google Earth Engine بترخيص مفتوح."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/forward-deployed-engineering-means/",
       "sourceTitle": "What FDE means at OpenAI",
