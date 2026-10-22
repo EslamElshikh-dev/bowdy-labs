@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+      "sourceTitle": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
+      "eventDate": "2026-10-22",
+      "publishedAt": "2026-10-23T02:52:29+03:00",
+      "title": "NVIDIA تطلق Minerva لمراقبة مصانع الذكاء الاصطناعي وتشخيص أعطالها",
+      "excerpt": "منصة AIOps تجمع قياسات البنية والأحمال في رسم معرفي حي، وتستخدم نماذج تعلم آلي لرصد الشذوذ والتنبؤ بالأعطال وترجيح السبب الجذري.",
+      "paragraphs": [
+        "أعلنت NVIDIA إطلاق Minerva، وهي منصة AIOps لمراقبة مصانع الذكاء الاصطناعي. تربط القياسات القادمة من وحدات GPU والشبكات والتخزين والمجدولات وأحمال العمل، ثم تنظمها في رسم معرفي ديناميكي يوضح علاقة المكونات بالمهام الجارية.",
+        "تحلل المنصة مليارات نقاط البيانات في الساعة باستخدام تعلم خاضع وغير خاضع للإشراف، لرصد السلوك غير المعتاد والتنبؤ بالأعطال وربط الأحداث بحسب بنية المصنع. كما توفر مساعدًا لغويًا يستند إلى القياسات الحية ويقترح إجراءات معالجة، مع إبقاء التنفيذ للبشر أو ربطه بأتمتة خارجية عبر واجهات البنية التحتية."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/decisions-api/",
       "sourceTitle": "Build more responsive apps with the Decisions API",
