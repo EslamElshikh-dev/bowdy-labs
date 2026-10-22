@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real",
+      "sourceTitle": "Train in Simulation, Deploy on a Real Robot: Microduck with Isaac Lab 3.0",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-22T21:24:03.957+03:00",
+      "title": "NVIDIA وHugging Face تعرضان مسارًا لنقل تدريب Microduck من المحاكاة إلى الروبوت الحقيقي",
+      "excerpt": "دليل تطبيقي يستخدم Isaac Lab وNewton لتدريب سياسة مشي بالتوازي على وحدات GPU، ثم تصديرها بصيغة ONNX وتشغيلها على روبوت Microduck.",
+      "paragraphs": [
+        "نشرت NVIDIA بالتعاون مع Hugging Face مسارًا عمليًا لتدريب روبوت Microduck مفتوح المصدر على المشي داخل محاكاة Isaac Lab 3.0، مع استخدام Newton وتنويع خصائص الكتلة والاحتكاك والتأخير لتحسين انتقال السياسة إلى العتاد الحقيقي.",
+        "يوضح الشرح تشغيل بيئات متوازية على وحدات GPU، وتقييم السياسة ثم تصديرها بصيغتي TorchScript وONNX. وبعد التحقق، يمكن تحميل ملف ONNX إلى الروبوت، ومشاركة السياسة على Hugging Face Hub أو اختبارها في Microduck Arena."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/huggingface/train-agents",
+      "sourceTitle": "A curriculum for post-training agents",
+      "eventDate": "2026-10-20",
+      "publishedAt": "2026-10-22T21:24:03.957+03:00",
+      "title": "Hugging Face تجمع مسارًا عمليًا لتدريب وكلاء الذكاء الاصطناعي بعد التدريب المسبق",
+      "excerpt": "جمعت Hugging Face مواد تدريبية في مسار من خمس مراحل يربط الضبط الموجّه والتقطير والتعلّم المعزز بالبيئات وأطر تشغيل الوكلاء.",
+      "paragraphs": [
+        "نشرت Hugging Face دليلًا عمليًا لما بعد تدريب الوكلاء، ينظم العملية في خمس مراحل: الضبط الموجّه، والتقطير، والتعلّم المعزز، والتدريب داخل البيئات، ثم التدريب عبر أطر الوكلاء واسعة النطاق.",
+        "يوضح الدليل نوع البيانات والإشارات التي يتعلم منها النموذج في كل مرحلة، ويربطها بمدربي مكتبة TRL والوثائق والأمثلة. ويركز على تدريب الوكيل عبر مسارات متعددة الخطوات تشمل استدعاء الأدوات وقراءة نتائجها والتكيف مع الأخطاء."
+      ]
+    },
+    {
       "sourceId": "deepmind",
       "sourceUrl": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
       "sourceTitle": "Beyond tree cover: mapping the world’s forest types",
