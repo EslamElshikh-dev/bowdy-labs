@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/decisions-api/",
+      "sourceTitle": "Build more responsive apps with the Decisions API",
+      "eventDate": "2026-10-22",
+      "publishedAt": "2026-10-23T00:16:12+03:00",
+      "title": "OpenAI تتيح Decisions API لاتخاذ قرارات سريعة ومحددة داخل التطبيقات",
+      "excerpt": "واجهة عامة تعتمد GPT‑6 Luna لتصنيف المدخلات وتوجيه الطلبات واختيار الخطوة التالية من النصوص والصور وJSON، مع تكامل أصلي مع GPT‑Live.",
+      "paragraphs": [
+        "أتاحت OpenAI واجهة Decisions API للاستخدام العام، وهي مخصصة للأسئلة ذات الإجابات المقيدة داخل التطبيقات والوكلاء، مثل تصنيف المدخلات وتوجيه الطلب أو اختيار الإجراء التالي. تعتمد الواجهة GPT‑6 Luna وتقبل النصوص والصور وبيانات JSON المنظمة.",
+        "يدعم الطلب نتيجة من ثلاثة أنواع: احتمالًا بين صفر وواحد، أو اختيارًا من قائمة محددة، أو درجة وفق سلم مرتب. أضافت OpenAI تكاملًا أصليًا مع GPT‑Live، وتخزين السياق المتكرر مؤقتًا، ومعالجة إقليمية في الولايات المتحدة والاتحاد الأوروبي، وإرسال ما يصل إلى 400 سؤال في الطلب."
+      ]
+    },
+    {
       "sourceId": "anthropic",
       "sourceUrl": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
       "sourceTitle": "Donating Agent Skills to the Agentic AI Foundation",
