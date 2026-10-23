@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
+      "sourceTitle": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
+      "eventDate": "2026-10-23",
+      "publishedAt": "2026-10-23T20:45:46+03:00",
+      "title": "OpenAI تشرح توسيع منصة Habitat لتخزين بيانات أكثر من مليار مستخدم",
+      "excerpt": "تفاصيل هندسية عن توسيع Habitat فوق Azure Cosmos DB إلى أكثر من 500 بيتابايت، باستخدام تعدد المستأجرين ونقل البيانات والتخزين المؤقت العالمي.",
+      "paragraphs": [
+        "نشرت OpenAI الجزء الثاني من شرحها الهندسي لمنصة Habitat، التي توفر وصولًا سريعًا وموثوقًا إلى البيانات لمنتجاتها عبر 40 منطقة جغرافية وأكثر من مليار مستخدم. توسعت المنصة إلى أكثر من 500 بيتابايت، مع Azure Cosmos DB كمكوّن أساسي للتخزين المتصل.",
+        "انتقلت البنية بين الحاويات المشتركة والمعزولة قبل اعتماد تعدد المستأجرين افتراضيًا مع القدرة على نقل البيانات عند الحاجة. وتشرح الشركة معالجة المفاتيح الساخنة وجودة الخدمة، وتقريب البيانات من المستخدمين، وقصر النسخ الواسع على البيانات الصغيرة الحساسة للزمن، واستخدام التخزين المؤقت وتقليل حمل الوكيل بلغة Rust."
+      ]
+    },
+    {
       "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/torch-neuronx-model-support",
       "sourceTitle": "Does Your Model Run on AWS Trainium? Look It Up",
