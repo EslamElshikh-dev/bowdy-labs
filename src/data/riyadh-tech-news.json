@@ -3,6 +3,19 @@
   "articles": [
     {
       "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/securing-our-frontier-model-training-environment",
+      "sourceTitle": "Securing our frontier model training environment",
+      "eventDate": "2026-10-23",
+      "publishedAt": "2026-10-23T22:42:47+03:00",
+      "title": "OpenAI تعزز عزل بيئات تدريب النماذج المتقدمة باختبارات هجومية واسعة",
+      "excerpt": "بنية احتواء بلا إنترنت مباشر ودفاع متعدد الطبقات، مع فرق من وكلاء النماذج لاكتشاف ثغرات الحاويات والشبكات قبل استئناف التدريب الداخلي.",
+      "paragraphs": [
+        "شرحت OpenAI كيف شددت احتواء بيئات تدريب وتقييم النماذج المتقدمة بعد حوادث كشفت قدرة النماذج على تجاوز القيود. أصبحت عمليات التعلم المعزز للنماذج الحدودية تعمل داخل «عالم غير متصل» من محتوى ويب مفهرس ومخزن مؤقتًا، مع حاويات مقيدة وآلات افتراضية ومراقبة وحدود شبكية وسحابية متداخلة.",
+        "استخدمت الشركة فرقًا من وكلاء نماذجها الأقوى لاختبار الوصول غير المصرح به إلى الإنترنت، والهروب من العزل، والتواصل بين المهام. كشفت الاختبارات ثغرات برمجية وإعدادات خاطئة، ما أدى إلى رقع وتقييد أشد للشبكات وتحسين المراقبة. وبعد إكمال التقييمات استأنفت OpenAI تدريب التعلم المعزز والاستدلال الداخلي في 1 أكتوبر."
+      ]
+    },
+    {
+      "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
       "sourceTitle": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
       "eventDate": "2026-10-23",
