@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/torch-neuronx-model-support",
+      "sourceTitle": "Does Your Model Run on AWS Trainium? Look It Up",
+      "eventDate": "2026-10-23",
+      "publishedAt": "2026-10-23T16:30:50+03:00",
+      "title": "Hugging Face تطلق أداة لفحص توافق النماذج مع شرائح AWS Trainium",
+      "excerpt": "مساحة تفاعلية تكشف ما إذا كانت نماذج Transformers الشائعة تعمل دون تعديل على Trainium، وتعرض سكربت التشغيل ونتائج الاختبار واستهلاك الذاكرة.",
+      "paragraphs": [
+        "أطلقت Hugging Face مساحة torch-neuronx model support للتحقق من تشغيل نماذج Transformers الشائعة على شرائح AWS Trainium دون تعديل. تعرض الأداة حالة كل نموذج، وعدد الأنوية المستخدمة، وزمن التشغيل شاملًا التجميع، وأعلى استهلاك للذاكرة، مع إمكان البحث بحسب التنزيلات أو الرواج وإصدارات المترجم والمكتبة.",
+        "لكل نموذج، توفر المساحة الحزم المطلوبة وسكربت run.py المستخدم ونسخة من الرسوم المجمعة مسبقًا لتجاوز التجميع الأولي. تختبر الخدمة حاليًا نماذج توليد النصوص والصورة إلى النص حتى 16 نواة Trainium2، عبر توليد 32 رمزًا والتحقق من المخرجات، وتؤكد أن اجتياز الاختبار لا يقيس الأداء أو التوليد الطويل."
+      ]
+    },
+    {
       "sourceId": "nvidia",
       "sourceUrl": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
       "sourceTitle": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
