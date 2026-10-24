@@ -3,6 +3,32 @@
   "articles": [
     {
       "sourceId": "microsoft-ai",
+      "sourceUrl": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
+      "sourceTitle": "Data and AI agents give a lift to TK Elevator service technicians",
+      "eventDate": "2026-10-22",
+      "publishedAt": "2026-10-24T05:01:56+03:00",
+      "title": "Microsoft تعرض وكلاء ذكاء اصطناعي لدعم فنيي المصاعد ببيانات الصيانة",
+      "excerpt": "تطبيق ميداني يجمع بيانات IoT والسجلات والأدلة الفنية، ليجهز الفني بالمعلومات قبل الزيارة ويسجل خلاصة العمل صوتيًا للاستخدام لاحقًا.",
+      "paragraphs": [
+        "عرضت Microsoft تطبيقًا وكيليًا بنته TK Elevator باستخدام Microsoft Foundry ونماذج Azure OpenAI. يزوّد التطبيق فني الصيانة قبل دخوله الموقع بتفاصيل الوحدة والعطل والأدوات المطلوبة، ويتيح البحث في الأدلة الرقمية وسجل الزيارات السابقة عبر الهاتف أو الجهاز اللوحي.",
+        "بعد انتهاء المهمة، يجري وكيل صوتي حوارًا مع الفني ويسجل ملاحظاته ويطلب تفاصيل إضافية عند الحاجة. تعتمد المنظومة على منصة بيانات تجمع حساسات IoT وسجلات الخدمة والوثائق الفنية، بينما تستخدم مراكز العمليات تعلم الآلة لحساب مؤشرات صحة المعدات وترتيب الصيانة، مع بقاء التشخيص والتنفيذ بيد الفني."
+      ]
+    },
+    {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://www.microsoft.com/en-us/research/blog/solving-a-31-year-old-grand-challenge-in-mathematics-the-kls-conjecture/",
+      "sourceTitle": "Solving a 31-year-old grand challenge in mathematics – the KLS conjecture",
+      "eventDate": "2026-10-21",
+      "publishedAt": "2026-10-24T05:01:56+03:00",
+      "title": "Microsoft Research تعرض دور الوكلاء في حل حدسية KLS بعد 31 عامًا",
+      "excerpt": "باحثون جمعوا بحثًا وكيليًا موجّهًا بشريًا مع برهان رياضي مستقل وتحقق صوري، لحسم مسألة مركزية في الهندسة عالية الأبعاد والاحتمالات.",
+      "paragraphs": [
+        "أعلنت Microsoft Research أن باحثين حسموا حدسية Kannan–Lovász–Simonovits المطروحة منذ 1995، بإثبات أن القطع المستوي يقترب من أفضل قطع ممكن ضمن ثابت لا يعتمد على عدد الأبعاد. تؤثر النتيجة في الهندسة عالية الأبعاد والاحتمالات وأخذ العينات والخوارزميات العشوائية.",
+        "جاء التقدم عبر بحث وكيلي موجّه بشريًا استكشف أكثر من مئة مسار؛ راجع الباحثون النتائج الوسيطة واستبعدوا الاتجاهات غير الواعدة وأعادوا توجيه الوكلاء. ساعدت الأدوات في الاشتقاقات وفحص البرهان وإعداد الورقة، بينما حدد البشر المسار الرياضي وحققوه. وتدعمت النتيجة ببراهين مستقلة وتحقق صوري باستخدام Lean 4."
+      ]
+    },
+    {
+      "sourceId": "microsoft-ai",
       "sourceUrl": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
       "sourceTitle": "Flint-interactive: A language for creating interactive data visualizations",
       "eventDate": "2026-10-22",
