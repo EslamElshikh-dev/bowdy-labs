@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/uber-chatgpt-work-rollout/",
+      "sourceTitle": "Uber brings ChatGPT Work to all employees with OpenAI",
+      "eventDate": "2026-10-22",
+      "publishedAt": "2026-10-25T02:29:35+03:00",
+      "title": "Uber تعمم وكيل ChatGPT Work على أكثر من 30 ألف موظف",
+      "excerpt": "وسّعت Uber تجربة ChatGPT Work من ألف موظف إلى أكثر من 30 ألفًا، مع ربط أدوات العمل اليومية وتنفيذ مهام متعددة الخطوات عبر ChatGPT Enterprise.",
+      "paragraphs": [
+        "أعلنت OpenAI أن Uber بدأت إتاحة وكيل ChatGPT Work لأكثر من 30 ألف موظف بعد تجربة أولية شملت ألفًا. يعمل الوكيل داخل ChatGPT Enterprise وينفذ مهام معرفية متعددة الخطوات، مع اتصال بخدمات Google Drive وGmail وGoogle Calendar وSlack.",
+        "سيستخدم الوكيل GPT‑6.1 Sol افتراضيًا، مع إمكانات الصوت وتوليد الصور، بينما تواصل فرق البرمجة استخدام Codex. تدعم Uber النشر بمكتبة مهارات داخلية وتكاملات معتمدة وتدريب للموظفين، لكن الشركتين لم تنشرا بعد نتائج أداء قابلة للقياس."
+      ]
+    },
+    {
       "sourceId": "google-ai",
       "sourceUrl": "https://blog.google/innovation-and-ai/products/gemini-notebook/co-create-slides-videos/",
       "sourceTitle": "How to shape your slides and videos with Gemini Notebook",
