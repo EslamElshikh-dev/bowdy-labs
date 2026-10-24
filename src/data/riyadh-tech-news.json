@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/products/gemini-notebook/co-create-slides-videos/",
+      "sourceTitle": "How to shape your slides and videos with Gemini Notebook",
+      "eventDate": "2026-10-19",
+      "publishedAt": "2026-10-24T10:45:00+03:00",
+      "title": "Google تضيف تحكمًا تفاعليًا في إنشاء العروض والفيديو داخل Gemini Notebook",
+      "excerpt": "تتيح أدوات المشاركة الجديدة مراجعة خطة العرض أو الفيديو وتعديل الموضوعات والترتيب والأسلوب قبل التوليد النهائي، مع بقاء خيار الإنشاء السريع.",
+      "paragraphs": [
+        "أعلنت Google إضافة مسار إنشاء تشاركي إلى Gemini Notebook للعروض التقديمية وملخصات الفيديو. تقترح الأداة موضوعات مستندة إلى مصادر دفتر المستخدم، ثم تتيح له توجيه المحتوى والأسلوب والتنسيق قبل بدء الإنتاج.",
+        "عند تفعيل خيار المراجعة، يمكن فحص ملاحظات مخطط الشرائح أو ملاحظات إنتاج الفيديو، وطلب إضافة ملخص تنفيذي أو تغيير ترتيب المشاهد، ثم اعتماد النسخة النهائية للتوليد. ويظل بإمكان المستخدم تجاوز المراجعة للحصول على نتيجة سريعة، مع طرح المزايا عالميًا لجميع المستخدمين خلال أسبوع الإعلان."
+      ]
+    },
+    {
       "sourceId": "microsoft-ai",
       "sourceUrl": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
       "sourceTitle": "Data and AI agents give a lift to TK Elevator service technicians",
