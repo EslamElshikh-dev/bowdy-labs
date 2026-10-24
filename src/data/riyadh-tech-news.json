@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+      "sourceTitle": "Flint-interactive: A language for creating interactive data visualizations",
+      "eventDate": "2026-10-22",
+      "publishedAt": "2026-10-24T03:54:44+03:00",
+      "title": "Microsoft تطلق Flint-interactive لإنشاء تصورات بيانات تفاعلية عبر وكلاء الذكاء الاصطناعي",
+      "excerpt": "لغة وأدوات مفتوحة تتيح للوكلاء توليد مخططات قابلة للنقر والتصفية والتكبير، مع مترجم يتولى منطق التفاعل ويربط الرسوم بالجداول والنصوص.",
+      "paragraphs": [
+        "قدمت Microsoft Research لغة Flint-interactive لبناء تصورات بيانات تفاعلية يمكن لوكلاء الذكاء الاصطناعي إنشاؤها داخل المحادثات والتطبيقات. تدعم النقر والتصفية والتكبير والتمييز وربط الاختيارات بين عدة مخططات أو مع النصوص والجداول وعناصر الواجهة.",
+        "تفصل الأداة منطق العرض عن منطق التفاعل: يحوّل مترجم Flint النقر والسحب إلى أحداث دلالية، ثم يطبق مشغلات عالية المستوى لتحديث الشكل أو التعليقات أو نطاق العرض. تتوفر للاستخدام عبر Flint-MCP وMCP Apps، كما يمكن للمطورين دمج Flint Interactive Canvas أو واجهة البرمجة لبناء لوحات وقصص بيانات مترابطة."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/securing-our-frontier-model-training-environment",
       "sourceTitle": "Securing our frontier model training environment",
