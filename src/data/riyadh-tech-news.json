@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "sourceTitle": "Securing the agentic insider",
+      "eventDate": "2026-10-19",
+      "publishedAt": "2026-10-25T05:37:32+03:00",
+      "title": "Microsoft تشرح تأمين وكلاء المؤسسات عبر Project Perception",
+      "excerpt": "توضح Microsoft نهجًا لمراقبة الوكلاء ذوي الصلاحيات الواسعة لحظيًا، عبر هويات وحاويات وسياسات ديناميكية ووكلاء رقابة يتدخلون قبل تنفيذ الأفعال.",
+      "paragraphs": [
+        "ترى Microsoft أن الوكلاء داخل المؤسسات قد يتحولون إلى مخاطر داخلية لأنهم يمتلكون صلاحيات وبيانات وأدوات تنفيذ، وقد يتصرفون بصورة غير متوقعة حتى من دون اختراق خارجي. لذلك تقترح حماية متعددة الطبقات تشمل الهوية والأذونات والبيانات والأجهزة والشبكات والسحابة وبيئة التشغيل.",
+        "يعتمد النهج على Project Perception لجمع إشارات هذه الطبقات، واكتشاف الوكلاء ومنح كل وكيل هوية وحاوية وسياسات محددة، ثم حساب مخاطر أفعاله لحظيًا. وتشرف فرق من Guardian Agents على الخطوات قبل تنفيذها، مع تسجيل قابل للمراجعة وتدخل أدق عند ارتفاع مستوى الخطر."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/uber-chatgpt-work-rollout/",
       "sourceTitle": "Uber brings ChatGPT Work to all employees with OpenAI",
