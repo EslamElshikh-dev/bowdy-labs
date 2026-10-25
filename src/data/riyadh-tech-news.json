@@ -3,6 +3,32 @@
   "articles": [
     {
       "sourceId": "microsoft-ai",
+      "sourceUrl": "https://www.microsoft.com/en-us/research/publication/workflowperturb-calibrated-stress-tests-for-evaluating-multi-agent-workflow-metrics/",
+      "sourceTitle": "WorkflowPerturb: Calibrated Stress Tests for Evaluating Multi-Agent Workflow Metrics",
+      "eventDate": "2026-10-25",
+      "publishedAt": "2026-10-25T14:18:20+03:00",
+      "title": "Microsoft تطور معيار WorkflowPerturb لتقييم سير عمل الوكلاء المتعددين",
+      "excerpt": "يقدم باحثو Microsoft معيارًا يختبر حساسية مقاييس تقييم سير العمل عبر آلاف النسخ المضطربة وبدرجات خلل محددة.",
+      "paragraphs": [
+        "قدمت Microsoft Research معيار WorkflowPerturb لقياس مدى استجابة مقاييس التقييم لأخطاء واقعية في سير عمل الأنظمة متعددة الوكلاء، بدل الاكتفاء بدرجة يصعب تفسير شدتها.",
+        "يضم المعيار 4,973 سير عمل مرجعيًا و44,757 نسخة معدلة، تشمل حذف خطوات وضغطها وتغيير الأوصاف عند مستويات 10% و30% و50%. ويساعد التحليل على مقارنة عائلات المقاييس وتفسير نتائجها بحسب شدة الخلل."
+      ]
+    },
+    {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://www.microsoft.com/en-us/research/publication/rcem-robust-conversational-search-embedder-in-distributional-shift/",
+      "sourceTitle": "RCEM: Robust Conversational Search EMbedder in Distributional Shift",
+      "eventDate": "2026-10-25",
+      "publishedAt": "2026-10-25T14:18:20+03:00",
+      "title": "Microsoft تقدم RCEM لتحسين البحث الحواري عند تغير توزيع البيانات",
+      "excerpt": "يعيد RCEM مواءمة المحادثات مع استعلامات صاغها نموذج لغوي، مع الحفاظ على فضاء التضمين الأصلي لتفادي إعادة بناء الفهارس.",
+      "paragraphs": [
+        "اقترحت Microsoft Research نموذج RCEM لتضمين البحث الحواري، إذ يحول سياق المحادثة إلى تمثيل متوافق مع استعلامات أعاد نموذج لغوي صياغتها، مع الإبقاء على فضاء التضمين الأساسي.",
+        "بهذا التصميم يمكن استخدام الفهارس الحالية دون إعادة بنائها أو الحاجة إلى بيانات تدريب تربط المحادثات مباشرة بالمقاطع. وتقول الورقة إن التجارب أظهرت تحسنًا يصل إلى 30% عند تغير توزيع البيانات."
+      ]
+    },
+    {
+      "sourceId": "microsoft-ai",
       "sourceUrl": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
       "sourceTitle": "Securing the agentic insider",
       "eventDate": "2026-10-19",
