@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
+      "sourceTitle": "What's new in the hf CLI and huggingface_hub library",
+      "eventDate": "2026-10-26",
+      "publishedAt": "2026-10-26T21:17:41+03:00",
+      "title": "Hugging Face توسّع أدوات hf بوظائف جديدة للمهام والتخزين وبيئات التشغيل المعزولة",
+      "excerpt": "تحديثات جديدة لأداة hf ومكتبة huggingface_hub تقلل تكرار التخزين، وتضيف إعادة تشغيل المهام، وتسرّع تنزيل البيانات، وتقدم Sandboxes تجريبية للوكلاء.",
+      "paragraphs": [
+        "استعرض فريق Hugging Face حزمة تحديثات لأداة hf ومكتبة huggingface_hub، تشمل ذاكرة تخزين مشتركة تمنع تكرار الملفات بين المستودعات، وأوامرًا لإعادة تشغيل المهام وتعديل جداولها وكشف المنافذ، مع تحسينات للخطافات والتنزيل والرفع.",
+        "أضافت المنصة Sandboxes تجريبية لتشغيل الشيفرة داخل آلات سحابية معزولة على المعالج أو GPU، وهي مناسبة للوكلاء الذين يحتاجون إلى اختبار الشيفرة بعيدًا عن جهاز المستخدم. كما أظهرت تجارب الفريق أن مهارة hf-cli خفضت عدد خطوات الوكلاء بنحو الثلث من دون تغيير ملحوظ في دقة إنجاز المهام."
+      ]
+    },
+    {
       "sourceId": "microsoft-ai",
       "sourceUrl": "https://www.microsoft.com/en-us/research/publication/workflowperturb-calibrated-stress-tests-for-evaluating-multi-agent-workflow-metrics/",
       "sourceTitle": "WorkflowPerturb: Calibrated Stress Tests for Evaluating Multi-Agent Workflow Metrics",
