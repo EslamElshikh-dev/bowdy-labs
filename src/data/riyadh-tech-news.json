@@ -3,6 +3,45 @@
   "articles": [
     {
       "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/greptile-code-review-codex-astra/",
+      "sourceTitle": "Greptile takes bug detection beyond code review with GPT‑6 Astra",
+      "eventDate": "2026-10-26",
+      "publishedAt": "2026-10-27T02:52:49+03:00",
+      "title": "Greptile توسّع اختبار البرمجيات باستخدام GPT‑6 Astra وCodex",
+      "excerpt": "منظومة تختبر سلوك التطبيق بصريًا بعد تغييرات الشيفرة، وتربط Codex بقاعدة معرفة المستودع لتقليل الأخطاء وإعادة العمل.",
+      "paragraphs": [
+        "عرضت OpenAI استخدام Greptile لنموذج GPT‑6 Astra في اختبار سلوك التطبيقات إلى جانب مراجعة الشيفرة. تشغّل المنظومة نسخة تطوير من طلب السحب، وتحاكي تفاعل المستخدم عبر أحجام شاشات مختلفة، ثم تستخدم الفهم البصري لرصد مشكلات لا تظهر من قراءة الكود وحدها.",
+        "تتيح Greptile أيضًا قاعدة معرفة تفهرس المستودع وتعرض سياقه لـCodex عبر خادم MCP، حتى يكتب الشيفرة وفق أنماط المشروع القائمة. وتستخدم الشركة Daybreak لتعزيز الدفاعات، بينما تظل أرقام الاستخدام وتقليل عمليات التراجع الواردة في الإعلان منسوبة إلى Greptile."
+      ]
+    },
+    {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/openai-cut-incident-investigation/",
+      "sourceTitle": "How Ultrafast cut incident investigation from hours to minutes at OpenAI",
+      "eventDate": "2026-10-26",
+      "publishedAt": "2026-10-27T02:52:49+03:00",
+      "title": "OpenAI تستخدم Codex Ultrafast لتسريع التحقيق في الحوادث التقنية",
+      "excerpt": "فرق هندسية داخل OpenAI تشغّل تحقيقات متوازية عبر السجلات وSlack ومصادر البيانات، وتذكر أن بعض التحقيقات تقلصت من ساعات إلى دقائق.",
+      "paragraphs": [
+        "شرحت OpenAI كيف تستخدم فرقها وضع Ultrafast في Codex أثناء الاستجابة للحوادث. يوجّه المهندسون الوكيل لمراقبة المشكلة والبحث المتوازي في السجلات والمصادر الداخلية وSlack، ثم متابعة الفرضيات والأسئلة داخل المحادثة نفسها.",
+        "بحسب أمثلة الشركة الداخلية، انخفض جمع البيانات المنظمة وغير المنظمة ووضع سياق القرار في بعض الحوادث الأمنية من ساعة أو ساعتين إلى 10 أو 15 دقيقة، وأصبحت معظم الإجابات اليومية تظهر خلال أقل من 30 ثانية. هذه أرقام تشغيلية داخلية وليست اختبارًا مستقلًا من المجلة."
+      ]
+    },
+    {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/fanatics-streamline-fan-experience/",
+      "sourceTitle": "How Fanatics and OpenAI streamline the fan experience",
+      "eventDate": "2026-10-26",
+      "publishedAt": "2026-10-27T02:52:49+03:00",
+      "title": "Fanatics تطلق توصيات Shop the Look المدعومة بنماذج OpenAI",
+      "excerpt": "ميزة تجارة إلكترونية تجمع بيانات المنتجات والمخزون وقواعد التنسيق لتوليد إطلالات مترابطة، مع أدوات بناها الفريق باستخدام Codex.",
+      "paragraphs": [
+        "أطلقت Fanatics نسخة مدعومة بنماذج OpenAI من ميزة Shop the Look عبر متاجرها ومتاجر الدوريات الرياضية. تستخدم المنظومة بيانات المنتجات والفرق والمخزون لتجميع قطع متناسقة، مع قواعد يحددها فريق التسويق لضمان ملاءمة التوصيات وتحديثها يوميًا.",
+        "استخدم فريقا Fanatics وOpenAI أداة Codex لبناء أدوات إثراء بيانات الكتالوج والعثور على المنتجات المتوافقة وتقييم الاقتراحات. ووفق دراسة الحالة، اختُبر أول 50 منتجًا خلال أقل من يوم، ثم شمل التقييم نحو 30 ألف منتج وحقق تفاعلًا أعلى بنسبة 10% من التجربة السابقة؛ وهذه نتائج تعلنها الشركتان."
+      ]
+    },
+    {
+      "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
       "sourceTitle": "Working with academic communities to build scientific understanding",
       "eventDate": "2026-10-26",
