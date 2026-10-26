@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "sourceTitle": "Introducing GPT-6.1 Terra",
+      "eventDate": "2026-10-26",
+      "publishedAt": "2026-10-26T22:52:04+03:00",
+      "title": "OpenAI تطلق GPT‑6.1 Terra للحوسبة المرئية السريعة والأعمال واسعة النطاق",
+      "excerpt": "نموذج سريع للاستدلال البصري واستخدام الحاسوب والبرمجة، متاح داخل ChatGPT Work وCodex وعبر API بأسعار أقل من الجيل السابق.",
+      "paragraphs": [
+        "أعلنت OpenAI إطلاق GPT‑6.1 Terra، وهو نموذج سريع يجمع الاستدلال البصري واستخدام الحاسوب والكتابة، ويستهدف مهام العمل واسعة الحجم مثل قراءة الفواتير وإدخال بياناتها وفهم الرسومات التقنية وتحرير الفيديو.",
+        "تقول الشركة إن Terra يتفوق بوضوح على GPT‑5.6 Terra في اختبارات استخدام الحاسوب والبرمجة مع خفض السعر القياسي للنصف، ويتاح لمشتركي Plus وPro وEnterprise وEdu داخل ChatGPT Work وCodex، وللمطورين عبر واجهة API باسم gpt-6.1-terra."
+      ]
+    },
+    {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+      "sourceTitle": "ChatGPT’s expanding world of work",
+      "eventDate": "2026-10-26",
+      "publishedAt": "2026-10-26T22:52:04+03:00",
+      "title": "OpenAI تفتح بيانات Signals لدراسة استخدام ChatGPT في 165 نشاطًا وظيفيًا",
+      "excerpt": "إصدار بحثي يتيح بيانات مجمعة عن 165 نشاطًا مهنيًا في قرابة 100 دولة لدراسة تغير استخدام ChatGPT في العمل ومقارنته بالمؤشرات الاقتصادية.",
+      "paragraphs": [
+        "أصدرت OpenAI مجموعة بيانات Signals لتمكين الباحثين من دراسة استخدام ChatGPT في العمل عبر 165 نشاطًا داخل قرابة 100 دولة. تغطي البيانات فصولًا زمنية من الربع الأول 2025 حتى الربع الثالث 2026، وترتبط بتصنيف O*NET للأنشطة المهنية.",
+        "تتيح المجموعة مقارنة أنماط الاستخدام بين الدول وتتبع تغيرها وربطها بمؤشرات اقتصادية أخرى. تشمل البيانات رسائل الخطط الفردية فقط ولا تشمل ChatGPT Enterprise أو Codex، وتقول OpenAI إنها تنشر إحصاءات مجمعة بعد إزالة المعلومات التعريفية وإضافة ضوضاء إحصائية لحماية الخصوصية."
+      ]
+    },
+    {
       "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
       "sourceTitle": "What's new in the hf CLI and huggingface_hub library",
