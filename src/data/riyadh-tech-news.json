@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/kazakhstan-ai-compute-ecosystem/",
+      "sourceTitle": "Kazakhstan Expands Compute for Its AI Future",
+      "eventDate": "2026-10-22",
+      "publishedAt": "2026-10-27T04:25:43+03:00",
+      "title": "كازاخستان توسّع بنية الذكاء الاصطناعي بتقنيات NVIDIA وتطبيقات الروبوتاكسي",
+      "excerpt": "مشروعات جديدة تجمع مراكز حوسبة بمعالجات H200 وB300 وخطط Vera Rubin، مع توسع Higgsfield وتجربة روبوتاكسي مبنية على NVIDIA Hyperion.",
+      "paragraphs": [
+        "عرضت NVIDIA توسع طبقة الحوسبة للذكاء الاصطناعي في كازاخستان. نشرت Kazakhtelecom بالفعل 400 معالج H200 و480 معالج B300 في أستانا وألماتي، وتخطط لإضافة أكثر من ألف معالج في Data Center Valley وأكثر من ألف معالج Vera Rubin في منطقة إيكيباستوز خلال 2027.",
+        "تشمل طبقة التطبيقات زيادة Higgsfield لقدراتها لتشغيل نماذج الوسائط التوليدية، واستكشاف inDrive وPony.ai لخدمة روبوتاكسي في أستانا مبنية على منصة Hyperion ونظام Halos للسلامة. الإعلان يصف خطط نشر وتقييم مستقبلية، وليس خدمات مكتملة بعد."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/greptile-code-review-codex-astra/",
       "sourceTitle": "Greptile takes bug detection beyond code review with GPT‑6 Astra",
