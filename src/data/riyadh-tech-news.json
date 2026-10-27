@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "deepmind",
+      "sourceUrl": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "sourceTitle": "Genie 4: A new generation of world simulation",
+      "eventDate": "2026-10-27",
+      "publishedAt": "2026-10-27T20:50:05.786+03:00",
+      "title": "Google DeepMind تكشف Genie 4 لمحاكاة عوالم تفاعلية بالصوت",
+      "excerpt": "قدّمت Google DeepMind نموذج Genie 4 لتوليد محاكاة تفاعلية آنية تجمع الصورة والحركة والصوت والحوار، مع إمكانية توجيه المشهد باللغة الطبيعية أثناء تشغيله.",
+      "paragraphs": [
+        "يبني Genie 4 عوالم قابلة للاستكشاف في الوقت الفعلي، ويولّد المؤثرات المحيطة والموسيقى والحوار بصورة أصلية. ويستفيد من Gemini Omni لتثبيت المظهر والسلوك، بينما يراقب Gemini 3.8 Flash المشهد ويقسم الأهداف إلى خطوات ويتحقق من تقدمها.",
+        "بدأت Google DeepMind طرح النموذج كمعاينة بحثية لمختبرين موثوقين، مع خطط لإتاحته لمشتركي Google AI Ultra وشركاء الوصول المبكر إلى Gemini API وGoogle AI Studio. وتضيف الشركة علامة SynthID للمخرجات، مع إقرارها بأن الاتساق طويل المدى ودقة الفيزياء والنصوص ما تزال قيودًا بحثية."
+      ]
+    },
+    {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/oracle-apps-in-chatgpt/",
+      "sourceTitle": "OpenAI expands partnership with Oracle to bring its apps to ChatGPT",
+      "eventDate": "2026-10-27",
+      "publishedAt": "2026-10-27T20:50:05.786+03:00",
+      "title": "OpenAI وOracle تدمجان تطبيقات الأعمال والوكلاء داخل ChatGPT",
+      "excerpt": "تعمل OpenAI وOracle على ربط تطبيقات Oracle وبياناتها بـChatGPT، وإطلاق أدوات مؤسسية للوكلاء والأمن وبناء التطبيقات ضمن صلاحيات المؤسسات.",
+      "paragraphs": [
+        "تطوّر Oracle مساحة AI Workspace داخل ChatGPT لتمكين الموظفين من البحث في بيانات الأعمال وتنفيذ مسارات عمل معتمدة عبر تطبيقات التمويل والمشتريات والتخطيط، مع توحيد تسجيل الدخول والالتزام بصلاحيات المؤسسة وموافقاتها.",
+        "يشمل التعاون أيضًا AI Security Mesh لاكتشاف الثغرات وإصلاحها باستخدام نماذج OpenAI السيبرانية، وApp Composer لبناء تطبيقات مرتبطة ببيانات Oracle المعتمدة ونشرها على بنيتها السحابية. كما يمكن لعملاء Oracle في الولايات المتحدة شراء OpenAI API وCodex وChatGPT Work عبر سوق Oracle."
+      ]
+    },
+    {
       "sourceId": "nvidia",
       "sourceUrl": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/",
       "sourceTitle": "How AI Is Changing the Pace of Discovery for Millions Living With Dementia",
