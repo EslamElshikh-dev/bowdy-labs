@@ -3,6 +3,19 @@
   "articles": [
     {
       "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/",
+      "sourceTitle": "How AI Is Changing the Pace of Discovery for Millions Living With Dementia",
+      "eventDate": "2026-10-27",
+      "publishedAt": "2026-10-27T19:55:43.747+03:00",
+      "title": "NVIDIA تدعم أبحاث الخرف بأدوات ذكاء اصطناعي مفتوحة المصدر",
+      "excerpt": "يتعاون اتحاد C-BRAIN مع NVIDIA لتشغيل أدوات مفتوحة المصدر تساعد الباحثين على تحليل بيانات التنكس العصبي وتسريع اختبار الفرضيات مع حماية البيانات المؤسسية.",
+      "paragraphs": [
+        "يعمل اتحاد C-BRAIN مع NVIDIA على بنية هجينة وموزعة تتيح للنماذج التعلم من بيانات المؤسسات من دون إخراجها من بيئاتها، مع تشغيل 64 معالجًا رسوميًا في الموقع وعُقد سحابية على Microsoft Azure. ويخطط الفريق لدمج منصة BioNeMo المفتوحة وإطار MONAI في مسارات أبحاث ألزهايمر.",
+        "طوّر الباحثون أداتي OpenScientist وInsightEngine مفتوحتي المصدر لتوليد الفرضيات وتحليل البيانات وربط الادعاءات بالأدلة العلمية. ووفق دراسات الحالة المذكورة في الإعلان، أنجزت OpenScientist تحليلات خلال دقائق بدل أسابيع أو أشهر، بتكلفة تقل عن 10 دولارات للتشغيل الواحد."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
       "sourceUrl": "https://blogs.nvidia.com/blog/kazakhstan-ai-compute-ecosystem/",
       "sourceTitle": "Kazakhstan Expands Compute for Its AI Future",
       "eventDate": "2026-10-22",
