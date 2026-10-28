@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+      "sourceTitle": "Introducing the Microsoft Copilot harness: Unlocking the potential of truly multi-model agentic work",
+      "eventDate": "2026-10-28",
+      "publishedAt": "2026-10-28T21:16:34.170+03:00",
+      "title": "Microsoft تتيح Copilot harness لبناء وكلاء يعملون عبر نماذج متعددة",
+      "excerpt": "طبقة تشغيل مُدارة تنسق اختيار النماذج والسياق والأدوات وبيئة التنفيذ، وتدعم MCP ومهارات الوكلاء والإضافات للمهام الطويلة والمعقدة.",
+      "paragraphs": [
+        "أعلنت Microsoft إتاحة Copilot harness عبر Microsoft Foundry لبناء وكلاء يستطيعون التفكير واستخدام الأدوات وتنفيذ مهام طويلة. تمثل المنظومة طبقة التشغيل حول النموذج، وتدير التعليمات والسياق وبيئة التنفيذ والضوابط، مع دعم MCP ومهارات الوكلاء والإضافات.",
+        "تعتمد الطبقة على التقنية التي طورتها GitHub وتستخدمها منتجات Copilot وVS Code وواجهة CLI. تدعم أكثر من 20 نموذجًا وإحضار مفتاح نموذج خارجي، كما تتولى Microsoft تشغيل حلقة الوكيل وبيئته المعزولة، بينما يحدد المطور التعليمات والمهارات والأدوات واختيار النموذج."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+      "sourceTitle": "Thin, Light and Built for Everything: NVIDIA RTX Spark Windows Laptops Gain New Models, Agent Tools and Games",
+      "eventDate": "2026-10-28",
+      "publishedAt": "2026-10-28T21:16:34.170+03:00",
+      "title": "NVIDIA تضيف Nemotron 3.5 Transcribe وأدوات للوكلاء المحليين على RTX Spark",
+      "excerpt": "تحديثات للذكاء الاصطناعي المحلي تشمل نموذجًا مفتوح الأوزان للتفريغ والترجمة وإسناد المتحدثين، وتحكمًا في توزيع موارد GPU بين التطبيقات والوكلاء.",
+      "paragraphs": [
+        "قدمت NVIDIA نموذج Nemotron 3.5 Transcribe مفتوح الأوزان لمعالجة التسجيلات على الأجهزة المحلية. يجمع النموذج التفريغ وإسناد المتحدثين والترجمة والإجابة عن أسئلة الصوت في مسار واحد، ويدعم 40 لغة مع إرشاده بمصطلحات وقواعد تنسيق يحددها المطور.",
+        "أضافت الشركة أيضًا إعدادات لتوزيع موارد GPU بين التطبيق النشط والوكلاء العاملين في الخلفية، مع دعم تشغيل عائلة LFM3 عبر llama.cpp وvLLM وتخصيصها محليًا. وتقول NVIDIA إن نسخًا مكممة من Nemotron ستصل لاحقًا لأجهزة RTX Spark وDGX Spark وJetson ومنصات Blackwell."
+      ]
+    },
+    {
       "sourceId": "nvidia",
       "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-and-bring-nvidia-vera-cpu-to-oracle-cloud-infrastructure",
       "sourceTitle": "NVIDIA and Oracle Expand NVIDIA Vera Rubin to Multi-Gigawatt Scale and Bring NVIDIA Vera CPU to Oracle Cloud Infrastructure",
