@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/openai-servicenow-partnership-expansion",
+      "sourceTitle": "OpenAI and ServiceNow expand partnership across enterprise workflows",
+      "eventDate": "2026-10-28",
+      "publishedAt": "2026-10-29T00:43:12.152+03:00",
+      "title": "OpenAI وServiceNow تربطان ChatGPT بسير العمل المؤسسي عبر إضافة MCP",
+      "excerpt": "تكامل جديد يجلب سياق ServiceNow وإجراءات السجلات إلى ChatGPT، مع تطبيق قواعد المؤسسة وصلاحياتها وخطط لدمج Codex في تطوير التطبيقات.",
+      "paragraphs": [
+        "وسعت OpenAI وServiceNow شراكتهما لربط سير العمل المؤسسي بـChatGPT وCodex. تتيح إضافة ServiceNow عبر MCP، والمتاحة حاليًا في سوق OpenAI، البحث عن الحوادث المتشابهة وتقييم مخاطر التغييرات وتحديث السجلات من داخل المحادثة، مع إبقاء قواعد المؤسسة وصلاحياتها مطبقة عبر Action Fabric.",
+        "تشمل الخطط دمج Codex في AI Workflow Factory لبناء التطبيقات بالاستفادة من سياق ServiceNow، وتطوير حل أمني مشترك لترتيب الثغرات وتنسيق المعالجة، وتجربة صوتية لإدخال حالات استخدام الذكاء الاصطناعي. بعض القدرات ما زال مخططًا للإتاحة خلال 2027، وفق الإعلان."
+      ]
+    },
+    {
       "sourceId": "google-ai",
       "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
       "sourceTitle": "Gemini 4 Carbon: our next frontier model",
