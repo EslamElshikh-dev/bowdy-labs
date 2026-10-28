@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "google",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
+      "sourceTitle": "Gemini 4 Carbon: our next frontier model",
+      "eventDate": "2026-10-28",
+      "publishedAt": "2026-10-28T22:56:52.689+03:00",
+      "title": "Google تقدم Gemini 4 Carbon للأمن السيبراني والمهام الوكيلة الممتدة",
+      "excerpt": "نموذج جديد من Google يستهدف اكتشاف الثغرات والتحقق منها وإصلاحها، مع تشغيل مهام هندسية طويلة وإتاحة أولية للمدافعين الأمنيين عبر Fairwind.",
+      "paragraphs": [
+        "أعلنت Google نموذج Gemini 4 Carbon للبرمجة وسير العمل الوكيلي طويل الأمد، مع تركيز على الأمن السيبراني. تقول الشركة إن فرقها شغّلته لأيام لمتابعة أعطال هندسية معقدة والعثور على أسبابها وإصلاحها، وتعرضه بوصفه تطويرًا لقدرات Gemini 4 Argon.",
+        "تنسب Google إلى Carbon نتائج 88.2% في SEC-bench Pro لاكتشاف الثغرات، و54.8% في ExploitGym للتحقق من قابلية الاستغلال، و71% في CWE-bench للإصلاح. يبدأ الوصول لمجموعة من المدافعين الأمنيين ثم شركاء Fairwind، قبل توسيعه لاحقًا للمطورين والشركات والمستخدمين."
+      ]
+    },
+    {
       "sourceId": "microsoft-ai",
       "sourceUrl": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
       "sourceTitle": "Introducing the Microsoft Copilot harness: Unlocking the potential of truly multi-model agentic work",
