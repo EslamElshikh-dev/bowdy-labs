@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-and-bring-nvidia-vera-cpu-to-oracle-cloud-infrastructure",
+      "sourceTitle": "NVIDIA and Oracle Expand NVIDIA Vera Rubin to Multi-Gigawatt Scale and Bring NVIDIA Vera CPU to Oracle Cloud Infrastructure",
+      "eventDate": "2026-10-27",
+      "publishedAt": "2026-10-28T14:17:31.547+03:00",
+      "title": "NVIDIA وOracle توسّعان بنية Vera Rubin لتدريب النماذج وتشغيل الوكلاء",
+      "excerpt": "تتيح OCI أنظمة Vera Rubin ووحدات Vera CPU لتوسيع تدريب النماذج والاستدلال، مع فصل موارد المعالجة الرسومية والمركزية وفق احتياجات الوكلاء.",
+      "paragraphs": [
+        "أعلنت NVIDIA وOracle الإتاحة العامة لأنظمة Vera Rubin NVL72 ووحدات Vera CPU على Oracle Cloud Infrastructure، مع خطة لتوسيع عناقيد OCI الفائقة إلى نطاق متعدد الجيجاواط. تستهدف البنية تدريب النماذج المتقدمة وتشغيل الاستدلال وأحمال الوكلاء.",
+        "تتيح Kubernetes على OCI توسيع موارد CPU وGPU بصورة مستقلة، حتى تنفذ الوكلاء استدعاءات الأدوات وتشغيل الشيفرة واسترجاع البيانات من دون إبقاء المعالجات الرسومية في حالة انتظار. وتخطط OCI أيضًا لإضافة أنظمة HGX Rubin NVL8، بينما تبقى خطط التوسع المستقبلية خاضعة للتغيير."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-and-meta-to-expand-collaboration-on-muse-and-muse-family-of-models-amid-robust-growth",
+      "sourceTitle": "NVIDIA and Meta to Expand Collaboration on Muse and Muse Family of Models Amid Robust Growth",
+      "eventDate": "2026-10-26",
+      "publishedAt": "2026-10-28T14:17:31.547+03:00",
+      "title": "NVIDIA وMeta توسّعان التعاون لتحسين نماذج Muse وأمان الوكلاء",
+      "excerpt": "تخطط الشركتان لتحسين تدريب واستدلال نماذج Muse، ودراسة استخدام OpenShell وSentry لضبط تشغيل الوكلاء ومراقبة سلوكهم على بنية NVIDIA.",
+      "paragraphs": [
+        "أعلنت NVIDIA وMeta توسيع تعاونهما لتحسين أداء التدريب والاستدلال في عائلة نماذج Muse ووكلائها. ويشمل العمل تحسين المسارات الحاسوبية، مع دراسة استخدام OpenShell للنشر الآمن وSentry لمراقبة سلوك الوكلاء ومعالجة البيانات.",
+        "تعتزم Meta زيادة نشر أنظمة Vera Rubin ووحدات Vera CPU، إلى جانب شبكات Spectrum‑X ووحدات BlueField‑4، لدعم أحمال الوكلاء ورفع كفاءة الشبكات. الإعلان يصف خطط تعاون ونشر مستقبلية، ولا يقدم تقييمًا مستقلًا لأداء النماذج."
+      ]
+    },
+    {
       "sourceId": "deepmind",
       "sourceUrl": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
       "sourceTitle": "Genie 4: A new generation of world simulation",
