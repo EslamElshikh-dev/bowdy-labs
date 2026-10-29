@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/",
+      "sourceTitle": "Build and manage Connected Apps in one place",
+      "eventDate": "2026-10-28",
+      "publishedAt": "2026-10-29T09:50:18+03:00",
+      "title": "Google تطرح معاينة Connected Apps لربط التطبيقات بـGemini والبحث عبر MCP",
+      "excerpt": "منصة موحّدة تتيح للمطور بناء التكامل مرة واحدة، ثم تسجيله واختباره وإرساله للمراجعة واختيار ظهوره في Gemini أو البحث، مع متابعة الأداء من لوحة واحدة.",
+      "paragraphs": [
+        "أعلنت Google معاينة منصة Connected Apps لتوصيل قدرات التطبيقات بكل من البحث وتطبيق Gemini. يستطيع المطور التكامل عبر خادم MCP سحابي أو Android MCP باستخدام واجهات AppFunctions، ثم تسجيل التطبيق واختباره وإرساله للمراجعة عبر Google Connected Console.",
+        "قبل المراجعة يحدد المطور أين سيظهر التطبيق، وبعد الإطلاق يمكنه متابعة الزيارات وزمن الاستجابة ومعدلات الأخطاء وإدارة الهوية والشعارات الموثقة والحسابات المصادَق عليها. الوصول إلى المنصة يُفتح تدريجيًا، بينما أصبحت تكاملات مثل Adobe وPeloton متاحة في Gemini، مع خطط لجلبها إلى البحث خلال الأسابيع المقبلة."
+      ]
+    },
+    {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/products/gemini-app/immersive-explorations-student-hub/",
+      "sourceTitle": "Dive into new topics with immersive explorations in the Gemini app.",
+      "eventDate": "2026-10-28",
+      "publishedAt": "2026-10-29T09:50:18+03:00",
+      "title": "Gemini يضيف استكشافات بصرية تفاعلية للتعلّم من الفضاء إلى الجزيئات",
+      "excerpt": "مكتبة جديدة في مركز الطلاب داخل Gemini تتيح التنقل بين طبقات مشاهد تعليمية والضغط على عناصرها للتعمق، مع خطط لإضافة السرد الصوتي والوصول من المحادثات.",
+      "paragraphs": [
+        "أضافت Google إلى تطبيق Gemini مكتبة للاستكشافات الغامرة، تعرض موضوعات تعليمية عبر مشاهد بصرية تفاعلية ومتدرجة. يمكن للمستخدم الضغط على التسميات للانتقال من مشهد واسع إلى تفاصيل أدق، مثل دراسة محرك نفاث أو فيزياء البرق أو الانتقال من المقاييس الكوكبية إلى الجزيئات.",
+        "المكتبة متاحة عبر مركز الطلاب في Gemini، وتخطط Google لإتاحتها مباشرة داخل المحادثة وإضافة سرد صوتي لاحقًا. تدعم التجربة حاليًا الإنجليزية والإندونيسية والهندية والبرتغالية البرازيلية والفرنسية والصينية المبسطة؛ أما مستخدمو اللغات الأخرى، ومنها العربية، فيحصلون الآن على تجربة باللغة الإنجليزية."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/legora/",
       "sourceTitle": "Legora is building the agentic operating system for legal work",
