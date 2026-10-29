@@ -13,7 +13,7 @@ const clock = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 const search = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>';
 const periodicalId = `${site.url}${magazine.path}#magazine`;
 const editorId = `${site.url}${magazine.path}#editorial-team`;
-export const magazineStyles = ["/assets/css/riyadh-tech.css?v=20261017-5"];
+export const magazineStyles = ["/assets/css/riyadh-tech.css?v=20261017-5", "/assets/css/riyadh-tech-atelier.css?v=20261029-1"];
 export const magazineScripts = ["/assets/js/riyadh-tech.js?v=20261017-5"];
 const styles = magazineStyles;
 const scripts = magazineScripts;
@@ -53,6 +53,15 @@ export function magazineEditorial() {
 
 export function magazineAutomaticNotice() {
   return `<div class="rt-auto-notice"><span><i aria-hidden="true"></i>رصد ونشر تلقائي · كل ساعة</span><a href="#news-sources">${newsSources.length} مصادر رسمية ↗</a>${lastAutomaticPublication ? `<small>آخر نشر آلي: <time datetime="${lastAutomaticPublication}">${formatDate(lastAutomaticPublication)}</time></small>` : ""}</div>`;
+}
+
+function magazineDispatches() {
+  const latest = magazineArticles.slice(0, 3);
+  return `<section class="rt-dispatches" aria-labelledby="rt-dispatches-title"><header><span class="rt-dispatch-mark" aria-hidden="true">↙</span><span class="rt-kicker">على خطّ التقنية</span><h2 id="rt-dispatches-title">أفكار تتحرّك.<br>وأخبار تستحق وقتك.</h2><a href="${magazine.path}archive/">كل الموضوعات ${arrow}</a></header><ol>${latest.map((article, index) => `<li><a href="${articlePath(article)}"><span class="rt-dispatch-meta"><span lang="en" dir="ltr">0${index + 1}</span><span>${esc(article.tag)}</span><time datetime="${articlePublishedAt(article)}">${formatDate(articlePublishedAt(article))}</time></span><h3>${esc(article.title)}</h3><span class="rt-dispatch-bottom">${readingMinutes(article)} د قراءة ${arrow}</span></a></li>`).join("")}</ol></section>`;
+}
+
+function magazineSourceRail() {
+  return `<nav class="rt-source-rail" aria-label="اقرأ بحسب المصدر الرسمي"><div><span class="rt-source-rail-mark" aria-hidden="true">◎</span><span>من المصدر.<small>إلى الصورة الأوضح.</small></span></div><ul>${newsSources.map(source => `<li><a href="${sourcePath(source)}"><bdi>${esc(source.name)}</bdi><span aria-hidden="true">↗</span></a></li>`).join("")}</ul></nav>`;
 }
 
 export function magazineSourcePanel() {
@@ -112,12 +121,12 @@ export function magazineIndexModel() {
     body: `<div class="rt-magazine rt-index-page" data-motion="off"><div class="container">${crumbs()}${magazineNavigation({active:"home"})}
       <section class="rt-masthead" aria-labelledby="rt-title"><div class="rt-masthead-copy"><div class="rt-masthead-top"><span lang="en" dir="ltr">RIYADH TECH <i>BY BOWDY LABS</i></span><span class="rt-edition-pill"><i aria-hidden="true"></i>قراءة متجددة</span></div><h1 id="rt-title"><small>مجلة</small><span>رياض</span> <em>التقنية<span aria-hidden="true">.</span></em></h1><p class="rt-masthead-deck">نقرأ تحوّلات الذكاء الاصطناعي.<br>ونقرّب لك ما يصنع الفرق.</p><div class="rt-masthead-actions"><a class="rt-primary-link" href="#library">ابدأ رحلتك في المجلة ${arrow}</a><a class="rt-secondary-link" href="#magazine-sections">اختر مسارك <span aria-hidden="true">↓</span></a></div><div class="rt-masthead-stats"><div><strong>${magazineArticles.length}</strong><span>أخبار ومقالات</span></div><div><strong>${newsSources.length}</strong><span>مصادر رسمية</span></div><div><strong>04</strong><span>مسارات للمعرفة</span></div></div></div>${magazineCover()}</section>
       <div class="rt-topic-strip" aria-label="اهتمامات المجلة"><span><i aria-hidden="true"></i>في عالم يتغير كل يوم</span><a href="${sectionPath("news")}">نماذج الذكاء الاصطناعي <span aria-hidden="true">↗</span></a><a href="${sectionPath("explainers")}">وكلاء وأتمتة <span aria-hidden="true">↗</span></a><a href="${sectionPath("tools")}">أدوات للمطورين <span aria-hidden="true">↗</span></a><a href="${sectionPath("business")}">أبحاث وتطبيقات <span aria-hidden="true">↗</span></a></div>
-      ${magazineAutomaticNotice()}${magazineSpotlight()}
+      ${magazineDispatches()}${magazineAutomaticNotice()}${magazineSpotlight()}
       ${sectionDirectory()}<section class="rt-library" id="library" aria-labelledby="rt-library-title"><div class="rt-section-head"><div><span class="rt-kicker">أخبار · شروحات · أفكار قابلة للتطبيق</span><h2 id="rt-library-title">الأحدث في المجلة<span>.</span></h2></div><span class="rt-library-count">${magazineArticles.length} أخبار ومقالات</span></div>
       <form class="rt-search" role="search" data-magazine-search-form hidden><label for="rt-search">تصفية أحدث موضوعات المجلة</label><div>${search}<input id="rt-search" type="search" name="q" placeholder="جرّب: Gemini، وكلاء، RAG…" autocomplete="off" maxlength="120" data-magazine-search><button type="button" data-magazine-clear>مسح البحث</button></div></form>
       <a class="rt-full-search" href="${magazine.path}search/">ابحث في كل الموضوعات والمصادر ${arrow}</a><div class="rt-filters" role="group" aria-label="تصفية محتوى المجلة" data-magazine-filters hidden>${magazine.categories.map((c) => `<button type="button" data-magazine-filter="${c.id}" aria-pressed="${c.id === "all"}">${c.label}<span>${c.id === "all" ? indexArticles.length : indexArticles.filter(a => a.category === c.id).length}</span></button>`).join("")}</div><p class="rt-result-status" role="status" aria-live="polite" data-magazine-status></p>
       <div class="rt-grid" data-magazine-grid>${indexArticles.map(a => magazineCard(a, { filterable: true })).join("")}</div><div class="rt-empty" data-magazine-empty hidden><strong>لم نجد موضوعًا بهذه الكلمات</strong><p>جرّب اسم النموذج أو مصطلحًا أقصر، أو ارجع إلى كل المحتوى.</p><button class="button" type="button" data-magazine-reset>عرض كل الموضوعات</button></div><noscript><p class="rt-noscript">أحدث الموضوعات متاحة هنا، وكل الموضوعات في الأرشيف. فعّل JavaScript لاستخدام التصفية.</p></noscript><div class="rt-section-action"><a class="rt-link" href="${magazine.path}archive/">تصفح الأرشيف كاملًا ${arrow}</a></div></section>
-      ${guidesShelf()}${magazineSourcePanel()}${magazineEditorial()}<section class="rt-bridge"><div><span class="rt-kicker">من المعرفة إلى التجربة</span><h2>استكشف ما تبنيه باودي لابز بالذكاء الاصطناعي.</h2></div><a class="rt-link" href="/agents/">قابل وكلاء باودي ${arrow}</a></section>
+      ${guidesShelf()}${magazineSourceRail()}${magazineSourcePanel()}${magazineEditorial()}<section class="rt-bridge"><div><span class="rt-kicker">من المعرفة إلى التجربة</span><h2>استكشف ما تبنيه باودي لابز بالذكاء الاصطناعي.</h2></div><a class="rt-link" href="/agents/">قابل وكلاء باودي ${arrow}</a></section>
     ${magazineFooter()}</div></div>`,
   };
 }
