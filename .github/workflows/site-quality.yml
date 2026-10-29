@@ -4,27 +4,36 @@ on:
   workflow_dispatch:
   pull_request:
     branches: [main]
+  merge_group:
   push:
     branches: [main]
-    paths:
-      - "build.mjs"
-      - "src/**"
-      - "assets/**"
-      - "scripts/**"
-      - "test/**"
-      - "package.json"
-      - "package-lock.json"
-      - "vercel.json"
-      - ".github/workflows/site-quality.yml"
 
 permissions:
   contents: read
 
 jobs:
-  validate-site:
+  validate-news:
+    name: News data validation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.22.1'
+      - name: Validate source registry and news data before installing build tools
+        run: node scripts/validate-news.mjs
+      - name: Test news validation and prebuild lifecycle
+        run: node --test test/riyadh-tech-news-validation.test.mjs test/riyadh-tech-news-preflight.test.mjs
+
+  validate-site:
+    needs: validate-news
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24.22.1'
