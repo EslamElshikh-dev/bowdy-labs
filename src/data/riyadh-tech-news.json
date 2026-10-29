@@ -3,6 +3,19 @@
   "articles": [
     {
       "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+      "sourceTitle": "Granite Switch 4.1.1 — Update models like you update software",
+      "eventDate": "2026-10-29",
+      "publishedAt": "2026-10-29T17:03:48+03:00",
+      "title": "IBM تحدّث Granite Switch 4.1.1 للصوت والقرارات دون إعادة تدريب النموذج الأساسي",
+      "excerpt": "إصدار تصحيحي متوافق مع النسخة السابقة يضيف تفريغًا صوتيًا بعشر لغات مع علامات الترقيم، ويحدّث محوّل القرارات عبر بنية معيارية قابلة للتبديل.",
+      "paragraphs": [
+        "أعلنت IBM إصدار Granite Switch 4.1.1 بوصفه تحديثًا تصحيحيًا متوافقًا بالكامل مع 4.1 ولا يتطلب ترحيلًا. يشمل نموذجًا محدّثًا للتعرف على الكلام بعشر لغات، مع علامات الترقيم وضبط حالة الأحرف، ومحوّل قرارات محسّنًا داخل granitelib-core. وتنسب الشركة إليه تحسنًا في اختبار Jev Decision Index دون نشر نتيجة رقمية في الإعلان.",
+        "تعتمد البنية على محوّلات متخصصة تُركّب بحسب الحاجة على نقطة تشغيل واحدة. تقول IBM إنها درّبت مكوّنَي الصوت والقرارات فقط، وأبقت النموذج الأساسي دون تغيير، بما يتيح تحديث القدرات بصورة مستقلة. وتعمل على شروحات وحزمة Adapter SDK لتمكين المطورين من بناء محوّلاتهم؛ هذه الأدوات ما زالت قيد الإعداد."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/anydecisionmodel",
       "sourceTitle": "Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms",
       "eventDate": "2026-10-29",
