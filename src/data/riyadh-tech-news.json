@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/anydecisionmodel",
+      "sourceTitle": "Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms",
+      "eventDate": "2026-10-29",
+      "publishedAt": "2026-10-29T15:11:29+03:00",
+      "title": "حزمتا Swift جديدتان لتفريغ الصوت واتخاذ قرارات بالنماذج على أجهزة Apple",
+      "excerpt": "يعرض Hugging Face أداتين لتشغيل نماذج مفتوحة محليًا: تفريغ صوت مع تمييز المتحدثين، وتصنيف وقرارات منظمة تُرجع احتمالات بدل تحليل نص مولّد.",
+      "paragraphs": [
+        "قدّم Hugging Face حزمتَي AnySpeechRecognizer وAnyDecisionModel لمطوري Swift. تحافظ الأولى على نمط واجهة Apple للتعرف على الكلام، مع اختيار محركات مثل Parakeet وQwen3-ASR عبر Core ML. وتضيف تمييز ما يصل إلى أربعة متحدثين باستخدام Sortformer، مع تنزيل النماذج من Hub عند طلب التطبيق.",
+        "تُرجع الحزمة الثانية إجابات نعم أو لا، واختيارات وتقييمات مع احتمالاتها، اعتمادًا على احتمالات الرموز أو رؤوس قرار مدرّبة بدل توليد نص ثم تحليله. تدعم تشغيلًا محليًا عبر MLX وCore AI وllama.cpp، وخدمات Jev وOllama. يوضح المقال أن الثقة لا تعني صحة الإجابة، ويوصي بتقييم البيانات الفعلية؛ كما أن اختبارات حزمة الصوت أُجريت على Mac دون iPhone حتى الآن."
+      ]
+    },
+    {
       "sourceId": "google-ai",
       "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/",
       "sourceTitle": "Build and manage Connected Apps in one place",
