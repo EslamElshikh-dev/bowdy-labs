@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/health/google-for-health-summit-singapore",
+      "sourceTitle": "Partnering with Singapore to bring frontier AI to public health",
+      "eventDate": "2026-10-29",
+      "publishedAt": "2026-10-29T07:36:12+03:00",
+      "title": "Google توسّع تطبيقات الذكاء الاصطناعي للصحة العامة في سنغافورة",
+      "excerpt": "مبادرات جديدة تنقل MedGemma وأداة المساعد السريري والتحليلات التنبؤية إلى البحث والرعاية الصحية، مع إبقاء البيانات داخل بيئات المؤسسات المحلية.",
+      "paragraphs": [
+        "أعلنت Google إنشاء مركز أبحاث في سنغافورة يركز على النماذج التأسيسية للعلوم، وتوسيع استخدام نماذج MedGemma المفتوحة في الرعاية المباشرة. تستهدف المبادرة بناء حلول صحية مخصصة وآمنة مع الحفاظ على سيادة البيانات داخل الدولة، إلى جانب دعم منصة PathGen لاكتشاف تهديدات الأمراض ومشاركة معلومات الصحة العامة.",
+        "تعمل Google DeepMind مع منظومة الصحة الجامعية الوطنية على تقييم أداة AI co-clinician، التي تجمع الإرشادات الطبية والأدبيات لمساعدة الأطباء في الإجابة عن الأسئلة السريرية. كما تستخدم NHG Health تحليلات تنبؤية لتقدير مخاطر الحالات المزمنة عبر شرائح السكان، ثم تغذي النتائج مساعدًا صحيًا مبنيًا على Gemini Enterprise لتقديم إرشادات وتذكيرات وقائية مخصصة. ما زالت بعض القدرات قيد التقييم وليست بديلًا عن القرار الطبي."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/openai-servicenow-partnership-expansion",
       "sourceTitle": "OpenAI and ServiceNow expand partnership across enterprise workflows",
