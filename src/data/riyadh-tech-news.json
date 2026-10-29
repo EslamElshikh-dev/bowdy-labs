@@ -3,6 +3,32 @@
   "articles": [
     {
       "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/mistral-large4",
+      "sourceTitle": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
+      "eventDate": "2026-10-29",
+      "publishedAt": "2026-10-29T18:43:29+03:00",
+      "title": "Mistral Large 4 يصل إلى Hugging Face بأوزان مفتوحة وقدرات بصرية ووكلاء برمجة",
+      "excerpt": "نموذج متعدد اللغات يستقبل النصوص والصور، يجمع بنية خبراء متخصصة وانتباهًا متناثرًا، مع دعم للتشغيل والتخصيص عبر أدوات المنظومة المفتوحة.",
+      "paragraphs": [
+        "عرض Hugging Face نموذج Mistral Large 4، الملقّب Le Chonk، بنحو تريليون معلمة إجمالية ونافذة سياق تصل إلى مليون رمز. يستقبل النصوص والصور ويولّد النص، ويجمع بنية مزيج الخبراء مع انتباه متناثر ومشفّر Pixtral البصري، مستهدفًا البرمجة الوكيلة والعمل الأمني الدفاعي وفهم الصور.",
+        "تتوفر نسختا FP8 وNVFP4 الرسميتان، إلى جانب تحويلات GGUF، مع دعم Transformers وvLLM وllama.cpp والتخصيص عبر TRL. وتوجد وصفة نشر مُدارة على Inference Endpoints. الأوزان متاحة بترخيص Mistral Ecosystem Open-Weight الذي يضع قيودًا على تقديم النموذج كخدمة؛ كما تختلف متطلبات العتاد وطول السياق الفعلي باختلاف وصفة التشغيل."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/announcing-project-protostar",
+      "sourceTitle": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+      "eventDate": "2026-10-29",
+      "publishedAt": "2026-10-29T18:43:29+03:00",
+      "title": "Hugging Face يطلق ProtoStar لإتاحة أبحاث قابلة لإعادة الاستخدام في الذكاء الاصطناعي",
+      "excerpt": "مبادرة لنشر البيانات والنماذج والشيفرة العلمية بصيغ قابلة للمعالجة، تبدأ بتحدٍ يقارن تنبؤات مناخية لمدن أمريكية بخطوط أساس إحصائية ورصد فعلي.",
+      "paragraphs": [
+        "أعلن Hugging Face وشركاء جامعيون وبحثيون مشروع ProtoStar لجعل مخرجات الأبحاث الممولة من المال العام أسهل اكتشافًا ودمجًا وإعادة استخدام. يدعم المشروع نشر البيانات والنماذج والشيفرة بصيغ مهيأة للذكاء الاصطناعي، مع توثيق وبيانات وصفية ومعلومات عن منشأ الموارد، واختبار فائدتها عبر تحديات علمية مفتوحة.",
+        "يُقام التحدي الأول لدى جامعة كارنيغي ميلون من 2 إلى 13 نوفمبر 2026، ويستخدم سجلات 210 مدن أمريكية حتى 2018 لتوقع مؤشرات مناخية للفترة 2019–2026. تُقارن النتائج بالرصد الفعلي والمتوسطات التاريخية والاتجاهات الخطية، ويقدّم المشاركون مخرجاتهم كمجموعة بيانات على Hub. النتائج النهائية متوقعة مطلع 2027 بعد اكتمال سجلات 2026، وفق الإعلان."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
       "sourceTitle": "Granite Switch 4.1.1 — Update models like you update software",
       "eventDate": "2026-10-29",
