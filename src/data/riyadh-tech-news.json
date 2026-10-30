@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals/",
+      "sourceTitle": "Things That Go Beep in the Night: Agentic AI Joins the Search for Extraterrestrial Signals",
+      "eventDate": "2026-10-30",
+      "publishedAt": "2026-10-30T18:43:00+03:00",
+      "title": "NVIDIA تعرض وكلاء يتحكمون بالتلسكوب ويحللون إشاراته الراديوية لحظيًا",
+      "excerpt": "مرصد Allen يربط Holoscan ومعالجة الإشارات بوكلاء يستقبلون طلبات بلغة طبيعية، لتوجيه الهوائيات ومعايرة البيانات وتحليلها محليًا.",
+      "paragraphs": [
+        "عرضت NVIDIA دمج وكلاء الذكاء الاصطناعي في مصفوفة تلسكوبات Allen ضمن عمل Breakthrough Listen ومعهد SETI. تربط مكتبة DAQIRI تدفق بيانات الحساسات بذاكرة GPU، ويعالج CyberEther الإشارات، بينما يتيح Nexus للباحثين توجيه الهوائيات ومراقبة فقدان الحزم وتعديل مسارات المعالجة بطلبات بلغة طبيعية.",
+        "تقول الشركة إن النظام يعالج 2.4 تيرابت في الثانية على وحدات RTX PRO 6000 Blackwell، مع تشغيل الاستدلال بجوار التلسكوب. وتذكر رصد نجم نابض في سديم السرطان بالذكاء الاصطناعي في الزمن الحقيقي؛ هذا تحقق من قدرة المسار على رصد إشارات فلكية، وليس اكتشافًا لحياة خارج الأرض. ويقيّم الفريق نماذج مفتوحة، منها Nemotron، لاستخدامات تتطلب معالجة محلية."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/updated-model-spec/",
       "sourceTitle": "An updated Model Spec for more capable and beneficial AI",
