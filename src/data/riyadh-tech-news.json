@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+      "sourceTitle": "nemotron-halloween",
+      "eventDate": "2026-10-30",
+      "publishedAt": "2026-10-30T22:35:56+03:00",
+      "title": "NVIDIA تعرض MonsterHouse لربط وكيل صوتي محلي بتحريك شخصية ثلاثية الأبعاد",
+      "excerpt": "تطبيق يجمع التعرف على الكلام وBolt E4B وتوليد الصوت وتحريك الوجه، مع تخصيص الشخصية عبر LoRA وتوزيع المعالجة على وحدتَي GPU.",
+      "paragraphs": [
+        "عرض فريق NVIDIA على Hugging Face مشروع MonsterHouse، وهو شخصية تفاعلية مسقطة على باب مرأب. ينسّق Nemotron Voice Agent التعرف على الكلام، ويولّد Bolt E4B الردود مع محوّل LoRA للشخصية، ثم ينتج Magpie TTS Zeroshot الصوت ويحوّله Audio2Face-3D إلى حركة داخل Unreal Engine 5.",
+        "يوزّع التطبيق المحادثة والصوت على RTX PRO 6000 Blackwell Max-Q والرسوم والتحريك على RTX PRO 4000 Blackwell، ويستخدم ردودًا وتسجيلات مخزنة لتقليل الانتظار. شفرة MonsterHouse نفسها ليست مُعبأة للنشر، والاختبارات البصرية المعروضة اصطناعية؛ لذلك لا تثبت نجاح التشغيل مع زوار حقيقيين أو في إضاءة ليلية."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/helping-websites-express-ai-training-preferences/",
       "sourceTitle": "Making it easier for websites to express AI training preferences",
