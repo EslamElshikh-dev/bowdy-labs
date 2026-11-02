@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "deepmind",
+      "sourceUrl": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+      "sourceTitle": "Speeding up planning decisions with AI",
+      "eventDate": "2026-10-31",
+      "publishedAt": "2026-11-02T14:46:06+03:00",
+      "title": "Google DeepMind توسّع PlanAssist لمراجعة طلبات البناء بمساعدة Gemini",
+      "excerpt": "توسّع Google DeepMind تجربة PlanAssist إلى مجالس محلية إضافية في إنجلترا، مع فحص مستندات البناء والسياسات وصياغة تقارير موثقة، وبقاء القرار النهائي للموظف المختص.",
+      "paragraphs": [
+        "أعلنت Google DeepMind توسيع تجربة PlanAssist، المبنية على Gemini، لتشمل 12 مجلسًا محليًا إضافيًا في إنجلترا. تتحقق الأداة من مستندات طلبات البناء والرسومات المعمارية، وتراجع القيود والسياسات والاعتراضات، ثم تصوغ تقارير تستند إلى مصادر يمكن لموظفي التخطيط تعديلها.",
+        "بحسب الشركة، أظهرت التجارب المبكرة في ثلاثة مجالس انخفاضًا يصل إلى 58% في وقت مهام التقييم، واعتماد أكثر من 70% من التقارير دون تعديل. تنتقل الأداة إلى مرحلة تجريبية لمدة 12 شهرًا باستخدام طلبات فعلية، مع احتفاظ الموظفين المؤهلين بالمراجعة والقرار النهائي."
+      ]
+    },
+    {
       "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/nvidia/nemotron-halloween",
       "sourceTitle": "nemotron-halloween",
