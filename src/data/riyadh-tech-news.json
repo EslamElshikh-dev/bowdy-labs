@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
+      "sourceTitle": "Accelerating engineering for the physical world",
+      "eventDate": "2026-11-03",
+      "publishedAt": "2026-11-03T22:30:20+03:00",
+      "title": "OpenAI تعرض قدرات Astra وCodex في تصميم الأجهزة والمحاكاة الهندسية",
+      "excerpt": "تجارب تشمل تصميم غلاف ولوحة إلكترونية وبرمجيات لجهاز تجريبي، وتحويل مسح ثلاثي الأبعاد إلى نماذج CAD ورسومات تصنيع، مع استمرار المراجعة الهندسية البشرية.",
+      "paragraphs": [
+        "عرضت OpenAI تقدمًا في استخدام نماذجها للتصميم الميكانيكي والكهربائي والمحاكاة. في تجربة Astra، طوّر فريق صغير غلاف جهاز ولوحته الإلكترونية وبرمجياته للتواصل مع Codex. وتستخدم فرق الشركة Codex وChatGPT لتعديل نماذج CAD وإعداد رسومات التصنيع والمحاكاة ومراجعة التصاميم.",
+        "تختبر الشركة مع Chip Ganassi Racing تحويل المسح ثلاثي الأبعاد إلى نماذج قابلة للتحرير ورسومات ثنائية الأبعاد، وأعلنت تعاونًا بحثيًا مع Mazda لتقييم تصاميم المركبات بالمحاكاة. هذه تجارب وقدرات قيد التطوير، وليست بديلًا لاعتماد المهندسين؛ فالنموذج لم يراعِ قيود التصنيع والتفاوتات والتجميع بصورة متسقة، واحتاجت النماذج الأولية إلى مراجعات وتعديلات متعددة."
+      ]
+    },
+    {
       "sourceId": "deepmind",
       "sourceUrl": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
       "sourceTitle": "Agentic cheminformatics with Google Antigravity",
