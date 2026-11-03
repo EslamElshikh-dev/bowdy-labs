@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/heimstaden/",
+      "sourceTitle": "Heimstaden is changing residential real estate management with AI",
+      "eventDate": "2026-11-03",
+      "publishedAt": "2026-11-03T13:25:26+03:00",
+      "title": "Heimstaden تستخدم Codex لتحليل العقارات ونماذج OpenAI لدعم المشتريات",
+      "excerpt": "دراسة حالة تعرض بناء مسارات معالجة لبيانات المخاطر البيئية، وأدوات للتأجير ومراجعة الإعلانات، ومنصة مشتريات قيد التعميم مع إبقاء القرارات والموافقات بيد الموظفين.",
+      "paragraphs": [
+        "عرضت OpenAI استخدام Heimstaden لأدواتها في إدارة العقارات السكنية. ساعد Codex محللة استدامة في اكتشاف البيانات العامة وتنظيفها وتوحيدها وبناء مسارات معالجة قابلة للتكرار لتقييم المخاطر البيئية. وتذكر دراسة الحالة تقييم 20,112 أصلًا عقاريًا، مع احتفاظ المحللة بالمنهجية والتحقق من النتائج.",
+        "تدعم أدوات مبنية في ChatGPT التسعير ووصف الشقق، ويراجع وكيل الإعلانات المنشورة وفق معايير الشركة. كما يجري تعميم منصة مشتريات تجمع أتمتة سير العمل ونماذج OpenAI عبر API لتحليل العقود والتحضير للتفاوض عبر Outlook وSharePoint وTeams. أما نظام Amplio Estate الداعم لتكاملات MCP فما زال قيد التطوير، وتبقى الموافقات التجارية بشرية."
+      ]
+    },
+    {
       "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/transformers-mic",
       "sourceTitle": "Transformers Model Integration Contracts",
