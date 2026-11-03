@@ -3,6 +3,19 @@
   "articles": [
     {
       "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/scaling-git-at-openai/",
+      "sourceTitle": "Scaling Git at OpenAI",
+      "eventDate": "2026-11-02",
+      "publishedAt": "2026-11-03T03:46:31+03:00",
+      "title": "OpenAI تكشف Pando لتوسيع Git ودعم عمل وكلاء Codex بالتوازي",
+      "excerpt": "بنية خلفية متوافقة مع Git تنسق تحديث كل فرع على حدة وتعيد استخدام حزم البيانات، مع تطويرها بمساعدة Codex وتشغيلها في مستودع OpenAI الرئيسي.",
+      "paragraphs": [
+        "كشفت OpenAI عن Pando، بنية خلفية لمستودعات Git تدعم كثافة التعديلات والقراءات الناتجة عن عمل المهندسين ووكلاء Codex بالتوازي. تنسق تحديثات الفروع بصورة مستقلة، وتعيد استخدام حزم البيانات عبر تخزين مشترك وذاكرات محلية، مع الحفاظ على بروتوكول Git وأدواته؛ لكنها لا تضمن لقطة زمنية موحدة لجميع الفروع.",
+        "تقول الشركة إنها بنت النظام بلغة Rust وبمساعدة Codex خلال عشرة أسابيع، واستخدمت المحاكاة الحتمية وLean وTLA+ للتحقق من خصائصه. يعمل Pando الآن في مستودعها الرئيسي، وتذكر انخفاض زمن الدفع الوسيط بنحو 80%. هذه نتيجة تشغيلية تعلنها OpenAI، بينما ما زالت تدرس طرق إتاحة التقنية للمستخدمين."
+      ]
+    },
+    {
+      "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/qodo-codex-plugin/",
       "sourceTitle": "Qodo builds context into AI code review with Codex",
       "eventDate": "2026-11-02",
