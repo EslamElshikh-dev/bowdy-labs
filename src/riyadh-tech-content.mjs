@@ -1,4 +1,5 @@
 import { automaticArticles } from "./riyadh-tech-news.mjs";
+import { riyadhContractorsArticle } from "./riyadh-tech-contractors.mjs";
 // News event dates belong to the original announcements; publication dates belong to this magazine.
 export const magazine = {
   name: "مجلة رياض التقنية",
@@ -16,6 +17,7 @@ export const magazine = {
 };
 
 export const editorialArticles = [
+  riyadhContractorsArticle,
   {
     slug: "gemini-4-argon-real-world-work",
     title: "Gemini 4 Argon: خطوة جديدة نحو المهام المعقدة",
@@ -144,6 +146,7 @@ export const magazineArticles = [...automaticArticles, ...editorialArticles].sor
 export const magazineUpdatedAt = magazineArticles.reduce((latest, article) => Date.parse(articleModifiedAt(article)) > Date.parse(latest) ? articleModifiedAt(article) : latest, magazine.published);
 export const articleShareImage = (article) => `/assets/og/riyadh-tech-${article.automated ? `source-${article.sourceId}` : article.slug}.png`;
 export const articlePath = (article) => `${magazine.path}${article.slug}/`;
-export const articleDate = (article) => article.eventDate ?? magazine.published.slice(0, 10);
-export const readingMinutes = (article) => Math.max(1, Math.ceil(article.sections.reduce((count, section) => count + [section.title, ...(section.paragraphs ?? []), ...(section.list ?? [])].join(" ").split(/\s+/u).length, 0) / 180));
+export const articleDate = (article) => article.eventDate ?? articlePublishedAt(article).slice(0, 10);
+export const sectionText = (article, section) => [section.title, ...(section.paragraphs ?? []), ...(section.list ?? []), ...(section.links ?? []).map(link => link.name), ...(section.comparison ? (article.companyList?.items ?? []).map(company => `${company.name}: ${company.focus}. ${company.question}`) : [])].join("\n");
+export const readingMinutes = (article) => Math.max(1, Math.ceil(article.sections.map(section => sectionText(article, section)).join(" ").split(/\s+/u).length / 180));
 export const formatDate = (value) => new Intl.DateTimeFormat("ar-SA", { dateStyle: "long", calendar: "gregory", timeZone: "Asia/Riyadh" }).format(new Date(value.length === 10 ? `${value}T12:00:00+03:00` : value));
