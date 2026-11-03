@@ -3,6 +3,19 @@
   "articles": [
     {
       "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/cisco-cyber/",
+      "sourceTitle": "How Cisco defends at machine speed with OpenAI",
+      "eventDate": "2026-11-03",
+      "publishedAt": "2026-11-03T23:15:00+03:00",
+      "title": "Cisco تربط بيانات الشبكة بنماذج OpenAI لتسريع الدفاع السيبراني",
+      "excerpt": "دراسة حالة توضح ربط إشارات الشبكة بتحليل النماذج لدعم اكتشاف التهديدات وإصلاح الثغرات، مع استكشاف ضوابط أمنية تستجيب لسلوك الوكلاء.",
+      "paragraphs": [
+        "عرضت OpenAI كيف تجمع Cisco بيانات الشبكة مع نماذجها لربط إشارات قد تبدو منفصلة وكشف أنماط تساعد الفرق الأمنية على التحقيق والاستجابة. وبحسب مسؤولي Cisco، تدعم Daybreak وGPT-6 Astra العثور على الثغرات وإصلاحها ضمن مسارات الفحص القائمة، دون أن يورد الإعلان قياسات كمية للتحسن.",
+        "وتستكشف الشركتان عبر Daybreak Defense Network تسريع تقييم الانكشاف للتهديدات وتطبيق الضوابط المناسبة في Cisco Cloud Control. ويركز التصور الأمني للوكلاء على حمايتهم من الهجمات ورصد سلوكهم غير المقصود والتدخل في وقت قريب من الفعلي؛ وهذه اتجاهات استكشافية، لا إعلان عن إتاحة عامة مكتملة."
+      ]
+    },
+    {
+      "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
       "sourceTitle": "Accelerating engineering for the physical world",
       "eventDate": "2026-11-03",
