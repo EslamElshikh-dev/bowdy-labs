@@ -147,6 +147,17 @@ export const magazineUpdatedAt = magazineArticles.reduce((latest, article) => Da
 export const articleShareImage = (article) => `/assets/og/riyadh-tech-${article.automated ? `source-${article.sourceId}` : article.slug}.png`;
 export const articlePath = (article) => `${magazine.path}${article.slug}/`;
 export const articleDate = (article) => article.eventDate ?? articlePublishedAt(article).slice(0, 10);
-export const sectionText = (article, section) => [section.title, ...(section.paragraphs ?? []), ...(section.list ?? []), ...(section.links ?? []).map(link => link.name), ...(section.comparison ? (article.companyList?.items ?? []).map(company => `${company.name}: ${company.focus}. ${company.question}`) : [])].join("\n");
+export const projectExampleText = (project) => [
+  project.name, project.category, project.location, project.description,
+  ...project.facts.map(fact => `${fact.label}: ${fact.value}`), ...project.scope,
+  "قراءة المجلة: سؤال لمشروع مشابه", project.takeaway, project.image.caption, project.source.name,
+].join("\n");
+export const sectionText = (article, section) => [
+  section.title, ...(section.paragraphs ?? []), ...(section.list ?? []),
+  ...(section.links ?? []).map(link => link.name),
+  ...(section.comparison ? (article.companyList?.items ?? []).map(company => `${company.name}: ${company.focus}. ${company.question}`) : []),
+  ...(section.projects ? (article.projectExamples ?? []).map(projectExampleText) : []),
+  ...(section.steps ?? []).map(step => `${step.title}: ${step.description}`),
+].join("\n");
 export const readingMinutes = (article) => Math.max(1, Math.ceil(article.sections.map(section => sectionText(article, section)).join(" ").split(/\s+/u).length / 180));
 export const formatDate = (value) => new Intl.DateTimeFormat("ar-SA", { dateStyle: "long", calendar: "gregory", timeZone: "Asia/Riyadh" }).format(new Date(value.length === 10 ? `${value}T12:00:00+03:00` : value));
