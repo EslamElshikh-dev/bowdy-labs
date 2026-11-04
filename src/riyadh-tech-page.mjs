@@ -144,13 +144,34 @@ function articleSection(article, section, index) {
   return `<section id="section-${index + 1}"><h2>${esc(section.title)}</h2>${(section.paragraphs ?? []).map(p => `<p>${esc(p)}</p>`).join("")}${section.comparison ? comparisonTable(article) : ""}${section.list ? `<ul>${section.list.map(item => `<li>${esc(item)}</li>`).join("")}</ul>` : ""}${section.links?.length ? `<div class="rt-section-links">${section.links.map(articleLink).join("")}</div>` : ""}</section>`;
 }
 
+function articleEditorialCredit(article, url) {
+  const credit = article.editorialCredit;
+  if (credit?.confirmed !== true) return null;
+  const labels = { author: "كتابة", contributor: "مساهمة في المقال", "publication": "نشر المقال" };
+  if (article.automated || !Object.hasOwn(labels, credit.role) || typeof credit.name !== "string" || !credit.name.trim()) {
+    throw new Error(`Invalid confirmed editorial credit: ${article.slug}`);
+  }
+  if (credit.details !== undefined && (typeof credit.details !== "string" || !credit.details.trim())) {
+    throw new Error(`Invalid editorial credit details: ${article.slug}`);
+  }
+  const name = credit.name.trim();
+  const text = `${labels[credit.role]}: ${name}${credit.details ? ` — ${credit.details.trim()}` : ""}`;
+  const person = credit.role === "publication" ? null : {
+    "@type": "Person", "@id": `${url}#editorial-credit`, name,
+  };
+  return { role: credit.role, person, text };
+}
+
 export function magazineArticleModel(article) {
   const path = articlePath(article);
   const url = `${site.url}${path}`;
   const image = articleShareImage(article);
   const published = articlePublishedAt(article);
   const modified = articleModifiedAt(article);
-  const author = article.automated ? autoEditor : editor;
+  const credit = articleEditorialCredit(article, url);
+  const author = credit?.role === "author" ? credit.person : article.automated ? autoEditor : editor;
+  const authorHref = credit?.role === "author" ? "#editorial-credit" : `${magazine.path}${article.automated ? "#news-sources" : "#editorial"}`;
+  const creditMarkup = credit ? `<span id="editorial-credit">${esc(credit.text)}</span><span>المجلة: <a href="${magazine.path}">${magazine.name}</a> · الناشر المؤسسي: <a href="/">باودي لابز</a></span>${modified !== published ? `<span>آخر تحديث: <time datetime="${modified}">${formatDate(modified)}</time></span>` : ""}` : "";
   const related = recommendedArticles(article);
   const neighbors = articleNeighbors(article);
   const companies = article.companyList ? {
@@ -168,6 +189,8 @@ export function magazineArticleModel(article) {
     datePublished: published, dateModified: modified,
     ...(article.eventDate ? { temporalCoverage: article.eventDate } : {}),
     author: { "@id": author["@id"] }, publisher: { "@id": `${site.url}/#organization` },
+    ...(credit ? { creditText: credit.text } : {}),
+    ...(credit?.role === "contributor" ? { contributor: { "@id": credit.person["@id"] } } : {}),
     mainEntityOfPage: { "@id": `${url}#webpage` }, isPartOf: { "@id": periodicalId },
     image: { "@type": "ImageObject", url: `${site.url}${image}`, width: 1200, height: 630 },
     citation: article.sources.map(s => ({ "@type": "CreativeWork", name: s.name, url: s.url, ...(s.date ? { datePublished: s.date } : {}) })),
@@ -177,10 +200,11 @@ export function magazineArticleModel(article) {
   };
   return {
     title: article.title, description: article.excerpt, path, active: "magazine", type: "article", styles, scripts, shareImage: image, dateModified: modified,
-    mainEntity: { "@id": `${url}#article` }, schema: [periodical, editor, article.automated ? autoEditor : null, breadcrumbSchema(article), schema, companies],
+    ...(credit ? { metaAuthor: author.name } : {}),
+    mainEntity: { "@id": `${url}#article` }, schema: [periodical, editor, article.automated ? autoEditor : null, breadcrumbSchema(article), schema, companies, ...(credit?.person ? [credit.person] : [])],
     head: `<meta property="article:published_time" content="${published}"><meta property="article:modified_time" content="${modified}"><meta property="article:section" content="${article.categoryLabel}"><link rel="alternate" type="application/rss+xml" title="${magazine.name}" href="${magazine.path}feed.xml">`,
     body: `<div class="rt-magazine rt-article-page rt-tone-${article.art}" data-motion="off" data-reader-theme="paper"><div class="container">${crumbs(article)}${magazineNavigation({active:article.category})}<a class="rt-mini-masthead" href="${magazine.path}"><span>${magazine.name}</span><small>من باودي لابز</small></a>
-      <div class="rt-reading-progress" role="progressbar" aria-label="تقدم قراءة المقال" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-reading-progress hidden><span></span></div><article data-reading-article><div class="rt-article-hero"><header class="rt-article-head"><a class="rt-category" href="${sectionPath(article.category)}">${article.categoryLabel}</a><h1>${esc(article.title)}</h1><p class="rt-deck">${esc(article.excerpt)}</p>${article.disclosure ? `<p class="rt-promotional-disclosure" role="note"><strong>عن هذا الدليل</strong>${esc(article.disclosure)}</p>` : ""}<div class="rt-byline"><span class="rt-author-mark" aria-hidden="true">ر</span><div><a href="${magazine.path}${article.automated ? "#news-sources" : "#editorial"}">${author.name}</a><span>نُشر في المجلة <time datetime="${published}">${formatDate(published)}</time> · ${readingMinutes(article)} د قراءة</span></div></div>${readerTools(article)}${sourceChips(article)}${article.eventDate ? `<p class="rt-event-date">تاريخ الإعلان الأصلي: <time datetime="${article.eventDate}">${formatDate(article.eventDate)}</time></p>` : ""}</header>
+      <div class="rt-reading-progress" role="progressbar" aria-label="تقدم قراءة المقال" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-reading-progress hidden><span></span></div><article data-reading-article><div class="rt-article-hero"><header class="rt-article-head"><a class="rt-category" href="${sectionPath(article.category)}">${article.categoryLabel}</a><h1>${esc(article.title)}</h1><p class="rt-deck">${esc(article.excerpt)}</p>${article.disclosure ? `<p class="rt-promotional-disclosure" role="note"><strong>عن هذا الدليل</strong>${esc(article.disclosure)}</p>` : ""}<div class="rt-byline"><span class="rt-author-mark" aria-hidden="true">ر</span><div><a href="${authorHref}">${esc(author.name)}</a>${creditMarkup}<span>نُشر في المجلة <time datetime="${published}">${formatDate(published)}</time> · ${readingMinutes(article)} د قراءة</span></div></div>${readerTools(article)}${sourceChips(article)}${article.eventDate ? `<p class="rt-event-date">تاريخ الإعلان الأصلي: <time datetime="${article.eventDate}">${formatDate(article.eventDate)}</time></p>` : ""}</header>
       <figure class="rt-article-visual"><div class="rt-poster-heading"><span lang="en" dir="ltr">RIYADH TECH / JOURNAL</span>${magazineMark(article.art)}</div>${art(article, { featured: true })}<div class="rt-poster-foot"><span>${article.categoryLabel}</span><span lang="en">READ. THINK. CREATE.</span></div><figcaption>رسم توضيحي من مجلة رياض التقنية.</figcaption></figure></div>${article.automated ? `<p class="rt-auto-disclosure" role="note"><strong>نشر تلقائي</strong> ملخص أُعد ونُشر آليًا من مصدر رسمي، دون مراجعة بشرية قبل النشر. راجع الإعلان الأصلي للتفاصيل.</p>` : ""}
       <div class="rt-reading-layout"><aside class="rt-toc"><span class="rt-toc-kicker" lang="en">YOUR READING PATH</span><strong>في هذا الموضوع</strong><nav aria-label="محتويات المقال">${article.sections.map((s, i) => `<a href="#section-${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span>${esc(s.title)}</a>`).join("")}<a href="#sources"><span>↗</span>${article.sources.length ? "المصادر والمراجع" : "عن هذا المقال"}</a></nav><a class="rt-toc-back" href="${magazine.path}">${arrow} كل موضوعات المجلة</a></aside>
       <div class="rt-prose"><div class="rt-takeaway"><span>الفكرة الأساسية</span><p>${esc(article.takeaway)}</p></div>${article.sections.map((section, index) => articleSection(article, section, index)).join("")}
