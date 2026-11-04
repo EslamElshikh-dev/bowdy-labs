@@ -225,6 +225,7 @@ function layout({
   active = "",
   body,
   language = "ar",
+  metaAuthor = site.nameEn,
   type = "website",
   robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   schema = [],
@@ -268,7 +269,7 @@ function layout({
   <meta name="description" content="${esc(description)}">
   <meta name="google-site-verification" content="${googleSiteVerification}">
   <meta name="robots" content="${robots}">
-  <meta name="author" content="${site.nameEn}">
+  <meta name="author" content="${esc(metaAuthor)}">
   <meta name="application-name" content="${site.nameEn}">
   <meta name="theme-color" content="#050815">
   <meta name="color-scheme" content="dark">
