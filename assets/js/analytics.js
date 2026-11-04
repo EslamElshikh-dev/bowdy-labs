@@ -26,6 +26,10 @@
     );
   };
 
+  if (/^\/(?:en\/)?pricing\/$/.test(page)) {
+    track("pricing_view", { source: "page_load" });
+  }
+
   const linkLocation = (link) => {
     if (link.closest(".hero, .page-hero")) return "hero";
     if (link.closest(".site-header")) return "header";

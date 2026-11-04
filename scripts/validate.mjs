@@ -127,7 +127,7 @@ for (const file of htmlFiles) {
     if (!visibleText.includes("وكلاء ذكاء اصطناعي يتكلمون بالعربية")) {
       errors.push("services/index.html: Arabic AI agents keyword missing");
     }
-    if (!html.includes('class="services-hero-stage"') || !html.includes('class="services-ai-core"')) {
+    if (!/class="[^"]*\bservices-hero-stage\b[^"]*"/.test(html) || !html.includes('class="services-ai-core"')) {
       errors.push("services/index.html: lightweight identity-based services hero missing");
     }
     if (html.includes('rel="preload" as="image"') || html.includes('class="services-hero-image"')) {

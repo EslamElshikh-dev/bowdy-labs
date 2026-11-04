@@ -80,12 +80,14 @@ for (const file of files) {
 
 const llms = `# BOWDY LABS — باودي لابز
 
-> Saudi technology and AI company in Riyadh building secure AI agents, software, automation, cybersecurity, cloud, Google and search-growth systems for businesses.
+> BOWDY LABS builds and runs secure AI agents for Saudi businesses: one job, scoped permissions, connected systems and Saudi hosting options defined per project. Free trial timing is confirmed after assessing the job.
 
 ## Core pages
 
 - [BOWDY LABS — Arabic](https://bowdylabs.com/)
 - [BOWDY LABS — English](https://bowdylabs.com/en/)
+- [Agent pricing — Arabic](https://bowdylabs.com/pricing/)
+- [Agent pricing — English](https://bowdylabs.com/en/pricing/)
 - [Services](https://bowdylabs.com/services/)
 - [BOWDY AI Agents](https://bowdylabs.com/agents/)
 - [Selected work](https://bowdylabs.com/work/)

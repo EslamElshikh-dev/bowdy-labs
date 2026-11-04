@@ -94,9 +94,9 @@
     },
     {
       keys: ["سعر", "تكلفة", "price", "pricing", "cost", "ميزانية", "budget"],
-      ar: "التكلفة تختلف حسب نطاق العمل والتكاملات والبيانات ومستوى الأمان والمدة. اذكر لي نوع المشروع والهدف الحالي وسأساعدك أولًا في تحديد النطاق الصحيح قبل التسعير.",
-      en: "Pricing depends on scope, integrations, data, security requirements and delivery timeline. Tell me the project type and desired outcome and I’ll first help define the right scope.",
-      links: [["contact", en ? "/en/contact/" : "/contact/"]],
+      ar: "انطلق: 1,500 ريال تأسيس + 690 ريال شهريًا. اشتغل: من 7,500 ريال للمشروع، وتشغيل اختياري 990 ريال شهريًا. توسّع: عرض مخصص، والمرحلة الأولى عادةً من 30,000 ريال. الأسعار شاملة الضريبة، ورسوم المزوّدين مستقلة. التجربة مجانية قبل الدفع وموعدها يتأكد بعد مراجعة المهمة.",
+      en: "Launch: SAR 1,500 setup + 690 monthly. Build: from SAR 7,500 per project, with optional operations at SAR 990 monthly. Scale: a custom quote, typically from SAR 30,000 for the first phase. VAT included; provider charges are separate. A trial is free before payment, with timing confirmed after reviewing the job.",
+      links: [["pricing", en ? "/en/pricing/" : "/pricing/"]],
     },
     {
       keys: ["تواصل", "واتساب", "اتصال", "contact", "whatsapp", "call", "phone", "رقم"],
@@ -107,6 +107,7 @@
   ];
 
   const labels = {
+    pricing: en ? "Compare plans" : "قارن الباقات",
     services: en ? "View services" : "عرض الخدمات",
     agents: en ? "AI Agents" : "وكلاء باودي",
     models: en ? "BOWDY Models" : "نماذج باودي",
@@ -173,7 +174,8 @@
 
   const localAnswer = (query) => {
     const q = normalize(query);
-    const match = intents.find((item) => item.keys.some((key) => q.includes(normalize(key))));
+    const pricing = intents.find((item) => item.keys.includes("pricing"));
+    const match = pricing.keys.some(key => q.includes(normalize(key))) ? pricing : intents.find((item) => item.keys.some((key) => q.includes(normalize(key))));
     return match
       ? { text: en ? match.en : match.ar, links: match.links }
       : { text: copy.fallback, links: [["services", en ? "/en/services/" : "/services/"], ["contact", en ? "/en/contact/" : "/contact/"]] };

@@ -11,6 +11,9 @@ const server = spawn(
 const paths = [
   "/",
   "/en/",
+  "/pricing/",
+  "/en/pricing/",
+  "/en/contact/?service=ai-agents&intent=trial",
   "/alarjancrm/",
   "/alarjancrm/dashboard/",
   "/alarjancrm/sap-integration/",
@@ -56,6 +59,8 @@ const paths = [
   "/llms.txt",
   "/manifest.webmanifest",
   "/assets/css/main.css",
+  "/assets/css/commercial.css",
+  "/assets/js/trial.js",
   "/assets/css/alargan-crm.css",
   "/assets/js/main.js",
   "/assets/brand/bowdy-labs-mark.svg",
