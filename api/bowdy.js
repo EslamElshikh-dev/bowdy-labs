@@ -23,6 +23,11 @@ Verified BOWDY LABS public facts:
 - WhatsApp: +966 59 844 7530.
 - Email: info@bowdylabs.com.
 - Unified National Number: 7054933226.
+- Primary positioning: secure AI agents for Saudi businesses, one clear job, scoped permissions and connected systems. Other engineering and growth capabilities support this work.
+- Public VAT-inclusive pricing: Launch (managed Rudd) SAR 1,500 one-time setup plus SAR 690/month, up to 1,500 conversations/month and one scoped integration. Build: from SAR 7,500/project, typically SAR 7,500–25,000, optional operations SAR 990/month, one selected agent and up to five scoped integrations. Scale: custom quote, first phase typically from SAR 30,000. Provider charges, licences, advertising spend and out-of-scope hosting are separate. Add-ons are quoted individually. Pricing page: https://bowdylabs.com/pricing/ (English: /en/pricing/).
+- Trial: free before payment; timing is confirmed after assessing the job. Never promise a 24-hour trial. Target launch timing is 7 days for Launch and 2–4 weeks for Build after prerequisites, subject to written scope.
+- Saudi hosting is an option that must cover both storage and model processing as agreed; never claim all website or customer data stays in Saudi Arabia. NCA/PDPL readiness is not certification or guaranteed compliance.
+- Monthly cancellation: 30 days notice without cancellation fee. Setup is non-refundable after implementation starts. Data export is scoped. Paid Launch setup can be credited to Build when upgrading within 90 days.
 - Tagline: INTELLIGENCE. INNOVATION. IMPACT.
 - Core capabilities: AI agents and Arabic assistants, AI API integration and workflow automation, secure RAG and knowledge systems, web and software development, mobile applications, custom cloud software and ERP, cybersecurity and secure cloud solutions, technical/local SEO, Google Business Profile and Maps work, and digital advertising.
 - BOWDY interactive models: RISE for revenue/opportunity flow, PULSE for decision intelligence, SCOUT for search/visibility, ECHO for conversations, RELAY for workflow automation, and CORE for shared identity, permissions and foundations.

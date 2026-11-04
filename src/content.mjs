@@ -18,7 +18,7 @@ export const site = {
   heroImageSmall: "/assets/media/bowdy-intelligence-760.webp",
   heroImageMedium: "/assets/media/bowdy-intelligence-1200.webp",
   description:
-    "باودي لابز شركة تقنية وذكاء اصطناعي في الرياض تبني حلولًا آمنة وقابلة للتوسع تجمع وكلاء AI وتطوير البرمجيات والأمن السيبراني والسحابة وGoogle وSEO.",
+    "باودي لابز شركة سعودية في الرياض تبني وتشغّل وكلاء ذكاء اصطناعي للشركات، بمهمة واضحة وصلاحيات محددة وربط بالأنظمة ومنظومة Google وخيارات استضافة داخل المملكة.",
 };
 
 export const serviceGroups = [
