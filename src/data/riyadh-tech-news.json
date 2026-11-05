@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://news.microsoft.com/source/asia/features/from-copilot-to-agents-inside-kpits-ai-powered-marketing-transformation/",
+      "sourceTitle": "From Copilot to agents: Inside KPIT’s AI-powered marketing transformation",
+      "eventDate": "2026-11-04",
+      "publishedAt": "2026-11-05T21:25:49+03:00",
+      "title": "KPIT توظّف Copilot وPower Automate لمتابعة المنافسين وإعداد تقارير الحسابات",
+      "excerpt": "حالة تطبيق منشورة من Microsoft تعرض ربط معلومات السوق بالمعرفة الداخلية، مع تقارير دورية تفصل الحقائق عن الاستنتاجات.",
+      "paragraphs": [
+        "عرضت Microsoft استخدام KPIT لأدوات Microsoft 365 Copilot ضمن أعمال التسويق والبحث. بنت الشركة مسارًا باستخدام Copilot وPower Automate يتابع 14 منافسًا، ويحلل التطورات والإعلانات العامة، ثم ينتج تقارير شهرية تتضمن توصيات وتقييمًا للتهديدات.",
+        "يجمع تطبيق آخر الأدلة العامة بمعرفة KPIT الداخلية لإعداد تقارير عن فرص الحسابات وخطط عمل لمدد 30 و60 و90 يومًا، مع الفصل بين الحقائق والاستنتاجات. ويستفيد الفريق أيضًا من مستودع المقترحات الداخلية لرصد الأنماط؛ وهذه حالة استخدام تصفها الشركة عبر Microsoft، وليست قياسًا مستقلًا للعائد أو الدقة أجرته المجلة."
+      ]
+    },
+    {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://news.microsoft.com/source/asia/2026/11/04/how-innovation-is-helping-a-digital-bank-maintain-human-connection-in-chat-conversations/",
+      "sourceTitle": "How innovation is helping a digital bank maintain human connection in chat conversations",
+      "eventDate": "2026-11-04",
+      "publishedAt": "2026-11-05T21:25:49+03:00",
+      "title": "Bankwest يربط مساعد Bee بموظفي الدعم مع نقل سياق المحادثة وتلخيصها",
+      "excerpt": "Microsoft تعرض تطبيقًا في Bankwest يجمع الخدمة الذاتية بالمساعدة البشرية، مع تلخيص المحادثات ومؤشرات المشاعر وقواعد لإخفاء بيانات حساسة.",
+      "paragraphs": [
+        "عرضت Microsoft تجربة Bankwest في دمج مساعد المحادثة Bee مع Dynamics 365 Contact Centre. يتولى المساعد الاستفسارات الأساسية، وعندما تتطلب الحالة تدخلًا بشريًا ينقل المحادثة إلى الموظف مع سياقها وملخصها، بدل مطالبة العميل بإعادة التفاصيل.",
+        "يوفر النظام تلخيصًا للخيوط الطويلة ومؤشرات لمشاعر العميل، بينما يساعد Copilot الموظفين في صياغة ردود أبسط يمكنهم تخصيصها. وشملت التحسينات قواعد لإخفاء أرقام الملفات الضريبية الأسترالية وإشعارات تعيد العميل إلى المحادثة المفتوحة. لا يثبت الإعلان دقة موحدة أو توفيرًا ماليًا محددًا؛ وهو وصف لتطبيق قائم، وليس اختبارًا للمجلة."
+      ]
+    },
+    {
       "sourceId": "google-ai",
       "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
       "sourceTitle": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
