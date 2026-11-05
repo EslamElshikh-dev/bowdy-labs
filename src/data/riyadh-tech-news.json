@@ -3,6 +3,19 @@
   "articles": [
     {
       "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/introducing-images-2-6/",
+      "sourceTitle": "Introducing Images 2.6",
+      "eventDate": "2026-11-04",
+      "publishedAt": "2026-11-05T03:51:41+03:00",
+      "title": "OpenAI تطلق Images 2.6 مع صور GIF وتحكم أوسع في التعديل عبر API",
+      "excerpt": "التحديث يضيف تحديد مواضع التعديلات وتصدير SVG ومعاملًا لتعقيد المشهد، مع نسختي Flare وSunburst للمطورين وإتاحة في ChatGPT وCodex.",
+      "paragraphs": [
+        "أعلنت OpenAI إطلاق Images 2.6 في ChatGPT وCodex وواجهة API، مع دعم إنشاء صور GIF وتحسين اتساق الشخصيات والمنتجات عبر جولات التعديل. وتقول الشركة إن التوليد أسرع بنسبة 50% من السابق؛ وهذه نتيجة معلنة من المصدر وليست اختبارًا أجرته المجلة.",
+        "تتيح API نسختي GPT-Image-2.6 Flare وSunburst، إضافة إلى تحديد مواضع التغيير على الصورة وتصدير التصاميم بصيغة SVG. ويتحكم معامل complexity الجديد في مقدار التخطيط المطلوب للمشهد، بصورة منفصلة عن جودة التفاصيل؛ وتوصي الشركة بتعقيد منخفض للتعديلات السريعة. وأكد الإعلان الإتاحة العالمية في ChatGPT وCodex عبر جميع فئات الاشتراك."
+      ]
+    },
+    {
+      "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
       "sourceTitle": "A thousand fewer paths to root",
       "eventDate": "2026-11-04",
