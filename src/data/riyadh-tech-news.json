@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/merge-builds-with-openai/",
+      "sourceTitle": "Merge builds product and business tools with OpenAI technology",
+      "eventDate": "2026-11-05",
+      "publishedAt": "2026-11-06T02:28:52+03:00",
+      "title": "Merge تربط نماذج OpenAI بأنظمة الشركة لمراجعة المنتجات وتنسيق العمل",
+      "excerpt": "دراسة حالة تعرض استخدام Codex لمراجعة الشيفرة، وGPT‑6 Astra لمسارات مبيعات وتخطيط فعاليات تعتمد على موصلات البيانات مع مراجعة بشرية.",
+      "paragraphs": [
+        "عرضت OpenAI استخدام منصة التكامل Merge لـCodex في مراجعة شيفرة واجهة تهيئة الوصول إلى الأدوات في Merge for Workforce. يقدم Codex ملاحظات المراجعة، بينما يقرر الفريق تعديلات المنتج ويتولى المهندسون التحقق منها ونشرها. وتستخدم الشركة GPT‑6 Astra أيضًا في اختبار المنتجات وأعمال التسويق.",
+        "تشرح الدراسة مساعدًا لتخطيط لقاءات العملاء يجمع بيانات CRM وApollo، ويتحقق من الدعوات والردود، ويحدّث سجل الحضور ويقترح ترتيب المقاعد. يتولى النموذج الاستدلال والصياغة، وتوفر موصلات Merge الوصول إلى أنظمة العمل؛ وتراجع الإدارة المخرجات وقائمة الضيوف. كما تُستخدم مسارات قابلة لإعادة الاستخدام لتجهيز موافقات الصفقات وتحديثات التوقعات، مع بقاء القرار البشري."
+      ]
+    },
+    {
       "sourceId": "nvidia",
       "sourceUrl": "https://blogs.nvidia.com/blog/vera-cpu-highest-throughput-fastest-agents/",
       "sourceTitle": "Vera Delivers the Best of Both Worlds: Highest Throughput and Fastest Agents",
