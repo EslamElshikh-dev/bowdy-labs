@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/vera-cpu-highest-throughput-fastest-agents/",
+      "sourceTitle": "Vera Delivers the Best of Both Worlds: Highest Throughput and Fastest Agents",
+      "eventDate": "2026-11-05",
+      "publishedAt": "2026-11-06T00:35:04+03:00",
+      "title": "NVIDIA تعرض نتائج Vera في تشغيل الوكلاء وبيئات التنفيذ المعزولة",
+      "excerpt": "المادة تربط سرعة تنفيذ الأدوات على CPU بقدرة البنية على خدمة وكلاء أكثر، وتعرض اختبارات من Perplexity وDeepInfra وDaytona وشركاء آخرين.",
+      "paragraphs": [
+        "نشرت NVIDIA نتائج لأحمال وكلاء الذكاء الاصطناعي على معالج Vera، موضحة أن البحث واستعلام قواعد البيانات وتشغيل الشيفرة تحتاج إلى CPU بين جولات الاستدلال على GPU. وتركز المقارنة على موازنة زمن إنجاز الوكيل وعدد الوكلاء الممكن تشغيلهم ضمن ميزانية الطاقة.",
+        "تذكر المادة أن Perplexity نفذت مهام برمجة بالوكلاء بسرعة أعلى 1.5 مرة في اختبارها، مع خطة لنشر Vera في نظام إنتاجي قادم. كما أعلنت Daytona تشغيل ألف بيئة معزولة خلال 10.8 ثانية، وعرضت DeepInfra وModal نتائج لتنسيق الوكلاء ومعدل معالجة البيئات. تختلف الأعباء والعتاد وخطوط الأساس؛ الأرقام منسوبة للمصدر وشركائه، ولم تختبرها المجلة مستقلًا."
+      ]
+    },
+    {
       "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation",
       "sourceTitle": "New NVIDIA Cosmos 3 Open Models for Interactive World Simulation",
