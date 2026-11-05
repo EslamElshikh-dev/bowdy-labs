@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/phonon-tts",
+      "sourceTitle": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+      "eventDate": "2026-11-05",
+      "publishedAt": "2026-11-05T14:36:35+03:00",
+      "title": "تفاصيل Phonon لتوليد الصوت محليًا وتكامله مع Transformers",
+      "excerpt": "مقال تقني على Hugging Face يشرح نموذج Phonon الصغير لتوليد الكلام دون اتصال، مع خمس لغات وتراخيص مختلفة وأدوات تشغيل على معالجات متعددة.",
+      "paragraphs": [
+        "عرض مقال جديد على Hugging Face تفاصيل Phonon من Gradium، بعد أسبوعين من إتاحة النموذج. يعمل توليد الكلام على الجهاز دون إرسال النص إلى خادم، ويدعم إنشاء أصوات مخصصة. تتوفر نسخة Phonon 31m الإنجليزية بترخيص Apache 2.0 للاستخدام التجاري، بينما تغطي نسخة 40m الإنجليزية والفرنسية والألمانية والإسبانية والبرتغالية بترخيص غير تجاري.",
+        "يشرح المقال إطار التشغيل ptts الذي يدعم المعالجات المركزية والرسومية والعصبية، وإدماج النموذج في Transformers بدءًا من الإصدار 5.21 للتوليد المجمّع على GPU. ويعرض نتائج على لوحة Open TTS من Hugging Face؛ وهي نتائج ينقلها المصدر وليست اختبارات للمجلة. العربية ليست ضمن اللغات الخمس المتاحة المذكورة."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/introducing-images-2-6/",
       "sourceTitle": "Introducing Images 2.6",
