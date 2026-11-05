@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "sourceTitle": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "eventDate": "2026-11-05",
+      "publishedAt": "2026-11-05T20:11:26+03:00",
+      "title": "Google تطلق Gemini Omni 1.2 Flash لفيديو أطول وتعديل بالمحادثة",
+      "excerpt": "الإصدار يتيح مقاطع حتى 15 ثانية وتعديلها على مراحل، مع تحسين اتباع المراجع وخفض السعر المعلن مقارنة بالإصدار السابق.",
+      "paragraphs": [
+        "أعلنت Google إتاحة Gemini Omni 1.2 Flash عمومًا عبر Gemini API وGemini for business. يولد الإصدار مقاطع تصل إلى 15 ثانية، مقابل 10 ثوانٍ سابقًا، ويتيح تعديل المقطع بالمحادثة على عدة جولات، مثل تغيير الخلفية أو الإضاءة دون إعادة توليده من البداية.",
+        "تقول الشركة إن التحديث يحسن اتباع مراجع الشخصيات والمنتجات والحركة والصوت، مع رفع الدقة إلى 1080p أو 4K. وخفّضت السعر المعلن 30% مقارنة بـOmni 1.1 إلى 0.07 دولار لكل ثانية فيديو بدقة 720p. تتضمن المخرجات علامة SynthID، بينما يستمر تطوير التعامل مع الحركة الرياضية السريعة والفيزياء المعقدة؛ ولم تختبر المجلة هذه القدرات."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/memory-full-stack-codesign/",
+      "sourceTitle": "More Performance From Every Byte: How Full-Stack Codesign Solves AI’s Memory Challenge",
+      "eventDate": "2026-11-05",
+      "publishedAt": "2026-11-05T20:11:26+03:00",
+      "title": "NVIDIA تشرح توزيع ذاكرة الاستدلال بين GPU والمعالج والتخزين",
+      "excerpt": "المقال التقني يعرض كيف تتكامل دقة NVFP4 وDynamo وطبقات التخزين لتخفيف ضغط أوزان النماذج وسياق الوكلاء على ذاكرة GPU.",
+      "paragraphs": [
+        "عرضت NVIDIA شرحًا تقنيًا لمعالجة ضغط الذاكرة الناتج عن النماذج الكبيرة والسياقات الطويلة والوكلاء. يعتمد النهج على تقليص أوزان النماذج وذاكرة KV باستخدام NVFP4، وتوزيع الأوزان عبر وحدات GPU، بدل الاكتفاء بزيادة سعة الذاكرة عالية النطاق HBM.",
+        "يوضح المقال كيف ينقل Dynamo السياق غير النشط إلى طبقات أقل تكلفة، منها ذاكرة المعالج وتخزين CMX المشترك، ثم يعيده قبل الاستخدام. ويجمع KV Cache Reuse الذاكرة عبر النظام لإعادة استخدام السياق، بينما تتيح cuVS إبقاء فهرس الاسترجاع خارج HBM. أما مقارنات الأداء المالية المعروضة في المصدر فمرتبطة بأعباء وشروط محددة، وليست نتائج اختبارات للمجلة."
+      ]
+    },
+    {
       "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/phonon-tts",
       "sourceTitle": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
