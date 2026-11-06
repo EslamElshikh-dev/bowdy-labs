@@ -3,6 +3,19 @@
   "articles": [
     {
       "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/australian-universities-ai-native-graduates/",
+      "sourceTitle": "Australian universities are creating AI-native graduates",
+      "eventDate": "2026-11-05",
+      "publishedAt": "2026-11-06T06:35:57+03:00",
+      "title": "جامعات أسترالية تستخدم نماذج OpenAI في الروبوتات التعليمية والدفاع السيبراني",
+      "excerpt": "عرضت OpenAI تطبيقات قائمة تشمل روبوت Fletch لتدريب المعلمين، وسيناريوهات لمحاكاة الإسعاف، واستخدام جامعة أديلايد Daybreak Blue في أعمال أمنية دفاعية مصرح بها.",
+      "paragraphs": [
+        "يستخدم باحثون في جامعة لاتروب روبوت Fletch لتدريب المعلمين على المحادثات الصعبة مع أولياء الأمور. يعمل بنماذج لغوية من OpenAI مستضافة عبر Microsoft Azure، ويستجيب بالكلام وتعبيرات الوجه وحركة الرأس، ضمن سيناريوهات مستمدة من مقابلات مع تربويين. وتستخدم الجامعة ChatGPT لإعداد أنشطة محاكاة لطلاب الإسعاف داخل نظام إدارة التعلم، مع إلزام الطلاب بتفسير الأدلة وتبرير قراراتهم.",
+        "ذكر الإعلان أيضًا أن جامعة أديلايد تستخدم Daybreak Blue لأعمال دفاع سيبراني مصرح بها، تشمل اكتشاف الثغرات ومراجعة الشيفرة وتحليل البرمجيات الخبيثة والاستجابة للحوادث والتحقق من التصحيحات. وتترافق توسعات أدوات OpenAI في الجامعات مع ضوابط للتقييم تحدد متى يُسمح بالذكاء الاصطناعي أو يُمنع أو يُطلب استخدامه. لا يقدم الإعلان اختبارًا مستقلًا لتحسن مخرجات التعلم."
+      ]
+    },
+    {
+      "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/cultfit-builds-with-codex/",
       "sourceTitle": "Cult.fit builds operational muscle with Codex",
       "eventDate": "2026-11-05",
