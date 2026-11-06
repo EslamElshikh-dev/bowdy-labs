@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+      "sourceTitle": "Measuring how AI agents handle everyday wet-lab science",
+      "eventDate": "2026-11-06",
+      "publishedAt": "2026-11-06T23:39:57+03:00",
+      "title": "OpenAI تقدم BioBasicsBench لتقييم تفسير الوكلاء للبيانات المخبرية الخام",
+      "excerpt": "يضم المعيار 100 مهمة طُوّرت مع Ligo لاختبار قراءة الأدلة التجريبية واكتشاف الأخطاء وإدراك حدود الاستنتاج، مع تأكيد استمرار قصور النماذج في بعض الأحكام المخبرية.",
+      "paragraphs": [
+        "قدّمت OpenAI معيار BioBasicsBench بالتعاون مع شركة Ligo لتقييم قدرة وكلاء الذكاء الاصطناعي على تفسير بيانات تجارب مخبرية روتينية. يستخدم التقييم صورًا وملفات وقراءات أجهزة خامًا، بدل الاقتصار على مواد منتقاة للنشر العلمي، ويمنح درجات وفق معايير وضعها خبراء وراجعها علماء مستقلون عن إعداد المهمة.",
+        "بحسب تقييم الشركة عند مستوى الاستدلال xhigh، حصل GPT‑6 Astra على متوسط 66.7% من الدرجات المتاحة، مقابل 43.8% لنموذج GPT‑5.6 Sol. هذه النسب ليست معدلات نجاح كامل للمهام؛ وتؤكد OpenAI أن تحسن الدرجات لا يعني موثوقية الأحكام داخل المختبر، إذ ما تزال النماذج تخطئ في تفسير الصور وضوابط التجارب وحدود الأدلة."
+      ]
+    },
+    {
       "sourceId": "nvidia",
       "sourceUrl": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks/",
       "sourceTitle": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Networks",
