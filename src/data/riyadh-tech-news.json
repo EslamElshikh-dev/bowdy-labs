@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/open-asr-leaderboard-liva",
+      "sourceTitle": "Egyptian and Nigerian English join the Open ASR Leaderboard",
+      "eventDate": "2026-11-06",
+      "publishedAt": "2026-11-06T13:13:05+03:00",
+      "title": "Hugging Face تضيف الإنجليزية بلكنتين مصرية ونيجيرية إلى تقييم التعرّف على الكلام",
+      "excerpt": "وسّعت لوحة Open ASR اختباراتها ببيانات محادثات خاصة من Liva AI، لقياس أداء نماذج تفريغ الصوت على تنوع أكبر من اللكنات الإنجليزية.",
+      "paragraphs": [
+        "أعلنت Hugging Face إضافة مجموعتي بيانات خاصتين إلى لوحة Open ASR بالتعاون مع Liva AI، تشملان محادثات إنجليزية عفوية بلكنتين مصرية ونيجيرية. تستهدف الإضافة توسيع تمثيل اللكنات في تقييم أنظمة تحويل الكلام إلى نص، مع استخدام بيانات غير منشورة للحد من تحسين النماذج خصيصًا لاختبارات معروفة.",
+        "تتيح اللوحة كذلك مقارنة نتائج اللكنة الأمريكية بغير الأمريكية، وتفصيل الأداء بين مجموعات من اللكنات وفق تصنيف لغوي. الإضافة تخص تقييم الإنجليزية المنطوقة بهذه اللكنات، ولا تعني إطلاق نموذج جديد أو اختبار اللهجة المصرية العربية."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/australian-universities-ai-native-graduates/",
       "sourceTitle": "Australian universities are creating AI-native graduates",
