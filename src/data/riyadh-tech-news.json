@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks/",
+      "sourceTitle": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Networks",
+      "eventDate": "2026-11-06",
+      "publishedAt": "2026-11-06T19:32:42+03:00",
+      "title": "أدوات NVIDIA المفتوحة تدعم أبحاث 6G باتصالات للروبوتات ومستقبلات عصبية",
+      "excerpt": "عرضت NVIDIA تطبيقات بحثية لأدوات Aerial وSionna تربط الذكاء الاصطناعي بتجارب لاسلكية فعلية، من نقل معلومات الروبوتات إلى تحسين استقبال الإشارات وإدارة الطاقة.",
+      "paragraphs": [
+        "استعرضت NVIDIA استخدام أدوات Aerial وSionna المفتوحة في أبحاث تمهّد لشبكات 6G. في تجربة بجامعة كينغز كوليدج لندن، نقل روبوت أوصافًا مختصرة للأجسام وعلاقاتها بدل الصور الكاملة، لتقليل المعلومات المطلوبة لاتخاذ القرار. كما اختبرت SoftBank مستقبلًا عصبيًا مع هاتف 5G تجاري لتحسين فك الإشارات وسط التداخل.",
+        "وشملت الأمثلة نظامًا بجامعة ليدز يتنبأ بالطلب على الشبكة ويوجّه إيقاف محطات قاعدية مؤقتًا بعد التحقق من استمرار التغطية، ومحاكاة مسرّعة بالمعالجات الرسومية لدى CTTC لاختبار تصميمات الشبكات. هذه نتائج تجارب بحثية أوردتها الشركة، وليست إعلانًا عن شبكة 6G تجارية جاهزة."
+      ]
+    },
+    {
       "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/open-asr-leaderboard-liva",
       "sourceTitle": "Egyptian and Nigerian English join the Open ASR Leaderboard",
