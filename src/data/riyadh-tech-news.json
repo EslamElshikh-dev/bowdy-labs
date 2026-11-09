@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan",
+      "sourceTitle": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context",
+      "eventDate": "2026-11-09",
+      "publishedAt": "2026-11-09T18:38:29+03:00",
+      "title": "NVIDIA وElith تتيحان بيانات شخصيات اصطناعية لتطوير وكلاء ماليين لليابان",
+      "excerpt": "تضم Nemotron-Personas-Finance-Japan مليون سجل وتسعة ملايين وصف للشخصيات، مع سياق للتمويل الأسري والثقافة المالية، بترخيص يسمح بالاستخدام التجاري.",
+      "paragraphs": [
+        "أطلقت NVIDIA وElith مجموعة Nemotron-Personas-Finance-Japan لتطوير الذكاء الاصطناعي المالي وتقييمه باللغة اليابانية. تضم مليون سجل، لكل منها تسعة أوصاف للشخصية، وتستند إلى إحصاءات رسمية ومسوح عامة لتمثيل الخصائص السكانية والعمل والموارد الأسرية والثقافة المالية، دون تمثيل أفراد حقيقيين أو استخدام سجلات عملاء.",
+        "بُنيت البيانات باستخدام NeMo Data Designer ونماذج احتمالية لتوليد بيانات اصطناعية، وأُتيحت بترخيص CC BY 4.0 للاستخدام التجاري وغير التجاري. تشمل الاستخدامات محاكاة العملاء وتقييم المحادثات واختبار التحيز والوكلاء، مع إمكانية ربطها بـNeMo User Sim. ويذكر الإعلان مجموعة مرافقة من وثائق أعمال يابانية اصطناعية لاختبار كشف البيانات الشخصية وحجبها."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/",
+      "sourceTitle": "Practice Makes Precise: At CoRL, NVIDIA and Partners Reveal How Robots Rehearse Delicate Work in Simulation",
+      "eventDate": "2026-11-09",
+      "publishedAt": "2026-11-09T18:38:29+03:00",
+      "title": "NVIDIA تقدم GR00T 2 ومعايير مفتوحة لتدريب الروبوتات على المهام الدقيقة",
+      "excerpt": "إعلانات CoRL تشمل نموذج أفعال مبنيًا على Cosmos، وتوسيع محاكاة الأجسام المرنة في Isaac Lab مع Newton، وتقييم مهارات الروبوتات عبر سيناريوهات صناعية متنوعة.",
+      "paragraphs": [
+        "قدمت NVIDIA في مؤتمر CoRL نموذج GR00T 2 المفتوح المبني على Cosmos لتعلم مهارات المناولة الدقيقة من بيانات البشر والروبوتات. يتيح النموذج واجهة لوكلاء الذكاء الاصطناعي لتسلسل المهارات والتعافي من الأخطاء، إلى جانب مسار مفتوح لتحويل فيديو البشر إلى عروض روبوتية داخل المحاكاة.",
+        "ويعرض الإعلان قدرات Isaac Lab 3.0 مع محرك Newton لمحاكاة الكابلات والأقمشة والأيدي الروبوتية، وتدريب السياسات وتقييمها بالتوازي. تشمل أدوات التقييم DexBench وVABAR لاختبار البراعة والتكيف في مهام صناعية، بينما يستخدم إطار Graph-as-Policy وكلاء لربط المهارات ببرامج قابلة للفهم، واختبارها وتحسينها بالمحاكاة قبل مراجعة المهندسين ونشرها."
+      ]
+    },
+    {
       "sourceId": "nvidia",
       "eventDate": "2026-11-08",
       "publishedAt": "2026-11-09T08:20:03+03:00",
