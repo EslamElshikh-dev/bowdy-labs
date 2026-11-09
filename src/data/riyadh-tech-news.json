@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "anthropic",
+      "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "sourceTitle": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+      "eventDate": "2026-11-09",
+      "publishedAt": "2026-11-09T22:47:30+03:00",
+      "title": "Anthropic تطلق Claude Fable 5.2 وMythos 5.2 للأعمال التقنية المعقدة",
+      "excerpt": "يشترك النموذجان في الأساس نفسه مع اختلاف ضوابط الإتاحة؛ يتوفر Fable عبر المنصات السحابية، بينما يتطلب الوصول إلى Mythos تحققًا للمؤسسات في الأمن والأبحاث الحيوية.",
+      "paragraphs": [
+        "أعلنت Anthropic تحديث Claude Fable وClaude Mythos إلى الإصدار 5.2، مع تحسينات تقول الشركة إنها تشمل البرمجة والاستدلال والرؤية. يشترك النموذجان في نموذج أساسي واحد؛ ويضيف Fable ضوابط للأمن السيبراني والبيولوجيا، بينما يُتاح Mythos للمؤسسات المؤهلة عبر برامج تحقق متخصصة.",
+        "يتوفر Fable 5.2 عبر Claude Platform ومنصات AWS وGoogle Cloud وMicrosoft Azure، ويمكن استخدامه مستشارًا للنماذج الأصغر أو منسقًا لمهامها. ويضيف الإصداران وضعًا سريعًا اختياريًا. تعرض الشركة نتائج تجارب في البرمجة والعلوم والروبوتات، لكنها تظل نتائج أوردتها Anthropic وليست اختبارات مستقلة أجرتها المجلة، وتؤكد الشركة أن اختبارات ما قبل النشر لا تكشف جميع أنماط الفشل."
+      ]
+    },
+    {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/kuken/",
+      "sourceTitle": "Kuken Industries searches 70 years of drawings in minutes",
+      "eventDate": "2026-11-09",
+      "publishedAt": "2026-11-09T22:48:24+03:00",
+      "title": "Kuken تستخدم OpenAI للبحث في أرشيف رسومات التبريد بالصور وأرقام القطع",
+      "excerpt": "تطبيق طوّرته Kuken مع Recursive يقرأ الصور وملفات PDF وقوائم القطع لاسترجاع الرسومات المناسبة، مع بقاء مراجعة المواصفات وتحديد المطابقة بيد المهندسين.",
+      "paragraphs": [
+        "عرضت OpenAI كيف بنت Kuken Industries اليابانية وRecursive أداة بحث وتطبيقًا ميدانيًا باستخدام OpenAI API لاسترجاع رسومات معدات التبريد من أرشيف يمتد 70 عامًا. يستطيع المهندس إدخال رقم قطعة أو رفع رسم أو قائمة قطع بصيغة صورة أو PDF، بما فيها لقطات الشاشة، ليقرأ التطبيق الأرقام ويقترح رسومات مطابقة وتصميمات مشابهة.",
+        "يراجع المهندسون مواصفات برج التبريد وسجلات الاستبدال لتحديد الرسم الصحيح، بدل اعتبار الاقتراح الآلي قرارًا نهائيًا. وتطوّر الشركة أيضًا أداة تقارن رسومات الشركاء بالمواصفات لاكتشاف الاختلافات؛ وهذه الأداة ما زالت نموذجًا أوليًا، بخلاف تطبيق البحث المستخدم ميدانيًا. نتائج توفير الوقت الواردة في القصة من تقارير Kuken وليست قياسات أجرتها المجلة."
+      ]
+    },
+    {
       "sourceId": "microsoft-ai",
       "sourceUrl": "https://news.microsoft.com/source/features/ai/a-former-marine-had-an-idea-to-help-fellow-veterans-ai-helped-him-build-it/",
       "sourceTitle": "A former Marine had an idea to help fellow veterans: AI helped him build it",
