@@ -2,6 +2,45 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "nvidia",
+      "eventDate": "2026-11-08",
+      "publishedAt": "2026-11-09T08:20:03+03:00",
+      "sourceUrl": "https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem/",
+      "sourceTitle": "Korea Advances Physical AI Across Industries With NVIDIA",
+      "title": "NVIDIA وLG تعرضان تدريب روبوت CLOiD وتقييمه داخل بيئة تصنيع فعلية",
+      "excerpt": "تجمع منظومة التدريب بيانات التشغيل الحقيقية وتوليد البيانات عبر Cosmos ونماذج GR00T، ضمن تطبيقات كورية للروبوتات والمحاكاة الهندسية.",
+      "paragraphs": [
+        "عرضت NVIDIA وLG Electronics تجربة ناجحة لمهام مناولة وتصنيع بروبوت CLOiD المدعوم بنماذج Isaac GR00T داخل بيئة تصنيع فعلية. يربط المسار جمع البيانات الواقعية وتوسيعها باستخدام Cosmos وتدريب النموذج والحوسبة على Jetson AGX Thor، مع التقييم بالمحاكاة لتحسين قدرات الروبوت بصورة متكررة.",
+        "ويشمل الإعلان استخدام Samsung لأدوات الحوسبة والمحاكاة ونماذج الفيزياء في هندسة أشباه الموصلات. أما Kakao Mobility فتخطط لتطوير نظام قيادة ذاتية من المستوى الرابع اعتمادًا على Hyperion وDRIVE AGX Thor وأدوات Halos للسلامة؛ وهي خطة تطوير، وليست إعلانًا عن إطلاق خدمة مكتملة."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "eventDate": "2026-11-08",
+      "publishedAt": "2026-11-09T08:20:03+03:00",
+      "sourceUrl": "https://blogs.nvidia.com/blog/korea-secure-agentic-ai/",
+      "sourceTitle": "Korea’s AI Ecosystem Advances and Secures Agentic AI With NVIDIA",
+      "title": "شركات كورية تختبر ضوابط OpenShell للوكلاء وLG تفتح واجهة K-EXAONE-2.5",
+      "excerpt": "تكامل قيد التطوير يجمع عزل التنفيذ وسياسات الوصول مع كشف التعليمات الخبيثة وتسرب البيانات، بالتوازي مع إتاحة نموذج كوري عبر واجهة برمجية.",
+      "paragraphs": [
+        "أعلنت NVIDIA أن Hyundai Motor Group تستكشف مخططات NemoClaw وبيئة OpenShell لتطوير وكلاء للمؤسسات. وتعمل AIM Intelligence على دمج منصتها Starfort مع OpenShell للجمع بين ضوابط الوصول أثناء التشغيل وكشف التعليمات الخبيثة وتسرب البيانات؛ وما زالت تجربة أولية محتملة لقطاع الطاقة العام قيد الدراسة.",
+        "وفي جانب النماذج، تفتح LG AI Research الوصول البرمجي إلى K-EXAONE-2.5 الذي طُوّر باستخدام مجموعات بيانات Nemotron. تشمل هذه البيانات Nemotron-Personas-Korea، وهي شخصيات كورية اصطناعية بالكامل تستند إلى إحصاءات رسمية لدعم التدريب والتقييم في السياق المحلي."
+      ]
+    },
+    {
+      "sourceId": "nvidia",
+      "eventDate": "2026-11-08",
+      "publishedAt": "2026-11-09T08:20:03+03:00",
+      "sourceUrl": "https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models/",
+      "sourceTitle": "NVIDIA Dynamo Recipes Bring Korea’s Leading Open Models to Production",
+      "title": "NVIDIA تطلق وصفات Dynamo لتشغيل أربعة نماذج كورية مفتوحة على B200",
+      "excerpt": "إعدادات نشر محسّنة للاستدلال الموزع تشمل نماذج SK Telecom وLG AI Research وUpstage وMotif، لتبسيط الانتقال إلى بيئات الإنتاج متعددة العقد.",
+      "paragraphs": [
+        "أطلقت NVIDIA وصفات نشر محسّنة بإطار Dynamo لنماذج A.X K2 من SK Telecom وK-EXAONE 2.0 من LG AI Research وSolar Open 2 من Upstage وMotif-3 من Motif Technologies. تستهدف الوصفات وحدات B200 لتقليل تعقيد إعداد النماذج المفتوحة وتشغيلها في الإنتاج.",
+        "يتولى Dynamo، وهو إطار مفتوح لخدمة الاستدلال الموزع، تنسيق توجيه الطلبات والاتصال عندما يتطلب النموذج عدة وحدات معالجة رسومية موزعة على عقد متعددة. وتذكر NVIDIA تحسنًا يصل إلى الضعف مع هذه الإعدادات؛ وهو ادعاء أداء صادر عن الشركة وليس اختبارًا مستقلًا أجرته المجلة."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
       "sourceTitle": "Measuring how AI agents handle everyday wet-lab science",
