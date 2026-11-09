@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://news.microsoft.com/source/features/ai/a-former-marine-had-an-idea-to-help-fellow-veterans-ai-helped-him-build-it/",
+      "sourceTitle": "A former Marine had an idea to help fellow veterans: AI helped him build it",
+      "eventDate": "2026-11-09",
+      "publishedAt": "2026-11-09T21:38:17+03:00",
+      "title": "Microsoft تعرض وكيل Battle Buddy لإرشاد قدامى المحاربين ضمن اختبار ميداني",
+      "excerpt": "بُني الوكيل باستخدام Copilot Studio، ويربط معلومات المزايا بقاعدة اللوائح الاتحادية وبيانات المواقع، مع استمرار الاختبارات دون موعد معلن للإطلاق النهائي.",
+      "paragraphs": [
+        "استعرضت Microsoft وكيل Battle Buddy الذي طوّره غاري كرول باستخدام Copilot Studio منخفض البرمجة لمساعدة قدامى المحاربين الأمريكيين وأسرهم ومقدّمي الرعاية على فهم برامج الدعم والمزايا. تجمع قاعدة معرفته لوائح ومعلومات رسمية وأسئلة شائعة، ويرتبط بقاعدة اللوائح الاتحادية ونظام لمعلومات المواقع لتحديث إرشاداته.",
+        "يخضع الوكيل حاليًا لاختبار ميداني مفتوح بمشاركة قدامى المحاربين ومنظمات خدمتهم وموظفي وزارة شؤون المحاربين القدامى الأمريكية، بعد دعم الترخيص والتجربة من الوزارة. تصف القصة تطبيقًا فعليًا للوكلاء منخفضي البرمجة في تبسيط الوصول إلى معلومات متشعبة؛ ولا تعلن موعدًا للإطلاق النهائي للجمهور، ولا تقدم تقييمًا مستقلًا لدقة الإجابات."
+      ]
+    },
+    {
       "sourceId": "huggingface",
       "sourceUrl": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan",
       "sourceTitle": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context",
