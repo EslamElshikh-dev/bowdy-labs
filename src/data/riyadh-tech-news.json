@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/coderabbit-codex-daybreak/",
+      "sourceTitle": "CodeRabbit scales agentic software development and ships 20x more",
+      "eventDate": "2026-11-09",
+      "publishedAt": "2026-11-10T00:59:30+03:00",
+      "title": "CodeRabbit تربط Codex بحوادث الإنتاج وطلبات الدعم عبر وكيل في Slack",
+      "excerpt": "حالة تطبيقية جديدة تعرض تحويل البلاغات إلى طلبات سحب للمراجعة، وتوزيع مهام الوكلاء بين نماذج التخطيط والتنفيذ، مع إعادة تنظيم الاختبارات والموافقات.",
+      "paragraphs": [
+        "عرضت OpenAI كيف تستخدم CodeRabbit أداة Codex ضمن تطويرها الداخلي، بما يشمل بوتًا في Slack يفرز حوادث الإنتاج والرسائل وتذاكر الدعم، ويمكنه إعداد طلب سحب يراجعه الفريق ويدمجه. توزّع المنصة بعض المهام على وكلاء فرعيين بنماذج مثل GPT‑6 Luna، مع استخدام GPT‑6 Astra للتخطيط والتنسيق.",
+        "توضح القصة أن توسيع العمل بالوكلاء تطلّب إعادة تنظيم مسار التسليم والاختبارات وأدوات البناء والاعتماديات وتحديد مواضع الموافقة البشرية، ولم يكن مجرد إضافة مساعد برمجي. وتستخدم الشركة مستودعات وطلبات سحب لإدارة بعض أعمال التسويق والوثائق أيضًا. أرقام الإنتاجية في المصدر تقديرات صادرة عن CodeRabbit، وليست قياسات مستقلة أو نتائج اختبارات أجرتها المجلة."
+      ]
+    },
+    {
       "sourceId": "anthropic",
       "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
       "sourceTitle": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
