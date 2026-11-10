@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "deepmind",
+      "sourceUrl": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "sourceTitle": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-10T15:49:26+03:00",
+      "title": "DeepMind تكشف AlphaProof Code للتحقق الرياضي من شيفرة بروتوكول Signal",
+      "excerpt": "إطار يجمع خبرة الباحثين ووكلاء الذكاء الاصطناعي لإثبات خصائص أمنية محددة في شيفرة بروتوكول Signal، مع براهين تتحقق منها لغة Lean آليًا.",
+      "paragraphs": [
+        "أعلنت Google DeepMind إطار AlphaProof Code، الذي يجمع الخبرة البشرية ووكلاء ذكاء اصطناعي لإثبات خصائص أمنية محددة في الشيفرة الفعلية لبروتوكول Signal. يراجع الخبراء المواصفات الرياضية، ثم تنشئ وكلاء تعتمد على Gemini Carbon البراهين بلغة Lean، التي تتحقق آليًا من صحتها.",
+        "بحسب الشركة، أنتج العمل أكثر من ستة ملايين سطر من براهين Lean خلال أربعة أسابيع، واختُبر بإعادة إدخال خطأين أُصلحا سابقًا في نسخة معزولة. وتتيح DeepMind مخرجات التحقق كمصدر مفتوح. تتعلق النتيجة بالخصائص التي حددها الباحثون، ولا تعني خلو التطبيق كله من الثغرات."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/control-room/",
       "sourceTitle": "Control Room: A central system to track and stop model workloads across our research infrastructure",
