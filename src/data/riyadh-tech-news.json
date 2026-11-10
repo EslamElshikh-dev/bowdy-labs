@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+      "sourceTitle": "NVIDIA Expands Open Source Commitment With OpenShell Donation and New AI Infrastructure",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-10T19:55:54+03:00",
+      "title": "NVIDIA تنقل OpenShell إلى CNCF وتطرح أدوات مفتوحة لبنية الذكاء الاصطناعي",
+      "excerpt": "تحديثات لحوكمة الوكلاء وتشغيلهم على Kubernetes، مع معاينة عامة لأدوات إدارة عناقيد GPU ومكوّن لاستعادة أحمال الاستدلال من نقاط الحفظ.",
+      "paragraphs": [
+        "أعلنت NVIDIA المساهمة ببيئة تشغيل الوكلاء OpenShell ضمن مشروعات CNCF Sandbox، لتطوير ضوابط تحدد استخدام الأدوات وخدمات الاستدلال وتنفيذ المهام. وتشارك أيضًا في Agent Substrate، الذي يحفظ بيئات الوكلاء بين المهام ويحرر موارد الحوسبة عند خمولها، مع العمل على تكامله مع OpenShell.",
+        "يشمل الإعلان معاينة عامة لأداتي NVIDIA Kubernetes Engine وKubernetes Recipes لإدارة دورة حياة العناقيد وتوفير صور موقعة ومثبتة الإصدارات. ويقدم NVIDIA Snapshot استعادة نسخ محفوظة من أحمال الاستدلال دون إعادة تحميل النموذج أو تهيئته؛ أما أرقام تسريع التشغيل الواردة في المصدر فنتائج شركاء على أحمال محددة، وليست قياسًا عامًا أو اختبارًا للمجلة."
+      ]
+    },
+    {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "sourceTitle": "Gemini 4 Carbon is now available",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-10T19:55:54+03:00",
+      "title": "جوجل توسع إتاحة Gemini 4 Carbon وتعاين تنسيق فرق الوكلاء في Antigravity",
+      "excerpt": "بعد الإتاحة الأولية للمدافعين الأمنيين، يصل Carbon إلى المطورين والشركات والمشتركين المؤهلين، مع معاينة ميزة /swarm لتوزيع المهام بين وكلاء متعددين.",
+      "paragraphs": [
+        "وسعت جوجل إتاحة Gemini 4 Carbon بعد إطلاقه الأولي عبر برنامج Fairwind الأمني. أصبح متاحًا للمطورين على الفئة المدفوعة من Gemini API وللشركات عبر Gemini for business، ويبدأ طرحه لمشتركي Google AI Ultra في تطبيق Gemini وAntigravity ووضع AI Mode في البحث.",
+        "تعاين جوجل أيضًا ميزة /swarm في Antigravity لتحويل الطلب إلى فريق وكلاء منسق، مع توزيع العمل على مساحات معزولة ووكلاء للتحقق من التغييرات. يستهدف Carbon المهام البرمجية والبحثية المعقدة الممتدة؛ ويظل الوصول إلى قدراته السيبرانية المتخصصة عبر Fairwind، بينما تخضع إتاحة برنامج الباحثين للأهلية والسعة والاختيار."
+      ]
+    },
+    {
       "sourceId": "deepmind",
       "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
       "sourceTitle": "Gemini Robotics 2.5 accelerates real-world general dexterity",
