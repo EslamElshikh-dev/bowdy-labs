@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/introducing-businesses-chatgpt/",
+      "sourceTitle": "Introducing Businesses in ChatGPT",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-10T22:26:50+03:00",
+      "title": "OpenAI تطلق Business Hub ووكلاء الأنشطة داخل ChatGPT بنسخة تجريبية",
+      "excerpt": "أدوات لتوثيق الأنشطة وتحديث معلوماتها وخلاصات منتجاتها وقياس التفاعل، مع وكلاء محادثة تبدأ إتاحتهم لأنشطة تجارة إلكترونية وخدمات رقمية مؤهلة في الولايات المتحدة.",
+      "paragraphs": [
+        "أعلنت OpenAI نسخة تجريبية من Businesses in ChatGPT. تتيح بوابة Business Hub للأنشطة المؤهلة المطالبة بملفاتها وتوثيقها، ثم تحديث المعلومات وإضافة خلاصات منتجات تتضمن الأسعار والتوافر. وتعرض مؤشرات مجمعة مثل مرات الذكر ونقرات المواقع وموضوعات الاكتشاف، دون مشاركة محادثات المستخدمين، وعند تحقق حدود كافية للتجميع.",
+        "بعد توثيق النشاط، يمكن للمؤسسات المؤهلة بناء Business Agent واختباره وإطلاقه للإجابة عن أسئلة العملاء حول عروضها. تظهر محادثته بوسم واضح ومنفصلة عن إجابات ChatGPT المستقلة. يبدأ توفر هؤلاء الوكلاء لأنشطة التجارة الإلكترونية والخدمات الرقمية المؤهلة في الولايات المتحدة؛ أما التوسع إلى أسواق وفئات أخرى فهو مخطط لاحق، وليس إتاحة مؤكدة في السعودية."
+      ]
+    },
+    {
       "sourceId": "nvidia",
       "sourceUrl": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
       "sourceTitle": "NVIDIA Expands Open Source Commitment With OpenShell Donation and New AI Infrastructure",
