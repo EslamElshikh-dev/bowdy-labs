@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "deepmind",
+      "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+      "sourceTitle": "Gemini Robotics 2.5 accelerates real-world general dexterity",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-10T18:15:10+03:00",
+      "title": "DeepMind تطور Gemini Robotics 2.5 لمهام أدق وروبوتات أكثر موثوقية",
+      "excerpt": "تحديث لنموذج الرؤية واللغة والفعل يوسع مهارات الروبوتات، مع تجربة صناعية لدى مرسيدس ومعيار مفتوح لاختبار محاولات تجاوز ضوابط السلامة.",
+      "paragraphs": [
+        "قدمت Google DeepMind نموذج Gemini Robotics 2.5 لتحويل الفهم البصري والتعليمات اللغوية إلى أفعال روبوتية، وبدأت طرحه لشركائها في الروبوتات. وتقول إنها قيّمته عبر أكثر من 200 مهمة، منها التعامل مع الأدوات والأجسام المرنة والدقيقة.",
+        "في تجربة إثبات مفهوم على خطوط إنتاج مرسيدس، حقق روبوت Apollo 2 من Apptronik نجاحًا بنسبة 96% في تجهيز قطع السيارات، بحسب DeepMind. ويضيف التحديث توجيهًا أثناء الاستدلال لتجنب المخاطر، بينما أطلقت الشركة معيار ASIMOV-Jailbreak المفتوح لاختبار الطلبات الروبوتية غير الآمنة. هذه نتائج أعلنتها الشركة، وليست اختبارًا مستقلًا للمجلة."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/decision",
+      "sourceTitle": "Decision Models in Hugging Face",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-10T18:15:10+03:00",
+      "title": "Hugging Face تضيف دعمًا موحدًا لنماذج القرار في Transformers وllama.cpp",
+      "excerpt": "واجهة تستقبل السياق والأسئلة والإجابات المسموحة، وتعيد قرارات واحتمالات دون توليد نص، مع أدوات للتشغيل واكتشاف النماذج وتخصيصها.",
+      "paragraphs": [
+        "عرضت Hugging Face دعم نماذج القرار التي تقيم خيارات محددة مسبقًا بدل توليد إجابة نصية. تستقبل الواجهة سياقًا وأسئلة متعددة، وتعيد اختيارات أو درجات مرتبة أو احتمالات لإجابات نعم ولا، بما يناسب توجيه طلبات الدعم وغيرها من القرارات البرمجية.",
+        "يدعم Transformers أدوات DecisionPipeline وAutoModelForDecision وDecisionConfig، ويشترك مع llama.cpp في واجهة /v1/systemone للتشغيل. وأضيف وسم decision-model لاكتشاف النماذج في المنصة، مع إمكان تخصيصها عبر Trainer. أما دعم تدريبها المباشر في TRL فما زال قيد التطوير وفق المقال، وليس ميزة مكتملة الإتاحة."
+      ]
+    },
+    {
       "sourceId": "google-ai",
       "sourceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
       "sourceTitle": "Google Cloud launches Gemini for healthcare.",
