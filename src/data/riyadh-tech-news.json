@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
+      "sourceTitle": "Google Cloud launches Gemini for healthcare.",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-10T17:08:14+03:00",
+      "title": "جوجل كلاود تطلق Gemini للرعاية الصحية لأتمتة إجراءات العمل",
+      "excerpt": "حل يجمع بيانات الأنظمة السريرية والإدارية عبر موصلات ومهارات متخصصة، وينفذ إجراءات متعددة الخطوات ضمن ضوابط وإشراف بشري، في نسخة معاينة مع شركاء الإطلاق.",
+      "paragraphs": [
+        "أعلنت Google Cloud حل Gemini للرعاية الصحية لربط الأنظمة السريرية والتشغيلية والإدارية المتفرقة. يجمع الحل معلومات من السجلات الصحية الإلكترونية ومنصات الفوترة والإرشادات السريرية وبيانات Medicare، باستخدام موصلات بيانات ومهارات متخصصة تتكامل مع أنظمة الجهات الأخرى.",
+        "يتجاوز الحل استرجاع المعلومات إلى تنسيق إجراءات متعددة الخطوات وتنفيذها، مثل تلخيص السجلات الطبية ومراجعة طلبات الموافقة المسبقة، ضمن ضوابط محددة وإشراف بشري مناسب. وتقول جوجل إنه متاح مبدئيًا بنسخة معاينة مع شركاء منهم HCA Healthcare وHighmark Health وNorthwell Health؛ ولم يحدد الإعلان موعد إتاحة عامة."
+      ]
+    },
+    {
       "sourceId": "deepmind",
       "sourceUrl": "https://deepmind.google/blog/introducing-alphaproof-code/",
       "sourceTitle": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
