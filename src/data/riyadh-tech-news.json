@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
+      "sourceTitle": "Introducing the Multimodal Knowledge Agent benchmark",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-10T22:48:07+03:00",
+      "title": "جوجل وArtificial Analysis تطلقان MKA لتقييم الوكلاء على الملفات المعقدة بصريًا",
+      "excerpt": "معيار يضم 200 مهمة مهنية متعددة الخطوات، ويفحص دقة المخرجات وتصميمها، مع بيئة تشغيل موحدة وعينة عامة منفصلة لتجربة الوكلاء.",
+      "paragraphs": [
+        "أعلنت جوجل وArtificial Analysis معيار Multimodal Knowledge Agent لقياس تعامل الوكلاء مع المخططات والصور والجداول والوثائق، لا النصوص وحدها. صمم خبراء من 10 قطاعات و83 مهنة مجموعة تضم 200 مهمة؛ ولكل مهمة معايير تقييم تعطي الدقة الواقعية وزنًا قدره 75% والتصميم البصري 25%.",
+        "تعمل النماذج داخل بيئة Stirrup المفتوحة بالأدوات وميزانية التفاعل نفسها، ويقيّم المخرجات وكيل يعتمد على نموذج من خارج جوجل. تحتفظ Artificial Analysis بمجموعة الاختبار الأساسية غير معلنة للحد من تسربها إلى بيانات التدريب، بينما أُتيحت 10 مهام منفصلة للعامة على Hugging Face لفحص الصيغة وتجربة الوكلاء."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/introducing-businesses-chatgpt/",
       "sourceTitle": "Introducing Businesses in ChatGPT",
