@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/cogent-security",
+      "sourceTitle": "Cogent and OpenAI build cyber defense factories for enterprises",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-11T08:46:50+03:00",
+      "title": "Cogent توظف نماذج OpenAI لإصلاح الثغرات ضمن صلاحيات مؤسسية محددة",
+      "excerpt": "وكلاء يربطون الأصول والهويات والتبعيات في سياق مشترك، ويفحصون استدعاءات الأدوات قبل التنفيذ ثم يتحققون من إغلاق المخاطر.",
+      "paragraphs": [
+        "عرضت OpenAI استخدام Cogent لنماذج GPT‑6.1 Sol وGPT‑5.6 في التحقيق بالثغرات وإصلاحها، مع GPT‑6 Astra للتخطيط المعقد. يحافظ محرك السياق على رسم معرفي للأصول والهويات والتبعيات، ويستخدمه الوكلاء لتقدير التعرض ووضع خطط تراعي القيود التشغيلية.",
+        "تحدد سياسات العميل التغييرات المسموحة ومتطلبات الموافقة؛ ويفحص محرك TRACE استدعاءات الأدوات بقواعد حتمية قبل التنفيذ، مع تحقق مستقل من التفويض وعزل الأعمال الأعلى مخاطرة. نفذت المنظومة إصلاحات PHP2Shell ثم تحققت من زوال الخطر. وتقول Cogent إن عميلًا خفض متوسط زمن إصلاح الثغرات الحرجة 75%؛ وهي نتيجة معلنة للشركة وليست اختبارًا للمجلة."
+      ]
+    },
+    {
       "sourceId": "nvidia",
       "sourceUrl": "https://blogs.nvidia.com/blog/ai-recycling-startups/",
       "sourceTitle": "How AI Helps Recyclers Turn Mixed Waste Into Reusable Material",
