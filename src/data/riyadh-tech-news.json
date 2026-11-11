@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/ai-recycling-startups/",
+      "sourceTitle": "How AI Helps Recyclers Turn Mixed Waste Into Reusable Material",
+      "eventDate": "2026-11-10",
+      "publishedAt": "2026-11-11T06:22:55+03:00",
+      "title": "NVIDIA تعرض تطبيقات للرؤية الحاسوبية والروبوتات في فرز المخلفات",
+      "excerpt": "شركات تستخدم Jetson وRTX وTensorRT لتصنيف البلاستيك والمنسوجات وتوجيه أذرع الفرز، مع تحليل بيانات خطوط إعادة التدوير عند الحافة.",
+      "paragraphs": [
+        "عرضت NVIDIA أربعة تطبيقات للذكاء الاصطناعي في إعادة التدوير. تستخدم AIRECO وحدات Jetson Orin NX لتصنيف البلاستيك وتوجيه أذرع آلية على خط تجريبي، بينما تشغّل EverestLabs الاستدلال على وحدات RTX عند الحافة لتوجيه روبوتات تلتقط المواد من سيور متحركة.",
+        "تحلل منصة Greyparrot Analyzer الأجسام المارة بحسب المادة والعلامة التجارية، وتستخدم reverse.fashion أكثر من اثني عشر نموذج رؤية محسّنًا عبر TensorRT على Jetson لتقييم الملابس وتصنيفها. يميز التقرير بين الأنظمة العاملة والخطط المستقبلية؛ وأرقام الدقة والكفاءة التي يعرضها تقديرات ونتائج للشركات المشاركة، وليست اختبارات للمجلة."
+      ]
+    },
+    {
       "sourceId": "google-ai",
       "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
       "sourceTitle": "Introducing the Multimodal Knowledge Agent benchmark",
