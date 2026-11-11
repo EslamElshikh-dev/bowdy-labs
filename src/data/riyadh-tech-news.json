@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+      "sourceTitle": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
+      "eventDate": "2026-11-11",
+      "publishedAt": "2026-11-11T19:55:00.995+03:00",
+      "title": "Google Labs تطلق Tabletop لإنشاء مساحات تفاعلية للتخطيط الجماعي",
+      "excerpt": "تجربة تولّد جداول رحلات واستطلاعات وتقسيم نفقات من الروابط والملفات والتعليمات، وتتيح استخدامها جماعيًا في الوقت نفسه؛ الإتاحة الأولية بقائمة انتظار أمريكية.",
+      "paragraphs": [
+        "قدمت Google Labs تجربة Tabletop لبناء مساحات تفاعلية يتعاون فيها أفراد المجموعة لحظيًا. يضيف المستخدم روابطه وملفاته وأفكاره، ثم يوجه طلبًا إلى @tabletop أو يختار قالبًا جاهزًا لإنشاء جدول رحلة أو استطلاع لوجبة مشتركة أو أداة لتقسيم النفقات أو جدول بطولة.",
+        "بعد تجهيز المساحة، يمكن مشاركة رابط دعوة في المحادثة الجماعية ليستخدمها المشاركون في الوقت نفسه، على نحو مشابه للتعاون في مستندات Google. تقول الشركة إن التجربة تُطرح داخل الولايات المتحدة لمن بلغوا 18 عامًا عبر قائمة انتظار؛ ولا يتضمن الإعلان تأكيدًا لإتاحتها في السعودية."
+      ]
+    },
+    {
       "sourceId": "deepmind",
       "sourceUrl": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
       "sourceTitle": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
