@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/jiostar-vijay-seshadri/",
+      "sourceTitle": "JioStar’s chief architect on AI discovery at 500M-user scale",
+      "eventDate": "2026-11-11",
+      "publishedAt": "2026-11-11T22:19:27+03:00",
+      "title": "JioStar تعرض ضوابط البحث الحواري عن الفيديو عبر OpenAI",
+      "excerpt": "مساعد داخل JioHotstar يجمع الطلبات الصوتية والنتائج المرئية، مع موازنة الدقة وزمن الاستجابة والتكلفة وتقييم الإجابات بنموذج منفصل ومراجعة خبراء المجال.",
+      "paragraphs": [
+        "نشرت OpenAI حوارًا مع كبير معماريي JioStar عن مساعد لاكتشاف الفيديو وإحصاءات الكريكيت داخل JioHotstar باستخدام OpenAI API. يتيح البحث بالكلام الطبيعي عن الأفلام والبرامج واللقطات وبيانات المباريات، مع نتائج مرئية وحوارية. وبحسب المسؤول، بُنيت التجربة لأكثر من 15 لغة خلال نحو ثمانية أسابيع.",
+        "بدأ الفريق بتحديد الأسئلة التي لا ينبغي للنظام الإجابة عنها ووضع الضوابط، ثم وسّع حالات التقييم بمساعدة النماذج وخبراء الإحصاءات الرياضية. يستخدم نمطًا يفصل إعداد الإجابة عن التحقق منها بنموذج آخر، مع ضرورة اختبار المقيّم نفسه. ساعد Codex في توليد اختبارات وتحديث النظام، لكن المسؤول شدد على مراقبة جودة النماذج في الإنتاج، لا زمن الاستجابة وحده."
+      ]
+    },
+    {
       "sourceId": "google-ai",
       "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
       "sourceTitle": "Gemini Decisions API: Fast, calibrated multimodal decisions",
