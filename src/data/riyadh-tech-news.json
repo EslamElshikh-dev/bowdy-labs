@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "articles": [
     {
+      "sourceId": "deepmind",
+      "sourceUrl": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+      "sourceTitle": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+      "eventDate": "2026-11-11",
+      "publishedAt": "2026-11-11T18:33:46+03:00",
+      "title": "DeepMind تطلق AlphaGenome 2 لتوقع أثر المتغيرات الجينية في أنواع الخلايا",
+      "excerpt": "نموذج مشروط بنوع الخلية أو حالتها يربط تسلسل الحمض النووي بنشاط الجينات، مع إتاحة بحثية عبر API ومعاينة تجارية خاصة، دون اعتماد للتشخيص.",
+      "paragraphs": [
+        "أعلنت Google DeepMind نموذج AlphaGenome 2 لتوقع تأثير تسلسلات الحمض النووي ومتغيراتها في أنواع الخلايا وحالاتها. يستخدم تسلسلًا بطول مليون حرف مع شرط بيولوجي محدد، بدل الاكتفاء بمتوسطات الأنسجة، ويمكن تكييف توقعاته مع بيانات خلوية جديدة دون إعادة تدريب.",
+        "يشمل التحديث توقع مثيلة الحمض النووي إلى جانب نشاط الجينات وخصائص الكروماتين، مع درجات محسوبة مسبقًا لمتغيرات مرتبطة بالصفات والأمراض. أُتيح للأبحاث غير التجارية عبر AlphaGenome API، وللبحث التجاري بمعاينة خاصة. تؤكد DeepMind أن النموذج مخصص للبحث ولم يُعتمد للاستخدام السريري أو التشخيصي؛ أما دمجه بمهارات Antigravity فما زال مرتقبًا."
+      ]
+    },
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/token-pooling",
+      "sourceTitle": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
+      "eventDate": "2026-11-11",
+      "publishedAt": "2026-11-11T18:33:46+03:00",
+      "title": "Hugging Face تعرض تدريبًا يحافظ على جودة البحث عند ضغط متجهات الوثائق",
+      "excerpt": "أدوات في Sentence Transformers تجمع المتجهات المتشابهة وتدرّب النموذج على التمثيلات الكاملة والمضغوطة، مع أمثلة وشيفرة لقياس موازنة الجودة والتخزين.",
+      "paragraphs": [
+        "عرض Tom Aarsen على مدونة Hugging Face تدريبًا واعيًا بتجميع متجهات الرموز لنماذج البحث متعددة المتجهات. تدمج أداة HierarchicalTokenPooling المتجهات المتشابهة، بينما تجمع MultiVectorTokenPoolingLoss هدفَي الاسترجاع بالتمثيل الكامل والمضغوط لتعليم النموذج الاحتفاظ بالمعلومات المفيدة بعد الضغط.",
+        "في تجربة الكاتب على NanoBEIR، بلغ الاحتفاظ بدرجة الاسترجاع 97.8% عند تقليص متجهات الوثائق إلى نحو الربع، مقابل 94.6% بالتدريب المعتاد. هذه نتيجة لإعداد تجريبي محدد وليست ضمانًا عامًا أو اختبارًا للمجلة. يتضمن المقال شيفرة ونماذج وأدوات لمعايرة عدد المتجهات ومقارنة الجودة والتخزين على بيانات التطبيق."
+      ]
+    },
+    {
       "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/singapore-airlines-travel-work",
       "sourceTitle": "Singapore Airlines elevates travel & work with OpenAI technology",
