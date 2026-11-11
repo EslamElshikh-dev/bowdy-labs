@@ -3,6 +3,19 @@
   "articles": [
     {
       "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+      "sourceTitle": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+      "eventDate": "2026-11-11",
+      "publishedAt": "2026-11-11T21:42:29+03:00",
+      "title": "Google تطلق Gemini Decisions API لتقييم اختيارات متعددة الوسائط",
+      "excerpt": "واجهة بنموذج Gemini Decision 1 تقيم حتى ألف سؤال على مدخل مشترك، وتعيد احتمالات ودرجات ثقة لتوجيه النماذج والأدوات وفحص السياسات بدل توليد إجابات نصية.",
+      "paragraphs": [
+        "أعلنت Google واجهة Gemini Decisions API المدعومة بالنموذج الجديد Gemini Decision 1 عبر Google AI Studio. تعالج نصوصًا وصورًا وصوتًا وفيديو وملفات PDF ضمن سياق يصل إلى 256 ألف رمز، وتقيّم حتى ألف سؤال مستقل على المدخل نفسه بتمريرة أمامية واحدة بدل توليد الإجابة رمزًا بعد رمز.",
+        "تدعم الواجهة أسئلة نعم أو لا، والاختيار من بدائل محددة، والتقييم وفق معيار مرتب، مع احتمالات ودرجات ثقة تتيح إحالة الحالات الملتبسة إلى مسار بديل أو مراجع بشري. تشمل الاستخدامات اختيار الأدوات وتوجيه الطلبات وفحص السياسات. أرقام السرعة والمعايرة المنشورة تخص تقييمات Google؛ دعم Gemini عبر Google Cloud ما زال مرتقبًا."
+      ]
+    },
+    {
+      "sourceId": "google-ai",
       "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
       "sourceTitle": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
       "eventDate": "2026-11-11",
