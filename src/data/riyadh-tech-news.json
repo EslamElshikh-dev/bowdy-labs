@@ -3,6 +3,19 @@
   "articles": [
     {
       "sourceId": "openai",
+      "sourceUrl": "https://openai.com/index/gilbert-tobin-sam-nickless/",
+      "sourceTitle": "Gilbert + Tobin rethinks the business of law with AI",
+      "eventDate": "2026-11-12",
+      "publishedAt": "2026-11-12T03:36:14+03:00",
+      "title": "Gilbert + Tobin تعرض مسارات عمل بالذكاء الاصطناعي مع مراجعة بشرية",
+      "excerpt": "استخدام ChatGPT Enterprise وWork وCodex داخل مكتب محاماة، مع وصول حسب الأدوار وضوابط إدارية ومثال لتحديث ملفات وإنتاج حزم PDF من بيانات جداول.",
+      "paragraphs": [
+        "عرضت OpenAI تجربة مكتب المحاماة الأسترالي Gilbert + Tobin في الانتقال من المساعدة الفردية إلى مسارات عمل محددة متعددة الخطوات باستخدام ChatGPT Enterprise وChatGPT Work وCodex. ربط المكتب التوسع بإقامة البيانات في أستراليا والحماية التعاقدية والوصول حسب الأدوار والضوابط الإدارية، مع بقاء المراجعة والموافقة مسؤولية البشر.",
+        "شرح الرئيس التنفيذي استخدام GPT مخصص يستند إلى نماذج كتابته وسياق المكتب لمساعدة فريقه على اختبار أفكاره، دون اتخاذ قرارات أو التحدث باسمه. كما وصف استخدام ChatGPT Work لتحديث ملفات من جدول بيانات وإنتاج ملفات PDF وتجميعها في مراجعة سنوية للشركاء. هذه أمثلة يرويها المسؤول، وليست اختبارات مستقلة للمجلة أو بديلًا عن التحقق من المخرجات."
+      ]
+    },
+    {
+      "sourceId": "openai",
       "sourceUrl": "https://openai.com/index/jiostar-vijay-seshadri/",
       "sourceTitle": "JioStar’s chief architect on AI discovery at 500M-user scale",
       "eventDate": "2026-11-11",
