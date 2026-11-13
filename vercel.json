@@ -12,7 +12,17 @@
       "permanent": true
     },
     {
+      "source": "/pricing/",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
       "source": "/en/pricing",
+      "destination": "/en/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/en/pricing/",
       "destination": "/en/contact/",
       "permanent": true
     },

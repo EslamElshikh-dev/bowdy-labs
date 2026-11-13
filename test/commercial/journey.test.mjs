@@ -43,7 +43,11 @@ test("pricing pages are absent and legacy URLs redirect to the matching contact 
   const config = JSON.parse(await read("vercel.json"));
   for (const prefix of ["", "en/"]) {
     await assert.rejects(access(new URL(`dist/${prefix}pricing/index.html`, root)), { code: "ENOENT" });
-    assert.deepEqual(config.redirects.find(r => r.source === `/${prefix}pricing`), { source: `/${prefix}pricing`, destination: `/${prefix}contact/`, permanent: true });
+    // Both spellings were published; trailingSlash must not strand old links on 404.
+    for (const suffix of ["", "/"]) {
+      const source = `/${prefix}pricing${suffix}`;
+      assert.deepEqual(config.redirects.find(r => r.source === source), { source, destination: `/${prefix}contact/`, permanent: true });
+    }
   }
   for (const file of ["dist/sitemap.xml", "dist/llms.txt"]) assert.ok(!/\/(?:en\/)?pricing\//.test(await read(file)));
 });
