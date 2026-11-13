@@ -94,9 +94,9 @@
     },
     {
       keys: ["سعر", "تكلفة", "price", "pricing", "cost", "ميزانية", "budget"],
-      ar: "انطلق: 1,500 ريال تأسيس + 690 ريال شهريًا. اشتغل: من 7,500 ريال للمشروع، وتشغيل اختياري 990 ريال شهريًا. توسّع: عرض مخصص، والمرحلة الأولى عادةً من 30,000 ريال. الأسعار شاملة الضريبة، ورسوم المزوّدين مستقلة. التجربة مجانية قبل الدفع وموعدها يتأكد بعد مراجعة المهمة.",
-      en: "Launch: SAR 1,500 setup + 690 monthly. Build: from SAR 7,500 per project, with optional operations at SAR 990 monthly. Scale: a custom quote, typically from SAR 30,000 for the first phase. VAT included; provider charges are separate. A trial is free before payment, with timing confirmed after reviewing the job.",
-      links: [["pricing", en ? "/en/pricing/" : "/pricing/"]],
+      ar: "نحدد نطاق المشروع بعد فهم احتياجك والأنظمة والبيانات والتكاملات المطلوبة. تواصل مع الفريق لمناقشة مشروعك وإعداد عرض مخصص.",
+      en: "We scope each project around your needs, systems, data and integrations. Contact the team to discuss your project and prepare a tailored proposal.",
+      links: [["contact", en ? "/en/contact/" : "/contact/"]],
     },
     {
       keys: ["تواصل", "واتساب", "اتصال", "contact", "whatsapp", "call", "phone", "رقم"],
@@ -107,7 +107,6 @@
   ];
 
   const labels = {
-    pricing: en ? "Compare plans" : "قارن الباقات",
     services: en ? "View services" : "عرض الخدمات",
     agents: en ? "AI Agents" : "وكلاء باودي",
     models: en ? "BOWDY Models" : "نماذج باودي",

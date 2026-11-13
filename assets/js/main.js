@@ -220,14 +220,12 @@
       const values = new FormData(form);
       const name = String(values.get("name") || "").trim();
       const service = String(values.get("service") || "");
-      const budget = String(values.get("budget") || "غير محددة");
       const goal = String(values.get("goal") || "").trim();
       const message = [
         "مرحبًا باودي لابز،",
         `الاسم أو الشركة: ${name}`,
         `المسار المطلوب: ${serviceNames[service] || service}`,
         ...(agentNames[selectedAgent] ? [`الوكيل المقترح: ${agentNames[selectedAgent]}`] : []),
-        `الميزانية التقريبية: ${budget}`,
         "الهدف والوضع الحالي:",
         goal,
       ].join("\n");

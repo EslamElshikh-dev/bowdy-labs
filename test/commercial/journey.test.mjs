@@ -10,61 +10,54 @@ const mainOf = html => html.match(/<main[^>]*>([\s\S]*?)<\/main>/)[1];
 
 for (const lang of ["ar", "en"]) {
   const prefix = lang === "en" ? "en/" : "";
-  test(`${lang}: published pricing and structured offers agree on setup, recurring and optional charges`, async () => {
-    const html = await read(`dist/${prefix}pricing/index.html`);
-    const graph = graphOf(html);
-    const services = graph.filter(n => n["@type"] === "Service");
-    assert.equal(services.length, 3);
-    const launch = services.find(n => n["@id"].endsWith("-launch")).offers;
-    assert.deepEqual(launch.priceSpecification.priceComponent.map(c => c.price), [1500, 690]);
-    assert.equal(launch.priceSpecification.priceComponent[1].billingDuration, "P1M");
-    const build = services.find(n => n["@id"].endsWith("-build")).offers;
-    assert.equal(build.priceSpecification.minPrice, 7500);
-    assert.equal(build.priceSpecification.maxPrice, undefined, "typical range must not become a contractual price cap");
-    assert.equal(build.addOn.priceSpecification.price, 990);
-    assert.equal(services.find(n => n["@id"].endsWith("-scale")).offers.priceSpecification.minPrice, 30000);
-    for (const service of services) assert.equal(service.offers.priceCurrency, "SAR");
-    const components = launch.priceSpecification.priceComponent;
-    assert.ok(components.every(c => c.valueAddedTaxIncluded));
-    assert.equal(graph.find(n => n["@type"] === "FAQPage").mainEntity.length, 6);
-    for (const price of ["690", "1,500", "7,500", "990", "30,000"]) assert.ok(mainOf(html).includes(price));
-    assert.ok(mainOf(html).includes('id="addons"'));
-    assert.ok(!/1,200|2,500|450|250|15%/.test(mainOf(html)), "unapproved add-on prices must not ship");
-  });
-  test(`${lang}: visitor can reach pricing and a correctly localised trial request`, async () => {
+  test(`${lang}: original homepage design retains governance and localised contact paths`, async () => {
     const home = await read(`dist/${prefix}index.html`);
-    const pricing = await read(`dist/${prefix}pricing/index.html`);
-    if (lang === "en") {
-      const count = value => mainOf(value).replace(/<[^>]*>/g, " ").split(/\s+/).filter(Boolean).length;
-      assert.ok(count(home) < count(await read("dist/index.html")), "English home should be more concise than Arabic");
-    }
-    assert.equal((mainOf(home).match(/class="commercial-agent"/g) || []).length, 4);
-    assert.equal((mainOf(home).match(/<summary>/g) || []).length, 3);
-    assert.ok(home.includes(`href="/${prefix}pricing/"`));
-    assert.ok(pricing.includes(`href="/${prefix}contact/?service=ai-agents&intent=trial&plan=launch#trial"`));
-    assert.ok(!/خلال 24 ساعة|in 24 hours|data never leaves|بياناتك ما تطلع/.test(mainOf(home)));
-    assert.ok(!/THREE CORE SYSTEMS|iconography-section|INTELLIGENCE\. INNOVATION\. IMPACT\./.test(mainOf(home)));
-    assert.ok(!/OpenAI|NVIDIA|AWS/.test(mainOf(home)));
-    assert.ok(!/70%|\+__|معروف|رقم ___/.test(mainOf(home)));
+    const main = mainOf(home);
+    for (const marker of ["hero-grid", "hero-visual", "bowdy-intelligence-1200.webp", "services-section", "cta-panel", 'id="governance"']) assert.ok(main.includes(marker), marker);
+    assert.ok(!/commercial-hero|data-commercial-home|commercial-plans|id="pricing"/.test(main));
+    assert.ok(!home.includes("/assets/css/commercial.css"), "homepage uses the original stylesheet");
+    assert.ok(main.includes("NCA") && main.includes("PDPL"));
+    assert.ok(main.includes(`href="/${prefix}privacy/"`));
+    assert.ok(main.includes(`href="/${prefix}contact/"`));
+    assert.equal((home.match(/<h1[ >]/g) || []).length, 1);
     assert.equal((home.match(/aria-current="page"/g) || []).length, 2);
-    assert.equal((pricing.match(new RegExp(`href="/${prefix}pricing/" aria-current="page"`, "g")) || []).length, 2);
+    assert.ok(home.includes(`rel="canonical" href="https://bowdylabs.com/${prefix}"`));
+    assert.ok(home.includes('hreflang="ar-SA" href="https://bowdylabs.com/"'));
+    assert.ok(home.includes('hreflang="en" href="https://bowdylabs.com/en/"'));
+    assert.ok(home.includes('hreflang="en-SA" href="https://bowdylabs.com/en/"'));
     const contact = await read(`dist/${prefix}contact/index.html`);
     assert.ok(contact.includes("data-trial-form"));
     for (const name of ["name", "phone", "businessWhatsapp", "task"]) assert.ok(contact.includes(`name="${name}"`));
+    assert.ok(!contact.includes('name="budget"'));
     const privacy = await read(`dist/${prefix}privacy/index.html`);
     assert.ok(privacy.includes("Cloudflare Workers AI"));
     assert.ok(privacy.includes("commercial-legal-additions"));
+    const terms = await read(`dist/${prefix}terms/index.html`);
+    assert.ok(terms.includes("NCA") && terms.includes("PDPL"));
+    assert.ok(!/Paid Launch|990|رسوم تأسيس انطلق/.test(mainOf(terms)));
   });
 }
 
-test("both pricing routes have reciprocal alternates, canonicals and sitemap entries", async () => {
-  const sitemap = await read("dist/sitemap.xml");
+test("pricing pages are absent and legacy URLs redirect to the matching contact language", async () => {
+  const { access } = await import("node:fs/promises");
+  const config = JSON.parse(await read("vercel.json"));
   for (const prefix of ["", "en/"]) {
-    const html = await read(`dist/${prefix}pricing/index.html`);
-    assert.ok(html.includes(`<link rel="canonical" href="https://bowdylabs.com/${prefix}pricing/">`));
-    assert.ok(sitemap.includes(`<loc>https://bowdylabs.com/${prefix}pricing/</loc>`));
-    for (const [hreflang, url] of [["ar-SA", "https://bowdylabs.com/pricing/"], ["en", "https://bowdylabs.com/en/pricing/"], ["en-SA", "https://bowdylabs.com/en/pricing/"], ["x-default", "https://bowdylabs.com/pricing/"]]) {
-      assert.ok(html.includes(`hreflang="${hreflang}" href="${url}"`));
+    await assert.rejects(access(new URL(`dist/${prefix}pricing/index.html`, root)), { code: "ENOENT" });
+    assert.deepEqual(config.redirects.find(r => r.source === `/${prefix}pricing`), { source: `/${prefix}pricing`, destination: `/${prefix}contact/`, permanent: true });
+  }
+  for (const file of ["dist/sitemap.xml", "dist/llms.txt"]) assert.ok(!/\/(?:en\/)?pricing\//.test(await read(file)));
+});
+
+test("public pages contain no pricing links, plan sections or structured prices", async () => {
+  const { readdir } = await import("node:fs/promises");
+  const files = await readdir(new URL("dist/", root), { recursive: true });
+  for (const file of files.filter(f => f.endsWith(".html"))) {
+    const html = await read(`dist/${file}`);
+    assert.ok(!/href=["'][^"']*\/(?:en\/)?pricing\//.test(html), file);
+    assert.ok(!/commercial-plan|data-pricing-page|id="pricing"/.test(html), file);
+    for (const match of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+      const graph = JSON.parse(match[1]);
+      assert.ok(!/"(?:price|priceRange|priceCurrency|priceSpecification|minPrice|maxPrice)"\s*:/.test(JSON.stringify(graph)), file);
     }
   }
 });
@@ -131,17 +124,15 @@ test("trial intake only activates for trial intent and ignores unknown plan para
   assert.equal(normal.events.length, 0);
   const unknown = await trialHarness({ language: "en", query: "?intent=trial&plan=private-customer-info" });
   unknown.submit();
-  assert.equal(unknown.events[0][1].data.plan, "unspecified");
+  assert.equal(unknown.events[0][1].data.plan, undefined);
+  assert.ok(!new URL(unknown.fallback.href).searchParams.get("text").includes("Plan:"));
   assert.equal(unknown.events[0][1].data.language, "en");
 });
 
-test("pricing page measurement fires once per load and excludes contact content", async () => {
-  const source = await read("assets/js/analytics.js");
-  for (const page of ["/pricing/", "/en/pricing/"]) {
-    const calls = [];
-    vm.runInNewContext(source, { window: { location: { pathname: page }, va: (...args) => calls.push(args), dispatchEvent() {} }, document: { documentElement: { lang: page.startsWith("/en") ? "en" : "ar" }, addEventListener() {}, querySelector: () => null }, CustomEvent: class {} });
-    assert.equal(calls.length, 1);
-    assert.equal(calls[0][1].name, "pricing_view");
-    assert.equal(calls[0][1].data.page, page);
+test("assistant sources use scoped proposals without historical package prices", async () => {
+  for (const file of ["assets/js/bowdy-assistant.js", "api/bowdy.js"]) {
+    const source = await read(file);
+    assert.ok(!/1,500|7,500|30,000|690|990/.test(source));
+    assert.ok(!/https:\/\/bowdylabs\.com\/(?:en\/)?pricing\//.test(source));
   }
 });

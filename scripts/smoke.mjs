@@ -11,8 +11,6 @@ const server = spawn(
 const paths = [
   "/",
   "/en/",
-  "/pricing/",
-  "/en/pricing/",
   "/en/contact/?service=ai-agents&intent=trial",
   "/alarjancrm/",
   "/alarjancrm/dashboard/",
@@ -86,17 +84,18 @@ const waitForServer = async () => {
 try {
   await waitForServer();
   const rows = await Promise.all(
-    paths.map(async (path) => {
+    [...paths, "/pricing/", "/en/pricing/"].map(async (path) => {
       const response = await fetch(`http://127.0.0.1:${port}${path}`, { method: "HEAD" });
       return {
         path,
         status: response.status,
+        expected: /^\/(?:en\/)?pricing\/$/.test(path) ? 404 : 200,
         contentType: response.headers.get("content-type"),
       };
     }),
   );
   rows.forEach((row) => console.log(`${row.path} | ${row.status} | ${row.contentType}`));
-  if (rows.some((row) => row.status !== 200)) process.exitCode = 1;
+  if (rows.some((row) => row.status !== row.expected)) process.exitCode = 1;
 } finally {
   server.kill("SIGTERM");
 }

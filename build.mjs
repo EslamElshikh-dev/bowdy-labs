@@ -209,7 +209,6 @@ const professionalServiceSchema = {
   },
   areaServed: { "@type": "Country", name: site.country },
   knowsAbout: servicesShowcase.map((service) => service.title),
-  priceRange: "$$",
 };
 
 function schemaScript(nodes) {
@@ -298,7 +297,7 @@ function layout({
   <meta name="twitter:title" content="${esc(pageTitle)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${site.url}${shareImage}">
-  <link rel="stylesheet" href="/assets/css/main.css?v=20261017-1">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20261113-1">
   ${styles.map(href => `<link rel="stylesheet" href="${esc(href)}">`).join("\n  ")}
   ${head}
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
@@ -324,7 +323,7 @@ function layout({
   ${header(active, language).replace(/(<a class="language-link" href=")[^"]*("[^>]*>)/g, (_, a, b) => a + (alternatePath ? (english ? alternatePath.ar : alternatePath.en) : (english ? "/" : "/en/")) + b)}
   <main id="main">${body}</main>
   ${footer(language)}
-  <script src="/assets/js/main.js?v=20260906-3" defer></script>
+  <script src="/assets/js/main.js?v=20261113-1" defer></script>
   ${scripts.map(src => `<script src="${esc(src)}" defer></script>`).join("\n  ")}
 </body>
 </html>`;
@@ -838,7 +837,7 @@ function contactPage() {
     body: `${pageHero("تواصل", "ابدأ بوصف النتيجة، لا الأداة", "اختر المسار واكتب ملخصًا عن الوضع الحالي والهدف والموعد المتوقع. لا ترسل كلمات مرور أو رموز تحقق أو مفاتيح سرية.")}
     <section class="section-pad contact-section"><div class="container contact-grid">
       <div class="contact-options reveal"><article>${icon("whatsapp")}<div><small>WhatsApp</small><h2>محادثة مباشرة</h2><a href="${site.whatsapp}" target="_blank" rel="noopener" dir="ltr">${site.phoneDisplay}</a></div></article><article>${icon("phone")}<div><small>اتصال</small><h2>الرقم الأساسي</h2><a href="tel:${site.phone}" dir="ltr">${site.phoneDisplay}</a></div></article><article>${icon("mail")}<div><small>البريد</small><h2>تفاصيل رسمية</h2><a href="mailto:${site.email}">${site.email}</a></div></article><article>${icon("pin")}<div><small>نطاق العمل</small><h2>${site.city}</h2><p>داخل السعودية وعن بُعد</p></div></article><article>${icon("shield")}<div><small>بيانات المنشأة</small><h2>الرقم الوطني الموحد</h2><p dir="ltr">${site.unifiedNationalNumber}</p></div></article><div class="security-note">${icon("shield")}<p><strong>تنبيه أمني:</strong> لا ترسل كلمة مرور أو رمز تحقق أو مفتاح API. استخدم وصفًا منزوع البيانات الحساسة.</p></div></div>
-      <form class="contact-form reveal" data-contact-form><div class="form-head"><span>PROJECT BRIEF</span><h2>جهّز رسالة واضحة خلال دقيقة</h2><p>سنفتح لك رسالة WhatsApp يمكنك مراجعتها قبل الإرسال.</p></div><label>الاسم أو اسم الشركة<input type="text" name="name" autocomplete="name" maxlength="80" required placeholder="مثال: محمد / شركة ..."></label><label>المسار المطلوب<select name="service" required><option value="">اختر المسار</option>${services.map((service) => `<option value="${service.slug}">${service.title}</option>`).join("")}</select></label><label>الميزانية التقريبية<select name="budget"><option value="غير محددة">غير محددة</option><option value="أقل من 10,000 ريال">أقل من 10,000 ريال</option><option value="10,000–30,000 ريال">10,000–30,000 ريال</option><option value="30,000–100,000 ريال">30,000–100,000 ريال</option><option value="أكثر من 100,000 ريال">أكثر من 100,000 ريال</option></select></label><label>الهدف والوضع الحالي<textarea name="goal" rows="6" maxlength="1000" required placeholder="اكتب المشكلة والنتيجة المطلوبة والموعد المتوقع دون بيانات حساسة"></textarea></label><button class="button" type="submit">فتح الرسالة في WhatsApp ${icon("whatsapp", "button-icon")}</button><p class="form-status" role="status" aria-live="polite"></p></form>
+      <form class="contact-form reveal" data-contact-form><div class="form-head"><span>PROJECT BRIEF</span><h2>جهّز رسالة واضحة خلال دقيقة</h2><p>سنفتح لك رسالة WhatsApp يمكنك مراجعتها قبل الإرسال.</p></div><label>الاسم أو اسم الشركة<input type="text" name="name" autocomplete="name" maxlength="80" required placeholder="مثال: محمد / شركة ..."></label><label>المسار المطلوب<select name="service" required><option value="">اختر المسار</option>${services.map((service) => `<option value="${service.slug}">${service.title}</option>`).join("")}</select></label><label>الهدف والوضع الحالي<textarea name="goal" rows="6" maxlength="1000" required placeholder="اكتب المشكلة والنتيجة المطلوبة والموعد المتوقع دون بيانات حساسة"></textarea></label><button class="button" type="submit">فتح الرسالة في WhatsApp ${icon("whatsapp", "button-icon")}</button><p class="form-status" role="status" aria-live="polite"></p></form>
     </div></section>`,
   });
 }
