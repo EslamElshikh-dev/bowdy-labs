@@ -13,7 +13,7 @@ const save = async (path, html) => {
 };
 const local = (lang, slug = "") => (lang === "en" ? "/en" : "") + "/services/" + (slug ? slug + "/" : "");
 const schema = nodes => '<script type="application/ld+json">' + JSON.stringify({ "@context": "https://schema.org", "@graph": nodes }).replaceAll("<", "\\u003c") + "</script>";
-const addAssets = html => html.replace("</head>", '<link rel="stylesheet" href="/assets/css/business-systems.css?v=20261113-1"></head>').replace("</body>", '<script type="module" src="/assets/js/business-systems.js?v=20261113-1"></script></body>');
+const addAssets = html => html.replace("</head>", '<link rel="stylesheet" href="/assets/css/business-systems.css?v=20261113-2"></head>').replace("</body>", '<script type="module" src="/assets/js/business-systems.js?v=20261113-2"></script></body>');
 const graphOf = html => JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])["@graph"];
 
 function serviceNode(service, lang, url) {
@@ -73,7 +73,7 @@ for (const lang of ["ar", "en"]) {
   let home = await read(prefix + "index.html");
   const marker = '<section class="section-pad positioning-section" id="governance">';
   if (!home.includes(marker)) throw new Error("Governance insertion marker missing: " + lang);
-  home = home.replace(marker, renderHomeSystems(lang) + marker).replace("</head>", '<link rel="stylesheet" href="/assets/css/business-systems.css?v=20261113-1"></head>');
+  home = home.replace(marker, renderHomeSystems(lang) + marker).replace("</head>", '<link rel="stylesheet" href="/assets/css/business-systems.css?v=20261113-2"></head>');
   await save(prefix + "index.html", home);
   let contact = await read(prefix + "contact/index.html");
   const options = businessSystems.map(s => '<option value="' + s.slug + '">' + esc(s[lang].name) + "</option>").join("");
