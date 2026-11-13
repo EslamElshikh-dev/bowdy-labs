@@ -94,6 +94,17 @@ const llms = `# BOWDY LABS — باودي لابز
 - [About BOWDY LABS](https://bowdylabs.com/about/)
 - [Contact](https://bowdylabs.com/contact/)
 
+## Independent business-system services
+
+- [CRM development](https://bowdylabs.com/services/crm-development/)
+- [Business dashboards](https://bowdylabs.com/services/business-dashboards/)
+- [Booking systems](https://bowdylabs.com/services/booking-systems/)
+- [Customer chatbots](https://bowdylabs.com/services/ai-chatbots/)
+- [English CRM development](https://bowdylabs.com/en/services/crm-development/)
+- [English business dashboards](https://bowdylabs.com/en/services/business-dashboards/)
+- [English booking systems](https://bowdylabs.com/en/services/booking-systems/)
+- [English customer chatbots](https://bowdylabs.com/en/services/ai-chatbots/)
+
 ## AI knowledge clusters
 
 - [AI Agents](https://bowdylabs.com/insights/topics/ai-agents/)

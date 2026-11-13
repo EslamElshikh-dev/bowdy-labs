@@ -181,6 +181,10 @@
   });
 
   const serviceNames = {
+    "crm-development": "أنظمة CRM وإدارة العملاء",
+    "business-dashboards": "لوحات الإدارة والمؤشرات",
+    "booking-systems": "أنظمة الحجز والمواعيد",
+    "ai-chatbots": "الشات بوت ومساعدو العملاء",
     cybersecurity: "الأمن السيبراني وحماية الأنظمة",
     "cloud-solutions": "الحلول السحابية الآمنة",
     "ai-agents": "الذكاء الاصطناعي ووكلاء AI",

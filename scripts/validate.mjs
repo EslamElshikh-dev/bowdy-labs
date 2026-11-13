@@ -2,7 +2,8 @@ import { access, readFile, readdir } from "node:fs/promises";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { agents } from "../src/agents.mjs";
-import { site } from "../src/content.mjs";
+import { site, services } from "../src/content.mjs";
+import { businessSystems } from "../src/business-systems-content.mjs";
 
 const projectRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const root = join(projectRoot, "dist");
@@ -118,8 +119,8 @@ for (const file of htmlFiles) {
     if (!schemaTypes.includes("LocalBusiness")) errors.push("services/index.html: schema missing LocalBusiness");
     if (!schemaTypes.includes("OfferCatalog")) errors.push("services/index.html: schema missing OfferCatalog");
     if (!schemaTypes.includes("BreadcrumbList")) errors.push("services/index.html: schema missing BreadcrumbList");
-    if (serviceSchemaCount !== 9) {
-      errors.push(`services/index.html: expected 9 Service schema nodes, found ${serviceSchemaCount}`);
+    if (serviceSchemaCount !== services.length + businessSystems.length) {
+      errors.push(`services/index.html: expected ${services.length + businessSystems.length} Service schema nodes, found ${serviceSchemaCount}`);
     }
     if (!visibleText.includes("شركة ذكاء اصطناعي سعودية")) {
       errors.push("services/index.html: primary Saudi AI keyword missing");
@@ -127,7 +128,7 @@ for (const file of htmlFiles) {
     if (!visibleText.includes("وكلاء ذكاء اصطناعي يتكلمون بالعربية")) {
       errors.push("services/index.html: Arabic AI agents keyword missing");
     }
-    if (!/class="[^"]*\bservices-hero-stage\b[^"]*"/.test(html) || !html.includes('class="services-ai-core"')) {
+    if (!html.includes('class="bs-workspace-map"') || !html.includes('class="bs-map-core"') || !html.includes("data-business-planner")) {
       errors.push("services/index.html: lightweight identity-based services hero missing");
     }
     if (html.includes('rel="preload" as="image"') || html.includes('class="services-hero-image"')) {
