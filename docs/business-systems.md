@@ -51,3 +51,18 @@ the scoped contact handoff.
 Responsive review uses local-only srcdoc fixtures outside this repository and
 production output. Never publish QA fixture routes. Test small screens and both
 languages before changing the shared layout.
+
+## Work in motion design
+
+src/business-systems-studio.mjs renders the service hub's four-stage synthetic
+request journey, native interface illustrations, service navigation and workflow
+comparison panels. The stage selector supports buttons, next-step navigation,
+RTL-aware arrow keys, Home/End and an accessible announcement. It never auto-plays.
+Only one panel is exposed at a time. The first scene and all service links render
+without JavaScript; CSS motion respects prefers-reduced-motion. No graphics
+library, video, external integration or new runtime dependency was added.
+
+The approved homepage hero remains untouched. Shared service cards retain their
+compact homepage presentation; only the hub uses the illustrated two-column
+catalogue. Service pages add a color-coded navigation rail and a comparison
+section, while preserving the existing operational demos and planning handoff.

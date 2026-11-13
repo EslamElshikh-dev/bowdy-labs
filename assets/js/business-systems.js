@@ -1,4 +1,4 @@
-import { crmTransition, bookingTransition, dashboardTransition, makePlan, contactPlan, serviceSlugs } from "./business-systems-model.js?v=20261113-1";
+import { crmTransition, bookingTransition, dashboardTransition, makePlan, contactPlan, serviceSlugs } from "./business-systems-model.js?v=20261113-2";
 
 const isEn = document.documentElement.lang === "en";
 const choose = (ar, en) => isEn ? en : ar;
@@ -12,6 +12,36 @@ function track(action, service) {
   try { if (typeof window.va === "function") window.va("event", { name: "business_system_interaction", data }); } catch { /* Navigation and demos do not depend on analytics. */ }
   window.dispatchEvent(new CustomEvent("bowdy:analytics", { detail: { name: "business_system_interaction", data } }));
 }
+
+document.querySelectorAll("[data-workflow-studio]").forEach(root => {
+  const order = ["chat", "crm", "booking", "dashboard"];
+  const controls = Array.from(root.querySelectorAll("[data-studio-select]"));
+  let current = 0;
+  const show = (index, focus = false) => {
+    current = (index + order.length) % order.length;
+    const key = order[current];
+    root.dataset.current = key;
+    controls.forEach((control, i) => control.setAttribute("aria-pressed", String(i === current)));
+    root.querySelectorAll("[data-studio-panel]").forEach(panel => { panel.hidden = panel.dataset.studioPanel !== key; });
+    root.querySelector(".bs-studio-progress>.bs-mono").textContent = "0" + (current + 1) + " / 04";
+    root.querySelector("[data-studio-status]").textContent = root.querySelector("#studio-title-" + key).textContent;
+    if (focus) controls[current].focus();
+    track("journey_" + key, serviceSlugs[key]);
+  };
+  root.addEventListener("click", event => {
+    const select = event.target.closest("[data-studio-select]");
+    if (select && root.contains(select)) show(order.indexOf(select.dataset.studioSelect));
+    else if (event.target.closest("[data-studio-next]")) show(current + 1);
+  });
+  root.querySelector(".bs-studio-tabs").addEventListener("keydown", event => {
+    const selected = event.target.closest("[data-studio-select]");
+    if (!selected || !["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const index = controls.indexOf(selected);
+    const delta = document.documentElement.dir === "rtl" ? -1 : 1;
+    show(event.key === "Home" ? 0 : event.key === "End" ? 3 : index + (event.key === "ArrowRight" ? delta : -delta), true);
+  });
+});
 
 const messages = {
   crm: {

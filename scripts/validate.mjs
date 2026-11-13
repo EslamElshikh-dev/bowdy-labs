@@ -128,8 +128,8 @@ for (const file of htmlFiles) {
     if (!visibleText.includes("وكلاء ذكاء اصطناعي يتكلمون بالعربية")) {
       errors.push("services/index.html: Arabic AI agents keyword missing");
     }
-    if (!html.includes('class="bs-workspace-map"') || !html.includes('class="bs-map-core"') || !html.includes("data-business-planner")) {
-      errors.push("services/index.html: lightweight identity-based services hero missing");
+    if (!html.includes("data-workflow-studio") || (html.match(/data-studio-select=/g) || []).length !== 4 || !html.includes("/assets/brand/bowdy-labs-mark.svg") || !html.includes("data-business-planner")) {
+      errors.push("services/index.html: identity-based workflow studio or planning handoff missing");
     }
     if (html.includes('rel="preload" as="image"') || html.includes('class="services-hero-image"')) {
       errors.push("services/index.html: obsolete raster hero path still present");

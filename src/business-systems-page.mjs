@@ -1,6 +1,7 @@
 import { businessSystems, systemsUi } from "./business-systems-content.mjs";
 import { services } from "./content.mjs";
 import { serviceCopy } from "./commercial-pages.mjs";
+import { renderStudioHero, renderCardArt, renderComparison, renderSystemRail } from "./business-systems-studio.mjs";
 
 export const esc = value => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 const pick = (lang, ar, en) => lang === "en" ? en : ar;
@@ -93,6 +94,7 @@ export function renderSystemsCards(lang, compact = false) {
     const c = s[lang];
     return el("article", { class: "bs-system-card", "data-accent": s.accent },
       div("bs-card-top", div("bs-service-icon", systemIcon(s.symbol)) + small("0" + (i + 1), "bs-card-number")) +
+      (!compact ? renderCardArt(s, lang) : "") +
       text("h3", c.name) + p(c.short) +
       (!compact ? p(c.intro, "bs-card-description") : "") +
       link(route(lang, s.slug), pick(lang, "استكشف الخدمة", "Explore the service"), "bs-card-link"));
@@ -117,19 +119,15 @@ export function renderSystemPage(service, lang) {
   const breadcrumbs = el("nav", { class: "bs-breadcrumbs container", "aria-label": pick(lang, "مسار التنقل", "Breadcrumb") }, el("ol", {}, el("li", {}, link(lang === "en" ? "/en/" : "/", pick(lang, "الرئيسية", "Home"), "")) + el("li", {}, link(route(lang), pick(lang, "الخدمات", "Services"), "")) + text("li", c.name, { "aria-current": "location" })));
   const hero = el("section", { class: "bs-hero", "data-accent": service.accent }, div("container bs-hero-grid", div("bs-hero-copy", small(ui.eyebrow, "bs-kicker") + div("bs-service-label", systemIcon(service.symbol) + small(c.name)) + el("h1", {}, c.headline) + p(c.intro, "bs-lead") + div("bs-hero-actions", link(contact(lang, service.slug), ui.discuss) + link("#workflow-demo", ui.demo, "bs-button bs-button-outline")) + div("bs-hero-footnotes", small(pick(lang, "خدمة مستقلة", "INDEPENDENT SERVICE")) + small(pick(lang, "نطاق ومخرجات واضحة", "DEFINED SCOPE & OUTPUTS")))) + div("bs-hero-demo", renderDemo(service, lang))));
   const value = el("section", { class: "section-pad bs-value" }, div("container", div("bs-value-intro", text("h2", c.problem) + p(c.problemText)) + div("bs-outcomes", c.outcomes.map(([title, copy], i) => el("article", {}, small("0" + (i + 1), "bs-mono") + text("h3", title) + p(copy))).join(""))));
-  const scope = el("section", { class: "section-pad bs-scope" }, div("container bs-scope-grid", div("bs-deliverable-panel", sectionHead(pick(lang, "من الفكرة إلى الاستخدام", "FROM IDEA TO DAILY USE"), ui.scope) + el("ul", {}, c.deliverables.map(item => text("li", item)).join(""))) + div("bs-fit-panel", text("h2", ui.fit) + el("ul", {}, c.fit.map(item => text("li", item)).join("")) + div("bs-measure", small(ui.measure) + p(c.metric)))));
+  const scope = el("section", { class: "section-pad bs-scope", id: "service-scope" }, div("container bs-scope-grid", div("bs-deliverable-panel", sectionHead(pick(lang, "من الفكرة إلى الاستخدام", "FROM IDEA TO DAILY USE"), ui.scope) + el("ul", {}, c.deliverables.map(item => text("li", item)).join(""))) + div("bs-fit-panel", text("h2", ui.fit) + el("ul", {}, c.fit.map(item => text("li", item)).join("")) + div("bs-measure", small(ui.measure) + p(c.metric)))));
   const faq = el("section", { class: "section-pad bs-faq" }, div("container bs-faq-grid", sectionHead(pick(lang, "قبل البدء", "BEFORE YOU BEGIN"), ui.faq) + div("bs-faq-list", c.faq.map(([q, a]) => el("details", {}, text("summary", q) + p(a))).join(""))));
   const related = el("section", { class: "section-pad bs-related" }, div("container", sectionHead(pick(lang, "تكامل عند الحاجة", "CONNECT WHEN IT HELPS"), ui.related) + div("bs-related-grid", businessSystems.filter(s => s.key !== service.key).map(s => el("article", { "data-accent": s.accent }, div("bs-service-icon", systemIcon(s.symbol)) + text("h3", s[lang].name) + p(s[lang].short) + link(route(lang, s.slug), pick(lang, "تفاصيل الخدمة", "Service details"), "bs-card-link"))).join(""))));
-  return div("bs-site", breadcrumbs + hero + value + scope + renderPlanner(lang, service.key) + delivery(lang) + governance(lang) + faq + related);
+  return div("bs-site bs-service-edition", breadcrumbs + renderSystemRail(service, lang, systemIcon) + hero + renderComparison(lang, service.key) + value + scope + renderPlanner(lang, service.key) + delivery(lang) + governance(lang) + faq + related, { "data-accent": service.accent });
 }
 
 export function renderServicesHub(lang) {
-  const title = pick(lang, "أنظمة أوضح.<br>وعمل أكثر ترتيبًا.", "Clearer systems.<br>Better organized work.");
-  const hero = el("section", { class: "bs-hub-hero bs-hero" }, div("container bs-hub-grid",
-    div("bs-hero-copy", small(systemsUi[lang].eyebrow, "bs-kicker") + el("h1", {}, title) + p(pick(lang, "من إدارة العملاء والمواعيد إلى لوحات التشغيل ومساعدي المحادثة. اختر خدمة مستقلة أو اربط ما يحتاجه سير عملك.", "From customer records and appointments to operating dashboards and conversation assistants. Choose an independent service or connect the workflows you need."), "bs-lead") + div("bs-hero-actions", link("#scope-builder", pick(lang, "حدّد العملية الأولى", "Scope your first workflow")) + link("#business-systems", pick(lang, "استكشف الخدمات", "Explore the services"), "bs-button bs-button-outline"))) +
-    div("bs-workspace-map", div("bs-map-top", small("BOWDY / CONNECTED WORK", "bs-mono") + small(pick(lang, "تصور سير العمل", "WORKFLOW CONCEPT"), "bs-pill")) + div("bs-map-core", '<img src="/assets/brand/bowdy-labs-mark.svg" width="64" height="64" alt="">' + text("strong", pick(lang, "طلب واحد.<br>سياق متصل.", "One request.<br>Connected context.").replaceAll("<br>", " "))) +
-      div("bs-map-nodes", businessSystems.map((s, i) => el("a", { href: route(lang, s.slug), "data-accent": s.accent }, systemIcon(s.symbol) + div("", small("0" + (i + 1), "bs-mono") + text("strong", s[lang].name)) + arrow())).join("")) + p(pick(lang, "يمكن تنفيذ كل مسار منفردًا، ثم توسيعه حسب النطاق.", "Each workflow can start independently and expand within scope."), "bs-fineprint"))));
-  const systems = el("section", { class: "section-pad bs-catalog", id: "business-systems" }, div("container", sectionHead(pick(lang, "أربع بدايات عملية", "FOUR PRACTICAL STARTING POINTS"), pick(lang, "اختر ما يحتاجه فريقك اليوم.", "Choose what your team needs today.")) + renderSystemsCards(lang)));
+  const hero = renderStudioHero(lang, systemIcon);
+  const systems = el("section", { class: "section-pad bs-catalog", id: "business-systems" }, div("container", sectionHead(pick(lang, "أربع خدمات. بداية تختارها.", "FOUR SERVICES. YOUR STARTING POINT."), pick(lang, "تفاصيل مختلفة.<br>وفكرة واحدة: عمل يمشي.", "Different details.<br>One idea: work that flows.").replaceAll("<br>", " "), pick(lang, "ابدأ بالنظام الذي يحل نقطة التعطل في يومك. ونربط الخدمات ببعضها عندما يضيف الربط قيمة فعلية.", "Start with the system that addresses your daily friction. Connect services when the connection adds real value.")) + renderSystemsCards(lang)));
   const core = el("section", { class: "section-pad bs-core" }, div("container", sectionHead(pick(lang, "قدرات باودي الأخرى", "MORE BOWDY CAPABILITIES"), pick(lang, "الهندسة والأمان والنمو حول مشروعك.", "Engineering, security and growth around your project."), pick(lang, "باودي لابز شركة ذكاء اصطناعي سعودية تقدم هذه الخدمات بصورة مستقلة أو ضمن مشروع محدد الاعتماديات.", "Commission these capabilities independently or within a scoped project.")) + div("bs-core-grid", services.map(s => el("article", { id: s.slug }, text("h3", lang === "en" ? s.titleEn : s.title) + p(serviceCopy[s.slug][lang][0]) + link(route(lang, s.slug), pick(lang, "تفاصيل المسار", "Explore the capability"), "bs-card-link"))).join(""))));
-  return div("bs-site", hero + systems + renderPlanner(lang) + delivery(lang) + governance(lang) + core);
+  return div("bs-site bs-hub-edition", hero + systems + renderComparison(lang) + renderPlanner(lang) + delivery(lang) + governance(lang) + core);
 }

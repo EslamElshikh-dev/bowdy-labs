@@ -21,7 +21,7 @@ for (const lang of ["ar", "en"]) {
       assert.equal(graph.find(n => n["@type"] === "FAQPage").mainEntity.length, service[lang].faq.length);
       for (const [question] of service[lang].faq) assert.ok(html.includes(question));
       assert.ok(html.includes('data-business-demo="' + service.key + '"'));
-      assert.ok(html.includes("business-systems.js?v=20261113-1"));
+      assert.ok(html.includes("business-systems.js?v=20261113-2"));
       assert.ok(!/\"price(?:Range|Currency)?\"\s*:/.test(JSON.stringify(graph)));
     }
   });
@@ -37,6 +37,12 @@ for (const lang of ["ar", "en"]) {
     assert.ok(contact.includes('id="project-brief"'));
     assert.ok(contact.includes("data-contact-plan-copy"));
     assert.ok(hub.includes("data-business-planner"));
+    assert.equal((hub.match(/data-studio-select=/g) || []).length, 4);
+    assert.equal((hub.match(/data-studio-panel=/g) || []).length, 4);
+    assert.equal((hub.match(/data-studio-panel="[^"]+"[^>]* hidden/g) || []).length, 3);
+    const studioIds = [...hub.matchAll(/id="(studio-[^"]+)"/g)].map(m => m[1]);
+    assert.equal(studioIds.length, new Set(studioIds).size, "studio labels and controls must be unambiguous");
+    assert.ok(hub.includes('data-studio-status role="status"'));
     assert.ok(home.includes('id="governance"'));
   });
 }
