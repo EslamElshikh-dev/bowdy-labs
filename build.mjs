@@ -301,7 +301,7 @@ function layout({
   <meta name="twitter:title" content="${esc(pageTitle)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${site.url}${shareImage}">
-  <link rel="stylesheet" href="/assets/css/main.css?v=20261113-1">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20261113-footer2">
   ${styles.map(href => `<link rel="stylesheet" href="${esc(href)}">`).join("\n  ")}
   ${head}
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
