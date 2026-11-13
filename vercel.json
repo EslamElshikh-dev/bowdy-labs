@@ -7,6 +7,16 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/pricing",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/en/pricing",
+      "destination": "/en/contact/",
+      "permanent": true
+    },
+    {
       "source": "/crm",
       "destination": "/alarjancrm",
       "permanent": true

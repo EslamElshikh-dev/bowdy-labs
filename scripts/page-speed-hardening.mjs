@@ -86,8 +86,6 @@ const llms = `# BOWDY LABS — باودي لابز
 
 - [BOWDY LABS — Arabic](https://bowdylabs.com/)
 - [BOWDY LABS — English](https://bowdylabs.com/en/)
-- [Agent pricing — Arabic](https://bowdylabs.com/pricing/)
-- [Agent pricing — English](https://bowdylabs.com/en/pricing/)
 - [Services](https://bowdylabs.com/services/)
 - [BOWDY AI Agents](https://bowdylabs.com/agents/)
 - [Selected work](https://bowdylabs.com/work/)

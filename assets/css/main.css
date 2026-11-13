@@ -1,5 +1,3 @@
-/* Keep the bilingual navigation readable with the Pricing destination. */
-@media(min-width:901px){.site-header .desktop-nav{gap:11px}.site-header .desktop-nav>a{font-size:.76rem}.site-header .header-inner{gap:20px}}
 @font-face {
   font-family: "Sora";
   font-style: normal;

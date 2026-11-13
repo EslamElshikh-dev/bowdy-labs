@@ -30,14 +30,12 @@
     const values = new FormData(form);
     const name = String(values.get("name") || "").trim();
     const service = String(values.get("service") || "");
-    const budget = String(values.get("budget") || "Not specified");
     const goal = String(values.get("goal") || "").trim();
 
     const message = [
       "Hello BOWDY LABS,",
       `Name or company: ${name}`,
       `Requested capability: ${serviceNames[service] || service}`,
-      `Approximate budget: ${budget}`,
       "Goal and current state:",
       goal,
     ].join("\n");
