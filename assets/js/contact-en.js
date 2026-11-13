@@ -6,6 +6,10 @@
   if (!form) return;
 
   const serviceNames = {
+    "crm-development": "CRM & customer systems",
+    "business-dashboards": "Dashboards & admin panels",
+    "booking-systems": "Booking & appointment systems",
+    "ai-chatbots": "Chatbots & customer assistants",
     cybersecurity: "Cybersecurity & System Protection",
     "cloud-solutions": "Secure Cloud Solutions",
     "ai-agents": "AI Agents & Automation",

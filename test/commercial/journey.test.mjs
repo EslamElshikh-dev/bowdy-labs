@@ -66,14 +66,14 @@ test("public pages contain no pricing links, plan sections or structured prices"
   }
 });
 
-test("service catalogs cover the same nine visible capabilities in both languages", async () => {
+test("service catalogs cover the same thirteen visible capabilities in both languages", async () => {
   for (const prefix of ["", "en/"]) {
     const html = await read(`dist/${prefix}services/index.html`);
     const graph = graphOf(html);
     const services = graph.filter(n => n["@type"] === "Service");
-    assert.equal(services.length, 9);
-    assert.equal(graph.find(n => n["@type"] === "OfferCatalog").itemListElement.length, 9);
-    for (const service of services) assert.ok(mainOf(html).includes(service.name));
+    assert.equal(services.length, 13);
+    assert.equal(graph.find(n => n["@type"] === "OfferCatalog").itemListElement.length, 13);
+    for (const service of services) assert.ok(mainOf(html).replaceAll("&amp;", "&").includes(service.name));
   }
 });
 
