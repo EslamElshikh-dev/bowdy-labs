@@ -88,11 +88,11 @@ for (const file of files) {
   html = html.replace(/<footer class="site-footer">/g, '<footer class="site-footer site-footer-pro">');
 
   if (!html.includes("/assets/css/bowdy-assistant.css")) {
-    html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/bowdy-assistant.css?v=20260906">\n</head>');
+    html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/bowdy-assistant.css?v=20261113-ui1">\n</head>');
   }
 
   if (!html.includes("/assets/css/bowdy-floating-contact-restore.css")) {
-    html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/bowdy-floating-contact-restore.css?v=20260906b">\n</head>');
+    html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/bowdy-floating-contact-restore.css?v=20261113-ui1">\n</head>');
   }
 
   if (!html.includes("/assets/css/bowdy-assistant-position.css")) {
@@ -100,7 +100,7 @@ for (const file of files) {
   }
 
   if (!html.includes("/assets/css/bowdy-footer-polish.css")) {
-    html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/bowdy-footer-polish.css?v=20260906d">\n</head>');
+    html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/bowdy-footer-polish.css?v=20261113-ui1">\n</head>');
   }
 
   if (!html.includes("data-bowdy-assistant")) {
