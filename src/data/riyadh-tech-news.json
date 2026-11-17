@@ -2691,6 +2691,19 @@
         "أطلقت OpenAI تحديث Astra for Law المبني على GPT‑6.2 Astra، مع فهرس قانوني موسع وتعليمات للبحث وموازنة المراجع وصياغة الإجابات. تقول الشركة إن الفهرس تجاوز 310 ملايين رابط، وأضيفت إليه مصادر من ولايات قضائية تشمل بريطانيا وأستراليا وكندا.",
         "يستطيع جميع عملاء ChatGPT Enterprise طلب الوصول عبر Trusted Access Program من لوحة الإدارة، مع مسار لطلب استخدام API. تعرض الشركة نتائج لمهام بحث وصياغة قانونية وانخفاضًا في أخطاء الاستشهاد ضمن تقييمات محددة؛ لكنها ليست ضمانًا لخلو الإجابات من الأخطاء أو دليلًا على ملاءمتها لكل نظام قانوني."
       ]
+    },
+    {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences/",
+      "sourceTitle": "Microsoft and Salesforce Announce Copilotforce, Bringing Trusted Customer Context and Action into Microsoft AI Experiences",
+      "eventDate": "2026-11-17",
+      "publishedAt": "2026-11-17T22:27:58+03:00",
+      "title": "Microsoft وSalesforce تطلقان معاينة Copilotforce لربط المبيعات بالوكلاء",
+      "excerpt": "تكامل جديد يجلب بيانات العملاء ومهارات المبيعات إلى Copilot، ويربط Data 360 وFabric دون تكرار البيانات، مع بقاء صلاحيات Salesforce وتأكيد المستخدم قبل الكتابة.",
+      "paragraphs": [
+        "أعلنت Microsoft وSalesforce عن Copilotforce، ويتضمن إضافة Salesforce في Copilot بمعاينة عامة وأكثر من 38 مهارة مبيعات جاهزة. تتيح الإضافة استرجاع معلومات العملاء وتنفيذ الإجراءات المدعومة عبر وصول MCP موثّق، مع الالتزام بصلاحيات Salesforce القائمة واشتراط تأكيد صريح قبل تحديث سجلات العملاء.",
+        "أصبح الاستعلام عن بيانات OneLake المدعومة داخل Salesforce Data 360 متاحًا عمومًا، بينما مشاركة بيانات Data 360 إلى OneLake في معاينة عامة، دون الاحتفاظ بنسخ مكررة. أما Sales Cloud في Teams فما زال في تجربة محدودة، وتشارك Accenture كشريك تنفيذ وعميل تجريبي؛ لذا تختلف جاهزية كل تكامل."
+      ]
     }
   ]
 }
