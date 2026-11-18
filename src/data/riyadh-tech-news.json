@@ -2717,6 +2717,71 @@
         "أطلقت OpenAI تجربة ChatGPT for Sales مع إضافة Sales التي توفر مسارات جاهزة لبحث الحسابات والتحضير للمكالمات وصياغة المتابعات. تشمل المنظومة أكثر من ثلاثين إضافة شريكة جديدة أو محسنة، تربط سياق العملاء من أدوات مثل Salesforce وHubSpot بملاحظات الاجتماعات وأدوات إعداد العروض وتحليل الفرص.",
         "يمكن تفويض الوكيل المستمر dot لإعداد موجزات الاجتماعات ورصد تغيرات الصفقات واقتراح خطوات للمراجعة. يستطيع مسؤولو Business وEnterprise إتاحة الإضافات للفريق ومراجعة التطبيقات والإجراءات المسموحة؛ وتختلف المزايا بحسب الخطة والمنطقة وإعدادات مساحة العمل. لا يعني الإعلان توافر جميع التكاملات تلقائيًا لكل مستخدم."
       ]
+    },
+    {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/",
+      "sourceTitle": "TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient",
+      "title": "Microsoft تعرض TokenEconomizer لتقليل هدر الرموز لدى وكلاء البرمجة",
+      "excerpt": "إضافة مفتوحة المصدر تستفيد من سجل العمل في المستودع لتوجيه الجلسات اللاحقة، دون تعديل الوكيل أو نموذجه، مع نتائج بحثية لخفض التكلفة.",
+      "paragraphs": [
+        "عرضت Microsoft Research إضافة TokenEconomizer المطورة بالتعاون مع باحثين من جامعة كاليفورنيا في بيركلي وMicrosoft Security. تقرأ الإضافة سجلات جلسات البرمجة لتكوين ملاحظات قصيرة عن المستودع، وتقليل الأدوات غير المستخدمة، واقتراح مسار مختلف عندما يتكرر الفشل، دون تغيير النموذج الأساسي.",
+        "بحسب تقييم الباحثين على 277 مهمة لإصلاح أخطاء، انخفض متوسط التكلفة بنسبة 18.4 إلى 30.9% عبر إعدادات متعددة، مع استقرار عام في نجاح المهام. تشمل الأرقام تكلفة استدعاءات الإضافة نفسها، وقد ترتفع كلفة المهام الأولى أثناء التعلم؛ لذا لا تمثل النسب ضمانًا لكل مشروع."
+      ],
+      "eventDate": "2026-11-16",
+      "publishedAt": "2026-11-18T04:32:38+03:00"
+    },
+    {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/products/gemini-app/regional-voices/",
+      "sourceTitle": "Regional voices are rolling out in the Gemini app.",
+      "title": "Google تضيف 66 صوتًا إقليميًا إلى تطبيق Gemini على Android وiOS",
+      "excerpt": "توسعة للتفاعل الصوتي تراعي الإيقاع المحلي لعدة لغات ولهجات، ويُستخدم الصوت المختار في Gemini Live وقراءة الردود داخل التطبيق.",
+      "paragraphs": [
+        "بدأت Google طرح 66 صوتًا إقليميًا جديدًا في تطبيق Gemini على Android وiOS، تشمل خيارات للإنجليزية الأمريكية والبريطانية والهندية، والهندية والبرتغالية البرازيلية والإندونيسية والكورية. تقول الشركة إن الأصوات تراعي الإيقاع والنبرة المحلية مع التركيز على وضوح الحديث.",
+        "يمتد الصوت المختار إلى محادثات Gemini Live وإلى الاستماع لردود الدردشة. يمكن معاينة الخيارات من قائمة Gemini Live أو إعدادات الصوت؛ ولم يذكر الإعلان إضافة أصوات عربية ضمن هذه الدفعة."
+      ],
+      "eventDate": "2026-11-16",
+      "publishedAt": "2026-11-18T04:32:38+03:00"
+    },
+    {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/products/gemini-notebook/interactive-sites/",
+      "sourceTitle": "Transform notes, research, and sources into interactive sites with Gemini Notebook.",
+      "title": "Gemini Notebook يحوّل المصادر والملاحظات إلى مواقع تفاعلية",
+      "excerpt": "ميزة جديدة لإنشاء شروحات ولوحات بيانات ومتابعات مشاريع من مصادر الدفتر، مع طرح عالمي عبر الويب للمستخدمين البالغين وإتاحة الهاتف لاحقًا.",
+      "paragraphs": [
+        "أضافت Google إلى Gemini Notebook إمكانية تحويل المصادر إلى مواقع تفاعلية بطلب نصي يصف النتيجة المطلوبة. تشمل الاستخدامات شروحات مرئية للمذاكرة، ولوحات لاستكشاف البيانات، وأدوات لمتابعة مهام المشاريع ومواعيدها.",
+        "يمكن فتح الموقع الناتج في تبويب مستقل للتفاعل معه أو مشاركته. بدأ طرح الميزة عالميًا عبر الويب للمستخدمين بعمر 18 عامًا فأكثر، بما في ذلك مشتركو Google Workspace؛ أما تطبيق الهاتف فستصل إليه لاحقًا وفق الإعلان."
+      ],
+      "eventDate": "2026-11-16",
+      "publishedAt": "2026-11-18T04:32:38+03:00"
+    },
+    {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gtig-ai-threat-tracker-q4-2026/",
+      "sourceTitle": "Outpace automated cyber threats with security built for nonstop defense.",
+      "title": "Google ترصد استخدام أطر وكلاء ذاتية لتسريع الهجمات السيبرانية",
+      "excerpt": "تقرير GTIG يصف انتقال بعض المهاجمين إلى سلاسل عمل متعددة الوكلاء، ويعرض نهجًا دفاعيًا يجمع النماذج وتحليل السياق والترقيع الآلي.",
+      "paragraphs": [
+        "أفاد فريق Google Threat Intelligence Group في تقريره الجديد بأن مهاجمين يستخدمون أطرًا ذاتية قائمة على النماذج اللغوية لفحص تحديثات البرمجيات وتحليل الثغرات المصححة وتسريع استغلال الأنظمة غير المحدثة. يركز التقرير على زيادة سرعة الهجمات ونطاقها، لا على أن كل أساليب الاختراق أصبحت جديدة.",
+        "تعرض Google في المقابل نهج AI Threat Defense الذي يجمع Gemini ونماذج أخرى مع سياق Wiz وترتيب أولويات المخاطر، والترقيع الآلي عبر CodeMender وخبرة Mandiant. هذه خلاصة لرصد المصدر ونهجه الدفاعي، وليست اختبارًا مستقلًا من المجلة لفاعلية الحماية."
+      ],
+      "eventDate": "2026-11-16",
+      "publishedAt": "2026-11-18T04:32:38+03:00"
+    },
+    {
+      "sourceId": "google-ai",
+      "sourceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/training-performance-benchmarks-tpus/",
+      "sourceTitle": "New AI training performance benchmarks for Google TPUs",
+      "title": "Google تنشر نتائج Ironwood وGrace Blackwell في MLPerf Training 6.1",
+      "excerpt": "عشر نتائج لتدريب النماذج والتعلم المعزز للوكلاء، مع توضيح أن الأزمنة تقيس الوصول من نقطة مرجعية محددة إلى معيار التقارب المطلوب.",
+      "paragraphs": [
+        "نشرت Google Cloud عشر نتائج في جولة MLPerf Training 6.1 باستخدام وحدات Ironwood TPU وأنظمة NVIDIA Grace Blackwell. تشمل الجولة التدريب المسبق وعبء تعلم معزز للوكلاء، وتربط الشركة النتائج بتكامل العتاد والشبكات والبرمجيات ضمن AI Hypercomputer.",
+        "بحسب Google، بلغت منظومة من 640 وحدة Ironwood هدف دقة معيار البرمجة خلال 18.02 دقيقة. هذه أزمنة لاختبارات محددة تبدأ من نقطة تحقق مرجعية وصولًا إلى التقارب المطلوب، وليست مدة تدريب نموذج كامل من الصفر أو مقياسًا مضمونًا لأداء تطبيق بعينه."
+      ],
+      "eventDate": "2026-11-16",
+      "publishedAt": "2026-11-18T04:32:38+03:00"
     }
   ]
 }
