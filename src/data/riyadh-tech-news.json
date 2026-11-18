@@ -2782,6 +2782,19 @@
       ],
       "eventDate": "2026-11-16",
       "publishedAt": "2026-11-18T04:32:38+03:00"
+    },
+    {
+      "sourceId": "microsoft-ai",
+      "sourceUrl": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/",
+      "sourceTitle": "Ignite 2026: Building the frontier ecosystem",
+      "eventDate": "2026-11-17",
+      "publishedAt": "2026-11-18T06:45:54+03:00",
+      "title": "Microsoft تعلن Code 2 وDecision 1.1 وإتاحة Perception في Ignite",
+      "excerpt": "نماذج جديدة للبرمجة والقرارات متعددة الوسائط، ونظام أمني ينسق وكلاء لمحاكاة الهجمات ورصدها ومعالجتها، ضمن تحديثات Ignite التقنية.",
+      "paragraphs": [
+        "أعلنت Microsoft في Ignite عن Code 2 لمهام البرمجة المؤسسية، مثل إصلاح الأخطاء العميقة والتعديلات متعددة الملفات وفهم المستودعات، وCode 2 Flash للمهام السريعة والمتكررة. أصبح النموذجان متاحين عمومًا في GitHub Copilot، وأعلنت الشركة الإتاحة العامة لـMicrosoft-Decision-1.1 مع دعم متعدد الوسائط لمهام التوجيه والتصنيف والتحكم في سير العمل.",
+        "وصل Perception أيضًا إلى الإتاحة العامة، ويتيح تنسيق فرق وكلاء لمحاكاة الهجمات واكتشافها وإصلاح آثارها عبر مسارات عمل أمنية تحت تحكم المؤسسة. وأعلنت الشركة MAI Licensed Weights لإتاحة أوزان نماذجها لعملاء موثوقين عبر Frontier Co؛ وهذا مسار ترخيص للعملاء وليس إصدارًا عامًا مفتوح الأوزان."
+      ]
     }
   ]
 }
