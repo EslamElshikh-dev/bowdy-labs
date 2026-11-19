@@ -3059,5 +3059,19 @@
         "تدعم الميزة خوادم MCP البعيدة، ويمكن نقل البحث إلى التطبيق عند استخدام سجل أدوات أو مرشح صلاحيات خاص، مقابل جولة اتصال إضافية لكل بحث. تعمل مع Gemini 3.6 والإصدارات الأحدث. لا تفرض Google رسمًا منفصلًا للميزة، لكن الرموز تظل محسوبة وفق أسعار النموذج؛ لذا توصي بقياس الوفورات على حركة التطبيق الفعلية."
       ]
     }
+    ,
+    {
+      "sourceId": "nvidia",
+      "sourceUrl": "https://blogs.nvidia.com/blog/microsoft-ignite-accelerated-computing-azure-windows-pcs/",
+      "sourceTitle": "NVIDIA and Microsoft Expand Accelerated Computing From Azure to Windows PCs",
+      "eventDate": "2026-11-19",
+      "publishedAt": "2026-11-20T00:18:36+03:00",
+      "title": "NVIDIA وMicrosoft توسعان تخصيص Nemotron ونشر أوزان النماذج عبر Foundry",
+      "excerpt": "تشمل التحديثات تدريبًا لاحقًا تديره Microsoft ودعم أوزان مخصصة وخيارات للذكاء الاصطناعي المحلي؛ وتظل بعض النماذج وتكاملات العتاد مرتقبة.",
+      "paragraphs": [
+        "أعلنت NVIDIA توسيع تعاونها مع Microsoft لإتاحة نماذج وتخصيصها ونشرها عبر Foundry. يتيح Programmed Training إدارة المطور لمسارات التدريب اللاحق مع تولي المنصة البنية التحتية، ويضيف Foundry Managed Compute دعم نشر أوزان مخصصة. تشمل المحفظة Nemotron 3.5 Super وLightning ونماذج الاسترجاع وتحليل المستندات وسلامة المحتوى، بينما وصفت Bolt وTranscribe بأنهما قادمان لاحقًا.",
+        "يوسع Foundry Local دعم Nemotron 3.5 في بيئات Azure Local لتشغيل الاستدلال والبرمجة ووكلاء الأدوات قرب بيانات المؤسسة. وتشمل الخطط دعم RTX PRO 6000 Blackwell ومنصتي Jetson Thor وOrin للتطبيقات الصناعية. كما تتوسع أدوات BioNeMo وALCHEMI إلى كتالوج Microsoft Discovery؛ ولا يعني الإعلان توافر جميع تكاملات العتاد والنماذج فورًا."
+      ]
+    }
   ]
 }
