@@ -3073,5 +3073,19 @@
         "يوسع Foundry Local دعم Nemotron 3.5 في بيئات Azure Local لتشغيل الاستدلال والبرمجة ووكلاء الأدوات قرب بيانات المؤسسة. وتشمل الخطط دعم RTX PRO 6000 Blackwell ومنصتي Jetson Thor وOrin للتطبيقات الصناعية. كما تتوسع أدوات BioNeMo وALCHEMI إلى كتالوج Microsoft Discovery؛ ولا يعني الإعلان توافر جميع تكاملات العتاد والنماذج فورًا."
       ]
     }
+    ,
+    {
+      "sourceId": "huggingface",
+      "sourceUrl": "https://huggingface.co/blog/harness-adapters-at-scale",
+      "sourceTitle": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
+      "eventDate": "2026-11-20",
+      "publishedAt": "2026-11-20T17:27:05+03:00",
+      "title": "Hugging Face تطلق محولات لتكييف Qwen مع بيئات وكلاء البرمجة",
+      "excerpt": "وصفة تدريب بالتعلم المعزز داخل Pi وOpenCode وHermes Agent، مع محولات LoRA منفصلة وأخرى مدمجة وبيانات وأدوات متاحة لإعادة التجربة.",
+      "paragraphs": [
+        "نشرت Hugging Face وصفة لتخصيص Qwen3.8-27B لبيئات تشغيل وكلاء البرمجة باستخدام محولات LoRA والتعلم المعزز داخل بيئة الوكيل نفسها. يستخدم المسار TRL وOpenEnv وHarbor لتوليد المهام والتحقق منها والتدريب، ويتيح المحولات وملفات GGUF والمهام وإضافة safeagents لإعادة التجربة.",
+        "وفق تقييمات الفريق، حسّنت المحولات المتخصصة الأداء والكفاءة داخل بيئات Pi وOpenCode وHermes Agent، وأمكن دمجها في محول واحد. لا تعني النتائج تفوق بيئة على أخرى؛ إذ تختلف إعداداتها، كما اختير وزن الدمج باستخدام Terminal-Bench، ما قد يجعل نتائجه متفائلة قليلًا. هذه نتائج المصدر وليست اختبارات مستقلة للمجلة."
+      ]
+    }
   ]
 }
