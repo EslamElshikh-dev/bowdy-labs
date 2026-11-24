@@ -102,11 +102,12 @@ async function refreshScripts(dir = dist) {
     if (entry.isDirectory()) await refreshScripts(file);
     else if (entry.name.endsWith(".html")) {
       let html = await readFile(file, "utf8");
-      html = html.replace(/src="\/assets\/js\/main\.js(?:\?[^"]*)?"/g, 'src="/assets/js/main.js?v=20261113-systems1"')
-        .replace(/src="\/assets\/js\/contact-en\.js(?:\?[^"]*)?"/g, 'src="/assets/js/contact-en.js?v=20261113-systems1"');
+      html = html.replace(/src="\/assets\/js\/main\.js(?:\?[^"]*)?"/g, 'src="/assets/js/main.js?v=20261124-contact1"')
+        .replace(/src="\/assets\/js\/contact-en\.js(?:\?[^"]*)?"/g, 'src="/assets/js/contact-en.js?v=20261124-contact1"');
       await writeFile(file, html);
     }
   }
 }
 await refreshScripts();
 console.log("Built eight bilingual business-system pages, a service hub, homepage discovery and scoped contact handoff.");
+
