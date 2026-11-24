@@ -234,12 +234,20 @@
         goal,
       ].join("\n");
       const url = `https://wa.me/${PRIMARY_PHONE}?text=${encodeURIComponent(message)}`;
-      const opened = window.open(url, "_blank", "noopener,noreferrer");
       const status = form.querySelector(".form-status");
       if (status) {
-        status.textContent = opened
-          ? "تم تجهيز الرسالة. راجعها في WhatsApp قبل الإرسال."
-          : "تعذر فتح نافذة جديدة. استخدم زر WhatsApp المباشر.";
+        status.textContent = "تم تجهيز الرسالة. راجعها في WhatsApp قبل الإرسال. ";
+        const fallback = document.createElement("a");
+        fallback.href = url;
+        fallback.target = "_blank";
+        fallback.rel = "noopener noreferrer";
+        fallback.textContent = "فتح الرسالة يدويًا";
+        status.append(fallback);
+      }
+      try {
+        window.open(url, "_blank", "noopener,noreferrer");
+      } catch {
+        // The manual link remains available if opening a window is blocked.
       }
     });
   }
@@ -253,3 +261,4 @@
     if (active) link.setAttribute("aria-current", "page");
   });
 })();
+

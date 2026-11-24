@@ -45,12 +45,21 @@
     ].join("\n");
 
     const url = `https://wa.me/${PRIMARY_PHONE}?text=${encodeURIComponent(message)}`;
-    const opened = window.open(url, "_blank", "noopener,noreferrer");
     const status = form.querySelector(".form-status");
     if (status) {
-      status.textContent = opened
-        ? "Your brief is ready. Review it in WhatsApp before sending."
-        : "We could not open a new window. Please use the direct WhatsApp link.";
+      status.textContent = "Your brief is ready. Review it in WhatsApp before sending. ";
+      const fallback = document.createElement("a");
+      fallback.href = url;
+      fallback.target = "_blank";
+      fallback.rel = "noopener noreferrer";
+      fallback.textContent = "Open your message manually";
+      status.append(fallback);
+    }
+    try {
+      window.open(url, "_blank", "noopener,noreferrer");
+    } catch {
+      // The manual link remains available if opening a window is blocked.
     }
   });
 })();
+
