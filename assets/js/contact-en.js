@@ -60,6 +60,7 @@
     } catch {
       // The manual link remains available if opening a window is blocked.
     }
+    form.dispatchEvent(new Event("bowdy:brief-handoff"));
   });
 })();
 

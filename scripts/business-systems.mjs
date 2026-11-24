@@ -14,6 +14,14 @@ const save = async (path, html) => {
 const local = (lang, slug = "") => (lang === "en" ? "/en" : "") + "/services/" + (slug ? slug + "/" : "");
 const schema = nodes => '<script type="application/ld+json">' + JSON.stringify({ "@context": "https://schema.org", "@graph": nodes }).replaceAll("<", "\\u003c") + "</script>";
 const addAssets = html => html.replace("</head>", '<link rel="stylesheet" href="/assets/css/business-systems.css?v=20261113-2"></head>').replace("</body>", '<script type="module" src="/assets/js/business-systems.js?v=20261113-2"></script></body>');
+const phoneAction = process.env.BOWDY_ADS_PHONE_SEND_TO || "";
+const whatsappAction = process.env.BOWDY_ADS_WHATSAPP_SEND_TO || "";
+const destination = /^AW-[0-9]+\/[A-Za-z0-9_-]+$/;
+if ((phoneAction || whatsappAction) && (!destination.test(phoneAction) || !destination.test(whatsappAction) ||
+    phoneAction === whatsappAction || phoneAction.split("/")[0] !== whatsappAction.split("/")[0])) {
+  throw new Error("Provide two distinct Bowdy contact conversion labels from the same Google Ads tag.");
+}
+const adsScript = phoneAction ? `<link rel="stylesheet" href="/assets/css/ads-consent.css?v=20261124-contact2"><script defer src="/assets/js/ads-contact.js?v=20261124-contact2" data-phone="${phoneAction}" data-whatsapp="${whatsappAction}"></script>` : "";
 const graphOf = html => JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])["@graph"];
 
 function serviceNode(service, lang, url) {
@@ -70,6 +78,15 @@ for (const lang of ["ar", "en"]) {
   const shell = await read(prefix + "services/web-development/index.html");
   await save(prefix + "services/index.html", shellPage(shell, lang));
   for (const service of businessSystems) await save(prefix + "services/" + service.slug + "/index.html", shellPage(shell, lang, service));
+  for (const service of [...businessSystems, ...services]) {
+    const path = prefix + "services/" + service.slug + "/index.html";
+    const name = service[lang]?.name ?? (lang === "en" ? service.titleEn : service.title);
+    const message = lang === "en" ? `Hello BOWDY LABS, I would like to discuss ${name}.` : `مرحبًا باودي لابز، أود الاستفسار عن ${name}.`;
+    const html = (await read(path))
+      .replace(/(href="\/(?:en\/)?contact\/\?service=[a-z-]+)"/g, '$1#project-brief"')
+      .replace(/(class="floating-whatsapp" href=")[^"]+"/, (_, prefix) => prefix + site.whatsapp + "?text=" + encodeURIComponent(message) + '"');
+    await save(path, html);
+  }
   let home = await read(prefix + "index.html");
   const marker = '<section class="section-pad positioning-section" id="governance">';
   if (!home.includes(marker)) throw new Error("Governance insertion marker missing: " + lang);
@@ -87,7 +104,10 @@ for (const lang of ["ar", "en"]) {
   const privacySection = lang === "en"
     ? "<section><h2>Business-system examples and planning choices</h2><p>The interactive CRM, booking, dashboard and chatbot examples use synthetic data and run locally in your browser. They do not create real requests or appointments or send example conversations to an AI provider. The scope planner can download a text brief locally. Its non-personal service, current-tool and approval choices can be carried to the contact page in the URL. You can edit the brief before preparing and sending your message in WhatsApp. Interaction analytics use predefined service and action categories, without brief text or personal contact information.</p></section>"
     : "<section><h2>نماذج أنظمة الأعمال واختيارات النطاق</h2><p>تستخدم نماذج CRM والحجز واللوحات والشات بوت بيانات تجريبية، وتعمل محليًا داخل متصفحك. لا تنشئ طلبات أو حجوزات حقيقية، ولا ترسل محادثات النموذج إلى مزوّد ذكاء اصطناعي. يمكن تنزيل ملخص النطاق كملف نصي محلي. وقد تنتقل اختيارات الخدمة والأدوات والموافقة غير الشخصية إلى صفحة التواصل داخل الرابط. تستطيع تعديل الملخص قبل تجهيز الرسالة وإرسالها بنفسك في واتساب. يستخدم قياس التفاعل تصنيفات محددة للخدمة والإجراء دون نص الملخص أو معلومات الاتصال الشخصية.</p></section>";
-  privacy = privacy.replace('<div class="commercial-legal-additions">', '<div class="commercial-legal-additions">' + privacySection);
+  const contactPrivacy = lang === "en"
+    ? "<section><h2>Contact preferences and measurement</h2><p>When you switch the contact form’s language, the name, service and brief can be held temporarily in this tab to restore your draft. With your permission, Google Ads may use cookies to attribute call and WhatsApp clicks to an ad. It receives the click type and an anonymous request ID. Your name and brief are excluded. A click shows an attempt to contact us. You can change your choice in the footer when ad measurement is enabled.</p></section>"
+    : "<section><h2>تفضيلات التواصل وقياس الإعلانات</h2><p>عند تبديل لغة نموذج التواصل، يُحفظ الاسم والخدمة والملخص مؤقتًا في علامة التبويب لاستعادة المسودة. بموافقتك، قد تستخدم إعلانات Google ملفات ارتباط لنَسب نقرات الاتصال وواتساب إلى الإعلان. يُرسل نوع النقرة ومعرّف عشوائي للمحاولة، ويظل اسمك ونص ملخصك خارج بيانات القياس. تدل النقرة على محاولة للتواصل. يمكنك تغيير اختيارك من أسفل الصفحة عند تفعيل القياس.</p></section>";
+  privacy = privacy.replace('<div class="commercial-legal-additions">', '<div class="commercial-legal-additions">' + privacySection + contactPrivacy);
   await save(privacyPath, privacy);
 }
 
@@ -102,8 +122,11 @@ async function refreshScripts(dir = dist) {
     if (entry.isDirectory()) await refreshScripts(file);
     else if (entry.name.endsWith(".html")) {
       let html = await readFile(file, "utf8");
-      html = html.replace(/src="\/assets\/js\/main\.js(?:\?[^"]*)?"/g, 'src="/assets/js/main.js?v=20261124-contact1"')
-        .replace(/src="\/assets\/js\/contact-en\.js(?:\?[^"]*)?"/g, 'src="/assets/js/contact-en.js?v=20261124-contact1"');
+      html = html.replace(/src="\/assets\/js\/main\.js(?:\?[^"]*)?"/g, 'src="/assets/js/main.js?v=20261124-contact2"')
+        .replace(/src="\/assets\/js\/contact-en\.js(?:\?[^"]*)?"/g, 'src="/assets/js/contact-en.js?v=20261124-contact2"');
+      if (adsScript && html.includes('src="/assets/js/analytics.js') && !file.pathname.includes("/alarjancrm/")) {
+        html = html.replace("</head>", adsScript + "</head>");
+      }
       await writeFile(file, html);
     }
   }

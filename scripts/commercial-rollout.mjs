@@ -121,7 +121,7 @@ async function htmlFiles(url = dist) {
 for (const file of await htmlFiles()) {
   if (file.pathname.includes("/alarjancrm/")) continue;
   let html = await readFile(file, "utf8");
-  html = html.replace(/src="\/assets\/js\/analytics\.js(?:\?[^"]*)?"/g, 'src="/assets/js/analytics.js?v=20261113-1"');
+  html = html.replace(/src="\/assets\/js\/analytics\.js(?:\?[^"]*)?"/g, 'src="/assets/js/analytics.js?v=20261124-contact2"');
   await writeFile(file, html);
 }
 console.log("Restored original bilingual home; retained governance, services, trial intake, privacy and terms; no public pricing generated.");
