@@ -5,6 +5,7 @@ import vm from "node:vm";
 
 async function contactHarness(language, { valid = true, popupThrows = false } = {}) {
   const opens = [];
+  const signals = [];
   const fields = { name: { value: "شركة & تجربة" }, service: { value: "" }, goal: { value: "ربط المبيعات\nومتابعة العملاء <مهم>" } };
   const status = {
     children: [],
@@ -15,6 +16,7 @@ async function contactHarness(language, { valid = true, popupThrows = false } = 
   let onSubmit;
   const form = {
     elements: fields,
+    dispatchEvent(event) { signals.push(event.type); },
     reportValidity: () => valid,
     addEventListener(event, handler) { if (event === "submit") onSubmit = handler; },
     querySelector: selector => selector === ".form-status" ? status : null,
@@ -39,10 +41,10 @@ async function contactHarness(language, { valid = true, popupThrows = false } = 
   };
   const source = await readFile(new URL(`../assets/js/${language === "ar" ? "main.js" : "contact-en.js"}`, import.meta.url), "utf8");
   vm.runInNewContext(source, {
-    document, window, URLSearchParams,
+    document, window, URLSearchParams, Event,
     FormData: class { get(key) { return fields[key]?.value; } },
   });
-  return { opens, fields, status, submit() { onSubmit({ preventDefault() {} }); } };
+  return { opens, signals, fields, status, submit() { onSubmit({ preventDefault() {} }); } };
 }
 
 for (const language of ["ar", "en"]) {
@@ -51,6 +53,7 @@ for (const language of ["ar", "en"]) {
     assert.equal(h.fields.service.value, "crm-development");
     h.submit();
     assert.equal(h.opens.length, 1);
+    assert.deepEqual(h.signals, ["bowdy:brief-handoff"]);
     const [url, target, features] = h.opens[0];
     assert.equal(target, "_blank");
     assert.equal(features, "noopener,noreferrer");
@@ -86,6 +89,7 @@ for (const language of ["ar", "en"]) {
     const h = await contactHarness(language, { valid: false });
     h.submit();
     assert.equal(h.opens.length, 0);
+    assert.deepEqual(h.signals, []);
     assert.equal(h.status.children.length, 0);
   });
 }
