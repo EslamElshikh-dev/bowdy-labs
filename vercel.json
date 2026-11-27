@@ -28,7 +28,12 @@
     },
     {
       "source": "/crm",
-      "destination": "/alarjancrm",
+      "destination": "/alarjancrm/",
+      "permanent": true
+    },
+    {
+      "source": "/crm/",
+      "destination": "/alarjancrm/",
       "permanent": true
     },
     {
