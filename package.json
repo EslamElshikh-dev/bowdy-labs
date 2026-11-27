@@ -8,6 +8,7 @@
     "build": "node build.mjs && node scripts/postprocess-public.mjs && node scripts/harden-private-routes.mjs && node scripts/portfolio-positioning.mjs && node scripts/service-pillars.mjs && node scripts/international-architecture.mjs && node scripts/english-legal-polish.mjs && node scripts/english-depth.mjs && node scripts/english-copy-polish.mjs && node scripts/english-case-studies.mjs && node scripts/case-study-polish.mjs && node scripts/insights-engine.mjs && node scripts/insights-index-polish.mjs && node scripts/insights-wave2.mjs && node scripts/gsc-ctr-polish.mjs && node scripts/internal-linking-pass.mjs && node scripts/schema-alt-rss-polish.mjs && node scripts/commercial-rollout.mjs && node scripts/business-systems.mjs && node scripts/performance-polish.mjs && node scripts/page-speed-hardening.mjs && node scripts/bowdy-assistant-ui.mjs && node scripts/developer-credit.mjs dist",
     "validate": "node scripts/validate-all.mjs",
     "smoke": "node scripts/smoke.mjs",
+    "check:crm-redirect": "node scripts/check-crm-redirect.mjs",
     "check": "npm run check:news && npm run lint && npm run test:magazine && npm run build && npm run check:magazine && npm run test:commercial && npm run validate && npm run smoke",
     "serve": "python3 -m http.server 4173 --directory dist",
     "check:magazine": "node scripts/validate-magazine.mjs",
